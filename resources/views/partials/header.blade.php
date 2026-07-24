@@ -2,11 +2,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-700 text-white font-bold text-lg">C9</span>
-                <span class="leading-tight">
-                    <span class="block text-lg font-bold text-slate-900">CRN-9</span>
-                    <span class="block text-xs text-slate-500">Conselho Regional de Nutrição</span>
-                </span>
+                <img src="{{ asset('images/brand/logo-crn9.png') }}" alt="CRN-9 — Conselho Regional de Nutrição da 9ª Região" class="h-9 sm:h-10 w-auto">
             </a>
 
             <nav class="hidden lg:flex items-center gap-1">
@@ -38,7 +34,10 @@
             </nav>
 
             <div class="flex items-center gap-2">
-                <a href="#" class="hidden sm:inline-flex items-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
+                <a href="{{ route('pages.show', 'denuncia') }}" class="hidden md:inline-flex items-center rounded-lg border border-brand-orange px-3 py-2 text-sm font-semibold text-brand-orange hover:bg-brand-orange hover:text-white transition">
+                    Denúncia
+                </a>
+                <a href="http://www.incorpnet.com.br/app/incorpnet.asp?conselho=crnmg" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
                     Área do Profissional
                 </a>
                 <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100" aria-label="Abrir menu">
