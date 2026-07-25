@@ -1,4 +1,4 @@
-<header x-data="{ mobileOpen: false }" class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
+<header x-data="{ mobileOpen: false, searchOpen: false }" class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
@@ -34,6 +34,14 @@
             </nav>
 
             <div class="flex items-center gap-2">
+                <button
+                    @click="searchOpen = !searchOpen"
+                    class="p-2 rounded-lg text-slate-700 hover:bg-slate-100"
+                    :aria-expanded="searchOpen.toString()"
+                    aria-label="Buscar no site"
+                >
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </button>
                 <a href="{{ route('pages.show', 'denuncia') }}" class="hidden md:inline-flex items-center rounded-lg border border-brand-orange px-3 py-2 text-sm font-semibold text-brand-orange hover:bg-brand-orange hover:text-white transition">
                     Denúncia
                 </a>
@@ -47,7 +55,34 @@
             </div>
         </div>
 
+        <div x-show="searchOpen" x-cloak x-transition x-on:keydown.escape.window="searchOpen = false" class="pb-4">
+            <form action="{{ route('search.index') }}" method="GET" class="flex gap-2">
+                <input
+                    type="search"
+                    name="q"
+                    x-ref="searchInput"
+                    x-init="$watch('searchOpen', value => value && $nextTick(() => $refs.searchInput.focus()))"
+                    placeholder="Buscar notícias, páginas, vagas, revistas..."
+                    class="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brand-500 focus:ring-brand-500"
+                >
+                <button type="submit" class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
+                    Buscar
+                </button>
+            </form>
+        </div>
+
         <div x-show="mobileOpen" x-cloak x-transition class="lg:hidden pb-4">
+            <form action="{{ route('search.index') }}" method="GET" class="flex gap-2 mb-3">
+                <input
+                    type="search"
+                    name="q"
+                    placeholder="Buscar no site..."
+                    class="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brand-500 focus:ring-brand-500"
+                >
+                <button type="submit" class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
+                    Buscar
+                </button>
+            </form>
             <nav class="flex flex-col gap-1">
                 @foreach ($mainMenu ?? [] as $item)
                     <a href="{{ $item->resolveUrl() }}" @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-brand-50">

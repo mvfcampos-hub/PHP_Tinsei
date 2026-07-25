@@ -94,10 +94,9 @@ class DatabaseSeeder extends Seeder
             ['title' => 'O CRN-9', 'slug' => 'o-crn-9', 'content' => '<p>O CONSELHO REGIONAL DE NUTRIÇÃO DA 9ª REGIÃO é uma autarquia sem fins lucrativos, de interesse público, com poder delegado pela União para orientar, disciplinar e fiscalizar o exercício e as atividades da profissão de Nutricionista e Técnico em Nutrição e Dietética no estado de Minas Gerais, em defesa da sociedade. É um órgão do Sistema Conselho Federal de Nutrição/Conselhos Regionais de Nutrição (CFN/CRN).</p>
 <p>O Sistema CFN/CRN tem como órgão central o Conselho Federal de Nutrição (CFN) e é integrado, atualmente, por onze Conselhos Regionais de Nutrição que representam os diversos Estados brasileiros. O Sistema se mantém com a arrecadação proveniente de anuidades, taxas, multas e emolumentos (taxa cobrada pela expedição de um documento), recolhidos por pessoas físicas (nutricionistas e técnicos) e jurídicas (empresas e instituições). Do montante de recursos arrecadados em todos os onze regionais, 20% é destinado ao CFN.</p>
 <p>O CRN-9 atua em Minas Gerais, tendo sua sede em Belo Horizonte e cinco delegacias, nas cidades de Juiz de Fora, Montes Claros, Pouso Alegre, Uberlândia e Ipatinga.</p>'],
-            ['title' => 'Plenário', 'slug' => 'plenario', 'content' => '<p>Vice-presidente</p>
-<p>Diretora Secretária</p>
-<p>Diretora Tesoureira</p>
-<p>Conteúdo complementar (composição completa da diretoria e conselheiros) a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
+            ['title' => 'Plenário', 'slug' => 'plenario', 'content' => '<p>O Plenário é o órgão máximo de deliberação do CRN-9, responsável por definir as diretrizes de atuação do Conselho, aprovar seu orçamento e prestação de contas, e decidir sobre processos éticos e administrativos de sua competência.</p>
+<p>É composto pela Diretoria (Presidente, Vice-Presidente, Diretora Secretária e Diretora Tesoureira) e por Conselheiros efetivos e suplentes, todos Nutricionistas eleitos pela categoria para mandatos de três anos, conforme o Regimento Interno do CRN-9 e as resoluções do Conselho Federal de Nutricionistas (CFN).</p>
+<p>A composição nominal atual da Diretoria e do Plenário está disponível para consulta pública no Portal da Transparência do CRN-9.</p>'],
             ['title' => 'Política de Ingresso', 'slug' => 'politica-de-ingresso', 'content' => '<ul><li>Projeto "Comida de Verdade na Escola – A importância da Nutrição e da Agricultura Familiar no Programa Nacional de Alimentação Escolar – PNAE"</li></ul>
 <ul><li>Etapa Seleção de Bolsistas</li><li>Seleção de Bolsistas – Chamamento para entrevista</li><li>Resultado da seleção de Bolsistas</li><li>Cronograma de seleção de bolsistas</li><li>Resultado homologado após o prazo recursal</li></ul>'],
             ['title' => 'Concurso Público', 'slug' => 'concurso-publico', 'content' => '<p>O CRN9 é uma Autarquia Federal e, dessa forma, parte integrante da Administração Pública Indireta. Conforme o art. 37, II, da Constituição Federal, a investidura em cargo ou emprego público depende de aprovação prévia em concurso público de provas ou de provas e títulos, ressalvadas as nomeações para cargo em comissão declarado em lei de livre nomeação e exoneração.</p>
@@ -159,7 +158,8 @@ class DatabaseSeeder extends Seeder
 </ul>'],
             ['title' => 'Deu Ruim ou Tá de Boa?', 'slug' => 'deu-ruim-ou-ta-de-boa', 'content' => '<p>Nesta série, o CRN-9 aborda o Código de Ética e Conduta dos Nutricionistas de forma lúdica e atrativa, utilizando o jeito "mineirês" de se comunicar. O objetivo é alertar os(as) profissionais sobre o que pode ou não ser realizado em suas atuações.</p>
 <p>Os episódios são lançados nas redes sociais oficiais do CRN-9, quinzenalmente.</p>'],
-            ['title' => 'CRN-9 Divulga', 'slug' => 'crn9-divulga', 'content' => '<h3>Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</h3>
+            ['title' => 'CRN-9 Divulga', 'slug' => 'crn9-divulga', 'content' => '<p>O "CRN-9 Divulga" reúne pesquisas, levantamentos e materiais técnicos produzidos ou apoiados pelo Conselho, de interesse para a categoria e para a sociedade. Confira alguns dos temas já divulgados:</p>
+<h3>Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</h3>
 <h3>Utilização das Tecnologias de Informação e Comunicação (TICs) nas diferentes áreas de atuação do nutricionista</h3>
 <h3>Pesquisa sobre o perfil dos consumidores de produtos de origem animal no Brasil e sua percepção sobre impacto ambiental, bem-estar, qualidade e saúde</h3>'],
             ['title' => 'Eleições CRN-9 2026/2029', 'slug' => 'eleicoes-crn-9-2026-2029', 'content' => '<p>Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no triênio 2026–2029.</p>
@@ -207,7 +207,16 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Serviços para Nutricionistas', 'slug' => 'servicos-nutricionistas', 'content' => '<p>Serviços disponíveis para Nutricionistas inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva, prorrogação e cancelamento de inscrição, baixa temporária, transferência, reativação de inscrição, registro do Título de Especialista e Anotação de Responsabilidade Técnica.</p>
 <p>Consulte o serviço desejado e os documentos necessários com a Secretaria do CRN-9.</p>'],
             ['title' => 'Serviços para Técnicos em Nutrição e Dietética', 'slug' => 'servicos-tnd', 'content' => '<p>Serviços disponíveis para Técnicos em Nutrição e Dietética (TND) inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva (validade de 12 meses), prorrogação e cancelamento de inscrição, baixa temporária, transferência e reativação de inscrição.</p>'],
-            ['title' => 'Serviços para Pessoa Jurídica', 'slug' => 'servicos-pessoa-juridica', 'content' => '<p>Serviços disponíveis para empresas e instituições registradas no CRN-9, incluindo o pagamento da Anuidade 2026 Pessoa Jurídica e a emissão de certidões e atestados de responsabilidade técnica.</p>'],
+            ['title' => 'Serviços para Pessoa Jurídica', 'slug' => 'servicos-pessoa-juridica', 'content' => '<p>Empresas e instituições que prestam serviços de alimentação e nutrição (restaurantes, indústrias de alimentos, clínicas, hospitais, escolas, entre outras) devem se registrar no CRN-9 e manter um Nutricionista como Responsável Técnico.</p>
+<p>Principais serviços disponíveis para Pessoa Jurídica:</p>
+<ul>
+<li>Pagamento da Anuidade Pessoa Jurídica;</li>
+<li>Registro e cadastro de empresas junto ao Conselho;</li>
+<li>Anotação e cancelamento de Responsabilidade Técnica;</li>
+<li>Emissão de Certidão de Registro e de Atestado de Capacidade Técnica;</li>
+<li>Atualização cadastral de dados da empresa.</li>
+</ul>
+<p>Para orientações detalhadas sobre cada serviço, entre em contato com a Secretaria do CRN-9.</p>'],
             ['title' => 'Oportunidade de Emprego', 'slug' => 'oportunidade-de-emprego', 'content' => '<p>O CRN-9 divulga, como cortesia, oportunidades de emprego para Nutricionistas e Técnicos em Nutrição e Dietética enviadas por empresas e instituições.</p>
 <p>Confira as vagas ativas no <a href="/vagas">Banco de Oportunidades</a> ou cadastre uma nova oportunidade entrando em contato com a Secretaria do CRN-9.</p>'],
         ];

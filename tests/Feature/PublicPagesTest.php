@@ -1,0 +1,161 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Models\EventItem;
+use App\Models\Inspector;
+use App\Models\JobListing;
+use App\Models\Magazine;
+use App\Models\MunicipalityProfessionalCount;
+use App\Models\News;
+use App\Models\Page;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class PublicPagesTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_home_page_loads(): void
+    {
+        $this->get('/')->assertStatus(200);
+    }
+
+    public function test_news_index_and_show(): void
+    {
+        $news = News::create([
+            'title' => 'Notícia de teste',
+            'slug' => 'noticia-de-teste',
+            'excerpt' => 'Resumo de teste',
+            'body' => '<p>Conteúdo de teste</p>',
+            'category' => 'Institucional',
+            'is_featured' => true,
+            'published_at' => now()->subDay(),
+        ]);
+
+        $this->get(route('news.index'))->assertStatus(200)->assertSee($news->title);
+        $this->get(route('news.show', $news->slug))->assertStatus(200)->assertSee($news->title);
+    }
+
+    public function test_unpublished_news_returns_404(): void
+    {
+        $news = News::create([
+            'title' => 'Notícia futura',
+            'slug' => 'noticia-futura',
+            'body' => '<p>Conteúdo</p>',
+            'published_at' => now()->addWeek(),
+        ]);
+
+        $this->get(route('news.show', $news->slug))->assertStatus(404);
+    }
+
+    public function test_page_show(): void
+    {
+        $page = Page::create([
+            'title' => 'Página de teste',
+            'slug' => 'pagina-de-teste',
+            'content' => '<p>Conteúdo institucional de teste</p>',
+            'is_published' => true,
+        ]);
+
+        $this->get(route('pages.show', $page->slug))->assertStatus(200)->assertSee($page->title);
+    }
+
+    public function test_jobs_index_and_show(): void
+    {
+        $job = JobListing::create([
+            'title' => 'Vaga de teste',
+            'slug' => 'vaga-de-teste',
+            'company' => 'Empresa Teste',
+            'description' => 'Descrição da vaga de teste.',
+            'is_active' => true,
+            'published_at' => now()->subDay(),
+        ]);
+
+        $this->get(route('jobs.index'))->assertStatus(200)->assertSee($job->title);
+        $this->get(route('jobs.show', $job->slug))->assertStatus(200)->assertSee($job->title);
+    }
+
+    public function test_events_index(): void
+    {
+        EventItem::create([
+            'title' => 'Evento de teste',
+            'slug' => 'evento-de-teste',
+            'location' => 'Belo Horizonte/MG',
+            'starts_at' => now()->addWeek(),
+        ]);
+
+        $this->get(route('events.index'))->assertStatus(200)->assertSee('Evento de teste');
+    }
+
+    public function test_magazines_index(): void
+    {
+        Magazine::create([
+            'title' => 'Revista de teste',
+            'edition' => 'Edição teste',
+            'year' => now()->year,
+        ]);
+
+        $this->get(route('magazines.index'))->assertStatus(200)->assertSee('Revista de teste');
+    }
+
+    public function test_inspectors_index(): void
+    {
+        Inspector::create([
+            'name' => 'Fiscal de Teste',
+            'role' => 'Nutricionista Fiscal',
+            'region' => 'Sede (Belo Horizonte)',
+            'is_active' => true,
+        ]);
+
+        $this->get(route('inspectors.index'))->assertStatus(200)->assertSee('Fiscal de Teste');
+    }
+
+    public function test_municipalities_index(): void
+    {
+        MunicipalityProfessionalCount::create([
+            'municipality' => 'Belo Horizonte',
+            'state' => 'MG',
+            'category' => 'Nutricionista',
+            'professionals_count' => 100,
+        ]);
+
+        $this->get(route('municipalities.index'))->assertStatus(200)->assertSee('Belo Horizonte');
+    }
+
+    public function test_search_finds_matching_news_and_pages(): void
+    {
+        News::create([
+            'title' => 'Campanha de vacinação nutricional',
+            'slug' => 'campanha-vacinacao-nutricional',
+            'body' => '<p>Conteúdo</p>',
+            'published_at' => now()->subDay(),
+        ]);
+
+        Page::create([
+            'title' => 'Sobre vacinação',
+            'slug' => 'sobre-vacinacao',
+            'content' => '<p>Informações sobre vacinação para nutricionistas</p>',
+        ]);
+
+        $response = $this->get(route('search.index', ['q' => 'vacinação']));
+
+        $response->assertStatus(200)
+            ->assertSee('Campanha de vacinação nutricional')
+            ->assertSee('Sobre vacinação');
+    }
+
+    public function test_search_without_term_shows_prompt(): void
+    {
+        $this->get(route('search.index'))
+            ->assertStatus(200)
+            ->assertSee('Digite um termo acima para buscar em todo o site do CRN-9.');
+    }
+
+    public function test_search_with_no_matches(): void
+    {
+        $this->get(route('search.index', ['q' => 'termoinexistentexyz']))
+            ->assertStatus(200)
+            ->assertSee('Nenhum resultado encontrado');
+    }
+}
