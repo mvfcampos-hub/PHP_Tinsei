@@ -47,6 +47,20 @@ class DatabaseSeeder extends Seeder
         $this->seedMunicipalityCounts();
     }
 
+    /**
+     * Copia uma imagem real (migrada de crn9.org.br) empacotada em
+     * database/seeders/assets/ para o disco público, se ainda não existir.
+     */
+    private function seedImage(string $sourceRelativePath, string $storageRelativePath): string
+    {
+        if (! Storage::disk('public')->exists($storageRelativePath)) {
+            $absolute = __DIR__.'/assets/'.$sourceRelativePath;
+            Storage::disk('public')->put($storageRelativePath, file_get_contents($absolute));
+        }
+
+        return $storageRelativePath;
+    }
+
     private function seedPages(): void
     {
         $pages = [
@@ -314,58 +328,69 @@ class DatabaseSeeder extends Seeder
                 'category' => 'Institucional',
                 'is_featured' => true,
                 'excerpt' => 'Confira as datas e etapas do processo eleitoral que definirá a diretoria do CRN-9 para o triênio 2026/2029.',
+                'image' => 'eleicoes-cronograma.png',
             ],
             [
                 'title' => 'CRN9 publica Aviso de Eleição para a Gestão 2026/2029',
                 'category' => 'Institucional',
                 'is_featured' => true,
                 'excerpt' => 'Publicado o aviso oficial de abertura do processo eleitoral do Conselho para a próxima gestão.',
+                'image' => 'eleicoes-aviso.png',
             ],
             [
                 'title' => 'CRN-9 participa do Ganepão e apresenta estudo sobre a atuação do nutricionista em equipes de terapia nutricional',
                 'category' => 'Institucional',
                 'is_featured' => true,
                 'excerpt' => 'Representantes do Conselho levaram estudo técnico a um dos maiores congressos de nutrição clínica do país.',
+                'image' => 'ganepao.png',
             ],
             [
                 'title' => 'Evento sobre ILPIs traça panorama e aponta caminhos do cuidado nutricional para idosos',
                 'category' => 'Eventos',
                 'is_featured' => false,
                 'excerpt' => 'Encontro reuniu profissionais para discutir o cuidado nutricional em Instituições de Longa Permanência para Idosos.',
+                'image' => 'ilpis.png',
             ],
             [
                 'title' => 'CRN-9 aborda Alimentação Saudável em Fórum de Agroecologia e Agricultura Orgânica',
                 'category' => 'Institucional',
                 'is_featured' => false,
                 'excerpt' => 'Participação do Conselho reforça o diálogo entre nutrição, agroecologia e segurança alimentar.',
+                'image' => 'agroecologia.jpeg',
             ],
             [
                 'title' => 'Sarcopenia é tema de palestra presencial em Juiz de Fora',
                 'category' => 'Eventos',
                 'is_featured' => false,
                 'excerpt' => 'Palestra gratuita discutiu classificação, diagnóstico e prevenção da sarcopenia em idosos.',
+                'image' => 'sarcopenia.png',
             ],
             [
                 'title' => 'Regularize sua situação e participe da eleição 2026/2029 do CRN-9',
                 'category' => 'Institucional',
                 'is_featured' => false,
                 'excerpt' => 'Profissionais inadimplentes têm prazo para regularizar a situação cadastral e votar no pleito.',
+                'image' => 'regularize.jpeg',
             ],
             [
                 'title' => 'Mês de conscientização da saúde mental e emocional',
                 'category' => 'Campanhas',
                 'is_featured' => false,
                 'excerpt' => 'CRN-9 reforça a importância do cuidado com a saúde mental dos profissionais de Nutrição.',
+                'image' => 'saude-mental.png',
             ],
         ];
 
         foreach ($items as $item) {
+            $coverImage = $this->seedImage('news/'.$item['image'], 'news/'.$item['image']);
+
             News::updateOrCreate(
                 ['slug' => Str::slug($item['title'])],
                 [
                     'title' => $item['title'],
                     'excerpt' => $item['excerpt'],
                     'body' => "<p>{$item['excerpt']}</p><p>Matéria completa disponível no acervo de comunicação do CRN-9. Conteúdo integral a ser complementado pela equipe de comunicação via painel administrativo.</p>",
+                    'cover_image' => $coverImage,
                     'category' => $item['category'],
                     'is_featured' => $item['is_featured'],
                     'published_at' => now()->subDays(random_int(1, 60)),
@@ -410,18 +435,22 @@ class DatabaseSeeder extends Seeder
         }
 
         $items = [
-            ['title' => 'Eleições CRN-9 2026/2029: participe', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/eleicoes-crn-9-2026-2029'],
-            ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029'],
-            ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia'],
-            ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes'],
+            ['title' => 'Eleições CRN-9 2026/2029: participe', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-cronograma-full.png'],
+            ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-aviso-full.png'],
+            ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => 'ilpis-full.png'],
+            ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes', 'image' => null],
         ];
 
         foreach ($items as $item) {
+            $image = $item['image']
+                ? $this->seedImage('banners/'.$item['image'], 'banners/'.$item['image'])
+                : 'banners/placeholder.svg';
+
             Banner::updateOrCreate(
                 ['title' => $item['title']],
                 [
                     'title' => $item['title'],
-                    'image' => 'banners/placeholder.svg',
+                    'image' => $image,
                     'link_url' => $item['link'],
                     'placement' => $item['placement'],
                     'sort_order' => $item['sort_order'],
