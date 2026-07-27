@@ -332,23 +332,61 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Material de Campanha – Chapa 2', 'slug' => 'chapa-2-eleicoes-2026-2029', 'content' => '<p>Materiais de campanha da Chapa 2 – Nova Rota, inscrita no processo eleitoral do CRN-9 para a gestão 2026/2029.</p>'],
             ['title' => 'Biblioteca Virtual do CRN-9', 'slug' => 'biblioteca-virtual', 'content' => '<p>Acervo de publicações técnicas, cartilhas, livros e artigos produzidos ou selecionados pelo CRN-9 e por suas Câmaras Técnicas, à disposição da categoria e da sociedade.</p>
 <p>Parcerias com instituições como o Fórum Mineiro de Combate aos Agrotóxicos (FMCA) e o IDEC – Instituto de Defesa do Consumidor.</p>'],
-            ['title' => 'Denúncia', 'slug' => 'denuncia', 'content' => '<p>O CRN-9 recebe e analisa denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética inscritos neste Regional, contra Pessoas Jurídicas e contra o exercício ilegal da profissão.</p>
-<p>Escolha o tipo de denúncia nas páginas específicas: Pessoa Física, Pessoa Jurídica ou Exercício Ilegal da Profissão.</p>'],
-            ['title' => 'Denúncia – Pessoa Física', 'slug' => 'denuncia-pessoa-fisica', 'content' => '<p>O CRN-9 recebe e analisa denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética inscritos neste Regional. Caso a apuração resulte na detecção de conduta com indícios de infração disciplinar, são tomadas providências para abertura de Processo Disciplinar, conforme a Resolução CFN nº 705/2021.</p>
-<h3>A denúncia ético-disciplinar deverá indicar</h3>
-<ul>
-<li>Identificação completa do autor da denúncia: nome completo, documento oficial com foto, CPF, endereço, telefone e e-mail;</li>
-<li>Descrição circunstanciada e objetiva dos fatos;</li>
-<li>Nome, número de inscrição no CRN, qualificação e endereço do denunciado;</li>
-<li>Elementos mínimos de prova;</li>
-<li>Nome das testemunhas e suas qualificações, quando houver (até 3).</li>
-</ul>
-<p>O denunciante pode optar pela não divulgação dos seus dados, com sigilo garantido pelo Conselho.</p>'],
-            ['title' => 'Denúncia – Pessoa Jurídica', 'slug' => 'denuncia-pessoa-juridica', 'content' => '<p>As denúncias contra Pessoas Jurídicas (empresas) deverão ser realizadas, preferencialmente, por meio do preenchimento do formulário próprio, enviado por correio, e-mail (crn9@crn9.org.br) ou entregue pessoalmente na sede ou nas delegacias do CRN9.</p>
-<p>Campos obrigatórios: Razão Social, Endereço Completo e Motivo(s) da denúncia.</p>
-<p>Após a apuração dos fatos, o denunciante será informado sobre a ação do Regional. Excepcionalmente serão aceitas denúncias anônimas contra empresas, dada a preocupação do CRN-9 com a saúde da população.</p>'],
-            ['title' => 'Denúncia – Exercício Ilegal da Profissão', 'slug' => 'denuncia-exercicio-ilegal', 'content' => '<p>Denúncia contra exercício ilegal da profissão (leigos ou outros profissionais). Deverá conter, preferencialmente: nome completo, profissão, telefone e e-mail do denunciante; descrição circunstanciada do fato; possível legislação transgredida; indícios ou provas dos fatos.</p>
-<p>Os atos processuais relativos à apuração de denúncia têm caráter sigiloso. Denúncias acolhidas serão previamente apuradas e, havendo indícios de exercício ilegal, poderão ser encaminhadas ao Ministério Público ou ao Conselho de Classe Profissional competente.</p>'],
+            ['title' => 'Denúncia', 'slug' => 'denuncia', 'content' => <<<'HTML'
+                <p>O CRN-9 recebe e analisa denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética inscritos neste Regional, contra Pessoas Jurídicas e contra o exercício ilegal da profissão. Escolha abaixo o tipo de denúncia:</p>
+                <ul>
+                <li><a href="/paginas/denuncia-pessoa-fisica">Pessoa Física</a> — denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética inscritos no CRN-9.</li>
+                <li><a href="/paginas/denuncia-pessoa-juridica">Pessoa Jurídica</a> — denúncias contra empresas.</li>
+                <li><a href="/paginas/denuncia-exercicio-ilegal">Exercício Ilegal da Profissão</a> — denúncias contra leigos ou outros profissionais que exerçam ilegalmente a profissão de nutricionista.</li>
+                </ul>
+                HTML,
+            ],
+            ['title' => 'Denúncia – Pessoa Física', 'slug' => 'denuncia-pessoa-fisica', 'content' => <<<'HTML'
+                <p>O CRN-9 recebe e analisa denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética, inscritos neste Regional e caso a apuração resulte na detecção de conduta com indícios de infração disciplinar, são tomadas providências para abertura de Processo Disciplinar.</p>
+                <p>Os trâmites do Processo Disciplinar devem seguir o procedimento estabelecido na <a href="http://resolucao.cfn.org.br/" target="_blank" rel="noopener">Resolução CFN nº 705 de 16/09/2021</a>, que institui o Código de Processamento Disciplinar para o Nutricionista e o Técnico em Nutrição e Dietética.</p>
+                <h3>A denúncia ético-disciplinar deverá indicar (Art. 24)</h3>
+                <ul>
+                <li>Identificação completa do autor da denúncia: nome completo, documento oficial com foto, CPF, endereço atualizado com CEP, telefone e e-mail;</li>
+                <li>Descrição circunstanciada e objetiva dos fatos com informações que caracterizem ou possam vir a caracterizar eventual infração ético-disciplinar;</li>
+                <li>Nome, número de inscrição no CRN, qualificação e endereço do denunciado;</li>
+                <li>Elementos mínimos de prova;</li>
+                <li>Nome das testemunhas e suas qualificações, quando houver (até 3).</li>
+                </ul>
+                <p>A ausência dos elementos indicados nos itens acima poderá obstar o conhecimento da denúncia. As denúncias anônimas serão conhecidas desde que seguidas de diligências mínimas para averiguar os fatos noticiados. O denunciante pode optar pela não divulgação dos seus dados, com sigilo da identidade, imagem e dados pessoais garantido pelo Conselho.</p>
+                <p><strong>Atenção:</strong> denúncia comprovadamente falsa ou sem fundamento pode configurar o crime tipificado no art. 339 do Código Penal (reclusão de dois a oito anos, e multa).</p>
+                <p><a href="https://form.jotformz.com/91133592437660" target="_blank" rel="noopener">Ir para o formulário de denúncia – Pessoa Física</a></p>
+                HTML,
+            ],
+            ['title' => 'Denúncia – Pessoa Jurídica', 'slug' => 'denuncia-pessoa-juridica', 'content' => <<<'HTML'
+                <p>As denúncias contra Pessoas Jurídicas (empresas) deverão ser realizadas, preferencialmente, por meio do preenchimento do formulário próprio abaixo, que também pode ser encaminhado pelo correio, por e-mail (crn9@crn9.org.br) ou entregue pessoalmente na sede ou nas delegacias do CRN9.</p>
+                <p>Alguns campos deverão ser obrigatoriamente preenchidos:</p>
+                <ul>
+                <li>Razão Social;</li>
+                <li>Endereço Completo;</li>
+                <li>Motivo(s) da denúncia.</li>
+                </ul>
+                <h3>Informações importantes</h3>
+                <p>Após a apuração dos fatos, o denunciante será informado, por meio de ofício ou e-mail, sobre a ação do Regional — a identificação do denunciante torna-se, assim, fundamental. Excepcionalmente serão aceitas denúncias anônimas contra empresas, tendo em vista a preocupação do CRN-9 com a saúde da população e a qualidade dos serviços prestados.</p>
+                <p><a href="https://form.jotform.com/250765127632659" target="_blank" rel="noopener">Ir para o formulário de denúncia – Pessoa Jurídica</a></p>
+                HTML,
+            ],
+            ['title' => 'Denúncia – Exercício Ilegal da Profissão', 'slug' => 'denuncia-exercicio-ilegal', 'content' => <<<'HTML'
+                <p>Denúncia contra exercício ilegal da profissão (leigos ou outros profissionais).</p>
+                <p>As denúncias contra leigos e/ou outros profissionais no exercício ilegal da profissão de nutricionista, para tramitar neste Conselho, deverão conter preferencialmente:</p>
+                <ul>
+                <li>Nome completo, profissão, telefone, e-mail ou outra forma de contato do denunciante;</li>
+                <li>Descrição circunstanciada e objetiva do fato e identificação da relação do denunciante com o fato descrito;</li>
+                <li>Possível legislação transgredida;</li>
+                <li>Indicação de provas ou indícios dos fatos com dados que permitam apuração, tais como data e local onde ocorreram os fatos, nome completo do profissional denunciado e de testemunhas (quando houver), acompanhado de endereço ou outra forma de contato;</li>
+                <li>Provas documentais ou materiais, sempre que houver;</li>
+                <li>Disponibilidade do denunciante para comparecer ao Conselho para esclarecimentos ou depoimentos.</li>
+                </ul>
+                <h3>Informações importantes</h3>
+                <p>Os atos processuais relativos à apuração de denúncia têm caráter sigiloso. Denúncias acolhidas serão previamente apuradas e, havendo constatação de indícios de exercício ilegal, farão parte de processo que poderá ser encaminhado ao Ministério Público ou ao Conselho de Classe Profissional competente (caso o infrator pertença a outra categoria profissional). Denúncias anônimas ou com solicitação de sigilo serão recebidas, mas se as informações forem insuficientes e/ou sem indícios mínimos de prova estarão sujeitas ao arquivamento.</p>
+                <p>As denúncias também podem ser feitas mediante o preenchimento do formulário abaixo e envio das provas pelos correios ou pelo e-mail crn9@crn9.org.br.</p>
+                <p><a href="https://form.jotform.com/250764901956667" target="_blank" rel="noopener">Ir para o formulário de denúncia – Exercício Ilegal</a></p>
+                HTML,
+            ],
             ['title' => 'Política Nacional de Fiscalização', 'slug' => 'politica-nacional-de-fiscalizacao', 'content' => '<p>A Política Nacional de Fiscalização (PNF), estabelecida pela Resolução CFN 527/2013, fornece as diretrizes das ações de fiscalização no âmbito do sistema CFN/CRNs, determinando que a fiscalização do exercício profissional deva estar pautada em uma conduta orientadora além de fiscalizadora.</p>
 <h3>Objetivos principais</h3>
 <ul><li>Assegurar à sociedade que a assistência alimentar e nutricional seja prestada por Nutricionistas habilitados;</li><li>Buscar, de forma permanente, a segurança e a qualidade dos produtos e serviços relacionados à alimentação e nutrição;</li><li>Orientar os Nutricionistas e Técnicos em Nutrição e Dietética, contribuindo para a segurança alimentar e nutricional dos indivíduos.</li></ul>'],
