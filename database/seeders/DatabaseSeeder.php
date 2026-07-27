@@ -1505,18 +1505,67 @@ class DatabaseSeeder extends Seeder
             );
         }
 
+        if (! Storage::disk('public')->exists('banners/faq-illustrative.svg')) {
+            Storage::disk('public')->put(
+                'banners/faq-illustrative.svg',
+                <<<'SVG'
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+                    <defs>
+                        <linearGradient id="faqBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#5C5E2B"/>
+                            <stop offset="100%" stop-color="#727347"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="url(#faqBg)"/>
+                    <circle cx="900" cy="200" r="190" fill="#ffffff" opacity="0.06"/>
+                    <circle cx="900" cy="200" r="120" fill="#F58C4A" opacity="0.9"/>
+                    <text x="900" y="205" font-family="sans-serif" font-size="150" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">?</text>
+                    <circle cx="230" cy="90" r="10" fill="#A3A64A"/>
+                    <circle cx="270" cy="130" r="6" fill="#85B0FF"/>
+                </svg>
+                SVG
+            );
+        }
+
+        if (! Storage::disk('public')->exists('banners/eleicoes-illustrative.svg')) {
+            Storage::disk('public')->put(
+                'banners/eleicoes-illustrative.svg',
+                <<<'SVG'
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+                    <defs>
+                        <linearGradient id="eleicoesBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#313318"/>
+                            <stop offset="100%" stop-color="#5C5E2B"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="url(#eleicoesBg)"/>
+                    <circle cx="890" cy="200" r="190" fill="#85B0FF" opacity="0.12"/>
+                    <rect x="770" y="190" width="240" height="150" rx="14" fill="#3A3D22"/>
+                    <rect x="770" y="190" width="240" height="150" rx="14" fill="none" stroke="#A3A64A" stroke-width="6"/>
+                    <rect x="840" y="176" width="100" height="22" rx="11" fill="#1C1E0E"/>
+                    <g transform="translate(858,90) rotate(-8)">
+                        <rect x="0" y="0" width="80" height="104" rx="6" fill="#ffffff"/>
+                        <path d="M18 58 L34 76 L64 34" fill="none" stroke="#F58C4A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <circle cx="250" cy="95" r="9" fill="#85B0FF"/>
+                    <circle cx="290" cy="140" r="6" fill="#F58C4A"/>
+                </svg>
+                SVG
+            );
+        }
+
         $items = [
             ['title' => 'Eleições CRN-9 2026/2029: participe', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-cronograma-full.png'],
             ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-aviso-full.png'],
             ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => 'ilpis-full.png'],
-            ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes', 'image' => null],
-            ['title' => 'Eleições CR9 2026/2029', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => null],
+            ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
+            ['title' => 'Eleições CR9 2026/2029', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => null, 'illustrative' => 'eleicoes-illustrative.svg'],
         ];
 
         foreach ($items as $item) {
             $image = $item['image']
                 ? $this->seedImage('banners/'.$item['image'], 'banners/'.$item['image'])
-                : 'banners/placeholder.svg';
+                : ($item['illustrative'] ?? null ? 'banners/'.$item['illustrative'] : 'banners/placeholder.svg');
 
             Banner::updateOrCreate(
                 ['title' => $item['title']],
