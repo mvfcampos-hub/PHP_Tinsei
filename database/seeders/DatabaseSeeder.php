@@ -238,9 +238,20 @@ class DatabaseSeeder extends Seeder
                     </ul>
                     HTML,
             ],
-            ['title' => 'O CRN-9', 'slug' => 'o-crn-9', 'content' => '<p>O CONSELHO REGIONAL DE NUTRIÇÃO DA 9ª REGIÃO é uma autarquia sem fins lucrativos, de interesse público, com poder delegado pela União para orientar, disciplinar e fiscalizar o exercício e as atividades da profissão de Nutricionista e Técnico em Nutrição e Dietética no estado de Minas Gerais, em defesa da sociedade. É um órgão do Sistema Conselho Federal de Nutrição/Conselhos Regionais de Nutrição (CFN/CRN).</p>
-<p>O Sistema CFN/CRN tem como órgão central o Conselho Federal de Nutrição (CFN) e é integrado, atualmente, por onze Conselhos Regionais de Nutrição que representam os diversos Estados brasileiros. O Sistema se mantém com a arrecadação proveniente de anuidades, taxas, multas e emolumentos (taxa cobrada pela expedição de um documento), recolhidos por pessoas físicas (nutricionistas e técnicos) e jurídicas (empresas e instituições). Do montante de recursos arrecadados em todos os onze regionais, 20% é destinado ao CFN.</p>
-<p>O CRN-9 atua em Minas Gerais, tendo sua sede em Belo Horizonte e cinco delegacias, nas cidades de Juiz de Fora, Montes Claros, Pouso Alegre, Uberlândia e Ipatinga.</p>'],
+            ['title' => 'O CRN-9', 'slug' => 'o-crn-9', 'content' => <<<'HTML'
+                <p>O CONSELHO REGIONAL DE NUTRIÇÃO DA 9ª REGIÃO é uma autarquia sem fins lucrativos, de interesse público, com poder delegado pela União para orientar, disciplinar e fiscalizar o exercício e as atividades da profissão de Nutricionista e Técnico em Nutrição e Dietética no estado de Minas Gerais, em defesa da sociedade. É um órgão do Sistema Conselho Federal de Nutrição/Conselhos Regionais de Nutrição (CFN/CRN).</p>
+                <p>O Sistema CFN/CRN tem como órgão central o Conselho Federal de Nutrição (CFN) e é integrado, atualmente, por onze Conselhos Regionais de Nutrição que representam os diversos Estados brasileiros. O Sistema se mantém com a arrecadação proveniente de anuidades, taxas, multas e emolumentos (taxa cobrada pela expedição de um documento), recolhidos por pessoas físicas (nutricionistas e técnicos) e jurídicas (empresas e instituições). Do montante de recursos arrecadados em todos os onze regionais, 20% é destinado ao CFN.</p>
+                <p>O CRN-9 atua em Minas Gerais, tendo sua sede em Belo Horizonte e cinco delegacias, nas cidades de Juiz de Fora, Montes Claros, Pouso Alegre, Uberlândia e Ipatinga.</p>
+                <h2>Documentos "Eleições CRN9 2020"</h2>
+                <ul>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Chamamento-Publico.pdf" target="_blank" rel="noopener">Chamamento Público – Comissão Eleitoral Pleito 2020/2023</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/DOU-Edital-01-Aviso-Eleicoes-Pleito-2020-2023.pdf" target="_blank" rel="noopener">DOU Edital 01 – Aviso Eleições Pleito 2020-2023</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/DOU-Edital-01-Aviso-Eleicoes-Pleito-2020-2023-Pagina-02.pdf" target="_blank" rel="noopener">DOU Edital 01 – Aviso Eleições Pleito 2020-2023 – Página 02</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Edital_0067065_DOU___Edital_3___Registro_Definitivo_das_Chapas.pdf" target="_blank" rel="noopener">DOU Edital 03 – Registro Definitivo das Chapas</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/DOU_Edital_04-Resultado-Eleicoes.pdf" target="_blank" rel="noopener">DOU Edital 04 – Resultado das Eleições</a></li>
+                </ul>
+                HTML,
+            ],
             ['title' => 'Política de Ingresso', 'slug' => 'politica-de-ingresso', 'content' => <<<'HTML'
                 <ul>
                 <li>Projeto "Comida de Verdade na Escola – A importância da Nutrição e da Agricultura Familiar no Programa Nacional de Alimentação Escolar – PNAE"
