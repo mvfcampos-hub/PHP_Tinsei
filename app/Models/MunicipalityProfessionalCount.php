@@ -14,13 +14,18 @@ class MunicipalityProfessionalCount extends Model
     protected $fillable = [
         'municipality',
         'state',
-        'category',
-        'professionals_count',
+        'nutritionists_count',
+        'technicians_count',
+        'legal_entities_count',
+        'total_count',
         'reference_date',
     ];
 
     protected $casts = [
-        'professionals_count' => 'integer',
+        'nutritionists_count' => 'integer',
+        'technicians_count' => 'integer',
+        'legal_entities_count' => 'integer',
+        'total_count' => 'integer',
         'reference_date' => 'date',
     ];
 }

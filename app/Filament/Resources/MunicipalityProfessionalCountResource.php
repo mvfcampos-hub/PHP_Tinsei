@@ -39,11 +39,23 @@ class MunicipalityProfessionalCountResource extends Resource
                     ->maxLength(2)
                     ->required()
                     ->default('MG'),
-                Forms\Components\TextInput::make('category')
-                    ->label('Categoria profissional')
-                    ->placeholder('Nutricionista, Técnico em Nutrição e Dietética...'),
-                Forms\Components\TextInput::make('professionals_count')
-                    ->label('Quantidade de profissionais')
+                Forms\Components\TextInput::make('nutritionists_count')
+                    ->label('Nutricionistas')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('technicians_count')
+                    ->label('TND (Téc. em Nutrição e Dietética)')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('legal_entities_count')
+                    ->label('Pessoas Jurídicas')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('total_count')
+                    ->label('Total')
                     ->required()
                     ->numeric()
                     ->default(0),

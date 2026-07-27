@@ -1381,25 +1381,25 @@ class DatabaseSeeder extends Seeder
     private function seedInspectors(): void
     {
         $items = [
-            ['name' => 'Eliane Azevedo Barros', 'role' => 'Coordenadora da Fiscalização', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 2130', 'email' => 'coordenacaodafiscalizacao@crn9.org.br'],
-            ['name' => 'Jordana dos Santos Jorge Machado', 'role' => 'Supervisora da Fiscalização', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 2092', 'email' => 'supervisaodafiscalizacao@crn9.org.br'],
-            ['name' => 'Débora Barbosa', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 5949', 'email' => 'deborabarbosa.fiscal@crn9.org.br'],
-            ['name' => 'Gabriela Paim de Alcântara e Silva', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 8229', 'email' => 'gabrielafiscal@crn9.org.br'],
-            ['name' => 'Geana Paula Aparecida dos Santos', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'geana.fiscal@crn9.org.br'],
-            ['name' => 'Juliana de Oliveira Sales', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'juliana_fiscal@crn9.org.br'],
-            ['name' => 'Karen Priscilla dos Santos', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 T-2431', 'email' => 'karen.santos@crn9.org.br'],
-            ['name' => 'Josiane Magalhães', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'josiane.magalhaes@crn9.org.br'],
-            ['name' => 'Arlete Rodrigues', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'arlete.rodrigues@crn9.org.br'],
-            ['name' => 'Israel Soares', 'role' => 'Assistente Administrativo', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'israel.soares@crn9.org.br'],
-            ['name' => 'Marcela Rodrigues Viveiros', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Ipatinga', 'registration_number' => 'CRN9 21809', 'email' => 'marcela.fiscal@crn9.org.br'],
-            ['name' => 'Nicelle Julia Corrêa Lopes', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Juiz de Fora', 'registration_number' => 'CRN9 19118', 'email' => 'nicelle.fiscal@crn9.org.br'],
-            ['name' => 'Caroline Caldeira Pereira', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Montes Claros', 'registration_number' => 'CRN9 14249', 'email' => 'carolinefiscal@crn9.org.br'],
-            ['name' => 'Flávia Junqueira de Souza Morais', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Pouso Alegre', 'registration_number' => 'CRN9 2168', 'email' => 'flaviafiscal@crn9.org.br'],
-            ['name' => 'Silvia Aparecida de Cássia Ferreira Romero', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Delegacia de Pouso Alegre', 'registration_number' => 'CRN9 T-1949', 'email' => 'silvia@crn9.org.br'],
-            ['name' => 'Barbara Virginia Caixeta Crepaldi', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Uberlândia', 'registration_number' => null, 'email' => null],
-            ['name' => 'Nilda Pereira de Melo Zumpano', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Delegacia de Uberlândia', 'registration_number' => 'CRN9 2671-T', 'email' => 'nilda.zumpano@crn9.org.br'],
-            ['name' => 'Pâmela Cristina de Andrade', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Uberlândia', 'registration_number' => null, 'email' => 'pamela.fiscal@crn9.org.br'],
-            ['name' => 'Andresa Carolina da Silva Costa', 'role' => 'Nutricionista Fiscal', 'region' => 'Barbacena', 'registration_number' => 'CRN9 23119', 'email' => null],
+            ['name' => 'Eliane Azevedo Barros', 'role' => 'Coordenadora da Fiscalização', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 2130', 'email' => 'coordenacaodafiscalizacao@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Jordana dos Santos Jorge Machado', 'role' => 'Supervisora da Fiscalização', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 2092', 'email' => 'supervisaodafiscalizacao@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Débora Barbosa', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 5949', 'email' => 'deborabarbosa.fiscal@crn9.org.br', 'duty_notes' => 'Plantão às segundas-feiras.'],
+            ['name' => 'Gabriela Paim de Alcântara e Silva', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 8229', 'email' => 'gabrielafiscal@crn9.org.br', 'duty_notes' => 'Plantão às quartas-feiras e quintas-feiras.'],
+            ['name' => 'Geana Paula Aparecida dos Santos', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'geana.fiscal@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Juliana de Oliveira Sales', 'role' => 'Nutricionista Fiscal', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'juliana_fiscal@crn9.org.br', 'duty_notes' => 'Plantão às terças e quartas-feiras.'],
+            ['name' => 'Karen Priscilla dos Santos', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => 'CRN9 T-2431', 'email' => 'karen.santos@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Josiane Magalhães', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'josiane.magalhaes@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Arlete Rodrigues', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'arlete.rodrigues@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Israel Soares', 'role' => 'Assistente Administrativo', 'region' => 'Sede (Belo Horizonte)', 'registration_number' => null, 'email' => 'israel.soares@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Marcela Rodrigues Viveiros', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Ipatinga', 'registration_number' => 'CRN9 21809', 'email' => 'marcela.fiscal@crn9.org.br', 'duty_notes' => 'Plantão às sextas-feiras.'],
+            ['name' => 'Nicelle Julia Corrêa Lopes', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Juiz de Fora', 'registration_number' => 'CRN9 19118', 'email' => 'nicelle.fiscal@crn9.org.br', 'duty_notes' => 'Plantão às terças-feiras.'],
+            ['name' => 'Caroline Caldeira Pereira', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Montes Claros', 'registration_number' => 'CRN9 14249', 'email' => 'carolinefiscal@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Flávia Junqueira de Souza Morais', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Pouso Alegre', 'registration_number' => 'CRN9 2168', 'email' => 'flaviafiscal@crn9.org.br', 'duty_notes' => 'Plantão às quartas-feiras.'],
+            ['name' => 'Silvia Aparecida de Cássia Ferreira Romero', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Delegacia de Pouso Alegre', 'registration_number' => 'CRN9 T-1949', 'email' => 'silvia@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Barbara Virginia Caixeta Crepaldi', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Uberlândia', 'registration_number' => null, 'email' => null, 'duty_notes' => null],
+            ['name' => 'Nilda Pereira de Melo Zumpano', 'role' => 'Assistente Técnico em Nutrição e Dietética', 'region' => 'Delegacia de Uberlândia', 'registration_number' => 'CRN9 2671-T', 'email' => 'nilda.zumpano@crn9.org.br', 'duty_notes' => null],
+            ['name' => 'Pâmela Cristina de Andrade', 'role' => 'Nutricionista Fiscal', 'region' => 'Delegacia de Uberlândia', 'registration_number' => null, 'email' => 'pamela.fiscal@crn9.org.br', 'duty_notes' => 'Plantão às segundas e sextas-feiras.'],
+            ['name' => 'Andresa Carolina da Silva Costa', 'role' => 'Nutricionista Fiscal', 'region' => 'Barbacena', 'registration_number' => 'CRN9 23119', 'email' => null, 'duty_notes' => null],
         ];
 
         foreach ($items as $index => $item) {
@@ -1411,6 +1411,7 @@ class DatabaseSeeder extends Seeder
                     'region' => $item['region'],
                     'registration_number' => $item['registration_number'],
                     'email' => $item['email'],
+                    'duty_notes' => $item['duty_notes'],
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]
@@ -1420,22 +1421,25 @@ class DatabaseSeeder extends Seeder
 
     private function seedMunicipalityCounts(): void
     {
-        $items = [
-            ['municipality' => 'Belo Horizonte', 'category' => 'Nutricionista', 'professionals_count' => 3200],
-            ['municipality' => 'Uberlândia', 'category' => 'Nutricionista', 'professionals_count' => 540],
-            ['municipality' => 'Juiz de Fora', 'category' => 'Nutricionista', 'professionals_count' => 410],
-            ['municipality' => 'Contagem', 'category' => 'Nutricionista', 'professionals_count' => 280],
-        ];
+        // Fonte: planilha pública do CRN-9 ("Quantitativo Inscritos Ativos por
+        // município - PF e PJ"), embutida via Google Sheets na página
+        // /profissionais-por-municipios/ do site original. Referência: 01/08/2024.
+        $path = __DIR__.'/data/municipios_mg.json';
+        $items = json_decode(file_get_contents($path), true);
 
         foreach ($items as $item) {
+            $municipality = ucwords(mb_strtolower($item['municipality']));
+
             MunicipalityProfessionalCount::updateOrCreate(
-                ['municipality' => $item['municipality'], 'state' => 'MG', 'category' => $item['category']],
+                ['municipality' => $municipality, 'state' => 'MG'],
                 [
-                    'municipality' => $item['municipality'],
+                    'municipality' => $municipality,
                     'state' => 'MG',
-                    'category' => $item['category'],
-                    'professionals_count' => $item['professionals_count'],
-                    'reference_date' => now(),
+                    'nutritionists_count' => $item['nutricionistas'],
+                    'technicians_count' => $item['tnd'],
+                    'legal_entities_count' => $item['pj'],
+                    'total_count' => $item['total'],
+                    'reference_date' => '2024-08-01',
                 ]
             );
         }
