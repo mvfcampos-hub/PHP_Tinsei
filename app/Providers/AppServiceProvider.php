@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('layouts.app', function ($view) {
             $view->with(
                 'mainMenu',
-                MenuItem::whereNull('parent_id')->with('children')->orderBy('sort_order')->get()
+                MenuItem::whereNull('parent_id')->with('children.children')->orderBy('sort_order')->get()
             );
         });
     }

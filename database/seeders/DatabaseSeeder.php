@@ -1058,16 +1058,19 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Eventos', 'url' => '/agenda'],
                     ['label' => 'Revista Online', 'url' => '/revistas'],
                     ['label' => 'CRN-9 Divulga', 'url' => '/paginas/crn9-divulga'],
+                    ['label' => 'Projetos de lei em andamento', 'url' => '/paginas/projetos-de-lei-em-andamento'],
+                    [
+                        'label' => 'Campanhas',
+                        'children' => [
+                            ['label' => 'Pode x Não Pode', 'url' => '/paginas/pode-x-nao-pode'],
+                            ['label' => 'Deu ruim ou Tá de boa?', 'url' => '/paginas/deu-ruim-ou-ta-de-boa'],
+                        ],
+                    ],
                 ],
             ],
             [
-                'label' => 'Campanhas',
-                'children' => [
-                    ['label' => 'Pode x Não Pode', 'url' => '/paginas/pode-x-nao-pode'],
-                    ['label' => 'Deu ruim ou Tá de boa?', 'url' => '/paginas/deu-ruim-ou-ta-de-boa'],
-                    ['label' => 'Projetos de lei em andamento', 'url' => '/paginas/projetos-de-lei-em-andamento'],
-                    ['label' => 'Biblioteca Virtual do CRN-9', 'url' => '/biblioteca'],
-                ],
+                'label' => 'Biblioteca Virtual',
+                'url' => '/biblioteca',
             ],
             [
                 'label' => 'Fiscalização',
@@ -1108,24 +1111,26 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($groups as $groupIndex => $group) {
-            $parent = MenuItem::updateOrCreate(
-                ['label' => $group['label'], 'parent_id' => null],
-                ['url' => '#', 'sort_order' => $groupIndex + 1, 'is_external' => false, 'opens_new_tab' => false]
-            );
+            $this->createMenuTreeItem($group, null, $groupIndex + 1);
+        }
+    }
 
-            foreach ($group['children'] as $childIndex => $child) {
-                $isExternal = $child['external'] ?? false;
+    private function createMenuTreeItem(array $item, ?int $parentId, int $sortOrder): void
+    {
+        $isExternal = $item['external'] ?? false;
 
-                MenuItem::updateOrCreate(
-                    ['label' => $child['label'], 'parent_id' => $parent->id],
-                    [
-                        'url' => $child['url'],
-                        'sort_order' => $childIndex + 1,
-                        'is_external' => $isExternal,
-                        'opens_new_tab' => $isExternal,
-                    ]
-                );
-            }
+        $menuItem = MenuItem::updateOrCreate(
+            ['label' => $item['label'], 'parent_id' => $parentId],
+            [
+                'url' => $item['url'] ?? '#',
+                'sort_order' => $sortOrder,
+                'is_external' => $isExternal,
+                'opens_new_tab' => $isExternal,
+            ]
+        );
+
+        foreach (($item['children'] ?? []) as $childIndex => $child) {
+            $this->createMenuTreeItem($child, $menuItem->id, $childIndex + 1);
         }
     }
 

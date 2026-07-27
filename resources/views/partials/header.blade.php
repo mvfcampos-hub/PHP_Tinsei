@@ -11,7 +11,7 @@
                         <a
                             href="{{ $item->resolveUrl() }}"
                             @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif
-                            class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-800 transition"
+                            class="flex items-center gap-1 whitespace-nowrap px-3 py-2 text-sm font-medium text-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-800 transition"
                         >
                             {{ $item->label }}
                             @if ($item->children->isNotEmpty())
@@ -22,9 +22,31 @@
                             <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition absolute left-0 top-full pt-2 w-64">
                                 <div class="rounded-xl border border-slate-200 bg-white shadow-lg py-2">
                                     @foreach ($item->children as $child)
-                                        <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800">
-                                            {{ $child->label }}
-                                        </a>
+                                        @if ($child->children->isNotEmpty())
+                                            <div class="relative group/sub">
+                                                <a
+                                                    href="{{ $child->resolveUrl() }}"
+                                                    @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif
+                                                    class="flex items-center justify-between gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+                                                >
+                                                    {{ $child->label }}
+                                                    <svg class="h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                                                </a>
+                                                <div class="invisible opacity-0 group-hover/sub:visible group-hover/sub:opacity-100 transition absolute left-full top-0 pl-2 w-64">
+                                                    <div class="rounded-xl border border-slate-200 bg-white shadow-lg py-2">
+                                                        @foreach ($child->children as $grandchild)
+                                                            <a href="{{ $grandchild->resolveUrl() }}" @if ($grandchild->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800">
+                                                                {{ $grandchild->label }}
+                                                            </a>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800">
+                                                {{ $child->label }}
+                                            </a>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -89,9 +111,14 @@
                         {{ $item->label }}
                     </a>
                     @foreach ($item->children as $child)
-                        <a href="{{ $child->resolveUrl() }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">
+                        <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">
                             {{ $child->label }}
                         </a>
+                        @foreach ($child->children as $grandchild)
+                            <a href="{{ $grandchild->resolveUrl() }}" @if ($grandchild->opens_new_tab) target="_blank" rel="noopener" @endif class="px-9 py-2 rounded-lg text-sm text-slate-500 hover:bg-brand-50">
+                                {{ $grandchild->label }}
+                            </a>
+                        @endforeach
                     @endforeach
                 @endforeach
             </nav>
