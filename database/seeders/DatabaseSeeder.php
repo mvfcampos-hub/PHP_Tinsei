@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Banner;
+use App\Models\Campaign;
+use App\Models\CampaignEpisode;
 use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
 use App\Models\EducationInstitution;
@@ -46,6 +48,7 @@ class DatabaseSeeder extends Seeder
         $this->seedPages();
         $this->linkIndexPages();
         $this->seedMenu();
+        $this->seedCampaigns();
         $this->seedNews($admin);
         $this->seedEvents();
         $this->seedBanners();
@@ -310,51 +313,6 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Convênios', 'slug' => 'convenios', 'content' => '<p>A Qualicorp trabalha em parceria com diversos órgãos públicos e entidades de classe para oferecer benefícios em saúde para os profissionais inscritos no CRN-9 e seus familiares.</p>
 <p>Consulte as condições vigentes diretamente com a Qualicorp Saúde.</p>'],
             ['title' => 'Projetos de Lei em Andamento', 'slug' => 'projetos-de-lei-em-andamento', 'content' => '<p>Acompanhamento dos Projetos de Lei de interesse da categoria, monitorados pelo Conselho Federal de Nutricionistas (CFN) em conjunto com os Conselhos Regionais.</p>'],
-            ['title' => 'Pode x Não Pode', 'slug' => 'pode-x-nao-pode', 'content' => <<<'HTML'
-                <p>A série "Pode x Não Pode" é baseada na cartilha sobre o exercício ilegal da profissão, elaborada pela Comissão de Formação Profissional do CRN-9 e destinada a acadêmicos de cursos de graduação em Nutrição.</p>
-                <h3>Vídeo 1 – Dicas sobre a atuação nas redes sociais</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/bqBQuz1x_K8" title="Vídeo 1 – Dicas sobre a atuação nas redes sociais" allowfullscreen></iframe>
-                <h3>Vídeo 2 – Sobre grupos de emagrecimento no WhatsApp</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/9xuxWdX1OsQ" title="Vídeo 2 – Sobre grupos de emagrecimento no WhatsApp" allowfullscreen></iframe>
-                <h3>Vídeo 3 – Sobre prescrição de planos alimentares para familiares</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/UrzCZaMuXRU" title="Vídeo 3 – Sobre prescrição de planos alimentares para familiares" allowfullscreen></iframe>
-                <h3>Vídeo 4 – Sobre realização de palestras</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/f9j2n_voO6I" title="Vídeo 4 – Sobre realização de palestras" allowfullscreen></iframe>
-                <h3>Vídeo 5 – Sobre publicação de cálculos dietéticos</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/ftdEh6NbOGc" title="Vídeo 5 – Sobre publicação de cálculos dietéticos" allowfullscreen></iframe>
-                <h3>Vídeo 6 – Sobre publicação de "antes x depois" nas redes sociais, vínculo c/ marcas de produtos, etc</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/b27iTYhFNvI" title="Vídeo 6 – Sobre publicação de antes x depois nas redes sociais" allowfullscreen></iframe>
-                <h3>Vídeo 7 – Sobre a realização de atendimentos antes da colação de grau</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/76NuApN1s3g" title="Vídeo 7 – Sobre a realização de atendimentos antes da colação de grau" allowfullscreen></iframe>
-                <h3>Vídeo 8 – Sobre perfil com informações sobre composição nutricional e propriedades dos alimentos</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/UI-upE3k6kw" title="Vídeo 8 – Sobre perfil com informações sobre composição nutricional e propriedades dos alimentos" allowfullscreen></iframe>
-                <h3>Vídeo 9 – Sobre a prescrição de planos alimentares/dietas</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/46lZKmjSM4s" title="Vídeo 9 – Sobre a prescrição de planos alimentares/dietas" allowfullscreen></iframe>
-                <h3>Vídeo 10 – Sobre a publicização de planos alimentares feitos para si mesmos</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/XkkHn9wgaXo" title="Vídeo 10 – Sobre a publicização de planos alimentares feitos para si mesmos" allowfullscreen></iframe>
-                HTML,
-            ],
-            ['title' => 'Deu Ruim ou Tá de Boa?', 'slug' => 'deu-ruim-ou-ta-de-boa', 'content' => <<<'HTML'
-                <p>Nesta série, o CRN-9 aborda o Código de Ética e Conduta dos Nutricionistas de forma lúdica e atrativa, utilizando o jeito "mineirês" de se comunicar. O objetivo é alertar os(as) profissionais sobre o que pode ou não ser realizado em suas atuações.</p>
-                <p>Os episódios são lançados nas redes sociais oficiais do CRN-9, quinzenalmente: <a href="http://instagram.com/crn9online" target="_blank" rel="noopener">instagram.com/crn9online</a>, <a href="http://facebook.com/crn9online" target="_blank" rel="noopener">facebook.com/crn9online</a> e <a href="http://youtube.com/crn9online" target="_blank" rel="noopener">youtube.com/crn9online</a>.</p>
-                <h3>Episódio 1</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/hHcL-kSL-UU" title="Deu ruim ou tá de boa? Episódio 1" allowfullscreen></iframe>
-                <h3>Episódio 2</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/upScENU2Bc8" title="Deu ruim ou tá de boa? Episódio 2" allowfullscreen></iframe>
-                <h3>Episódio 3</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/lAz6HVa9NNs" title="Deu ruim ou tá de boa? Episódio 3" allowfullscreen></iframe>
-                <h3>Episódio 4</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/mWWMDUsNwH0" title="Deu ruim ou tá de boa? Episódio 4" allowfullscreen></iframe>
-                <h3>Episódio 5</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/-COB65cod7o" title="Deu ruim ou tá de boa? Episódio 5" allowfullscreen></iframe>
-                <h3>Episódio 6</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/GGgflpYWGYI" title="Deu ruim ou tá de boa? Episódio 6" allowfullscreen></iframe>
-                <h3>Episódio 7</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/0Npxs3jllOg" title="Deu ruim ou tá de boa? Episódio 7" allowfullscreen></iframe>
-                <h3>Episódio 8</h3>
-                <iframe class="aspect-video w-full rounded-lg border border-slate-200" src="https://www.youtube.com/embed/GbS_-1YLeKc" title="Deu ruim ou tá de boa? Episódio 8" allowfullscreen></iframe>
-                HTML,
-            ],
             ['title' => 'CRN-9 Divulga', 'slug' => 'crn9-divulga', 'content' => '<p>O "CRN-9 Divulga" reúne pesquisas, levantamentos e materiais técnicos produzidos ou apoiados pelo Conselho, de interesse para a categoria e para a sociedade. Confira alguns dos temas já divulgados:</p>
 <h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgTTnLakzcngTcDGAhXG2RXLGjQh0bUyjdnYIFTLkvy7wwZA/viewform" target="_blank" rel="noopener">Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</a></h3>
 <h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSf80nDeikb_Oi2IyMGDgzPSwnhvn0I2b1d6K620550EDjXZHQ/viewform" target="_blank" rel="noopener">Utilização das Tecnologias de Informação e Comunicação (TICs) nas diferentes áreas de atuação do nutricionista</a></h3>
@@ -1060,11 +1018,12 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'CRN-9 Divulga', 'url' => '/paginas/crn9-divulga'],
                     ['label' => 'Projetos de lei em andamento', 'url' => '/paginas/projetos-de-lei-em-andamento'],
                     [
+                        // Filhos deste item são geridos automaticamente pelo
+                        // CampaignObserver (App\Observers\CampaignObserver)
+                        // sempre que uma campanha é criada/editada/removida
+                        // pelo painel admin — ver seedCampaigns() abaixo.
                         'label' => 'Campanhas',
-                        'children' => [
-                            ['label' => 'Pode x Não Pode', 'url' => '/paginas/pode-x-nao-pode'],
-                            ['label' => 'Deu ruim ou Tá de boa?', 'url' => '/paginas/deu-ruim-ou-ta-de-boa'],
-                        ],
+                        'children' => [],
                     ],
                 ],
             ],
@@ -1131,6 +1090,75 @@ class DatabaseSeeder extends Seeder
 
         foreach (($item['children'] ?? []) as $childIndex => $child) {
             $this->createMenuTreeItem($child, $menuItem->id, $childIndex + 1);
+        }
+    }
+
+    /**
+     * Campanhas em série (vídeos), agora geridas pelo painel admin em vez
+     * de páginas estáticas. Cada campanha vira automaticamente um submenu
+     * de Acontece no CRN-9 › Campanhas via CampaignObserver.
+     */
+    private function seedCampaigns(): void
+    {
+        $items = [
+            [
+                'title' => 'Pode x Não Pode',
+                'slug' => 'pode-x-nao-pode',
+                'intro' => '<p>A série "Pode x Não Pode" é baseada na cartilha sobre o exercício ilegal da profissão, elaborada pela Comissão de Formação Profissional do CRN-9 e destinada a acadêmicos de cursos de graduação em Nutrição.</p>',
+                'episodes' => [
+                    ['title' => 'Vídeo 1 – Dicas sobre a atuação nas redes sociais', 'youtube_url' => 'https://www.youtube.com/embed/bqBQuz1x_K8'],
+                    ['title' => 'Vídeo 2 – Sobre grupos de emagrecimento no WhatsApp', 'youtube_url' => 'https://www.youtube.com/embed/9xuxWdX1OsQ'],
+                    ['title' => 'Vídeo 3 – Sobre prescrição de planos alimentares para familiares', 'youtube_url' => 'https://www.youtube.com/embed/UrzCZaMuXRU'],
+                    ['title' => 'Vídeo 4 – Sobre realização de palestras', 'youtube_url' => 'https://www.youtube.com/embed/f9j2n_voO6I'],
+                    ['title' => 'Vídeo 5 – Sobre publicação de cálculos dietéticos', 'youtube_url' => 'https://www.youtube.com/embed/ftdEh6NbOGc'],
+                    ['title' => 'Vídeo 6 – Sobre publicação de "antes x depois" nas redes sociais, vínculo c/ marcas de produtos, etc', 'youtube_url' => 'https://www.youtube.com/embed/b27iTYhFNvI'],
+                    ['title' => 'Vídeo 7 – Sobre a realização de atendimentos antes da colação de grau', 'youtube_url' => 'https://www.youtube.com/embed/76NuApN1s3g'],
+                    ['title' => 'Vídeo 8 – Sobre perfil com informações sobre composição nutricional e propriedades dos alimentos', 'youtube_url' => 'https://www.youtube.com/embed/UI-upE3k6kw'],
+                    ['title' => 'Vídeo 9 – Sobre a prescrição de planos alimentares/dietas', 'youtube_url' => 'https://www.youtube.com/embed/46lZKmjSM4s'],
+                    ['title' => 'Vídeo 10 – Sobre a publicização de planos alimentares feitos para si mesmos', 'youtube_url' => 'https://www.youtube.com/embed/XkkHn9wgaXo'],
+                ],
+            ],
+            [
+                'title' => 'Deu Ruim ou Tá de Boa?',
+                'slug' => 'deu-ruim-ou-ta-de-boa',
+                'intro' => '<p>Nesta série, o CRN-9 aborda o Código de Ética e Conduta dos Nutricionistas de forma lúdica e atrativa, utilizando o jeito "mineirês" de se comunicar. O objetivo é alertar os(as) profissionais sobre o que pode ou não ser realizado em suas atuações.</p>
+<p>Os episódios são lançados nas redes sociais oficiais do CRN-9, quinzenalmente: <a href="http://instagram.com/crn9online" target="_blank" rel="noopener">instagram.com/crn9online</a>, <a href="http://facebook.com/crn9online" target="_blank" rel="noopener">facebook.com/crn9online</a> e <a href="http://youtube.com/crn9online" target="_blank" rel="noopener">youtube.com/crn9online</a>.</p>',
+                'episodes' => [
+                    ['title' => 'Episódio 1', 'youtube_url' => 'https://www.youtube.com/embed/hHcL-kSL-UU'],
+                    ['title' => 'Episódio 2', 'youtube_url' => 'https://www.youtube.com/embed/upScENU2Bc8'],
+                    ['title' => 'Episódio 3', 'youtube_url' => 'https://www.youtube.com/embed/lAz6HVa9NNs'],
+                    ['title' => 'Episódio 4', 'youtube_url' => 'https://www.youtube.com/embed/mWWMDUsNwH0'],
+                    ['title' => 'Episódio 5', 'youtube_url' => 'https://www.youtube.com/embed/-COB65cod7o'],
+                    ['title' => 'Episódio 6', 'youtube_url' => 'https://www.youtube.com/embed/GGgflpYWGYI'],
+                    ['title' => 'Episódio 7', 'youtube_url' => 'https://www.youtube.com/embed/0Npxs3jllOg'],
+                    ['title' => 'Episódio 8', 'youtube_url' => 'https://www.youtube.com/embed/GbS_-1YLeKc'],
+                ],
+            ],
+        ];
+
+        foreach ($items as $index => $item) {
+            $campaign = Campaign::updateOrCreate(
+                ['slug' => $item['slug']],
+                [
+                    'title' => $item['title'],
+                    'slug' => $item['slug'],
+                    'intro' => $item['intro'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+
+            foreach ($item['episodes'] as $episodeIndex => $episode) {
+                CampaignEpisode::updateOrCreate(
+                    ['campaign_id' => $campaign->id, 'title' => $episode['title']],
+                    [
+                        'campaign_id' => $campaign->id,
+                        'title' => $episode['title'],
+                        'youtube_url' => $episode['youtube_url'],
+                        'sort_order' => $episodeIndex + 1,
+                    ]
+                );
+            }
         }
     }
 

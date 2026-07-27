@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Campaign;
+use App\Models\CampaignEpisode;
 use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
 use App\Models\EducationInstitution;
@@ -200,6 +202,43 @@ class PublicPagesTest extends TestCase
         $this->get(route('library.index'))->assertStatus(200)->assertSee($document->title);
         $this->get(route('library.index', ['q' => 'Cartilha']))->assertStatus(200)->assertSee($document->title);
         $this->get(route('library.show', $document))->assertStatus(200)->assertSee('Arquivo de Teste');
+    }
+
+    public function test_campaign_show_and_menu_sync(): void
+    {
+        $acontece = \App\Models\MenuItem::create(['label' => 'Acontece no CRN-9', 'url' => '#', 'sort_order' => 1]);
+        \App\Models\MenuItem::create(['label' => 'Campanhas', 'url' => '#', 'parent_id' => $acontece->id, 'sort_order' => 1]);
+
+        $campaign = Campaign::create([
+            'title' => 'Campanha de Teste',
+            'slug' => 'campanha-de-teste',
+            'intro' => '<p>Introdução de teste.</p>',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        CampaignEpisode::create([
+            'campaign_id' => $campaign->id,
+            'title' => 'Episódio de Teste',
+            'youtube_url' => 'https://www.youtube.com/watch?v=abcdef12345',
+            'sort_order' => 1,
+        ]);
+
+        $this->get(route('campaigns.show', $campaign))
+            ->assertStatus(200)
+            ->assertSee('Episódio de Teste')
+            ->assertSee('https://www.youtube.com/embed/abcdef12345', false);
+
+        $campaign->refresh();
+        $this->assertNotNull($campaign->menu_item_id);
+        $this->assertSame('Campanha de Teste', $campaign->menuItem->label);
+        $this->assertSame('Campanhas', $campaign->menuItem->parent->label);
+
+        $campaign->update(['is_active' => false]);
+        $campaign->refresh();
+        $this->assertNull($campaign->menu_item_id);
+
+        $this->get(route('campaigns.show', $campaign))->assertStatus(404);
     }
 
     public function test_education_institutions_index(): void

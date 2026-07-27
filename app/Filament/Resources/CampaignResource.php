@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LibraryDocumentResource\Pages;
-use App\Filament\Resources\LibraryDocumentResource\RelationManagers\FilesRelationManager;
-use App\Models\LibraryDocument;
+use App\Filament\Resources\CampaignResource\Pages;
+use App\Filament\Resources\CampaignResource\RelationManagers\EpisodesRelationManager;
+use App\Models\Campaign;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,26 +12,26 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
-class LibraryDocumentResource extends Resource
+class CampaignResource extends Resource
 {
-    protected static ?string $model = LibraryDocument::class;
+    protected static ?string $model = Campaign::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Biblioteca Virtual';
+    protected static ?string $navigationGroup = 'Campanhas';
 
-    protected static ?string $navigationLabel = 'Biblioteca Virtual';
+    protected static ?string $navigationLabel = 'Campanhas';
 
-    protected static ?string $modelLabel = 'publicação';
+    protected static ?string $modelLabel = 'campanha';
 
-    protected static ?string $pluralModelLabel = 'publicações';
+    protected static ?string $pluralModelLabel = 'campanhas';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->label('Título')
+                    ->label('Título (vira o item de submenu em Acontece no CRN-9 › Campanhas)')
                     ->required()
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null)
@@ -41,20 +41,17 @@ class LibraryDocumentResource extends Resource
                     ->required()
                     ->unique(ignoreRecord: true)
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('description')
-                    ->label('Descrição / autoria')
-                    ->rows(3)
+                Forms\Components\Textarea::make('intro')
+                    ->label('Introdução')
+                    ->helperText('Texto de apresentação exibido acima dos vídeos. Aceita HTML simples.')
+                    ->rows(4)
                     ->columnSpanFull(),
-                Forms\Components\DatePicker::make('published_at')
-                    ->label('Publicado em')
-                    ->native(false)
-                    ->default(now()),
                 Forms\Components\TextInput::make('sort_order')
                     ->label('Ordem de exibição')
                     ->numeric()
                     ->default(0),
                 Forms\Components\Toggle::make('is_active')
-                    ->label('Ativo')
+                    ->label('Ativo (aparece no menu e no site)')
                     ->default(true)
                     ->required(),
             ])->columns(2);
@@ -68,18 +65,17 @@ class LibraryDocumentResource extends Resource
                     ->label('Título')
                     ->searchable()
                     ->wrap(),
-                Tables\Columns\TextColumn::make('files_count')
-                    ->label('Arquivos')
-                    ->counts('files'),
-                Tables\Columns\TextColumn::make('published_at')
-                    ->label('Publicado em')
-                    ->date('d/m/Y')
+                Tables\Columns\TextColumn::make('episodes_count')
+                    ->label('Vídeos')
+                    ->counts('episodes'),
+                Tables\Columns\TextColumn::make('sort_order')
+                    ->label('Ordem')
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Ativo')
                     ->boolean(),
             ])
-            ->defaultSort('title')
+            ->defaultSort('sort_order')
             ->filters([
                 Tables\Filters\TernaryFilter::make('is_active')
                     ->label('Ativo'),
@@ -98,16 +94,16 @@ class LibraryDocumentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            FilesRelationManager::class,
+            EpisodesRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLibraryDocuments::route('/'),
-            'create' => Pages\CreateLibraryDocument::route('/create'),
-            'edit' => Pages\EditLibraryDocument::route('/{record}/edit'),
+            'index' => Pages\ListCampaigns::route('/'),
+            'create' => Pages\CreateCampaign::route('/create'),
+            'edit' => Pages\EditCampaign::route('/{record}/edit'),
         ];
     }
 }

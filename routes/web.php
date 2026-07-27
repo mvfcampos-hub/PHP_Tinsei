@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CouncilController;
 use App\Http\Controllers\EducationInstitutionController;
 use App\Http\Controllers\EventController;
@@ -47,5 +48,7 @@ Route::get('/instituicoes-de-ensino', [EducationInstitutionController::class, 'i
 
 Route::get('/biblioteca', [LibraryDocumentController::class, 'index'])->name('library.index');
 Route::get('/biblioteca/{document:slug}', [LibraryDocumentController::class, 'show'])->name('library.show');
+
+Route::get('/campanhas/{campaign:slug}', [CampaignController::class, 'show'])->name('campaigns.show');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');

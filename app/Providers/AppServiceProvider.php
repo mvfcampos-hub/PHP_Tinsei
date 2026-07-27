@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Campaign;
 use App\Models\MenuItem;
+use App\Observers\CampaignObserver;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Campaign::observe(CampaignObserver::class);
+
         View::composer('layouts.app', function ($view) {
             $view->with(
                 'mainMenu',
