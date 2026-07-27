@@ -1582,10 +1582,33 @@ class DatabaseSeeder extends Seeder
             );
         }
 
+        if (! Storage::disk('public')->exists('banners/denuncia-illustrative.svg')) {
+            Storage::disk('public')->put(
+                'banners/denuncia-illustrative.svg',
+                <<<'SVG'
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+                    <defs>
+                        <linearGradient id="denunciaBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3A1F16"/>
+                            <stop offset="100%" stop-color="#5C5E2B"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="url(#denunciaBg)"/>
+                    <circle cx="900" cy="200" r="190" fill="#F58C4A" opacity="0.08"/>
+                    <path d="M900 95 L1005 285 L795 285 Z" fill="none" stroke="#F58C4A" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+                    <rect x="892" y="165" width="16" height="70" rx="8" fill="#F58C4A"/>
+                    <circle cx="900" cy="260" r="10" fill="#F58C4A"/>
+                    <circle cx="230" cy="90" r="10" fill="#A3A64A"/>
+                    <circle cx="270" cy="130" r="6" fill="#85B0FF"/>
+                </svg>
+                SVG
+            );
+        }
+
         $items = [
             ['title' => 'Eleições CRN-9 2026/2029: participe', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-cronograma-full.png'],
             ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-aviso-full.png'],
-            ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => 'ilpis-full.png'],
+            ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => null, 'illustrative' => 'denuncia-illustrative.svg'],
             ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
             ['title' => 'Eleições CR9 2026/2029', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => null, 'illustrative' => 'eleicoes-illustrative.svg'],
         ];
