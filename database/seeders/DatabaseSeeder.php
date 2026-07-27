@@ -8,6 +8,8 @@ use App\Models\CouncilMember;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
+use App\Models\Licitacao;
+use App\Models\LicitacaoDocument;
 use App\Models\Magazine;
 use App\Models\MenuItem;
 use App\Models\MunicipalityProfessionalCount;
@@ -49,6 +51,7 @@ class DatabaseSeeder extends Seeder
         $this->seedInspectors();
         $this->seedMunicipalityCounts();
         $this->seedCouncil();
+        $this->seedLicitacoes();
     }
 
     /**
@@ -268,20 +271,6 @@ class DatabaseSeeder extends Seeder
                 <p>No Portal de Transparência do CRN9: <a target="_blank" rel="noopener" href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/Conteudos?id=aa1437dd-3a16-4bca-96f2-cdd5e3c8803e">Portal da Transparência</a></p>
                 HTML,
             ],
-            ['title' => 'Licitações', 'slug' => 'licitacoes', 'content' => '<h3>Pregão Eletrônico Nº 90005/2024</h3>
-<p>Contratação de consultoria especializada em segurança da informação. Edital, anexos e esclarecimentos disponíveis para consulta.</p>
-<h3>Pregão Eletrônico nº 90003/2024</h3>
-<p>Objeto: Contratação de pessoa jurídica para o fornecimento de ramais de telefonia VOIP.</p>
-<h3>Pregão Eletrônico nº 90002/2024</h3>
-<p>Aquisição de materiais de limpeza conforme condições, quantidades e exigências estabelecidas no Edital.</p>
-<h3>Pregão Eletrônico nº 1/2024</h3>
-<p>Contratação de pessoa jurídica para prestação de serviço SaaS (Software as a Service).</p>
-<h3>Pregão Eletrônico nº 1/2023</h3>
-<h3>Pregão Eletrônico nº 3/2023</h3>
-<p>Objeto: contratação de pessoa jurídica para prestação de serviço de auditoria governamental independente.</p>
-<h3>Chamamento Público 01/2023</h3>
-<p>Objeto: selecionar e credenciar pessoas jurídicas de direito privado prestadoras de serviços de interesse do CRN-9.</p>
-<h3>Edital da Tomada de Preços nº 1/2022</h3>'],
             ['title' => 'Sede e Delegacias', 'slug' => 'sede-delegacias', 'content' => '<h3>Sede CRN-9 – Belo Horizonte</h3><p>Edifício Celta — R. Maranhão, 310, 4º Andar, Santa Efigênia, Belo Horizonte/MG — CEP: 30150-330</p>
 <h3>Delegacia de Ipatinga</h3><p>Edifício Horto Office — R. Vinhático, 15, Sala 707, Horto, Ipatinga/MG — CEP: 35160-317</p>
 <h3>Delegacia de Juiz de Fora</h3><p>Edifício Bancantil — R. Halfed, 651, Sala 1406, Centro, Juiz de Fora/MG — CEP: 36010-902</p>
@@ -776,34 +765,6 @@ class DatabaseSeeder extends Seeder
 <p>COM DESCONTO de 5% para pagamento com vencimento em cota única no dia 09/02/2024 (utilizando o mesmo boleto de pagamento integral)</p>
 <p>SEM DESCONTO E SEM ACRÉSCIMO para vencimento cota única em 10/04/2024.</p>
 <ol><li>O PAGAMENTO DA ANUIDADE DE 2024 NÃO QUITA DÉBITOS ANTERIORES.</li><li>ANTECIPE A ATUALIZAÇÃO CADASTRAL DE SUA EMPRESA, ENTRE EM CONTATO PELO E-MAIL: pj.atendimento@crn9.org.br</li></ol>'],
-            ['title' => 'Pregão Eletrônico Nº 90005/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-90005-2024', 'content' => '<p>Contratação de consultoria especializada em segurança da informação</p>
-<p>O edital, anexos, esclarecimentos e demais informações podem ser consultadas no Portal Nacional de Contratações Públicas presente no link: https://pncp.gov.br/app/editais/08641589000119/2024/11 e também no menu “Licitações” do Portal da Transparência do CRN9, que pode ser acessado clicando no botão “acesso à informação” localizado na parte superior da página inicial (www.crn9.org.br).</p>'],
-            ['title' => 'Pregão Eletrônico nº 90003/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-90003-2024', 'content' => '<p>Objeto: Contratação de pessoa jurídica para o fornecimento de ramais de telefonia VOIP e locação de aparelho de telefonia VOIP, conforme condições estabelecidas no edital e anexos.</p>
-<p>Link no Portal Nacional de Contratações Públicas – PNCP: https://pncp.gov.br/app/editais/08641589000119/2024/9</p>'],
-            ['title' => 'Pregão Eletrônico nº 90002/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-90002-2024', 'content' => '<p>Aquisição de materiais de limpeza conforme condições, quantidades e exigências estabelecidas no Edital e seus anexos.</p>
-<p>Link no Portal Nacional de Contratações Públicas – PNCP: https://pncp.gov.br/app/editais/08641589000119/2024/8</p>'],
-            ['title' => 'Pregão Eletrônico nº 1/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-1-2024', 'content' => '<p>Contratação de pessoa jurídica para prestação de serviço Saas (Software as a service) de CRM (Customer Relationship Management) em continuidade a solução utilizada no CRN9. A solução deverá contemplar os serviços de Disponibilização dos acessos ao sistema/assinaturas, Implantação, Serviços Técnicos de Suporte, Treinamento dos usuários e administradores e Serviços Técnicos Especializados. Solução com geração de tíquetes, integrações de diversos canais de atendimento (Omnichannel), Acordo de Nível de Serviço (SLA) e relatórios administrativos de acordo com as condições estabelecidas no Edital e anexos.</p>'],
-            ['title' => 'Pregão Eletrônico nº 1/2023', 'slug' => 'licitacao-item-pregao-eletronico-no-1-2023', 'content' => '<p>Contratação de pessoa jurídica para prestação de serviço Saas (Software as a service) de CRM (Customer Relationship Management) em continuidade a solução utilizada no CRN9. A solução deverá contemplar os serviços de Disponibilização dos acessos ao sistema/assinaturas, Implantação, Serviços Técnicos de Suporte, Treinamento dos usuários e administradores e Serviços Técnicos Especializados. Solução com geração de tíquetes, integrações de diversos canais de atendimento (Omnichannel), Acordo de Nível de Serviço (SLA) e relatórios administrativos de acordo com as condições estabelecidas no Edital e anexos.</p>'],
-            ['title' => 'Pregão Eletrônico nº 3/2023', 'slug' => 'licitacao-item-pregao-eletronico-no-03-2023', 'content' => '<p>Objeto: contratação de pessoa jurídica para prestação de serviço de auditoria governamental independente, abrangendo o período de 01/2018 a 06/2023, nas áreas auditadas, sendo elas: áreas de departamento pessoal, departamento contábil, departamento financeiro e licitações e contratos, atestando a integridade, adequação e veracidade das contas do órgão, conforme condições, quantidades e exigências estabelecidas no edital e anexos.</p>'],
-            ['title' => 'Chamamento Público 01/2023', 'slug' => 'licitacao-item-chamamento-publico-01-2023', 'content' => '<p>Objeto: selecionar e credenciar pessoas jurídicas de direito privado prestadoras de serviços com interesse em disponibilizar programa de cashback para os inscritos do CRN9 que tenham preenchido a autorização de repasse de dados para a empresa CREDENCIADA e realizado cadastro no programa.</p>
-<p>LOCAIS PARA OBTENÇÃO DO EDITAL: Síte da internet: https://crn9.org.br/licitacao/</p>
-<p>PERÍODO DE INSCRIÇÃO: 2ª tentativa: 19/01/2024 a 29/01/2024</p>
-<p>1ª tentativa: 18/04/2023 a 28/04/2023 (deserto)</p>'],
-            ['title' => 'Edital da Tomada de Preços nº 1/2022', 'slug' => 'licitacao-item-edital-da-tomada-de-precos-no-1-2022', 'content' => '<p>OBJETO: A Contratação de Empresa Especializada em Serviços de Engenharia para reforma da sede do CRN9 em Belo Horizonte conforme projetos e especificações nos anexos deste Edital.</p>
-<p>MODALIDADE: Tomada de Preços.</p>
-<p>REGIME DE EXECUÇÃO: EMPREITADA POR PREÇO GLOBAL</p>
-<p>CRITÉRIO DE JULGAMENTO: Menor Preço Global</p>
-<p>FUNDAMENTO LEGAL: Lei 8666/93.</p>
-<p>PRAZO DE EXECUÇÃO: Prazo máximo de 90 dias corridos, considerando o cronograma físico-financeiro.</p>
-<p>ABERTURA DOS ENVELOPES: Dia 25/10/2022 às 09:00 à Rua Maranhão, 310, Ed.Celta, 3º Andar , Santa Efigênia, Belo Horizonte– MG, CEP: 30.150-330.</p>
-<p>TELEFONE: (31) 3226-8403 de 09:00 às 17:00 de 2ª a 6ª feira.</p>
-<p>E-MAIL: licitacao@crn9.org.br</p>
-<p>Site: https://crn9.org.br/licitacao/</p>
-<ul><li>Anexo V – Item C – Projeto Arquitetônico e Complementares</li><li>Ata da 1ª Sessão + Anexos</li></ul>'],
-            ['title' => 'TOMADA DE PREÇO Nº 01/2021', 'slug' => 'licitacao-item-tomada-de-preco-no-01-2021', 'content' => '<p>OBJETO: Edital_TP_01_2021_CRN9 (1) CONTRATAÇÃO DE SERVIÇOS DE AGÊNCIA DE PUBLICIDADE PARA ATENDER AO CONSELHO REGIONAL DE NUTRICIONISTAS DA 9ª REGIÃO – CRN9/MG.</p>'],
-            ['title' => 'Chamamento Público 2-2021 – Edital e anexos', 'slug' => 'licitacao-item-chamamento-publico-2-2021-edital-e-anexos', 'content' => '<p>Objeto: SELEÇÃO PÚBLICA DE INSTITUIÇÕES, DEVIDAMENTE AUTORIZADAS, PARA DISPONIBILIZAÇÃO DE PLANO DE SAÚDE COLETIVO POR ADESÃO VOLTADO À POPULAÇÃO QUE MANTENHA VÍNCULO PROFISSIONAL, CLASSISTA OU SETORIAL COM O CONSELHO REGIONAL DE NUTRICIONISTAS DA 9ª REGIÃO – CRN9, CONFORME CRITÉRIOS ESTABELECIDOS NO PRESENTE INSTRUMENTO E ANEXOS.</p>'],
-            ['title' => 'Edital de Chamamento Público nº 1/2021', 'slug' => 'licitacao-item-edital-de-chamamento-publico-no-1-2021', 'content' => '<p>OBJETO: SELEÇÃO PÚBLICA DE EDITORAS E RESPECTIVAS OBRAS LITERÁRIAS COM TEMÁTICAS REFERENTES À NUTRIÇÃO E EXERCÍCIO DA PROFISSÃO, CEDIDAS POR DOAÇÃO AO CRN9, DESTINADAS A SORTEIO A SER REALIZADO ENTRE OS PROFISSIONAIS NUTRICIONISTAS EM COMEMORAÇÃO DO DIA DO NUTRICIONISTA.</p>'],
-            ['title' => 'Edital de seleção de experiências exitosas de Nutricionistas e Técnicos em Nutrição e Dietética (TND) no âmbito do Programa Nacional de Alimentação Escolar – PNAE – Edital 2/2021', 'slug' => 'licitacao-item-edital-de-selecao-de-experiencias-exitosas-de-nutricionistas-e-tecnicos-em-nutricao-e-dietetica-tnd-no-ambito-do-programa-nacional-de-alimentacao-escolar-pnae-edital', 'content' => '<p>Objeto: processo seletivo para premiação de experiências exitosas realizadas por Nutricionistas e TND atuantes Programa Nacional de Alimentação Escolar – PNAE, inscritos nos termos deste Edital.</p>'],
             ['title' => 'Relatório de Gestão 2025', 'slug' => 'biblioteca-item-relatorio-de-gestao-2025', 'content' => '<p>Compartilhe!</p>
 <p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
             ['title' => 'Relatório de Gestão 2020/2023', 'slug' => 'biblioteca-item-relatorio-de-gestao-2020-2023', 'content' => '<p>Compartilhe!</p>
@@ -943,20 +904,6 @@ class DatabaseSeeder extends Seeder
                 ['title' => 'Cancelamento/Baixa Temporária de Inscrição', 'slug' => 'servico-cancelamento-baixa-temporaria-de-inscricao'],
                 ['title' => 'Prorrogação de Baixa Temporária', 'slug' => 'servico-prorrogacao-de-baixa-temporaria'],
             ],
-            'licitacoes' => [
-                ['title' => 'Pregão Eletrônico Nº 90005/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-90005-2024'],
-                ['title' => 'Pregão Eletrônico nº 90003/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-90003-2024'],
-                ['title' => 'Pregão Eletrônico nº 90002/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-90002-2024'],
-                ['title' => 'Pregão Eletrônico nº 1/2024', 'slug' => 'licitacao-item-pregao-eletronico-no-1-2024'],
-                ['title' => 'Pregão Eletrônico nº 1/2023', 'slug' => 'licitacao-item-pregao-eletronico-no-1-2023'],
-                ['title' => 'Pregão Eletrônico nº 3/2023', 'slug' => 'licitacao-item-pregao-eletronico-no-03-2023'],
-                ['title' => 'Chamamento Público 01/2023', 'slug' => 'licitacao-item-chamamento-publico-01-2023'],
-                ['title' => 'Edital da Tomada de Preços nº 1/2022', 'slug' => 'licitacao-item-edital-da-tomada-de-precos-no-1-2022'],
-                ['title' => 'Tomada de Preço nº 01/2021', 'slug' => 'licitacao-item-tomada-de-preco-no-01-2021'],
-                ['title' => 'Chamamento Público 2/2021 – Edital e anexos', 'slug' => 'licitacao-item-chamamento-publico-2-2021-edital-e-anexos'],
-                ['title' => 'Edital de Chamamento Público nº 1/2021', 'slug' => 'licitacao-item-edital-de-chamamento-publico-no-1-2021'],
-                ['title' => 'Edital de Seleção de Experiências Exitosas (PNAE) – Edital 2/2021', 'slug' => 'licitacao-item-edital-de-selecao-de-experiencias-exitosas-de-nutricionistas-e-tecnicos-em-nutricao-e-dietetica-tnd-no-ambito-do-programa-nacional-de-alimentacao-escolar-pnae-edital'],
-            ],
             'biblioteca-virtual' => [
                 ['title' => 'Relatório de Gestão 2025', 'slug' => 'biblioteca-item-relatorio-de-gestao-2025'],
                 ['title' => 'Relatório de Gestão 2020/2023', 'slug' => 'biblioteca-item-relatorio-de-gestao-2020-2023'],
@@ -1019,7 +966,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Plenário', 'url' => '/plenario'],
                     ['label' => 'Política de ingresso', 'url' => '/paginas/politica-de-ingresso'],
                     ['label' => 'Concurso público', 'url' => '/paginas/concurso-publico'],
-                    ['label' => 'Licitações', 'url' => '/paginas/licitacoes'],
+                    ['label' => 'Licitações', 'url' => '/licitacoes'],
                     ['label' => 'Sede', 'url' => '/paginas/sede-delegacias'],
                     ['label' => 'Identidade Visual do CRN-9', 'url' => '/paginas/identidade-visual-do-crn-9'],
                 ],
@@ -1653,6 +1600,48 @@ class DatabaseSeeder extends Seeder
                         'bio' => $member['bio'],
                         'sort_order' => $member['sort_order'],
                         'is_active' => true,
+                    ]
+                );
+            }
+        }
+    }
+
+    /**
+     * Processos licitatórios do CRN-9, migrados de https://crn9.org.br/licitacao/
+     * (listagem principal + arquivos por ano de 2019 a 2022), com todos os
+     * documentos anexos (Edital, Anexos, Homologação...) preservados como
+     * links diretos para os arquivos originais.
+     */
+    private function seedLicitacoes(): void
+    {
+        $path = __DIR__.'/data/licitacoes.json';
+        $items = json_decode(file_get_contents($path), true);
+
+        foreach ($items as $index => $item) {
+            $licitacao = Licitacao::updateOrCreate(
+                ['slug' => $item['slug']],
+                [
+                    'title' => $item['title'],
+                    'slug' => $item['slug'],
+                    'modality' => $item['modality'],
+                    'number' => $item['number'],
+                    'year' => $item['year'],
+                    'description' => $item['description'],
+                    'status' => $item['status'],
+                    'published_at' => $item['published_at'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+
+            foreach ($item['documents'] as $docIndex => $document) {
+                LicitacaoDocument::updateOrCreate(
+                    ['licitacao_id' => $licitacao->id, 'label' => $document['label']],
+                    [
+                        'licitacao_id' => $licitacao->id,
+                        'label' => $document['label'],
+                        'external_url' => $document['url'],
+                        'sort_order' => $docIndex + 1,
                     ]
                 );
             }

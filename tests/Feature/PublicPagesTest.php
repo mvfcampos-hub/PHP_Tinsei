@@ -7,6 +7,8 @@ use App\Models\CouncilMember;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
+use App\Models\Licitacao;
+use App\Models\LicitacaoDocument;
 use App\Models\Magazine;
 use App\Models\MunicipalityProfessionalCount;
 use App\Models\News;
@@ -145,6 +147,32 @@ class PublicPagesTest extends TestCase
         ]);
 
         $this->get(route('council.index'))->assertStatus(200)->assertSee('Membro de Teste');
+    }
+
+    public function test_licitacoes_index_and_show(): void
+    {
+        $licitacao = Licitacao::create([
+            'title' => 'Pregão Eletrônico de Teste nº 1/2026',
+            'slug' => 'pregao-eletronico-de-teste-1-2026',
+            'modality' => 'Pregão Eletrônico',
+            'number' => '1/2026',
+            'year' => 2026,
+            'description' => 'Objeto de teste.',
+            'status' => 'aberta',
+            'published_at' => now(),
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        LicitacaoDocument::create([
+            'licitacao_id' => $licitacao->id,
+            'label' => 'Edital de Teste',
+            'external_url' => 'https://crn9.org.br/edital-teste.pdf',
+            'sort_order' => 1,
+        ]);
+
+        $this->get(route('licitacoes.index'))->assertStatus(200)->assertSee($licitacao->title);
+        $this->get(route('licitacoes.show', $licitacao))->assertStatus(200)->assertSee('Edital de Teste');
     }
 
     public function test_search_finds_matching_news_and_pages(): void

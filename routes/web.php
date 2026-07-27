@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
 use App\Http\Controllers\JobListingController;
+use App\Http\Controllers\LicitacaoController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\NewsController;
@@ -29,6 +30,9 @@ Route::get('/revistas', [MagazineController::class, 'index'])->name('magazines.i
 Route::get('/fiscalizacao', InspectorController::class)->name('inspectors.index');
 
 Route::get('/plenario', CouncilController::class)->name('council.index');
+
+Route::get('/licitacoes', [LicitacaoController::class, 'index'])->name('licitacoes.index');
+Route::get('/licitacoes/{licitacao:slug}', [LicitacaoController::class, 'show'])->name('licitacoes.show');
 
 Route::get('/profissionais-por-municipio', MunicipalityController::class)->name('municipalities.index');
 
