@@ -11,6 +11,8 @@ use App\Models\JobListing;
 use App\Models\User;
 use App\Models\Licitacao;
 use App\Models\LicitacaoDocument;
+use App\Models\LibraryDocument;
+use App\Models\LibraryDocumentFile;
 use App\Models\Magazine;
 use App\Models\MunicipalityProfessionalCount;
 use App\Models\News;
@@ -175,6 +177,29 @@ class PublicPagesTest extends TestCase
 
         $this->get(route('licitacoes.index'))->assertStatus(200)->assertSee($licitacao->title);
         $this->get(route('licitacoes.show', $licitacao))->assertStatus(200)->assertSee('Edital de Teste');
+    }
+
+    public function test_library_documents_index_and_show(): void
+    {
+        $document = LibraryDocument::create([
+            'title' => 'Cartilha de Teste',
+            'slug' => 'cartilha-de-teste',
+            'description' => 'Descrição de teste.',
+            'published_at' => now(),
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        LibraryDocumentFile::create([
+            'library_document_id' => $document->id,
+            'label' => 'Arquivo de Teste',
+            'external_url' => 'https://crn9.org.br/cartilha-teste.pdf',
+            'sort_order' => 1,
+        ]);
+
+        $this->get(route('library.index'))->assertStatus(200)->assertSee($document->title);
+        $this->get(route('library.index', ['q' => 'Cartilha']))->assertStatus(200)->assertSee($document->title);
+        $this->get(route('library.show', $document))->assertStatus(200)->assertSee('Arquivo de Teste');
     }
 
     public function test_education_institutions_index(): void

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
 use App\Http\Controllers\JobListingController;
 use App\Http\Controllers\JobSubmissionController;
+use App\Http\Controllers\LibraryDocumentController;
 use App\Http\Controllers\LicitacaoController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MunicipalityController;
@@ -43,5 +44,8 @@ Route::get('/licitacoes/{licitacao:slug}', [LicitacaoController::class, 'show'])
 Route::get('/profissionais-por-municipio', MunicipalityController::class)->name('municipalities.index');
 
 Route::get('/instituicoes-de-ensino', [EducationInstitutionController::class, 'index'])->name('institutions.index');
+
+Route::get('/biblioteca', [LibraryDocumentController::class, 'index'])->name('library.index');
+Route::get('/biblioteca/{document:slug}', [LibraryDocumentController::class, 'show'])->name('library.show');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');

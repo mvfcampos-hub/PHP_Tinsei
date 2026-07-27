@@ -9,6 +9,8 @@ use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
+use App\Models\LibraryDocument;
+use App\Models\LibraryDocumentFile;
 use App\Models\Licitacao;
 use App\Models\LicitacaoDocument;
 use App\Models\Magazine;
@@ -54,6 +56,7 @@ class DatabaseSeeder extends Seeder
         $this->seedCouncil();
         $this->seedLicitacoes();
         $this->seedEducationInstitutions();
+        $this->seedLibraryDocuments();
     }
 
     /**
@@ -366,8 +369,6 @@ class DatabaseSeeder extends Seeder
                 </ul>
                 HTML,
             ],
-            ['title' => 'Biblioteca Virtual do CRN-9', 'slug' => 'biblioteca-virtual', 'content' => '<p>Acervo de publicações técnicas, cartilhas, livros e artigos produzidos ou selecionados pelo CRN-9 e por suas Câmaras Técnicas, à disposição da categoria e da sociedade.</p>
-<p>Parcerias com instituições como o Fórum Mineiro de Combate aos Agrotóxicos (FMCA) e o IDEC – Instituto de Defesa do Consumidor.</p>'],
             ['title' => 'Denúncia', 'slug' => 'denuncia', 'content' => <<<'HTML'
                 <p>O CRN-9 recebe e analisa denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética inscritos neste Regional, contra Pessoas Jurídicas e contra o exercício ilegal da profissão. Escolha abaixo o tipo de denúncia:</p>
                 <ul>
@@ -850,36 +851,6 @@ class DatabaseSeeder extends Seeder
 <p>COM DESCONTO de 5% para pagamento com vencimento em cota única no dia 09/02/2024 (utilizando o mesmo boleto de pagamento integral)</p>
 <p>SEM DESCONTO E SEM ACRÉSCIMO para vencimento cota única em 10/04/2024.</p>
 <ol><li>O PAGAMENTO DA ANUIDADE DE 2024 NÃO QUITA DÉBITOS ANTERIORES.</li><li>ANTECIPE A ATUALIZAÇÃO CADASTRAL DE SUA EMPRESA, ENTRE EM CONTATO PELO E-MAIL: pj.atendimento@crn9.org.br</li></ol>'],
-            ['title' => 'Relatório de Gestão 2025', 'slug' => 'biblioteca-item-relatorio-de-gestao-2025', 'content' => '<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Relatório de Gestão 2020/2023', 'slug' => 'biblioteca-item-relatorio-de-gestao-2020-2023', 'content' => '<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Projeto Aprimoramento da Atuação em Nutrição Clínica – ILPIs', 'slug' => 'biblioteca-item-projeto-aprimoramento-da-atuacao-em-nutricao-clinica-ilpis', 'content' => '<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Assistência Nutricional na Saúde', 'slug' => 'biblioteca-item-assistencia-nutricional-na-saude', 'content' => '<p>Assistência Nutricional na Saúde</p>
-<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Como o nutricionista pode desenvolver um trabalho de excelência em Instituições de Longa Permanência para Idosos (ILPI)?', 'slug' => 'biblioteca-item-como-o-nutricionista-pode-desenvolver-um-trabalho-de-excelencia-em-instituicoes-de-longa-permanencia-para-idosos-ilpi', 'content' => '<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Cartilha Câncer de Mama: Vamos falar sobre isso?', 'slug' => 'biblioteca-item-cartilha-cancer-de-mama-2022', 'content' => '<p>Um em cada três casos de câncer pode ser curado se for descoberto logo no início. Mas muitas pessoas, por medo ou desinformação, evitam o assunto e acabam atrasando o diagnóstico.</p>
-<p>Compartilhe!</p>'],
-            ['title' => 'Orientações para a execução do Programa Nacional de Alimentação Escolar (PNAE)', 'slug' => 'biblioteca-item-orientacoes-para-a-execucao-do-pnae', 'content' => '<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Livro: Tópicos em Ciências da Saúde – Volume VIII', 'slug' => 'biblioteca-item-livro-topicos-em-ciencias-da-saude-volume-viii', 'content' => '<p>Capítulo em destaque: “Histórico da formação do nutricionista, com ênfase na nutrição social: uma revisão narrativa”</p>
-<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Cartilha – Sarcopenia: classificação, diagnóstico e prevenção da doença', 'slug' => 'biblioteca-item-cartilha-sarcopenia-classificacao-diagnostico-e-prevencao-da-doenca', 'content' => '<p>Autoria: Câmara Técnica de Nutrição Clínica do CRN-9</p>
-<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Comida, memória e afeto: Minas Gerais 300 anos', 'slug' => 'biblioteca-item-comida-memoria-e-afeto-minas-gerais-300-anos', 'content' => '<p>Parceria: Conselho Regional de Nutricionistas da 9ª Região (CRN-9) – Regina Rodrigues de Oliveira</p>
-<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'Produção agrícola, ecossistemas e saúde do trabalhador – Uma abordagem multidisciplinar dos impactos dos agrotóxicos', 'slug' => 'biblioteca-item-producao-agricola-ecossistemas-e-saude-do-trabalhador-uma-abordagem-multidisciplinar-dos-impactos-dos-agrotoxicos', 'content' => '<p>Fórum Mineiro de Combate aos Agrotóxicos (FMCA)</p>
-<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
-            ['title' => 'As cinco dimensões dos Sistemas Alimentares no Brasil: uma revisão de literatura', 'slug' => 'biblioteca-item-as-cinco-dimensoes-dos-sistemas-alimentares-no-brasil-uma-revisao-de-literatura', 'content' => '<p>IDEC – Instituto de Defesa do Consumidor</p>
-<p>Compartilhe!</p>
-<p>Conteúdo complementar a ser detalhado pela equipe de comunicação do CRN-9.</p>'],
             ['title' => 'Visitas Técnicas e Fiscais', 'slug' => 'fiscalizacao-atividade-visitas-tecnicas', 'content' => '<p>As fiscais do CRN9 realizam visitas técnicas de orientação do exercício profissional, visitas fiscais e de apuração de denúncias. As visitas técnicas de orientação do exercício profissional são, geralmente, agendadas previamente e têm por objetivo orientar o nutricionista em seu local de trabalho, visando à melhoria da qualidade do serviço prestado. O instrumento utilizado durante estas visitas é o roteiro de visita técnica, RVT (padronizado pelo CFN e específico para a área de atuação em questão conforme previsto nas Resoluções do CFN nº 465/10 e nº 600/2018). Com a aplicação do roteiro, é possível verificar o cumprimento de atividades obrigatórias e complementares através do relato do profissional e da verificação de documentação comprobatória. Na ausência de RVT a fiscal elabora um relatório descritivo das atividades e estabelece o cumprimento daquelas previstas em legislação vigente. Para mais detalhes sobre as visitas técnicas, consulte o link “ Visitas Técnicas ”</p>
 <p>Além de visitas para orientação dos profissionais, são realizadas visitas fiscais sem agendamento, com o objetivo de exigir que empresas e instituições com atividades na área de alimentação e nutrição apresentem um Nutricionista RT pelo serviço ou que procedam ao Registro junto ao CRN9 quando este for obrigatório ou, ainda, que procedam à atualização de dados cadastrais, caso estejam desatualizados. Para todas as solicitações são dadas as devidas orientações e é determinado um prazo. As visitas fiscais também podem ser feitas para diligenciar sobre alguma situação ou para a apuração de denúncias. Em todas as situações é obrigatório que a fiscal se identifique ao entrevistado.</p>'],
             ['title' => 'Projeto Interiorização', 'slug' => 'fiscalizacao-atividade-projeto-interiorizacao', 'content' => '<p>As fiscais do CRN9 realizam visitas de rotina nos municípios onde estão localizadas a sede (BH e região metropolitana) e as delegacias (Ipatinga e região, Juiz de Fora e região, Montes Claros e região, Pouso Alegre e região e Uberlândia e Araguari). Para atender aos demais municípios, desde 2009 é realizado o Projeto Interiorização, que tem por objetivo identificar e atender às demandas de fiscalização do exercício profissional nos municípios que não são visitados rotineiramente, além de promover a politização, apropriação e valorização da profissão pelo interior de Minas Gerais. Neste projeto são programadas viagens das fiscais a diversos municípios de acordo com as demandas levantadas previamente e, além das visitas (técnicas, fiscais e de apuração de denúncias), também podem ocorrer palestras do projeto A Fiscalização do CRN9 Mais Perto de Você e reuniões com gestores para tratar assuntos específicos da área de fiscalização do CRN9.</p>
@@ -989,20 +960,6 @@ class DatabaseSeeder extends Seeder
                 ['title' => 'Cancelamento/Baixa Temporária de Inscrição', 'slug' => 'servico-cancelamento-baixa-temporaria-de-inscricao'],
                 ['title' => 'Prorrogação de Baixa Temporária', 'slug' => 'servico-prorrogacao-de-baixa-temporaria'],
             ],
-            'biblioteca-virtual' => [
-                ['title' => 'Relatório de Gestão 2025', 'slug' => 'biblioteca-item-relatorio-de-gestao-2025'],
-                ['title' => 'Relatório de Gestão 2020/2023', 'slug' => 'biblioteca-item-relatorio-de-gestao-2020-2023'],
-                ['title' => 'Projeto Aprimoramento da Atuação em Nutrição Clínica – ILPIs', 'slug' => 'biblioteca-item-projeto-aprimoramento-da-atuacao-em-nutricao-clinica-ilpis'],
-                ['title' => 'Assistência Nutricional na Saúde', 'slug' => 'biblioteca-item-assistencia-nutricional-na-saude'],
-                ['title' => 'Como o nutricionista pode desenvolver um trabalho de excelência em ILPI?', 'slug' => 'biblioteca-item-como-o-nutricionista-pode-desenvolver-um-trabalho-de-excelencia-em-instituicoes-de-longa-permanencia-para-idosos-ilpi'],
-                ['title' => 'Cartilha Câncer de Mama: Vamos falar sobre isso?', 'slug' => 'biblioteca-item-cartilha-cancer-de-mama-2022'],
-                ['title' => 'Orientações para a execução do PNAE', 'slug' => 'biblioteca-item-orientacoes-para-a-execucao-do-pnae'],
-                ['title' => 'Livro: Tópicos em Ciências da Saúde – Volume VIII', 'slug' => 'biblioteca-item-livro-topicos-em-ciencias-da-saude-volume-viii'],
-                ['title' => 'Cartilha – Sarcopenia: classificação, diagnóstico e prevenção da doença', 'slug' => 'biblioteca-item-cartilha-sarcopenia-classificacao-diagnostico-e-prevencao-da-doenca'],
-                ['title' => 'Comida, memória e afeto: Minas Gerais 300 anos', 'slug' => 'biblioteca-item-comida-memoria-e-afeto-minas-gerais-300-anos'],
-                ['title' => 'Produção agrícola, ecossistemas e saúde do trabalhador', 'slug' => 'biblioteca-item-producao-agricola-ecossistemas-e-saude-do-trabalhador-uma-abordagem-multidisciplinar-dos-impactos-dos-agrotoxicos'],
-                ['title' => 'As cinco dimensões dos Sistemas Alimentares no Brasil', 'slug' => 'biblioteca-item-as-cinco-dimensoes-dos-sistemas-alimentares-no-brasil-uma-revisao-de-literatura'],
-            ],
             'atividades-da-fiscalizacao' => [
                 ['title' => 'Visitas Técnicas e Fiscais', 'slug' => 'fiscalizacao-atividade-visitas-tecnicas'],
                 ['title' => 'Projeto Interiorização', 'slug' => 'fiscalizacao-atividade-projeto-interiorizacao'],
@@ -1079,7 +1036,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Deu ruim ou Tá de boa?', 'url' => '/paginas/deu-ruim-ou-ta-de-boa'],
                     ['label' => 'CRN-9 Divulga', 'url' => '/paginas/crn9-divulga'],
                     ['label' => 'Projetos de lei em andamento', 'url' => '/paginas/projetos-de-lei-em-andamento'],
-                    ['label' => 'Biblioteca Virtual do CRN-9', 'url' => '/paginas/biblioteca-virtual'],
+                    ['label' => 'Biblioteca Virtual do CRN-9', 'url' => '/biblioteca'],
                 ],
             ],
             [
@@ -1845,6 +1802,44 @@ class DatabaseSeeder extends Seeder
                     'is_active' => true,
                 ]
             );
+        }
+    }
+
+    /**
+     * Biblioteca Virtual do CRN-9: todos os 31 documentos publicados em
+     * https://crn9.org.br/biblioteca/, localizados via wp-sitemap-posts-
+     * documento-1.xml (a listagem só mostra 12 por vez atrás do botão
+     * "Carregar mais"), cada um com o link real do arquivo original.
+     */
+    private function seedLibraryDocuments(): void
+    {
+        $path = __DIR__.'/data/library_documents.json';
+        $items = json_decode(file_get_contents($path), true);
+
+        foreach ($items as $index => $item) {
+            $document = LibraryDocument::updateOrCreate(
+                ['slug' => $item['slug']],
+                [
+                    'title' => $item['title'],
+                    'slug' => $item['slug'],
+                    'description' => $item['description'],
+                    'published_at' => now()->subDays($index),
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+
+            foreach ($item['documents'] as $docIndex => $file) {
+                LibraryDocumentFile::updateOrCreate(
+                    ['library_document_id' => $document->id, 'label' => $file['label']],
+                    [
+                        'library_document_id' => $document->id,
+                        'label' => $file['label'],
+                        'external_url' => $file['url'],
+                        'sort_order' => $docIndex + 1,
+                    ]
+                );
+            }
         }
     }
 }
