@@ -326,9 +326,9 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Deu Ruim ou Tá de Boa?', 'slug' => 'deu-ruim-ou-ta-de-boa', 'content' => '<p>Nesta série, o CRN-9 aborda o Código de Ética e Conduta dos Nutricionistas de forma lúdica e atrativa, utilizando o jeito "mineirês" de se comunicar. O objetivo é alertar os(as) profissionais sobre o que pode ou não ser realizado em suas atuações.</p>
 <p>Os episódios são lançados nas redes sociais oficiais do CRN-9, quinzenalmente.</p>'],
             ['title' => 'CRN-9 Divulga', 'slug' => 'crn9-divulga', 'content' => '<p>O "CRN-9 Divulga" reúne pesquisas, levantamentos e materiais técnicos produzidos ou apoiados pelo Conselho, de interesse para a categoria e para a sociedade. Confira alguns dos temas já divulgados:</p>
-<h3>Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</h3>
-<h3>Utilização das Tecnologias de Informação e Comunicação (TICs) nas diferentes áreas de atuação do nutricionista</h3>
-<h3>Pesquisa sobre o perfil dos consumidores de produtos de origem animal no Brasil e sua percepção sobre impacto ambiental, bem-estar, qualidade e saúde</h3>'],
+<h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgTTnLakzcngTcDGAhXG2RXLGjQh0bUyjdnYIFTLkvy7wwZA/viewform" target="_blank" rel="noopener">Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</a></h3>
+<h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSf80nDeikb_Oi2IyMGDgzPSwnhvn0I2b1d6K620550EDjXZHQ/viewform" target="_blank" rel="noopener">Utilização das Tecnologias de Informação e Comunicação (TICs) nas diferentes áreas de atuação do nutricionista</a></h3>
+<h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSfMj-jPYxOnbWD27qCNg3ntzijsMUT48eNXV8NkRCktQl_WQA/viewform" target="_blank" rel="noopener">Pesquisa sobre o perfil dos consumidores de produtos de origem animal no Brasil e sua percepção sobre impacto ambiental, bem-estar, qualidade e saúde</a></h3>'],
             ['title' => 'Eleições CRN-9 2026/2029', 'slug' => 'eleicoes-crn-9-2026-2029', 'content' => <<<'HTML'
                 <p>Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no triênio 2026–2029.</p>
                 <p>Confira abaixo todas as informações que você precisa para participar do pleito.</p>
