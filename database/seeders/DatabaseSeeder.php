@@ -1025,7 +1025,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Legislação Regional', 'url' => 'https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio', 'external' => true],
                     ['label' => 'Legislação Federal', 'url' => 'https://cfn.org.br/legislacao/', 'external' => true],
                     ['label' => 'Links Importantes', 'url' => '/paginas/links-importantes'],
-                    ['label' => 'Oportunidade de emprego', 'url' => '/paginas/oportunidade-de-emprego'],
+                    ['label' => 'Oportunidade de emprego', 'url' => '/vagas'],
                 ],
             ],
             [
