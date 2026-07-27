@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\CouncilGroup;
+use App\Models\CouncilMember;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
@@ -116,11 +118,33 @@ class PublicPagesTest extends TestCase
         MunicipalityProfessionalCount::create([
             'municipality' => 'Belo Horizonte',
             'state' => 'MG',
-            'category' => 'Nutricionista',
-            'professionals_count' => 100,
+            'nutritionists_count' => 80,
+            'technicians_count' => 10,
+            'legal_entities_count' => 10,
+            'total_count' => 100,
         ]);
 
         $this->get(route('municipalities.index'))->assertStatus(200)->assertSee('Belo Horizonte');
+    }
+
+    public function test_council_index(): void
+    {
+        $group = CouncilGroup::create([
+            'name' => 'Diretoria',
+            'kind' => 'diretoria',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        CouncilMember::create([
+            'council_group_id' => $group->id,
+            'name' => 'Membro de Teste',
+            'role' => 'Presidente',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        $this->get(route('council.index'))->assertStatus(200)->assertSee('Membro de Teste');
     }
 
     public function test_search_finds_matching_news_and_pages(): void

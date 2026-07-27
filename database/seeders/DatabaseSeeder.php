@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Banner;
+use App\Models\CouncilGroup;
+use App\Models\CouncilMember;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
@@ -46,6 +48,7 @@ class DatabaseSeeder extends Seeder
         $this->seedMagazines();
         $this->seedInspectors();
         $this->seedMunicipalityCounts();
+        $this->seedCouncil();
     }
 
     /**
@@ -88,23 +91,146 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Links Importantes',
                 'slug' => 'links-importantes',
                 'content' => <<<'HTML'
-                    <p>Página em atualização. No site oficial anterior, esta seção reunia links de referência da categoria (legislação, portais parceiros e sistemas do CFN/CRN).</p>
-                    <p>Nota técnica: no momento da migração de conteúdo, a página equivalente em crn9.org.br retornava erro interno (HTTP 500). Assim que o time de comunicação do CRN-9 disponibilizar a lista atualizada de links, ela deve ser cadastrada aqui pelo painel administrativo.</p>
+                    <h2>Legislação e Ética Profissional</h2>
+                    <ul>
+                    <li><a href="https://www.cfn.org.br/wpcontent/uploads/resolucoes/Res_599_2018.html" target="_blank" rel="noopener">Resolução CFN 599/2018 — CÓDIGO DE ÉTICA E CONDUTA DO NUTRICIONISTA</a></li>
+                    <li><a href="https://www.cfn.org.br/wp-content/uploads/resolucoes/Res_333_2004.htm" target="_blank" rel="noopener">Resolução CFN nº 333/2010 — Código de ética do TND</a></li>
+                    </ul>
+                    <h2>Órgãos e Entidades Parceiras</h2>
+                    <ul>
+                    <li><a href="http://www.cfn.org.br" target="_blank" rel="noopener">CFN — Conselho Federal de Nutricionistas</a></li>
+                    <li><a href="http://www.fnn.org.br" target="_blank" rel="noopener">FNN — Federação Nacional de Nutricionistas</a></li>
+                    <li><a href="http://www.asbran.org.br" target="_blank" rel="noopener">ASBRAN — Associação Brasileira de Nutrição</a></li>
+                    <li><a href="http://portal.anvisa.gov.br" target="_blank" rel="noopener">ANVISA</a></li>
+                    <li><a href="http://www.saude.gov.br" target="_blank" rel="noopener">MINISTÉRIO DA SAÚDE</a></li>
+                    <li><a href="http://nutricao.saude.gov.br" target="_blank" rel="noopener">CGPAN — Coordenação Geral da Política de Alimentação e Nutrição</a></li>
+                    <li><a href="http://www.planalto.gov.br/consea" target="_blank" rel="noopener">CONSEA — Conselho Nacional de Segurança Alimentar</a></li>
+                    <li><a href="http://www.fnde.gov.br/" target="_blank" rel="noopener">FNDE — Fundo Nacional de Desenvolvimento da Educação</a></li>
+                    <li><a href="http://www.mte.gov.br/pat/" target="_blank" rel="noopener">PAT — Programa de Alimentação do Trabalhador</a></li>
+                    <li><a href="http://www.mda.gov.br" target="_blank" rel="noopener">MDA — Ministério do Desenvolvimento Agrário</a></li>
+                    <li><a href="http://www.mds.gov.br/" target="_blank" rel="noopener">MDS — Ministério do Desenvolvimento Social e Combate a Fome</a></li>
+                    <li><a href="http://www.rebrae.com.br/" target="_blank" rel="noopener">REBRAE — Rede Brasileira de Alimentação e Nutrição Escolar</a></li>
+                    </ul>
+                    <h2>Materiais de Educação Alimentar e Nutricional</h2>
+                    <ul>
+                    <li><a href="http://189.28.128.100/dab/docs/portaldab/publicacoes/guia_da_crianca_2019.pdf" target="_blank" rel="noopener">Guia Alimentar para Crianças Brasileiras Menores de 2 Anos</a></li>
+                    <li><a href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf" target="_blank" rel="noopener">Guia Alimentar para População Brasileira</a></li>
+                    <li><a href="https://cnn.cfn.org.br/application/index/consulta-nacional" target="_blank" rel="noopener">Consulta Nacional de Nutricionitas — Consulta de Nutricionistas Ativos</a></li>
+                    <li><a href="https://www.cfn.org.br/wp-content/uploads/2020/03/nota_coronavirus_3-1.pdf" target="_blank" rel="noopener">Covid-19 — Resoluções CFN</a></li>
+                    </ul>
+                    <h2>Legislação do Sistema CFN/CRN e da Profissão</h2>
+                    <ul>
+                    <li><a href="http://www.planalto.gov.br/ccivil_03/leis/1970-1979/L6583.htm" target="_blank" rel="noopener">LEI 6583/1978 — Cria o Sistema CFN – CRN</a></li>
+                    <li><a href="https://www2.camara.leg.br/legin/fed/decret/1980-1987/decreto-84444-30-janeiro-1980-433856-publicacaooriginal-1-pe.html" target="_blank" rel="noopener">Decreto 84.444/1980 — Regulamenta o Sistema CFN – CRN</a></li>
+                    <li><a href="http://www.planalto.gov.br/ccivil_03/leis/1989_1994/L8234.htm" target="_blank" rel="noopener">Lei 8234/1991 — Regulamenta a Profissão de Nutricionista</a></li>
+                    <li><a href="http://crn9.org.br/content/uploads/2014/09/Res_600_2018.pdf" target="_blank" rel="noopener">Resolução CFN 600/2018 — Definição das áreas de atuação do nutricionista e suas atribuições</a></li>
+                    <li><a href="https://www.cfn.org.br/wp-content/uploads/resolucoes/Res_465_2010.htm" target="_blank" rel="noopener">Resolução CFN 465/2010 — Programa Nacional de Alimentação Escolar – PNAE</a></li>
+                    <li><a href="https://www.cfn.org.br/wpcontent/uploads/resolucoes/Res_378_2005.htm" target="_blank" rel="noopener">Resolução CFN 378/2005 — LEGISLAÇÃO SOBRE MODALIDADE DE INSCRIÇÃO DA EMPRESA/INSTITUIÇÃO NO CRN9</a></li>
+                    <li><a href="http://www.cfn.org.br/wp-content/uploads/resolucoes/Res_576_2016.htm" target="_blank" rel="noopener">Resolução CFN 576/2016 — LEGISLAÇÃO SOBRE SOLICITAÇÃO, ANÁLISE, CONCESSÃO E ANOTAÇÃO DE RESPONSABILIDADE TÉCNICA</a></li>
+                    <li><a href="https://www.cfn.org.br/wp-content/uploads/resolucoes/Res_604_2018.html" target="_blank" rel="noopener">Resolução CFN nº 604/2018 — LEGISLAÇÃO SOBRE O TÉCNICO EM NUTRIÇÃO E DIETÉTICA (TND)</a></li>
+                    <li><a href="https://www.cfn.org.br/wp-content/uploads/resolucoes/Res_605_2018.htm" target="_blank" rel="noopener">Resolução CFN nº 604/2018 — Áreas de atuação e atribuições do TND</a></li>
+                    </ul>
+                    <h2>Área de Alimentação Coletiva — Tabelas de Composição de Alimentos</h2>
+                    <ul>
+                    <li><a href="http://www.tbca.net.br/" target="_blank" rel="noopener">Tabelas de Composição de Alimentos para Elaboração de Cardápio: Tabela TACO</a></li>
+                    <li><a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv50002.pdf" target="_blank" rel="noopener">Tabelas de Composição de Alimentos para Elaboração de Cardápio: Tabela IBGE</a></li>
+                    <li><a href="http://tabnut.dis.epm.br/" target="_blank" rel="noopener">Tabelas de Composição de Alimentos para Elaboração de Cardápio: Tabela Online UNIFESP</a></li>
+                    </ul>
+                    <h2>Programa de Alimentação do Trabalhador (PAT)</h2>
+                    <ul>
+                    <li><a href="https://www.gov.br/trabalho/pt-br/assuntos/fiscalizacao/programa-de-alimentacao-do-trabalhador-pat/sistema-pat" target="_blank" rel="noopener">Informações Gerais sobre o PAT</a></li>
+                    <li><a href="http://www3.mte.gov.br/sistemas/patnet/" target="_blank" rel="noopener">Novo link para consulta do PAT</a></li>
+                    <li><a href="http://189.28.128.100/nutricao/docs/legislacao/portaria66_25_08_06.pdf" target="_blank" rel="noopener">Parâmetros nutricionais do PAT</a></li>
+                    <li><a href="http://plataforma.redesan.ufrgs.br/biblioteca/pdf_bib.php?COD_ARQUIVO=14603" target="_blank" rel="noopener">Orientações para Educação Nutricional no PAT</a></li>
+                    <li><a href="http://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/23174647" target="_blank" rel="noopener">PORTARIA Nº 1.274, DE 7 DE JULHO DE 2016</a></li>
+                    </ul>
+                    <h2>Manual de Boas Práticas de Manipulação e POPs</h2>
+                    <ul>
+                    <li><a href="http://portal.anvisa.gov.br/documents/33916/388704/RESOLU%25C3%2587%25C3%2583O-RDC%2BN%2B216%2BDE%2B15%2BDE%2BSETEMBRO%2BDE%2B2004.pdf/23701496-925d-4d4d-99aa-9d479b316c4b" target="_blank" rel="noopener">RDC 216/04 sobre o regulamento técnicos de boas práticas para serviços de alimentação</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/10181/2718376/RDC_275_2002_COMP.pdf/fce9dac0-ae57-4de2-8cf9-e286a383f254" target="_blank" rel="noopener">RDC 275/02 sobre o regulamento técnicos de POPs e verificação de boas práticas de fabricação em estabelecimentos produtores/industrializadores de alimentos</a></li>
+                    <li><a href="http://www.ceasaminas.com.br/agroqualidade/portaria1428.asp" target="_blank" rel="noopener">Portaria ANVISA 1428/93   que trata sobre o &quot;Regulamento Técnico para Inspeção Sanitária de Alimentos&quot;, as &quot;Diretrizes para o Estabelecimento de Boas Práticas de Produção e de Prestação de Serviços (...)</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/33916/389979/Guia+de+Boas+Pr%C3%A1ticas+Nutricionais+para+Restaurantes+Coletivos/ce2a88ce-94da-4a09-8cae-19fb9596c3d6" target="_blank" rel="noopener">Guia de Boas Práticas Nutricionais para Restaurantes Coletivos</a></li>
+                    <li><a href="http://189.28.128.100/dab/docs/portaldab/publicacoes/guia_elaboracao_refeicoes_saudaveis.pdf" target="_blank" rel="noopener">Guia para a elaboração de refeições saudáveis em eventos</a></li>
+                    <li><a href="http://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/32825363/do1-2015-09-02-resolucao-rdc-n-43-de-1-de-setembro-de-2015-32825340" target="_blank" rel="noopener">RDC Nº 43/2015 - Dispõe sobre a prestação de serviços de alimentação em eventos de massa</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/33916/389979/Boas%2Bpraticas%2Bnutricionais.pdf/4cdbc1ed-a68b-4dd4-9dd7-099de516dd3f" target="_blank" rel="noopener">Guia de Boas Práticas Nutricionais – Documento de Referência</a></li>
+                    <li><a href="http://www.sindinutrisp.org.br/2014/arquivos/infoarquivo/773.pdf" target="_blank" rel="noopener">MBP e POP - Modelo básico para orientação profissional (sindinutrisp)</a></li>
+                    <li><a href="http://www2.crn4.org.br/pg/comunicacao/publicacoesdocrn-4" target="_blank" rel="noopener">Guia de elaboração de boas práticas para manipulação de alimentos</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/10181/5321364/MODELO+DE+MANUAL+DE+BOAS+PR%C3%81TICAS+PARA+BANCOS+DE+ALIMENTOS/25ade91a-1b6f-44a9-afba-64f9eb1bce0a?version=1.0" target="_blank" rel="noopener">Modelo de Manual de Boas Práticas para Banco de Alimentos</a></li>
+                    <li><a href="http://www.anvisa.gov.br/scriptsweb/anvisalegis/VisualizaDocumento.asp?ID=2243&amp;Versao=1" target="_blank" rel="noopener">RDC 23/2000 — Sobre o Manual de Procedimentos Básicos para Registro e Dispensa da Obrigatoriedade de Registro de Produtos Pertinentes à Área de Alimentos</a></li>
+                    <li><a href="https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=440852&amp;filename=Legislacao" target="_blank" rel="noopener">Lei 10.674/2003 — Sobre a obrigatoriedade de informar a presença de glúten nos rótulos dos alimentos</a></li>
+                    <li><a href="http://bvsms.saude.gov.br/bvs/saudelegis/anvisa/2003/anexo/anexo_res0359_23_12_2003.pdf" target="_blank" rel="noopener">RDC 359/2003 — Sobre Regulamento Técnico de Porções de Alimentos Embalados para Fins de Rotulagem Nutricional</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/33880/2568070/res0360_23_12_2003.pdf/5d4fc713-9c66-4512-b3c1-afee57e7d9bc" target="_blank" rel="noopener">RDC 360/2003 — Sobre o regulamento técnico de porções de alimentos para fins de rotulagem nutricional</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/%2033880/2568070/rdc0054_12_11_2012.pdf/c5ac23fd-974e-4f2c-9fbc-48f7e0a31864" target="_blank" rel="noopener">RDC 54/2012 — Sobre o Regulamento Técnico sobre Informação Nutricional Complementar</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/10181/2694583/RDC_26_2015_.pdf/b0a1e89b-e23d-452f-b029-a7bea26a698c" target="_blank" rel="noopener">RDC 26/2015 — Sobre os requisitos para rotulagem obrigatória dos principais alimentos que causam alergias alimentares</a></li>
+                    <li><a href="http://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/20794620/do1-2017-02-09-resolucao-rdc-n-136-de-8-de-fevereiro-de-2017-20794494" target="_blank" rel="noopener">RDC 136/2017 — Estabelece os requisitos para declaração obrigatória da presença de lactose nos rótulos dos alimentos</a></li>
+                    <li><a href="http://www.agricultura.gov.br/assuntos/inspecao/produtos-vegetal/legislacao-1/biblioteca-de-normas-vinhos-e-bebidas/portaria-no-326-de-30-de-julho-de-1997.pdf/view" target="_blank" rel="noopener">Portaria 326/97 — Sobre as Boas Práticas de Fabricação para estabelecimentos produtores/industrializadores de alimentos</a></li>
+                    <li><a href="http://portal.anvisa.gov.br/documents/33916/389979/Guia+de+Boas+Pr%C3%A1ticas+Nutricionais+para+P%C3%A3o+Franc%C3%AAs/a389f51c-7e4c-4496-a1dd-33de55a48ae1" target="_blank" rel="noopener">Guia de Boas Práticas Nutricionais Para o Pão Francês</a></li>
+                    </ul>
+                    <h2>Área de Alimentação Escolar (PNAE)</h2>
+                    <ul>
+                    <li><a href="https://www.fnde.gov.br/index.php/acesso-a-informacao/institucional/legislacao/item/13511-resolu%C3%A7%C3%A3o-n%C2%BA-6,-de-08-de-maio-de-2020" target="_blank" rel="noopener">Resolução/CD/FNDE 06/2020</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/ferramentas-de-apoio-ao-nutricionista/item/12820-plan-pnae-ferramenta-de-planejamento-de-card%C3%A1pio" target="_blank" rel="noopener">Ferramenta de Planejamento de Cardápio - PLAN PNAE</a></li>
+                    <li><a href="http://www.fnde.gov.br/index.php/acessibilidade/item/12142-iq-cosan" target="_blank" rel="noopener">Índice de Qualidade – Coordenação de Segurança Alimentar e Nutricional – IQ COSAN</a></li>
+                    <li><a href="http://www.ufrgs.br/cecane/downloads/" target="_blank" rel="noopener">Manual de Orientação para a Alimentação Escolar na Educação Infantil, Ensino Fundamental, Ensino Médio e na Educação de Jovens e Adultos</a></li>
+                    <li><a href="http://www.fnde.gov.br/component/k2/item/10532-31-de-mar%C3%A7o-de-2017" target="_blank" rel="noopener">Caderno de Referência - Alimentação Escolar para Estudantes com necessidades alimentares especiais</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-notas-tecnicas-pareceres-relatorios" target="_blank" rel="noopener">Links para diversas Notas Técnicas | Pareceres | Relatórios</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-notas-tecnicas-pareceres-relatorios" target="_blank" rel="noopener">NOTA TÉCNICA Alterações dos aspectos da Agricultura Familiar da Resolução CD/FNDE (...)</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-notas-tecnicas-pareceres-relatorios" target="_blank" rel="noopener">NOTA TÉCNICA Nº 1894784/2020/COSAN/CGPAE/DIRAE - Atualização das recomendações para o planejamento de cardápios das creches atendidas pelo Programa Nacional de Alimentação Escolar – PNAE.</a></li>
+                    <li><a href="https://www.cfn.org.br/wp-content/uploads/2015/07/Parecer-do-CFN-sobre-merenda-escolar.pdf" target="_blank" rel="noopener">Parecer CFN sobre inclusão do café na merenda escolar</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/5166-manual-para-aplica%C3%A7%C3%A3o-dos-testes-de-aceitabilidade-no-pnae" target="_blank" rel="noopener">Manual para aplicação dos testes de aceitabilidade no PNAE</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/10491-pnae-agricultura-familiar-2016" target="_blank" rel="noopener">PNAE – Agricultura Familiar</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/11122-boas-pr%C3%A1ticas-de-agricultura-familiar-para-a-alimenta%C3%A7%C3%A3o-escolar" target="_blank" rel="noopener">Boas práticas de agricultura familiar para a alimentação escolar</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/11122-boas-pr%C3%A1ticas-de-agricultura-familiar-para-a-alimenta%C3%A7%C3%A3o-escolar" target="_blank" rel="noopener">Boas práticas de agricultura familiar para a alimentação escolar</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/8595-manual-de-aquisi%C3%A7%C3%A3o-de-produtos-da-agricultura-familiar-para-a-alimenta%C3%A7%C3%A3o-escolar" target="_blank" rel="noopener">Manual de Aquisição de Produtos da Agricultura Familiar para a Alimentação Escolar</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/5842-folder-pnae" target="_blank" rel="noopener">Folders PNAE</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas?limitstart=0" target="_blank" rel="noopener">Manuais e Cartilhas PNAE</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas?start=10" target="_blank" rel="noopener">Manual de apoio para as atividades técnicas do Nutricionista no  mbito do PNAE</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/9483-manual-orientativo-para-forma%C3%A7%C3%A3o-de-manipuladores-de-alimentos" target="_blank" rel="noopener">Manual orientativo para formação de manipuladores de alimentos</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/6805-manual-de-instru%C3%A7%C3%B5es-para-o-cadastro-de-nutricionistas-no-simec" target="_blank" rel="noopener">Manual de instruções para o cadastro de nutricionistas no SIMEC</a></li>
+                    <li><a href="https://www.fnde.gov.br/index.php/programas/pnae/pnae-area-gestores/pnae-manuais-cartilhas/item/5320-ferramenta-de-boas-pr%C3%A1ticas-de-fabrica%C3%A7%C3%A3o-de-alimentos" target="_blank" rel="noopener">Manual de Boas Práticas na Alimentação Escolar</a></li>
+                    <li><a href="http://www.ufrgs.br/cecane/downloads/" target="_blank" rel="noopener">Materiais de Apoio disponíveis pelo Centro Colaborador em Alimentação e Nutrição do Escolar (CECANE) da UFRGS</a></li>
+                    <li><a href="http://cecanesc.ufsc.br/core/getarquivo/idarquivo/685" target="_blank" rel="noopener">Programa para Elaboração de Manual de Boas Práticas — Plano de trabalho anual específico das atividades</a></li>
+                    <li><a href="http://www.fao.org/3/a-i7519o.pdf" target="_blank" rel="noopener">Material de Educação alimentar e nutricional para escolares — Manual de Educação Alimentar e Nutricional Através da Horta Escolar</a></li>
+                    <li><a href="http://189.28.128.100/dab/docs/portaldab/publicacoes/caderno_atividades_educacao_infantil.pdf" target="_blank" rel="noopener">Caderno de Atividades - Promoção da Alimentação Adequada e Saudável - Educação Infantil</a></li>
+                    <li><a href="http://189.28.128.100/dab/docs/portaldab/publicacoes/caderno_atividades_ensino_fundamental_I.pdf" target="_blank" rel="noopener">Caderno de Atividades - Promoção da Alimentação Adequada e Saudável - Ensino Fundamental I</a></li>
+                    <li><a href="https://bvsms.saude.gov.br/bvs/publicacoes/planos_aula.pdf" target="_blank" rel="noopener">Educação nutricional para alunos do ensino fundamental</a></li>
+                    <li><a href="http://189.28.128.100/dab/docs/portaldab/documentos/manual_do_aluno.pdf" target="_blank" rel="noopener">Manual do aluno: promovendo a alimentação saudável</a></li>
+                    </ul>
                     HTML,
             ],
             ['title' => 'O CRN-9', 'slug' => 'o-crn-9', 'content' => '<p>O CONSELHO REGIONAL DE NUTRIÇÃO DA 9ª REGIÃO é uma autarquia sem fins lucrativos, de interesse público, com poder delegado pela União para orientar, disciplinar e fiscalizar o exercício e as atividades da profissão de Nutricionista e Técnico em Nutrição e Dietética no estado de Minas Gerais, em defesa da sociedade. É um órgão do Sistema Conselho Federal de Nutrição/Conselhos Regionais de Nutrição (CFN/CRN).</p>
 <p>O Sistema CFN/CRN tem como órgão central o Conselho Federal de Nutrição (CFN) e é integrado, atualmente, por onze Conselhos Regionais de Nutrição que representam os diversos Estados brasileiros. O Sistema se mantém com a arrecadação proveniente de anuidades, taxas, multas e emolumentos (taxa cobrada pela expedição de um documento), recolhidos por pessoas físicas (nutricionistas e técnicos) e jurídicas (empresas e instituições). Do montante de recursos arrecadados em todos os onze regionais, 20% é destinado ao CFN.</p>
 <p>O CRN-9 atua em Minas Gerais, tendo sua sede em Belo Horizonte e cinco delegacias, nas cidades de Juiz de Fora, Montes Claros, Pouso Alegre, Uberlândia e Ipatinga.</p>'],
-            ['title' => 'Plenário', 'slug' => 'plenario', 'content' => '<p>O Plenário é o órgão máximo de deliberação do CRN-9, responsável por definir as diretrizes de atuação do Conselho, aprovar seu orçamento e prestação de contas, e decidir sobre processos éticos e administrativos de sua competência.</p>
-<p>É composto pela Diretoria (Presidente, Vice-Presidente, Diretora Secretária e Diretora Tesoureira) e por Conselheiros efetivos e suplentes, todos Nutricionistas eleitos pela categoria para mandatos de três anos, conforme o Regimento Interno do CRN-9 e as resoluções do Conselho Federal de Nutricionistas (CFN).</p>
-<p>A composição nominal atual da Diretoria e do Plenário está disponível para consulta pública no Portal da Transparência do CRN-9.</p>'],
-            ['title' => 'Política de Ingresso', 'slug' => 'politica-de-ingresso', 'content' => '<ul><li>Projeto "Comida de Verdade na Escola – A importância da Nutrição e da Agricultura Familiar no Programa Nacional de Alimentação Escolar – PNAE"</li></ul>
-<ul><li>Etapa Seleção de Bolsistas</li><li>Seleção de Bolsistas – Chamamento para entrevista</li><li>Resultado da seleção de Bolsistas</li><li>Cronograma de seleção de bolsistas</li><li>Resultado homologado após o prazo recursal</li></ul>'],
-            ['title' => 'Concurso Público', 'slug' => 'concurso-publico', 'content' => '<p>O CRN9 é uma Autarquia Federal e, dessa forma, parte integrante da Administração Pública Indireta. Conforme o art. 37, II, da Constituição Federal, a investidura em cargo ou emprego público depende de aprovação prévia em concurso público de provas ou de provas e títulos, ressalvadas as nomeações para cargo em comissão declarado em lei de livre nomeação e exoneração.</p>
-<p>Os candidatos aprovados serão convocados conforme a necessidade do órgão, durante o período de vigência do concurso.</p>
-<p>O cadastro de reserva, ou banco de aprovados, é utilizado para contratações futuras do órgão, quando a Administração Pública não tem certeza de quantos servidores serão necessários para seu quadro de pessoal, ou quantas vagas vão surgir durante a validade do concurso. O cadastro de reserva funciona como uma "fila de espera".</p>
-<p>As convocações são feitas por meio de publicação no Diário Oficial da União (DOU) e envio de correspondência e/ou e-mail para o candidato. Para isso, é importante que o mesmo mantenha seus dados atualizados junto ao CRN9 pelo endereço eletrônico crn9@crn9.org.br.</p>
-<p>Acompanhe editais e resultados no Portal de Transparência do CRN9.</p>'],
+            ['title' => 'Política de Ingresso', 'slug' => 'politica-de-ingresso', 'content' => <<<'HTML'
+                <ul>
+                <li>Projeto "Comida de Verdade na Escola – A importância da Nutrição e da Agricultura Familiar no Programa Nacional de Alimentação Escolar – PNAE"
+                <ul>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/02/ETAPA-SELECAO-BOLSISTAS-2021____________.pdf" target="_blank" rel="noopener">Etapa Seleção de Bolsistas</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/02/SELECAO-DE-BOLSISTAS-CHAMAMENTO-PARA-ENTREVISTA.pdf" target="_blank" rel="noopener">Seleção de Bolsistas – Chamamento para entrevista</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/02/Bolsistas-apos-as-entrevistas.xlsx" target="_blank" rel="noopener">Resultado da seleção de Bolsistas</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/02/CRONOGRAMA-SELECAO-BOLSISTAS_.pdf" target="_blank" rel="noopener">Cronograma de seleção de bolsistas</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/02/Relacao_0261897_RESULTADO_BOLSISTAS_PROJETO_COMIDA_VERDADE.pdf" target="_blank" rel="noopener">Resultado homologado após o prazo recursal</a></li>
+                </ul>
+                </li>
+                </ul>
+                HTML,
+            ],
+            ['title' => 'Concurso Público', 'slug' => 'concurso-publico', 'content' => <<<'HTML'
+                <h4>• Qual a forma de ingresso no CRN9?</h4>
+                <p>O CRN9 é uma Autarquia Federal e, dessa forma, parte integrante da Administração Pública Indireta. Conforme o art. 37, II, da Constituição Federal, a investidura em cargo ou emprego público depende de aprovação prévia em concurso público de provas ou de provas e títulos, ressalvadas as nomeações para cargo em comissão declarado em lei de livre nomeação e exoneração.</p>
+                <h4>• Fui aprovado no concurso. Tenho garantia de que serei convocado?</h4>
+                <p>Não. Os candidatos aprovados serão convocados conforme a necessidade do órgão, durante o período de vigência do concurso.</p>
+                <h4>• O que é o cadastro de reserva?</h4>
+                <p>O cadastro de reserva, ou banco de aprovados, é utilizado para contratações futuras do órgão, quando a Administração Pública não tem certeza de quantos servidores serão necessários para seu quadro de pessoal, ou quantas vagas vão surgir durante a validade do concurso (dois anos contados a partir de 19/02/2020, com possibilidade de prorrogação por igual período). O cadastro de reserva funciona como uma “fila de espera”.</p>
+                <h4>Atenção: O concurso 01/2019, homologado em 20/02/2020, foi prorrogado até 19/02/2024.</h4>
+                <h4>• Como são feitas as convocações dos candidatos aprovados?</h4>
+                <p>As convocações são feitas por meio de publicação no Diário Oficial da União (DOU) e envio de correspondência e/ou e-mail para o candidato. Para isso, é importante que o mesmo mantenha seus dados atualizados junto ao CRN9 pelo endereço eletrônico crn9@crn9.org.br.</p>
+                <h4>• Como posso acompanhar as convocações do concurso do CRN9?</h4>
+                <p>No Portal de Transparência do CRN9: <a target="_blank" rel="noopener" href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/Listas?id=d01136e8-28ae-4ac7-bb39-4aa351709161">Portal da Transparência </a></p>
+                <h4>• Qual o quadro atual de funcionários do CRN9?</h4>
+                <p>No Portal de Transparência do CRN9: <a target="_blank" rel="noopener" href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/Conteudos?id=aa1437dd-3a16-4bca-96f2-cdd5e3c8803e">Portal da Transparência</a></p>
+                HTML,
+            ],
             ['title' => 'Licitações', 'slug' => 'licitacoes', 'content' => '<h3>Pregão Eletrônico Nº 90005/2024</h3>
 <p>Contratação de consultoria especializada em segurança da informação. Edital, anexos e esclarecimentos disponíveis para consulta.</p>
 <h3>Pregão Eletrônico nº 90003/2024</h3>
@@ -842,7 +968,7 @@ class DatabaseSeeder extends Seeder
                 'label' => 'Conselho',
                 'children' => [
                     ['label' => 'O CRN9', 'url' => '/paginas/o-crn-9'],
-                    ['label' => 'Plenário', 'url' => '/paginas/plenario'],
+                    ['label' => 'Plenário', 'url' => '/plenario'],
                     ['label' => 'Política de ingresso', 'url' => '/paginas/politica-de-ingresso'],
                     ['label' => 'Concurso público', 'url' => '/paginas/concurso-publico'],
                     ['label' => 'Licitações', 'url' => '/paginas/licitacoes'],
@@ -891,7 +1017,7 @@ class DatabaseSeeder extends Seeder
                 'label' => 'Orientação',
                 'children' => [
                     ['label' => 'Legislação Regional', 'url' => 'https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio', 'external' => true],
-                    ['label' => 'Legislação Federal', 'url' => 'http://resolucao.cfn.org.br/', 'external' => true],
+                    ['label' => 'Legislação Federal', 'url' => 'https://cfn.org.br/legislacao/', 'external' => true],
                     ['label' => 'Links Importantes', 'url' => '/paginas/links-importantes'],
                     ['label' => 'Oportunidade de emprego', 'url' => '/paginas/oportunidade-de-emprego'],
                 ],
@@ -1442,6 +1568,45 @@ class DatabaseSeeder extends Seeder
                     'reference_date' => '2024-08-01',
                 ]
             );
+        }
+    }
+
+    /**
+     * Plenário do CRN-9 (Diretoria, Comissões, Câmaras Técnicas), migrado de
+     * https://crn9.org.br/plenario/ (27/07/2026). As Câmaras Técnicas VI a IX
+     * estão sem membros designados também no site de origem.
+     */
+    private function seedCouncil(): void
+    {
+        $path = __DIR__.'/data/council_plenario.json';
+        $groups = json_decode(file_get_contents($path), true);
+
+        foreach ($groups as $group) {
+            $councilGroup = CouncilGroup::updateOrCreate(
+                ['name' => $group['group']],
+                [
+                    'name' => $group['group'],
+                    'kind' => $group['kind'],
+                    'contact_email' => $group['contact_email'],
+                    'sort_order' => $group['sort_order'],
+                    'is_active' => true,
+                ]
+            );
+
+            foreach ($group['members'] as $member) {
+                CouncilMember::updateOrCreate(
+                    ['council_group_id' => $councilGroup->id, 'name' => $member['name']],
+                    [
+                        'council_group_id' => $councilGroup->id,
+                        'name' => $member['name'],
+                        'role' => $member['role'],
+                        'registration_number' => $member['registration_number'],
+                        'bio' => $member['bio'],
+                        'sort_order' => $member['sort_order'],
+                        'is_active' => true,
+                    ]
+                );
+            }
         }
     }
 }

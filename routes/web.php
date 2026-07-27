@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CouncilController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
@@ -26,6 +27,8 @@ Route::get('/vagas/{job:slug}', [JobListingController::class, 'show'])->name('jo
 Route::get('/revistas', [MagazineController::class, 'index'])->name('magazines.index');
 
 Route::get('/fiscalizacao', InspectorController::class)->name('inspectors.index');
+
+Route::get('/plenario', CouncilController::class)->name('council.index');
 
 Route::get('/profissionais-por-municipio', MunicipalityController::class)->name('municipalities.index');
 
