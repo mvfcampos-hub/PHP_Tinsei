@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CouncilController;
+use App\Http\Controllers\EducationInstitutionController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
@@ -35,5 +36,7 @@ Route::get('/licitacoes', [LicitacaoController::class, 'index'])->name('licitaco
 Route::get('/licitacoes/{licitacao:slug}', [LicitacaoController::class, 'show'])->name('licitacoes.show');
 
 Route::get('/profissionais-por-municipio', MunicipalityController::class)->name('municipalities.index');
+
+Route::get('/instituicoes-de-ensino', [EducationInstitutionController::class, 'index'])->name('institutions.index');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');

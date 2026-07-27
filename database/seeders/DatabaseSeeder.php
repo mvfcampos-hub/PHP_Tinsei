@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Banner;
 use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
+use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
@@ -52,6 +53,7 @@ class DatabaseSeeder extends Seeder
         $this->seedMunicipalityCounts();
         $this->seedCouncil();
         $this->seedLicitacoes();
+        $this->seedEducationInstitutions();
     }
 
     /**
@@ -302,8 +304,6 @@ class DatabaseSeeder extends Seeder
 <p>E-mail: crn9@crn9.org.br</p>'],
             ['title' => 'Ouvidoria', 'slug' => 'ouvidoria', 'content' => '<p>A Ouvidoria do CRN-9 é um canal exclusivo para o registro de sugestões, elogios, reclamações ou denúncias quanto aos serviços prestados pelo Conselho e que não tenham sido atendidos no prazo regulamentar pelos canais de atendimento.</p>
 <p>Registre sua manifestação no sistema E-OUV do Governo Federal.</p>'],
-            ['title' => 'Instituições de Ensino', 'slug' => 'instituicoes-de-ensino', 'content' => '<p>Confira a lista de Instituições de Ensino Superior que oferecem o Curso de Nutrição e as Instituições de Ensino que ofertam o curso de TND em Minas Gerais.</p>
-<p>A lista completa (IES – Minas Gerais) está disponível para download junto à Secretaria do CRN-9.</p>'],
             ['title' => 'Convênios', 'slug' => 'convenios', 'content' => '<p>A Qualicorp trabalha em parceria com diversos órgãos públicos e entidades de classe para oferecer benefícios em saúde para os profissionais inscritos no CRN-9 e seus familiares.</p>
 <p>Consulte as condições vigentes diretamente com a Qualicorp Saúde.</p>'],
             ['title' => 'Projetos de Lei em Andamento', 'slug' => 'projetos-de-lei-em-andamento', 'content' => '<p>Acompanhamento dos Projetos de Lei de interesse da categoria, monitorados pelo Conselho Federal de Nutricionistas (CFN) em conjunto com os Conselhos Regionais.</p>'],
@@ -1074,7 +1074,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Ouvidoria', 'url' => '/paginas/ouvidoria'],
                     ['label' => 'Contato', 'url' => '/paginas/fale-conosco'],
                     ['label' => 'Convênios', 'url' => '/paginas/convenios'],
-                    ['label' => 'Instituições de Ensino', 'url' => '/paginas/instituicoes-de-ensino'],
+                    ['label' => 'Instituições de Ensino', 'url' => '/instituicoes-de-ensino'],
                     ['label' => 'Eleições CRN-9 2026/2029', 'url' => '/paginas/eleicoes-crn-9-2026-2029'],
                     ['label' => 'Material de Campanha – CHAPA 1', 'url' => '/paginas/chapa-1-eleicoes-2026-2029'],
                     ['label' => 'Material de Campanha – CHAPA 2', 'url' => '/paginas/chapa-2-eleicoes-2026-2029'],
@@ -1694,6 +1694,33 @@ class DatabaseSeeder extends Seeder
                     ]
                 );
             }
+        }
+    }
+
+    /**
+     * Instituições de Ensino (cursos de graduação em Nutrição em Minas
+     * Gerais) fornecidas pelo CRN-9 em planilha (IES - Minas Gerais).
+     * Este mesmo layout de planilha pode ser reenviado pelo painel
+     * administrativo para atualizar a base.
+     */
+    private function seedEducationInstitutions(): void
+    {
+        $path = __DIR__.'/data/education_institutions.json';
+        $items = json_decode(file_get_contents($path), true);
+
+        foreach ($items as $index => $item) {
+            EducationInstitution::updateOrCreate(
+                ['name_key' => EducationInstitution::normalizeKey($item['nome'])],
+                [
+                    'name' => $item['nome'],
+                    'address' => $item['endereco'] ?: null,
+                    'city' => $item['cidade'] ?: null,
+                    'phone' => $item['telefone'] ?: null,
+                    'email' => $item['email'] ?: null,
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
         }
     }
 }

@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
+use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
@@ -173,6 +174,19 @@ class PublicPagesTest extends TestCase
 
         $this->get(route('licitacoes.index'))->assertStatus(200)->assertSee($licitacao->title);
         $this->get(route('licitacoes.show', $licitacao))->assertStatus(200)->assertSee('Edital de Teste');
+    }
+
+    public function test_education_institutions_index(): void
+    {
+        EducationInstitution::create([
+            'name' => 'Faculdade de Teste',
+            'name_key' => 'FACULDADE DE TESTE',
+            'city' => 'Belo Horizonte',
+            'is_active' => true,
+        ]);
+
+        $this->get(route('institutions.index'))->assertStatus(200)->assertSee('Faculdade de Teste');
+        $this->get(route('institutions.index', ['q' => 'Belo Horizonte']))->assertStatus(200)->assertSee('Faculdade de Teste');
     }
 
     public function test_search_finds_matching_news_and_pages(): void
