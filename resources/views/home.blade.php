@@ -231,7 +231,7 @@
     @if ($secondaryBanners->isNotEmpty())
         <section class="bg-slate-50 border-t border-slate-200">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <div class="grid sm:grid-cols-2 gap-6">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ($secondaryBanners as $banner)
                         <a href="{{ $banner->link_url ?? '#' }}" class="group relative rounded-2xl overflow-hidden h-56 block shadow-sm hover:shadow-xl transition-shadow">
                             <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">

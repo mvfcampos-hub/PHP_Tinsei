@@ -326,10 +326,46 @@ class DatabaseSeeder extends Seeder
 <h3>Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</h3>
 <h3>Utilização das Tecnologias de Informação e Comunicação (TICs) nas diferentes áreas de atuação do nutricionista</h3>
 <h3>Pesquisa sobre o perfil dos consumidores de produtos de origem animal no Brasil e sua percepção sobre impacto ambiental, bem-estar, qualidade e saúde</h3>'],
-            ['title' => 'Eleições CRN-9 2026/2029', 'slug' => 'eleicoes-crn-9-2026-2029', 'content' => '<p>Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no triênio 2026–2029.</p>
-<p>Confira as chapas inscritas nas páginas de Material de Campanha, o cronograma do processo eleitoral e as orientações para votação (geração de senha e regularização de situação cadastral).</p>'],
-            ['title' => 'Material de Campanha – Chapa 1', 'slug' => 'chapa-1-eleicoes-2026-2029', 'content' => '<p>Materiais de campanha da Chapa 1 – Conectar Nutrição, inscrita no processo eleitoral do CRN-9 para a gestão 2026/2029.</p>'],
-            ['title' => 'Material de Campanha – Chapa 2', 'slug' => 'chapa-2-eleicoes-2026-2029', 'content' => '<p>Materiais de campanha da Chapa 2 – Nova Rota, inscrita no processo eleitoral do CRN-9 para a gestão 2026/2029.</p>'],
+            ['title' => 'Eleições CRN-9 2026/2029', 'slug' => 'eleicoes-crn-9-2026-2029', 'content' => <<<'HTML'
+                <p>Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no triênio 2026–2029.</p>
+                <p>Confira abaixo todas as informações que você precisa para participar do pleito.</p>
+                <h2>Material de Campanha</h2>
+                <ul>
+                <li><a href="/paginas/chapa-1-eleicoes-2026-2029">Material de Campanha da Chapa 1 – Conectar Nutrição</a></li>
+                <li><a href="/paginas/chapa-2-eleicoes-2026-2029">Material de Campanha da Chapa 2 – Nova Rota</a></li>
+                </ul>
+                <h2>Notícias sobre o processo eleitoral</h2>
+                <ul>
+                <li><a href="https://crn9.org.br/atencao-nutricionista-gere-sua-senha-para-votar-nas-eleicoes-do-crn-9/" target="_blank" rel="noopener">Atenção, nutricionista: gere sua senha para votar nas eleições do CRN-9</a></li>
+                <li><a href="/noticias/publicado-o-edital-com-o-registro-definitivo-das-chapas-para-as-eleicoes-do-crn-9">Publicado o edital com o registro definitivo das chapas para as eleições do CRN-9</a></li>
+                <li><a href="/noticias/eleicoes-crn-9-participacao-e-democracia-para-a-categoria">Eleições CRN-9: participação e democracia para a categoria</a></li>
+                <li><a href="/noticias/regularize-sua-situacao-e-participe-da-eleicao-20262029-do-crn-9">Regularize sua situação e participe da eleição 2026/2029 do CRN-9</a></li>
+                <li><a href="/noticias/eleicoes-crn-9-edital-com-a-inscricao-das-chapas-e-publicado-no-diario-oficial-da-uniao">Eleições CRN-9: Edital com a inscrição das chapas é publicado no Diário Oficial da União</a></li>
+                <li><a href="/noticias/crn9-divulga-cronograma-do-processo-eleitoral-para-a-gestao-20262029">CRN9 divulga cronograma do Processo Eleitoral para a Gestão 2026/2029</a></li>
+                <li><a href="/noticias/crn9-publica-aviso-de-eleicao-para-a-gestao-20262029">CRN9 publica Aviso de Eleição para a Gestão 2026/2029</a></li>
+                </ul>
+                HTML,
+            ],
+            ['title' => 'Material de Campanha – Chapa 1', 'slug' => 'chapa-1-eleicoes-2026-2029', 'content' => <<<'HTML'
+                <p><a href="/paginas/eleicoes-crn-9-2026-2029">← Voltar para Eleições CRN-9 2026/2029</a></p>
+                <h2>Chapa 1 – Conectar Nutrição</h2>
+                <ul>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2026/02/Propostas_CHAPA_1_CONECTAR_NUTRICAO__1_-1.pdf" target="_blank" rel="noopener">Propostas – Chapa 1 Conectar Nutrição</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Material_2___Conectar_Nutricao.pdf" target="_blank" rel="noopener">Material de Campanha – 2</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/material_3_Projeto_Conectar_Nutricao___Chapa_1_1_.pdf" target="_blank" rel="noopener">Material de Campanha – 3</a></li>
+                </ul>
+                HTML,
+            ],
+            ['title' => 'Material de Campanha – Chapa 2', 'slug' => 'chapa-2-eleicoes-2026-2029', 'content' => <<<'HTML'
+                <p><a href="/paginas/eleicoes-crn-9-2026-2029">← Voltar para Eleições CRN-9 2026/2029</a></p>
+                <h2>Chapa 2 – Nova Rota</h2>
+                <ul>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2026/02/Chapa_Nova_Rota___material-1.pdf" target="_blank" rel="noopener">Propostas – Chapa 2 Nova Rota</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Material_2___Nova_Rota.pdf" target="_blank" rel="noopener">Material de Campanha – 2</a></li>
+                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Material_3_CHAPA_2_NOVA_ROTA_Plano_de_Trabalho.pdf" target="_blank" rel="noopener">Material de Campanha – 3 (Plano de Trabalho)</a></li>
+                </ul>
+                HTML,
+            ],
             ['title' => 'Biblioteca Virtual do CRN-9', 'slug' => 'biblioteca-virtual', 'content' => '<p>Acervo de publicações técnicas, cartilhas, livros e artigos produzidos ou selecionados pelo CRN-9 e por suas Câmaras Técnicas, à disposição da categoria e da sociedade.</p>
 <p>Parcerias com instituições como o Fórum Mineiro de Combate aos Agrotóxicos (FMCA) e o IDEC – Instituto de Defesa do Consumidor.</p>'],
             ['title' => 'Denúncia', 'slug' => 'denuncia', 'content' => <<<'HTML'
@@ -1071,13 +1107,15 @@ class DatabaseSeeder extends Seeder
                 'children' => [
                     ['label' => 'Profissionais por Municípios', 'url' => '/profissionais-por-municipio'],
                     ['label' => 'Encontre um Nutricionista', 'url' => 'https://cnn.cfn.org.br/application/index/consulta-nacional', 'external' => true],
+                    ['label' => 'Instituições de Ensino', 'url' => '/instituicoes-de-ensino'],
+                ],
+            ],
+            [
+                'label' => 'Outros',
+                'children' => [
                     ['label' => 'Ouvidoria', 'url' => '/paginas/ouvidoria'],
                     ['label' => 'Contato', 'url' => '/paginas/fale-conosco'],
                     ['label' => 'Convênios', 'url' => '/paginas/convenios'],
-                    ['label' => 'Instituições de Ensino', 'url' => '/instituicoes-de-ensino'],
-                    ['label' => 'Eleições CRN-9 2026/2029', 'url' => '/paginas/eleicoes-crn-9-2026-2029'],
-                    ['label' => 'Material de Campanha – CHAPA 1', 'url' => '/paginas/chapa-1-eleicoes-2026-2029'],
-                    ['label' => 'Material de Campanha – CHAPA 2', 'url' => '/paginas/chapa-2-eleicoes-2026-2029'],
                 ],
             ],
         ];
@@ -1472,6 +1510,7 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-aviso-full.png'],
             ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => 'ilpis-full.png'],
             ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes', 'image' => null],
+            ['title' => 'Eleições CR9 2026/2029', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => null],
         ];
 
         foreach ($items as $item) {
