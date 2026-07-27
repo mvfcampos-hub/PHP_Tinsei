@@ -17,7 +17,7 @@ class HomeController extends Controller
             'secondaryBanners' => Banner::active()->placement('home_secondary')->get(),
             'featuredNews' => News::published()->where('is_featured', true)->latest('published_at')->take(3)->get(),
             'latestNews' => News::published()->latest('published_at')->take(4)->get(),
-            'upcomingEvents' => EventItem::upcoming()->take(4)->get(),
+            'upcomingEvents' => EventItem::upcoming()->take(6)->get(),
             'stats' => [
                 'fiscais' => Inspector::active()->count(),
                 'unidades' => Inspector::active()->pluck('region')->unique()->count(),
