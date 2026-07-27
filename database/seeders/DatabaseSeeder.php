@@ -1477,6 +1477,40 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Dia do Nutricionista 2026', 'location' => 'Belo Horizonte/MG', 'starts_at' => now()->addDays(45), 'is_featured' => true],
             ['title' => 'A Fiscalização do CRN-9 mais perto de você', 'location' => 'Regional Sul de Minas', 'starts_at' => now()->addDays(20), 'is_featured' => false],
             ['title' => 'Plantão de Orientação Ética On-line', 'location' => 'Transmissão on-line', 'starts_at' => now()->addDays(10), 'is_featured' => false],
+            [
+                'title' => '2º Congresso Mineiro de Nutrição Plena',
+                'location' => 'UniBH – Belo Horizonte, MG',
+                'starts_at' => '2026-08-15 08:00:00',
+                'is_featured' => true,
+                'external_url' => 'https://www.sympla.com.br/evento/2-congresso-mineiro-de-nutricao-plena/3420595',
+                'description' => '<p>Evento completo voltado para profissionais e estudantes de saúde, com foco em conhecimento de ponta e networking.</p><p>Ingressos: lote promocional a partir de R$ 297,00.</p>',
+            ],
+            [
+                'title' => 'Nutrição Brasil (Imersão Belo Horizonte)',
+                'location' => 'Belo Horizonte, MG',
+                'starts_at' => '2026-08-01 08:00:00',
+                'is_featured' => false,
+                'external_url' => 'https://www.instagram.com/nutricaobrasil.expo/',
+                'description' => '<p>Imersão de um dia com foco nas discussões do "Novo Corpo" (metabolismo, mente e músculos) impactado por medicamentos, estética e ciência.</p><p>Data exata dentro de agosto de 2026 a confirmar pelos organizadores.</p>',
+            ],
+            [
+                'title' => 'Simpósio Mineiro de Nutrologia 2026',
+                'location' => null,
+                'starts_at' => '2026-10-16 08:00:00',
+                'ends_at' => '2026-10-17 18:00:00',
+                'is_featured' => false,
+                'external_url' => 'https://www.instagram.com/p/DXfudfBEWTy/',
+                'description' => '<p>Atualização científica em obesidade, nutrição hospitalar, oncologia, comportamento alimentar e medicina de precisão.</p>',
+            ],
+            [
+                'title' => '5º Congresso Nutrita de Nutrição Clínica e Esportiva',
+                'location' => 'Associação Médica de Minas Gerais – Belo Horizonte, MG',
+                'starts_at' => '2026-10-31 08:00:00',
+                'ends_at' => '2026-10-31 18:00:00',
+                'is_featured' => true,
+                'external_url' => 'https://www.sympla.com.br/evento/5-congresso-nutrita-de-nutricao-clinica-e-esportiva/3251704',
+                'description' => '<p>Saúde da mulher (estética à menopausa, fertilidade), atualizações em GLP-1, saúde do sono e wearables aplicados ao esporte.</p><p>Ingressos: segundo lote disponível por R$ 305,78.</p>',
+            ],
         ];
 
         foreach ($items as $item) {
@@ -1484,9 +1518,11 @@ class DatabaseSeeder extends Seeder
                 ['slug' => Str::slug($item['title'])],
                 [
                     'title' => $item['title'],
-                    'description' => '<p>Descrição do evento a ser detalhada pela equipe de comunicação do CRN-9.</p>',
+                    'description' => $item['description'] ?? '<p>Descrição do evento a ser detalhada pela equipe de comunicação do CRN-9.</p>',
                     'location' => $item['location'],
                     'starts_at' => $item['starts_at'],
+                    'ends_at' => $item['ends_at'] ?? null,
+                    'external_url' => $item['external_url'] ?? null,
                     'is_featured' => $item['is_featured'],
                 ]
             );
