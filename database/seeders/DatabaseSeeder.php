@@ -67,25 +67,62 @@ class DatabaseSeeder extends Seeder
 
     private function seedPages(): void
     {
+        $iv = [
+            'conceito' => $this->seedImage('identidade-visual/conceito-da-marca.jpg', 'identidade-visual/conceito-da-marca.jpg'),
+            'cores' => $this->seedImage('identidade-visual/paleta-cores.jpg', 'identidade-visual/paleta-cores.jpg'),
+            'tipografia' => $this->seedImage('identidade-visual/tipografia.png', 'identidade-visual/tipografia.png'),
+            'tagline' => $this->seedImage('identidade-visual/assinatura-tagline.jpg', 'identidade-visual/assinatura-tagline.jpg'),
+            'preferencial' => $this->seedImage('identidade-visual/versao-preferencial.jpg', 'identidade-visual/versao-preferencial.jpg'),
+            'horizontal' => $this->seedImage('identidade-visual/versao-horizontal.jpg', 'identidade-visual/versao-horizontal.jpg'),
+            'fundos' => $this->seedImage('identidade-visual/versoes-fundo.jpg', 'identidade-visual/versoes-fundo.jpg'),
+            'grafismos' => $this->seedImage('identidade-visual/grafismos.jpg', 'identidade-visual/grafismos.jpg'),
+        ];
+        foreach ($iv as $key => $path) {
+            $iv[$key] = Storage::url($path);
+        }
+
+        $identidadeVisualContent = <<<HTML
+            <p>O Conselho Regional de Nutrição da 9ª Região (CRN-9) é o órgão público responsável por garantir e desenvolver a qualidade dos serviços prestados pelos profissionais de Nutrição (Nutricionistas e Técnicos em Nutrição e Dietética). Em 2020, após um processo elaborado "a muitas mãos", o CRN-9 lançou sua nova identidade visual e novo site, mantida como referência oficial da marca neste projeto.</p>
+            <h2>Conceito da marca</h2>
+            <p><img src="{$iv['conceito']}" alt="Conceito da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <h2>Paleta de cores</h2>
+            <p>O estudo de cores da marca busca equilibrar jovialidade, credibilidade, proximidade e seriedade:</p>
+            <ul>
+                <li><strong>Verde jovial</strong> #A3A64A — contraponto entre jovialidade e credibilidade.</li>
+                <li><strong>Verde sóbrio</strong> #5C5E2B — tom mais sóbrio, reforça a credibilidade.</li>
+                <li><strong>Laranja</strong> #F58C4A — referência ao humano, trabalha a proximidade com o público.</li>
+                <li><strong>Azul luminoso</strong> #85B0FF — traz seriedade e credibilidade, em tom luminoso.</li>
+            </ul>
+            <p><img src="{$iv['cores']}" alt="Paleta de cores da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <h2>Construção da marca</h2>
+            <p>A marca do CRN-9 foi construída visando trazer, em seu símbolo, os conceitos de proximidade, simplicidade e fluidez. O símbolo gráfico apresenta formas orgânicas e fluidas dispostas de modo a compor uma paisagem natural aconchegante. Aliado a esse símbolo, a identidade visual apresenta uma tipografia que reforça a jovialidade, leveza e legibilidade da marca.</p>
+            <h2>Tipografia</h2>
+            <p>A tipografia construída especialmente para a marca CRN-9 apresenta um desenho geométrico e amplo, um traçado fino que emprega leveza à sua forma, e quinas arredondadas para trazer proximidade.</p>
+            <p><img src="{$iv['tipografia']}" alt="Tipografia da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <h2>Assinatura de marca</h2>
+            <p>Completando a assinatura de marca, temos a <em>tagline</em> com o nome do CRN-9 escrito por extenso, em uma tipografia também geométrica com grande legibilidade.</p>
+            <p><img src="{$iv['tagline']}" alt="Assinatura completa da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <h2>Versões da marca</h2>
+            <p>Para trazer mais dinamicidade e adaptabilidade em sua aplicação nas peças de comunicação, a marca CRN-9 possui 3 versões diferentes:</p>
+            <p><strong>Preferencial</strong></p>
+            <p><img src="{$iv['preferencial']}" alt="Versão preferencial da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <p><strong>Horizontal</strong></p>
+            <p><img src="{$iv['horizontal']}" alt="Versão horizontal da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <p>Cada uma dessas versões apresenta diversas opções de aplicação em relação às suas cores, permitindo que a marca seja aplicada em fundos claros e escuros, em diversas tonalidades:</p>
+            <p><img src="{$iv['fundos']}" alt="Versões da marca em fundos claros e escuros" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <h2>Elementos extensivos</h2>
+            <p>Para completar a identidade visual do CRN-9, foi elaborado um conjunto de elementos extensivos, que têm como objetivo reforçar os conceitos presentes na marca. Como extensão do símbolo gráfico, os elementos extensivos são inspirados nos alimentos, montanhas e nas mineiridades. As composições possíveis com os elementos extensivos podem e devem variar — desde que dentro da paleta cromática do projeto — trazendo ainda mais versatilidade e personalização.</p>
+            <p><img src="{$iv['grafismos']}" alt="Elementos gráficos extensivos da marca CRN-9" style="max-width:100%;height:auto;" loading="lazy"></p>
+            <h2>Tipografia do site</h2>
+            <p>O site institucional utiliza a família <strong>Poppins</strong> para títulos e destaques, e <strong>Open Sans</strong> para textos correntes — mantendo a leveza e a legibilidade da identidade original.</p>
+            <p>A nova identidade visual do CRN-9 e o site original foram criados pela Amí Comunicação &amp; Design.</p>
+            HTML;
+
         $pages = [
             [
                 'title' => 'Identidade Visual do CRN-9',
                 'slug' => 'identidade-visual-do-crn-9',
-                'content' => <<<'HTML'
-                    <p>O Conselho Regional de Nutrição da 9ª Região (CRN-9) é o órgão público responsável por garantir e desenvolver a qualidade dos serviços prestados pelos profissionais de Nutrição (Nutricionistas e Técnicos em Nutrição e Dietética). Em 2020, após um processo elaborado "a muitas mãos", o CRN-9 lançou sua identidade visual, mantida como referência oficial da marca neste novo site.</p>
-                    <h2>Paleta de cores</h2>
-                    <p>O estudo de cores da marca busca equilibrar jovialidade, credibilidade, proximidade e seriedade:</p>
-                    <ul>
-                        <li><strong>Verde jovial</strong> #A3A64A — contraponto entre jovialidade e credibilidade.</li>
-                        <li><strong>Verde sóbrio</strong> #5C5E2B — tom mais sóbrio, reforça a credibilidade.</li>
-                        <li><strong>Laranja</strong> #F58C4A — referência ao humano, trabalha a proximidade com o público.</li>
-                        <li><strong>Azul luminoso</strong> #85B0FF — traz seriedade e credibilidade, em tom luminoso.</li>
-                    </ul>
-                    <h2>Construção da marca</h2>
-                    <p>A marca do CRN-9 foi construída visando trazer, em seu símbolo, os conceitos de proximidade, simplicidade e fluidez. O símbolo gráfico apresenta formas orgânicas e fluidas dispostas de modo a compor uma paisagem natural aconchegante. A tipografia construída para a marca apresenta desenho geométrico e amplo, traçado fino e quinas arredondadas para trazer proximidade.</p>
-                    <h2>Tipografia</h2>
-                    <p>O site institucional utiliza a família <strong>Poppins</strong> para títulos e destaques, e <strong>Open Sans</strong> para textos correntes — mantendo a leveza e a legibilidade da identidade original.</p>
-                    HTML,
+                'content' => $identidadeVisualContent,
             ],
             [
                 'title' => 'Links Importantes',
