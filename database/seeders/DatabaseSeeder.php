@@ -872,7 +872,18 @@ class DatabaseSeeder extends Seeder
 <p>Durante o período de teletrabalho devido à pandemia do novo Coronavírus, as visitas estão suspensas.</p>'],
         ];
 
+        // Correção sistêmica: a extração inicial de conteúdo (heurística
+        // h2/h3/p/ul em texto puro) removia os links (`<a href>`) de dentro
+        // dos parágrafos e listas, derrubando links de download e
+        // direcionamentos em dezenas de páginas. Este arquivo traz o
+        // conteúdo re-extraído preservando esses links, por slug.
+        $linkFixes = json_decode(file_get_contents(__DIR__.'/data/pages_link_overrides.json'), true);
+
         foreach ($pages as $page) {
+            if (isset($linkFixes[$page['slug']])) {
+                $page['content'] = $linkFixes[$page['slug']];
+            }
+
             Page::updateOrCreate(['slug' => $page['slug']], $page + ['is_published' => true]);
         }
     }
@@ -1063,6 +1074,7 @@ class DatabaseSeeder extends Seeder
                 'label' => 'Profissionais',
                 'children' => [
                     ['label' => 'Profissionais por Municípios', 'url' => '/profissionais-por-municipio'],
+                    ['label' => 'Encontre um Nutricionista', 'url' => 'https://cnn.cfn.org.br/application/index/consulta-nacional', 'external' => true],
                     ['label' => 'Ouvidoria', 'url' => '/paginas/ouvidoria'],
                     ['label' => 'Contato', 'url' => '/paginas/fale-conosco'],
                     ['label' => 'Convênios', 'url' => '/paginas/convenios'],
