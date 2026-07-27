@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
 use App\Http\Controllers\JobListingController;
+use App\Http\Controllers\JobSubmissionController;
 use App\Http\Controllers\LicitacaoController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MunicipalityController;
@@ -24,6 +25,10 @@ Route::get('/noticias/{news:slug}', [NewsController::class, 'show'])->name('news
 Route::get('/agenda', [EventController::class, 'index'])->name('events.index');
 
 Route::get('/vagas', [JobListingController::class, 'index'])->name('jobs.index');
+Route::get('/vagas/cadastrar', [JobSubmissionController::class, 'create'])->name('jobs.submit');
+Route::post('/vagas/cadastrar', [JobSubmissionController::class, 'store'])->name('jobs.submit.store');
+Route::get('/vagas/gerenciar/{token}', [JobSubmissionController::class, 'manage'])->name('jobs.manage');
+Route::post('/vagas/gerenciar/{token}/remover', [JobSubmissionController::class, 'requestRemoval'])->name('jobs.remove');
 Route::get('/vagas/{job:slug}', [JobListingController::class, 'show'])->name('jobs.show');
 
 Route::get('/revistas', [MagazineController::class, 'index'])->name('magazines.index');

@@ -8,6 +8,7 @@ use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Inspector;
 use App\Models\JobListing;
+use App\Models\User;
 use App\Models\Licitacao;
 use App\Models\LicitacaoDocument;
 use App\Models\Magazine;
@@ -223,5 +224,60 @@ class PublicPagesTest extends TestCase
         $this->get(route('search.index', ['q' => 'termoinexistentexyz']))
             ->assertStatus(200)
             ->assertSee('Nenhum resultado encontrado');
+    }
+
+    public function test_public_can_submit_job_and_it_stays_hidden_until_approved(): void
+    {
+        $response = $this->post(route('jobs.submit.store'), [
+            'title' => 'Nutricionista Voluntário',
+            'description' => 'Descrição da vaga de teste.',
+            'submitter_name' => 'Fulano de Tal',
+            'submitter_email' => 'fulano@example.com',
+        ]);
+
+        $job = JobListing::where('title', 'Nutricionista Voluntário')->first();
+        $this->assertNotNull($job);
+        $this->assertSame('pending', $job->status);
+        $this->assertFalse($job->is_active);
+        $this->assertNotNull($job->removal_token);
+
+        $response->assertRedirect(route('jobs.manage', $job->removal_token));
+
+        $this->get(route('jobs.index'))->assertDontSee('Nutricionista Voluntário');
+
+        $admin = User::factory()->create(['is_admin' => true]);
+        $this->actingAs($admin)
+            ->get(\App\Filament\Resources\JobListingResource::getUrl('index'))
+            ->assertStatus(200);
+
+        $job->update(['status' => 'approved', 'is_active' => true, 'published_at' => now()]);
+
+        $this->get(route('jobs.index'))->assertSee('Nutricionista Voluntário');
+    }
+
+    public function test_submitter_can_request_removal_via_token(): void
+    {
+        $job = JobListing::create([
+            'title' => 'Vaga a ser removida',
+            'slug' => 'vaga-a-ser-removida',
+            'description' => 'Descrição.',
+            'status' => 'approved',
+            'is_active' => true,
+            'published_at' => now(),
+            'submitter_name' => 'Ciclana',
+            'submitter_email' => 'ciclana@example.com',
+            'removal_token' => JobListing::generateRemovalToken(),
+        ]);
+
+        $this->get(route('jobs.manage', $job->removal_token))->assertStatus(200)->assertSee('Vaga a ser removida');
+
+        $this->post(route('jobs.remove', $job->removal_token))
+            ->assertRedirect(route('jobs.manage', $job->removal_token));
+
+        $job->refresh();
+        $this->assertFalse($job->is_active);
+        $this->assertNotNull($job->removal_requested_at);
+
+        $this->get(route('jobs.index'))->assertDontSee('Vaga a ser removida');
     }
 }
