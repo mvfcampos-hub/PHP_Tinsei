@@ -1125,9 +1125,14 @@ class DatabaseSeeder extends Seeder
      */
     private function seedMenu(): void
     {
+        // A estrutura completa é reconstruída a cada seed. Itens dinâmicos
+        // (submenu de Campanhas) são resincronizados logo em seguida por
+        // seedCampaigns() via CampaignObserver, então é seguro limpar tudo.
+        MenuItem::query()->delete();
+
         $groups = [
             [
-                'label' => 'Conselho',
+                'label' => 'Institucional',
                 'children' => [
                     ['label' => 'O CRN9', 'url' => '/paginas/o-crn-9'],
                     ['label' => 'Plenário', 'url' => '/plenario'],
@@ -1140,38 +1145,18 @@ class DatabaseSeeder extends Seeder
                 ],
             ],
             [
-                'label' => 'Serviços',
+                'label' => 'Profissional',
                 'children' => [
-                    ['label' => 'Nutricionistas', 'url' => '/paginas/servicos-nutricionistas'],
-                    ['label' => 'Técnicos em Nutrição e Dietética', 'url' => '/paginas/servicos-tnd'],
-                    ['label' => 'Pessoa Jurídica', 'url' => '/paginas/servicos-pessoa-juridica'],
+                    ['label' => 'Serviços para Nutricionistas', 'url' => '/paginas/servicos-nutricionistas'],
+                    ['label' => 'Serviços para Técnicos em Nutrição e Dietética', 'url' => '/paginas/servicos-tnd'],
+                    ['label' => 'Serviços para Pessoa Jurídica', 'url' => '/paginas/servicos-pessoa-juridica'],
+                    ['label' => 'Profissionais por Município', 'url' => '/profissionais-por-municipio'],
+                    ['label' => 'Encontre um Nutricionista', 'url' => 'https://cnn.cfn.org.br/application/index/consulta-nacional', 'external' => true],
+                    ['label' => 'Banco de Oportunidades', 'url' => '/vagas'],
+                    ['label' => 'Pode ou Não Pode?', 'url' => '/pode-ou-nao-pode'],
+                    ['label' => 'Calculadoras de Dimensionamento', 'url' => '/ferramentas/calculadoras'],
+                    ['label' => 'Repositório de Modelos Editáveis', 'url' => '/ferramentas/modelos'],
                 ],
-            ],
-            [
-                'label' => 'Acontece no CRN-9',
-                'children' => [
-                    ['label' => 'Notícias', 'url' => '/noticias'],
-                    ['label' => 'Eventos', 'url' => '/agenda'],
-                    ['label' => 'Revista Online', 'url' => '/revistas'],
-                    ['label' => 'CRN-9 Divulga', 'url' => '/paginas/crn9-divulga'],
-                    ['label' => 'Projetos de lei em andamento', 'url' => '/paginas/projetos-de-lei-em-andamento'],
-                    [
-                        // Filhos deste item são geridos automaticamente pelo
-                        // CampaignObserver (App\Observers\CampaignObserver)
-                        // sempre que uma campanha é criada/editada/removida
-                        // pelo painel admin — ver seedCampaigns() abaixo.
-                        'label' => 'Campanhas',
-                        'children' => [],
-                    ],
-                ],
-            ],
-            [
-                'label' => 'Biblioteca Virtual',
-                'url' => '/biblioteca',
-            ],
-            [
-                'label' => 'Nutrição em Minas',
-                'url' => '/nutricao-em-minas',
             ],
             [
                 'label' => 'Fiscalização',
@@ -1195,7 +1180,7 @@ class DatabaseSeeder extends Seeder
                 ],
             ],
             [
-                'label' => 'Ética Profissional',
+                'label' => 'Ética',
                 'children' => [
                     ['label' => 'Código de Ética e Conduta', 'url' => '/paginas/codigo-de-etica-e-conduta'],
                     ['label' => 'Código de Processamento Ético-Disciplinar', 'url' => '/paginas/codigo-de-processamento-etico-disciplinar'],
@@ -1209,25 +1194,39 @@ class DatabaseSeeder extends Seeder
                 ],
             ],
             [
-                'label' => 'Orientação',
+                'label' => 'Formação',
                 'children' => [
                     ['label' => 'Guia do Recém-Formado', 'url' => '/orientacao/guia-do-recem-formado'],
-                    ['label' => 'Legislação Regional', 'url' => 'https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio', 'external' => true],
-                    ['label' => 'Legislação Federal', 'url' => 'https://cfn.org.br/legislacao/', 'external' => true],
-                    ['label' => 'Links Importantes', 'url' => '/paginas/links-importantes'],
-                    ['label' => 'Oportunidade de emprego', 'url' => '/vagas'],
-                    ['label' => 'Perguntas Frequentes', 'url' => '/perguntas-frequentes'],
-                    ['label' => 'Pode ou Não Pode?', 'url' => '/pode-ou-nao-pode'],
-                    ['label' => 'Calculadoras de Dimensionamento', 'url' => '/ferramentas/calculadoras'],
-                    ['label' => 'Repositório de Modelos Editáveis', 'url' => '/ferramentas/modelos'],
+                    ['label' => 'Instituições de Ensino', 'url' => '/instituicoes-de-ensino'],
                 ],
             ],
             [
-                'label' => 'Profissionais',
+                'label' => 'Biblioteca',
                 'children' => [
-                    ['label' => 'Profissionais por Municípios', 'url' => '/profissionais-por-municipio'],
-                    ['label' => 'Encontre um Nutricionista', 'url' => 'https://cnn.cfn.org.br/application/index/consulta-nacional', 'external' => true],
-                    ['label' => 'Instituições de Ensino', 'url' => '/instituicoes-de-ensino'],
+                    ['label' => 'Biblioteca Virtual', 'url' => '/biblioteca'],
+                    ['label' => 'Revista Online', 'url' => '/revistas'],
+                    ['label' => 'Perguntas Frequentes', 'url' => '/perguntas-frequentes'],
+                    ['label' => 'Legislação Regional', 'url' => 'https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio', 'external' => true],
+                    ['label' => 'Legislação Federal', 'url' => 'https://cfn.org.br/legislacao/', 'external' => true],
+                    ['label' => 'Links Importantes', 'url' => '/paginas/links-importantes'],
+                ],
+            ],
+            [
+                'label' => 'Comunicação',
+                'children' => [
+                    ['label' => 'Notícias', 'url' => '/noticias'],
+                    ['label' => 'Eventos', 'url' => '/agenda'],
+                    ['label' => 'CRN-9 Divulga', 'url' => '/paginas/crn9-divulga'],
+                    ['label' => 'Projetos de lei em andamento', 'url' => '/paginas/projetos-de-lei-em-andamento'],
+                    ['label' => 'Nutrição em Minas', 'url' => '/nutricao-em-minas'],
+                    [
+                        // Filhos deste item são geridos automaticamente pelo
+                        // CampaignObserver (App\Observers\CampaignObserver)
+                        // sempre que uma campanha é criada/editada/removida
+                        // pelo painel admin — ver seedCampaigns() abaixo.
+                        'label' => 'Campanhas',
+                        'children' => [],
+                    ],
                 ],
             ],
             [

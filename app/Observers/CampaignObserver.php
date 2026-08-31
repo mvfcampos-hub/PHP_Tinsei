@@ -64,7 +64,7 @@ class CampaignObserver
     private function campanhasMenuItem(): ?MenuItem
     {
         return MenuItem::where('label', 'Campanhas')
-            ->whereHas('parent', fn ($query) => $query->where('label', 'Acontece no CRN-9'))
+            ->whereHas('parent', fn ($query) => $query->where('label', 'Comunicação'))
             ->first();
     }
 }

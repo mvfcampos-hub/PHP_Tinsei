@@ -308,8 +308,8 @@ class PublicPagesTest extends TestCase
 
     public function test_campaign_show_and_menu_sync(): void
     {
-        $acontece = \App\Models\MenuItem::create(['label' => 'Acontece no CRN-9', 'url' => '#', 'sort_order' => 1]);
-        \App\Models\MenuItem::create(['label' => 'Campanhas', 'url' => '#', 'parent_id' => $acontece->id, 'sort_order' => 1]);
+        $comunicacao = \App\Models\MenuItem::create(['label' => 'Comunicação', 'url' => '#', 'sort_order' => 1]);
+        \App\Models\MenuItem::create(['label' => 'Campanhas', 'url' => '#', 'parent_id' => $comunicacao->id, 'sort_order' => 1]);
 
         $campaign = Campaign::create([
             'title' => 'Campanha de Teste',
