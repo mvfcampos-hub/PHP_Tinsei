@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Carbon\Carbon;
 use App\Models\Campaign;
 use App\Models\CampaignEpisode;
 use App\Models\CouncilGroup;
@@ -160,6 +161,22 @@ class PublicPagesTest extends TestCase
         $this->get(route('events.index', ['month' => $nextMonth->format('Y-m')]))
             ->assertStatus(200)
             ->assertSee($nextMonth->translatedFormat('F \d\e Y'));
+    }
+
+    public function test_events_calendar_navigation_handles_short_months(): void
+    {
+        // Regression test: the "month" query param is parsed without a day
+        // component ("Y-m"). If the day is left to default to today's real
+        // day-of-month, requesting a month with fewer days than today
+        // silently overflows into the following month (e.g. asking for
+        // February while today is the 31st used to render March instead).
+        $target = Carbon::create(now()->year, 2, 1);
+        $overflowed = $target->copy()->addMonth();
+
+        $this->get(route('events.index', ['month' => $target->format('Y-m')]))
+            ->assertStatus(200)
+            ->assertSee($target->translatedFormat('F \d\e Y'))
+            ->assertDontSee($overflowed->translatedFormat('F \d\e Y'));
     }
 
     public function test_cfn_calendar_sync_creates_and_updates_events(): void

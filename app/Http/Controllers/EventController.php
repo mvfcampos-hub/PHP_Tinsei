@@ -13,9 +13,11 @@ class EventController extends Controller
         $upcomingEvents = EventItem::upcoming()->get();
         $pastEvents = EventItem::where('starts_at', '<', now())->orderByDesc('starts_at')->take(10)->get();
 
-        $month = $request->filled('month')
-            ? Carbon::createFromFormat('Y-m', (string) $request->query('month'))->startOfMonth()
-            : now()->startOfMonth();
+        $month = now()->startOfMonth();
+
+        if ($request->filled('month') && preg_match('/^\d{4}-(0[1-9]|1[0-2])$/', (string) $request->query('month'))) {
+            $month = Carbon::createFromFormat('Y-m-d', $request->query('month').'-01')->startOfMonth();
+        }
 
         $calendarWeeks = $this->buildCalendarWeeks($month);
 
