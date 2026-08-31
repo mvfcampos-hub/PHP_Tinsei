@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Campaign;
 use App\Models\MenuItem;
 use App\Observers\CampaignObserver;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Evita "Specified key was too long" em MySQL 5.7/MariaDB mais
+        // antigos (comuns em hospedagem compartilhada) ao criar índices
+        // únicos em colunas VARCHAR com charset utf8mb4.
+        Schema::defaultStringLength(191);
+
         Campaign::observe(CampaignObserver::class);
 
         View::composer('layouts.app', function ($view) {
