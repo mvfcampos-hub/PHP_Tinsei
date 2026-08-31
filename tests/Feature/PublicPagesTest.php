@@ -100,6 +100,67 @@ class PublicPagesTest extends TestCase
         $this->get(route('events.index'))->assertStatus(200)->assertSee('Evento de teste');
     }
 
+    public function test_events_calendar_shows_event_in_current_month(): void
+    {
+        EventItem::create([
+            'title' => 'Reunião de teste no calendário',
+            'slug' => 'reuniao-de-teste-no-calendario',
+            'starts_at' => now()->startOfMonth()->addDays(4),
+        ]);
+
+        $this->get(route('events.index'))->assertStatus(200)->assertSee('Reunião de teste no calendário');
+    }
+
+    public function test_events_calendar_month_navigation(): void
+    {
+        // The "Próximos eventos" list shows all future events regardless of
+        // month, so this only asserts the calendar header reflects the
+        // requested month (the list itself is covered by other tests).
+        $nextMonth = now()->addMonthsNoOverflow(2);
+
+        $this->get(route('events.index', ['month' => $nextMonth->format('Y-m')]))
+            ->assertStatus(200)
+            ->assertSee($nextMonth->translatedFormat('F \d\e Y'));
+    }
+
+    public function test_cfn_calendar_sync_creates_and_updates_events(): void
+    {
+        $ics = <<<ICS
+        BEGIN:VCALENDAR
+        VERSION:2.0
+        BEGIN:VEVENT
+        DTSTART;VALUE=DATE:20260901
+        DTEND;VALUE=DATE:20260902
+        UID:test-uid-001@calendario.cfn.org.br
+        SUMMARY:Evento CFN de teste
+        DESCRIPTION:Descrição de teste
+        URL:https://calendario.cfn.org.br/evento/teste/
+        LOCATION:Brasília\, DF
+        END:VEVENT
+        END:VCALENDAR
+        ICS;
+
+        \Illuminate\Support\Facades\Http::fake([
+            'calendario.cfn.org.br/*' => \Illuminate\Support\Facades\Http::response($ics, 200),
+        ]);
+
+        $result = app(\App\Services\CfnCalendarSync::class)->sync();
+
+        $this->assertSame(1, $result['created']);
+        $this->assertSame(0, $result['updated']);
+
+        $event = EventItem::where('external_uid', 'test-uid-001@calendario.cfn.org.br')->first();
+        $this->assertNotNull($event);
+        $this->assertSame('Evento CFN de teste', $event->title);
+        $this->assertSame('cfn_sync', $event->source);
+
+        // Re-sync should update, not duplicate.
+        $result = app(\App\Services\CfnCalendarSync::class)->sync();
+        $this->assertSame(0, $result['created']);
+        $this->assertSame(1, $result['updated']);
+        $this->assertSame(1, EventItem::where('external_uid', 'test-uid-001@calendario.cfn.org.br')->count());
+    }
+
     public function test_magazines_index(): void
     {
         Magazine::create([

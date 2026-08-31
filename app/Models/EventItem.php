@@ -20,6 +20,8 @@ class EventItem extends Model
         'cover_image',
         'external_url',
         'is_featured',
+        'source',
+        'external_uid',
     ];
 
     protected $casts = [
