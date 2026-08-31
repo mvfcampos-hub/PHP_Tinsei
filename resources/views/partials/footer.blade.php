@@ -13,7 +13,7 @@
             <h3 class="text-sm font-semibold text-white uppercase tracking-wide mb-4">Institucional</h3>
             <ul class="space-y-2 text-sm text-brand-200">
                 <li><a href="{{ route('pages.show', 'o-crn-9') }}" class="hover:text-white transition">O CRN-9</a></li>
-                <li><a href="{{ route('pages.show', 'perguntas-frequentes') }}" class="hover:text-white transition">Perguntas Frequentes</a></li>
+                <li><a href="{{ route('faqs.index') }}" class="hover:text-white transition">Perguntas Frequentes</a></li>
                 <li><a href="{{ route('pages.show', 'identidade-visual-do-crn-9') }}" class="hover:text-white transition">Identidade Visual</a></li>
                 <li><a href="{{ route('pages.show', 'fale-conosco') }}" class="hover:text-white transition">Fale Conosco</a></li>
             </ul>

@@ -8,6 +8,7 @@ use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
 use App\Models\EducationInstitution;
 use App\Models\EventItem;
+use App\Models\Faq;
 use App\Models\Inspector;
 use App\Models\JobListing;
 use App\Models\User;
@@ -19,6 +20,7 @@ use App\Models\Magazine;
 use App\Models\MunicipalityProfessionalCount;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\PodeNaoPodeQuestion;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -239,6 +241,44 @@ class PublicPagesTest extends TestCase
         $this->assertNull($campaign->menu_item_id);
 
         $this->get(route('campaigns.show', $campaign))->assertStatus(404);
+    }
+
+    public function test_faqs_index_and_search(): void
+    {
+        Faq::create([
+            'category' => 'Financeiro',
+            'question' => 'Quanto custa a anuidade de teste?',
+            'answer' => 'Resposta de teste sobre anuidade.',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        $this->get(route('faqs.index'))->assertStatus(200)->assertSee('Quanto custa a anuidade de teste?');
+        $this->get(route('faqs.index', ['q' => 'anuidade']))->assertStatus(200)->assertSee('Quanto custa a anuidade de teste?');
+        $this->get(route('faqs.index', ['q' => 'termoinexistentexyz']))->assertStatus(200)->assertDontSee('Quanto custa a anuidade de teste?');
+    }
+
+    public function test_pode_nao_pode_index_and_search(): void
+    {
+        PodeNaoPodeQuestion::create([
+            'category' => 'Prescrição e Suplementos',
+            'question' => 'Pode prescrever suplemento de teste?',
+            'answer' => 'Resposta direta de teste.',
+            'resolution_reference' => 'Resolução CFN nº 000/2026',
+            'template_label' => 'Copiar modelo',
+            'template_text' => 'Modelo de teste',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        $this->get(route('pode-nao-pode.index'))
+            ->assertStatus(200)
+            ->assertSee('Pode prescrever suplemento de teste?')
+            ->assertSee('Resolução CFN nº 000/2026')
+            ->assertSee('Copiar modelo');
+
+        $this->get(route('pode-nao-pode.index', ['q' => 'suplemento']))->assertStatus(200)->assertSee('Pode prescrever suplemento de teste?');
+        $this->get(route('pode-nao-pode.index', ['q' => 'termoinexistentexyz']))->assertStatus(200)->assertDontSee('Pode prescrever suplemento de teste?');
     }
 
     public function test_education_institutions_index(): void

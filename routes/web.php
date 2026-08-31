@@ -4,6 +4,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CouncilController;
 use App\Http\Controllers\EducationInstitutionController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
 use App\Http\Controllers\JobListingController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PodeNaoPodeController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,5 +52,9 @@ Route::get('/biblioteca', [LibraryDocumentController::class, 'index'])->name('li
 Route::get('/biblioteca/{document:slug}', [LibraryDocumentController::class, 'show'])->name('library.show');
 
 Route::get('/campanhas/{campaign:slug}', [CampaignController::class, 'show'])->name('campaigns.show');
+
+Route::get('/perguntas-frequentes', [FaqController::class, 'index'])->name('faqs.index');
+
+Route::get('/pode-ou-nao-pode', [PodeNaoPodeController::class, 'index'])->name('pode-nao-pode.index');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');

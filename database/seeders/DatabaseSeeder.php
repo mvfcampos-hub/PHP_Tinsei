@@ -9,6 +9,7 @@ use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
 use App\Models\EducationInstitution;
 use App\Models\EventItem;
+use App\Models\Faq;
 use App\Models\Inspector;
 use App\Models\JobListing;
 use App\Models\LibraryDocument;
@@ -20,6 +21,7 @@ use App\Models\MenuItem;
 use App\Models\MunicipalityProfessionalCount;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\PodeNaoPodeQuestion;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
@@ -60,6 +62,8 @@ class DatabaseSeeder extends Seeder
         $this->seedLicitacoes();
         $this->seedEducationInstitutions();
         $this->seedLibraryDocuments();
+        $this->seedFaqs();
+        $this->seedPodeNaoPode();
     }
 
     /**
@@ -296,14 +300,6 @@ class DatabaseSeeder extends Seeder
 <h3>Delegacia de Montes Claros</h3><p>Edifício Premier Center — R. Correia Machado, 1025, Salas 1305 e 1306, Centro, Montes Claros/MG — CEP: 39400-090</p>
 <h3>Delegacia de Pouso Alegre</h3><p>Edifício Pouso Alegre Shopping Center — R. Coronel Otávio Meyer, 160, Salas 224 e 225, Centro, Pouso Alegre/MG — CEP: 37550-068</p>
 <h3>Delegacia de Uberlândia</h3><p>Edifício Executivo — R. Coronel Antônio Alves Pereira, 400, Sala 915, Centro, Uberlândia/MG — CEP: 38400-104</p>'],
-            ['title' => 'Perguntas Frequentes', 'slug' => 'perguntas-frequentes', 'content' => '<p>Encontre aqui respostas rápidas sobre inscrição, anuidade, transferências, documentos e demais serviços do CRN-9.</p>
-<h3>Tipo de inscrição</h3>
-<p>A primeira inscrição do profissional poderá ser provisória ou definitiva, dependendo da documentação acadêmica.</p>
-<p><strong>Inscrição Provisória</strong> – validade de 2 (dois) anos. Destinada ao profissional que possui certificado ou declaração de conclusão de curso, com a data de colação de grau, de curso reconhecido pelo MEC; ou ao portador de diploma emitido por instituição de ensino superior em processo de reconhecimento regular.</p>
-<p><strong>Inscrição Definitiva</strong> – validade indeterminada. Destinada ao portador de diploma registrado no órgão competente, obtido em instituição com curso reconhecido pelo MEC.</p>
-<h3>Documentos necessários</h3>
-<ul><li>Ficha de Inscrição devidamente preenchida e assinada (manualmente ou eletronicamente pela conta gov.br);</li><li>Documento oficial de identificação com foto e CPF ou CIN, válido em todo o território nacional, expedido há menos de 10 anos;</li><li>Uma foto 3×4 colorida e nítida, recente, com fundo branco e em postura formal;</li><li>Digital do polegar direito reproduzida em papel branco, sem pauta, com tinta preta;</li><li>Assinatura digitalizada em formato .png;</li><li>Declaração de Conclusão de Curso, constando a data de colação de grau;</li><li>Cópia de comprovante de endereço atual;</li><li>Cópia de certidão de casamento ou averbação de divórcio, se houve alteração de nome.</li></ul>
-<p>Atenção: prossiga com o requerimento apenas se pretende atuar na jurisdição do CRN-9 (Minas Gerais). Caso contrário, acesse o site do CRN da sua jurisdição.</p>'],
             ['title' => 'Fale Conosco', 'slug' => 'fale-conosco', 'content' => '<p>Rua Maranhão, 310, 4º Andar, Santa Efigênia, Belo Horizonte/MG — CEP: 30150-330</p>
 <p>Funcionamento: das 9h às 17h</p>
 <p>Telefone: (31) 3226-8403</p>
@@ -1049,6 +1045,8 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Legislação Federal', 'url' => 'https://cfn.org.br/legislacao/', 'external' => true],
                     ['label' => 'Links Importantes', 'url' => '/paginas/links-importantes'],
                     ['label' => 'Oportunidade de emprego', 'url' => '/vagas'],
+                    ['label' => 'Perguntas Frequentes', 'url' => '/perguntas-frequentes'],
+                    ['label' => 'Pode ou Não Pode?', 'url' => '/pode-ou-nao-pode'],
                 ],
             ],
             [
@@ -1637,7 +1635,7 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Eleições CRN-9 2026/2029: participe', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-cronograma-full.png'],
             ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-aviso-full.png'],
             ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => null, 'illustrative' => 'denuncia-illustrative.svg'],
-            ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/paginas/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
+            ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
             ['title' => 'Eleições CR9 2026/2029', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => null, 'illustrative' => 'eleicoes-illustrative.svg'],
         ];
 
@@ -1926,6 +1924,130 @@ class DatabaseSeeder extends Seeder
                     ]
                 );
             }
+        }
+    }
+
+    /**
+     * Perguntas Frequentes gerais, migradas de crn9.org.br/perguntas-frequentes/
+     * (conteúdo real da própria página do CRN-9, agora editável pelo painel
+     * admin em vez de ser uma página estática).
+     */
+    private function seedFaqs(): void
+    {
+        $items = [
+            // Inscrição e Registro
+            ['category' => 'Inscrição e Registro', 'question' => 'Acabei de me formar. Como faço a inscrição provisória?', 'answer' => "A primeira inscrição do profissional poderá ser provisória ou definitiva, dependendo da documentação acadêmica. A Inscrição Provisória tem validade de 2 (dois) anos e é destinada a quem possui certificado ou declaração de conclusão de curso, com a data de colação de grau, de curso reconhecido pelo MEC.\n\nValor: anuidade do ano corrente (R\$ 595,66) proporcional, com desconto de 50% na primeira anuidade para recém-formados. O prazo de ativação é de até 30 (trinta) dias úteis após a análise da documentação."],
+            ['category' => 'Inscrição e Registro', 'question' => 'Minha inscrição é provisória. Como torná-la definitiva?', 'answer' => "Envie a Ficha de Inscrição preenchida e assinada, cópia do diploma (frente e verso) devidamente registrado, comprovante de endereço atual e, se houve alteração de nome, certidão de casamento ou averbação de divórcio.\n\nA inscrição será ativada em até 30 (trinta) dias úteis após a análise da documentação."],
+            ['category' => 'Inscrição e Registro', 'question' => 'Vou atuar em outro estado. Preciso de inscrição secundária?', 'answer' => "Sim, se for exercer atividades presenciais em jurisdição diferente da sua inscrição principal por mais de 90 dias (consecutivos ou alternados) no mesmo ano civil, conforme a Resolução CFN nº 795/2024.\n\nValor: anuidade de inscrição secundária do ano corrente (R\$ 119,13) proporcional. É necessária certidão de regularidade emitida pelo CRN de origem."],
+            ['category' => 'Inscrição e Registro', 'question' => 'Minha inscrição provisória vai vencer. Posso prorrogar?', 'answer' => "Sim, durante o período de vigência da inscrição provisória, preferencialmente com 15 dias de antecedência do vencimento. Inscrições provisórias já vencidas não podem ser prorrogadas — nesse caso é necessário requerer uma nova inscrição definitiva."],
+            ['category' => 'Inscrição e Registro', 'question' => 'Mudei de estado. Como faço a transferência de inscrição?', 'answer' => "Envie Ficha de Inscrição, documento de identificação, foto 3×4, diploma registrado, certidão de regularidade emitida pelo CRN de origem (emitida há até 30 dias) e comprovante de endereço.\n\nA carteira profissional do CRN de origem deve ser devolvida pessoalmente ou pelos Correios à sede ou às delegacias do CRN-9. A inscrição será ativada em até 30 (trinta) dias úteis."],
+
+            // Situação da Inscrição
+            ['category' => 'Situação da Inscrição', 'question' => 'Vou parar de atuar por um tempo. Como solicitar baixa temporária?', 'answer' => "A baixa temporária é concedida quando o nutricionista não estiver exercendo atividades previstas nos arts. 3º e 4º da Lei Federal nº 8.234/1991. É preciso devolver a Carteira de Identidade Profissional original e enviar o formulário de solicitação, com documentação que comprove a não atuação.\n\nSe solicitada até 31 de março, o profissional fica isento do pagamento da anuidade do ano em exercício. A baixa temporária pode durar até 5 anos e ser prorrogada uma vez."],
+            ['category' => 'Situação da Inscrição', 'question' => 'Como funciona a reativação de inscrição?', 'answer' => "A inscrição pode ser reativada a qualquer momento durante o período de vigência da baixa temporária, mediante formulário de reativação e comprovante de endereço atual. Inscrições canceladas não podem ser reativadas — é necessário requerer uma nova inscrição definitiva.\n\nValor: anuidade do ano corrente (R\$ 566,32) proporcional."],
+            ['category' => 'Situação da Inscrição', 'question' => 'Não vou mais atuar como nutricionista. Como cancelar minha inscrição?', 'answer' => "O cancelamento é concedido quando o profissional não estiver exercendo atividades previstas nos arts. 3º e 4º da Lei Federal nº 8.234/1991. Devolva a Carteira de Identidade Profissional e envie o formulário de cancelamento.\n\nSe solicitado até 31 de março, o profissional fica isento da anuidade do ano em exercício. O cancelamento pode ser solicitado mesmo com débitos em aberto, que continuam sendo cobrados."],
+
+            // Financeiro
+            ['category' => 'Financeiro', 'question' => 'Quanto custa a anuidade e como pagar?', 'answer' => "A anuidade do nutricionista é de R\$ 595,66, podendo ser paga em cota única até 10/07 ou em até 10 parcelas mensais (fevereiro a novembro). Com desconto de 15% para pagamento em cota única até 10/02, o valor cai para R\$ 506,31.\n\nO pagamento da anuidade do ano corrente não quita débitos anteriores. Consulte a Resolução CFN nº 829/2025, que trata das normas gerais de anuidades."],
+
+            // Documentos e Certidões
+            ['category' => 'Documentos e Certidões', 'question' => 'Onde emitir a certidão de regularidade?', 'answer' => "A solicitação pode ser feita pelo Autoatendimento. Acesse com seus dados de acesso o menu \"Acesse sua Inscrição\", escolha a opção \"Emissão de Certidão\" e selecione o documento desejado."],
+            ['category' => 'Documentos e Certidões', 'question' => 'Perdi minha carteira profissional. Como solicitar a segunda via?', 'answer' => "Envie o formulário de solicitação de 2ª via, uma foto 3×4 recente e assinatura digitalizada. Em caso de perda, roubo ou extravio, anexe também o boletim de ocorrência.\n\nO profissional não pode ter débitos vencidos para receber o novo documento, e a carteira substituída deve ser descartada após o recebimento da nova."],
+            ['category' => 'Documentos e Certidões', 'question' => 'Como registrar meu título de especialista no CRN-9?', 'answer' => "É preciso ter pelo menos 3 anos de inscrição ativa no CRN-9 (ou 2 anos com certificado de residência na especialidade), e apresentar o título de especialista emitido pela ASBRAN ou entidade chancelada pelo CFN.\n\nTaxa: R\$ 44,22 (Resolução CFN nº 833/2025). O nutricionista pode registrar quantos títulos desejar."],
+
+            // Atuação Profissional
+            ['category' => 'Atuação Profissional', 'question' => 'Como solicitar anotação de responsabilidade (ART ou ARAAN)?', 'answer' => "Conforme a Resolução CFN nº 795/2024, a Anotação de Responsabilidade Técnica (ART) ou pelas Atividades de Alimentação e Nutrição Humana (ARAAN) deve ser solicitada pelo nutricionista mediante formulário próprio, enviado exclusivamente pelo JOTFORM, junto com o Termo de Compromisso e o dimensionamento correspondente ao serviço.\n\nO nutricionista precisa estar em situação cadastral regular e sem pendência financeira. O CRN anota até 5 responsabilidades técnicas por profissional."],
+            ['category' => 'Atuação Profissional', 'question' => 'Como cadastrar minha atuação como autônomo no CRN-9?', 'answer' => "Preencha o Requerimento de Cadastro da Atuação do Nutricionista como Profissional Liberal Autônomo e, se desejar, solicite a emissão da Certidão de Cadastro do Autônomo (CCA). Todos os documentos devem ser enviados exclusivamente pelo formulário oficial.\n\nDúvidas podem ser esclarecidas com o setor de fiscalização (fiscalizacao@crn9.org.br)."],
+        ];
+
+        foreach ($items as $index => $item) {
+            Faq::updateOrCreate(
+                ['category' => $item['category'], 'question' => $item['question']],
+                [
+                    'category' => $item['category'],
+                    'question' => $item['question'],
+                    'answer' => $item['answer'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+        }
+    }
+
+    /**
+     * Ferramenta "Pode ou Não Pode?": respostas diretas sobre o exercício
+     * profissional, fundamentadas em Resoluções do CFN, confirmadas em
+     * cfn.org.br/perguntas-frequentes/.
+     */
+    private function seedPodeNaoPode(): void
+    {
+        $items = [
+            [
+                'category' => 'Fitoterapia e PICS',
+                'question' => 'Nutricionista sem pós-graduação em fitoterapia, pode prescrever fitoterápico?',
+                'answer' => 'O profissional não habilitado em fitoterapia pode prescrever apenas infusão, decocção e maceração em água, além de drogas vegetais e óleos fixos classificados como alimentos ou suplementos alimentares. Para prescrever medicamentos fitoterápicos, produtos tradicionais fitoterápicos ou preparações magistrais de fitoterápicos, é exigido certificado de pós-graduação em Fitoterapia (mínimo 200h específicas) ou título de especialista na área.',
+                'resolution_reference' => 'Resolução CFN nº 680/2021',
+            ],
+            [
+                'category' => 'Fitoterapia e PICS',
+                'question' => 'Todos os produtos da Medicina Tradicional Chinesa podem ser prescritos pelo nutricionista?',
+                'answer' => 'Sim, desde que regulamentados pela Anvisa e não sujeitos a prescrição médica. Para adotar a dietoterapia/fitoterapia da Medicina Tradicional Chinesa, do ayurveda ou da antroposofia, o nutricionista precisa atender aos requisitos específicos de habilitação e registrar a documentação no Sistema de Cadastro de PICS e Fitoterapia do CFN.',
+                'resolution_reference' => 'Resolução CFN nº 679/2021',
+            ],
+            [
+                'category' => 'Fitoterapia e PICS',
+                'question' => 'O nutricionista pode adotar as Práticas Integrativas e Complementares (PICS) de forma isolada, sem uma consulta nutricional?',
+                'answer' => 'Não. As PICS não podem ser utilizadas de forma isolada, salvo em protocolos estabelecidos no âmbito do SUS. Elas só podem ser adotadas como parte da assistência nutricional e dietoterápica e da educação nutricional a indivíduos ou coletividades, sadios ou enfermos.',
+                'resolution_reference' => 'Resolução CFN nº 679/2021',
+            ],
+            [
+                'category' => 'Prescrição e Suplementos',
+                'question' => 'O nutricionista pode prescrever suplementos alimentares?',
+                'answer' => 'Sim. A prescrição dietética de suplementos alimentares inclui nutrientes, substâncias bioativas, enzimas, prebióticos, probióticos, produtos apícolas (mel, própolis, geleia real, pólen), novos alimentos e ingredientes autorizados pela Anvisa, além de medicamentos isentos de prescrição à base de vitaminas, minerais, aminoácidos e/ou proteínas isolados ou associados entre si.',
+                'resolution_reference' => 'Lei nº 8.234/1991 e Resolução CFN nº 656/2020',
+            ],
+            [
+                'category' => 'Prescrição e Suplementos',
+                'question' => 'O que não pode ser prescrito pelo nutricionista, em nenhuma hipótese?',
+                'answer' => "Não pode ser prescrito o que não está regulamentado pelo CFN para a profissão. Exemplos: medicamentos sujeitos a prescrição médica; medicamentos isentos de prescrição (MIP) que não sejam à base de vitaminas, minerais, aminoácidos ou proteínas isolados/associados, nem MIPs fitoterápicos, homeopáticos ou antroposóficos habilitados; paraprobióticos, pós-bióticos e apitoxina, entre outros não regulamentados.",
+                'resolution_reference' => 'Resoluções CFN nº 656/2020, 680/2021 e 679/2021',
+            ],
+            [
+                'category' => 'Exames e Prontuário',
+                'question' => 'O nutricionista pode solicitar exames laboratoriais?',
+                'answer' => "Sim. A solicitação de exames laboratoriais necessários ao acompanhamento dietoterápico é requisito essencial da consulta nutricional, inclusive para a prescrição dietética — complementa a anamnese, a antropometria e o exame clínico-nutricional. Não se trata de diagnóstico, tratamento ou procedimento, e não é solicitação de exame para diagnóstico de doenças (nosológico).",
+                'resolution_reference' => 'Lei Federal nº 8.234/1991, art. 4º, inciso VIII',
+            ],
+            [
+                'category' => 'Exames e Prontuário',
+                'question' => 'O que deve constar no carimbo do prontuário/documentos assinados pelo nutricionista?',
+                'answer' => 'Todo documento produzido pelo nutricionista no exercício profissional (prontuário, laudos, prescrições) deve identificar claramente o profissional responsável: nome completo e número de inscrição no CRN-9. O modelo oficial abaixo está disponível para copiar com 1 clique.',
+                'resolution_reference' => null,
+                'template_label' => 'Copiar modelo do carimbo',
+                'template_text' => "[Nome completo do profissional]\nNutricionista – CRN9 nº [número de inscrição]",
+            ],
+            [
+                'category' => 'Responsabilidade Técnica',
+                'question' => 'Quais são as atribuições de um Responsável Técnico (RT)? Como se tornar um?',
+                'answer' => 'O Nutricionista RT assume o compromisso profissional e legal na execução das atividades de alimentação e nutrição de uma empresa ou instituição, cumprindo e fazendo cumprir os dispositivos legais do exercício profissional, com direção técnica, chefia e supervisão da equipe quando houver. A Responsabilidade Técnica é concedida pelo CRN mediante solicitação e análise de documentação.',
+                'resolution_reference' => 'Resolução CFN nº 576/2016',
+            ],
+        ];
+
+        foreach ($items as $index => $item) {
+            PodeNaoPodeQuestion::updateOrCreate(
+                ['category' => $item['category'], 'question' => $item['question']],
+                [
+                    'category' => $item['category'],
+                    'question' => $item['question'],
+                    'answer' => $item['answer'],
+                    'resolution_reference' => $item['resolution_reference'] ?? null,
+                    'template_label' => $item['template_label'] ?? null,
+                    'template_text' => $item['template_text'] ?? null,
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
         }
     }
 }
