@@ -496,6 +496,37 @@ class DatabaseSeeder extends Seeder
 <p>Durante todo o processo, é preservado o sigilo das partes envolvidas, nos termos da legislação aplicável.</p>'],
             ['title' => 'Decisões e Informações Públicas (Ética)', 'slug' => 'decisoes-e-informacoes-publicas-etica', 'content' => '<p>Em atenção à transparência, o CRN-9 disponibiliza publicamente, quando cabível e sem identificar as partes envolvidas, indicadores sobre os processos éticos e de fiscalização em curso.</p>
 <p>Acesse o painel de acompanhamento em <a href="/fiscalizacao/processos">Processos em Andamento</a>. Decisões finais do Plenário, quando publicáveis, seguem os critérios de sigilo processual e são comunicadas diretamente às partes, conforme o Código de Processamento Ético-Disciplinar.</p>'],
+            ['title' => 'Prestação de Contas', 'slug' => 'prestacao-de-contas', 'content' => '<p>O CRN-9, como autarquia federal, presta contas anualmente ao Tribunal de Contas da União (TCU) e mantém publicados seus demonstrativos contábeis e financeiros no Portal da Transparência do Sistema CFN/CRN.</p>
+<p>Acesse os balancetes, balanços e relatórios contábeis detalhados no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Relatórios de Gestão', 'slug' => 'relatorios-de-gestao', 'content' => '<p>O Relatório de Gestão consolida anualmente as atividades realizadas pelo CRN-9 — fiscalização, orientação profissional, comunicação, eventos e resultados institucionais —, prestando contas de sua atuação à categoria e à sociedade.</p>
+<p>Os relatórios de gestão estão disponíveis no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Planejamento Estratégico', 'slug' => 'planejamento-estrategico', 'content' => '<p>O Planejamento Estratégico do CRN-9 define a missão, a visão e os objetivos institucionais do Conselho para o período de gestão, orientando a alocação de recursos e as prioridades de atuação em fiscalização, orientação profissional e valorização da Nutrição.</p>
+<p>O documento vigente está disponível no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Plano de Ação', 'slug' => 'plano-de-acao', 'content' => '<p>O Plano de Ação Anual do CRN-9 detalha as metas, os projetos e o cronograma de execução das ações previstas no Planejamento Estratégico para o exercício vigente.</p>
+<p>Consulte o Plano de Ação atualizado no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Execução Orçamentária', 'slug' => 'execucao-orcamentaria', 'content' => '<p>A execução orçamentária do CRN-9 — receitas arrecadadas (anuidades, multas, taxas) e despesas realizadas por categoria — é acompanhada mensalmente e publicada em conformidade com a Lei de Acesso à Informação (Lei nº 12.527/2011) e as normas do Sistema CFN/CRN.</p>
+<p>Acompanhe os dados atualizados no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Diárias e Passagens', 'slug' => 'diarias-e-passagens', 'content' => '<p>Os gastos com diárias e passagens de conselheiros, colaboradores e representantes do CRN-9 em viagens a serviço são registrados e publicados individualmente, com data, destino, finalidade e valor, em atenção ao princípio da publicidade.</p>
+<p>Consulte o extrato detalhado no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Pessoal', 'slug' => 'pessoal', 'content' => '<p>Informações sobre o quadro de pessoal do CRN-9 — cargos, quantitativo de colaboradores efetivos e comissionados, e a legislação aplicável ao regime de trabalho da autarquia — estão disponíveis para consulta pública.</p>
+<p>Acesse o quadro atualizado no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Remuneração', 'slug' => 'remuneracao', 'content' => '<p>Em cumprimento à Lei de Acesso à Informação (Lei nº 12.527/2011), o CRN-9 publica a remuneração de conselheiros, diretoria e colaboradores, incluindo a Cédula de Presença paga aos conselheiros por sessão plenária.</p>
+<p>Consulte os valores atualizados no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
+            ['title' => 'Dados Abertos', 'slug' => 'dados-abertos', 'content' => '<p>Sempre que possível, o CRN-9 disponibiliza suas informações públicas em formatos abertos e reutilizáveis, permitindo o acesso, o processamento e a análise por qualquer pessoa, em linha com a Política de Dados Abertos do Governo Federal.</p>
+<p>Os conjuntos de dados disponíveis podem ser consultados no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a> e em <a href="/profissionais-por-municipio">Profissionais por Município</a>.</p>'],
+            ['title' => 'LGPD — Proteção de Dados Pessoais', 'slug' => 'lgpd', 'content' => '<p>O CRN-9 trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD), como controlador dos dados necessários ao exercício de suas competências legais de registro, orientação e fiscalização profissional (Lei nº 6.583/1978 e Lei nº 8.234/1991).</p>
+<h3>Direitos do titular dos dados</h3>
+<p>Você pode solicitar, a qualquer momento, a confirmação da existência de tratamento, o acesso, a correção ou a exclusão de seus dados pessoais, nos limites previstos em lei, pelo canal <a href="/paginas/fale-conosco">Fale Conosco</a> ou pela <a href="/paginas/ouvidoria">Ouvidoria</a>.</p>
+<h3>Finalidades do tratamento</h3>
+<ul>
+<li>Registro e controle da situação cadastral de profissionais e pessoas jurídicas;</li>
+<li>Fiscalização do exercício profissional;</li>
+<li>Comunicação institucional e atendimento a solicitações;</li>
+<li>Cumprimento de obrigações legais e regulatórias do Sistema CFN/CRN.</li>
+</ul>'],
+            ['title' => 'SIC — Serviço de Informação ao Cidadão', 'slug' => 'sic-servico-de-informacao-ao-cidadao', 'content' => '<p>O Serviço de Informação ao Cidadão (SIC) é o canal pelo qual qualquer pessoa pode solicitar acesso a informações públicas produzidas ou custodiadas pelo CRN-9, nos termos da Lei de Acesso à Informação (Lei nº 12.527/2011).</p>
+<h3>Como solicitar</h3>
+<p>Os pedidos de informação podem ser encaminhados pelo canal <a href="/paginas/fale-conosco">Fale Conosco</a> ou pela <a href="/paginas/ouvidoria">Ouvidoria</a> do CRN-9, informando de forma clara os dados solicitados. O Conselho tem o dever de responder em prazo razoável, podendo negar o acesso apenas nas hipóteses legais de sigilo.</p>'],
             ['title' => 'Serviços para Nutricionistas', 'slug' => 'servicos-nutricionistas', 'content' => '<p>Serviços disponíveis para Nutricionistas inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva, prorrogação e cancelamento de inscrição, baixa temporária, transferência, reativação de inscrição, registro do Título de Especialista e Anotação de Responsabilidade Técnica.</p>
 <p>Consulte o serviço desejado e os documentos necessários com a Secretaria do CRN-9.</p>'],
             ['title' => 'Serviços para Técnicos em Nutrição e Dietética', 'slug' => 'servicos-tnd', 'content' => '<p>Serviços disponíveis para Técnicos em Nutrição e Dietética (TND) inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva (validade de 12 meses), prorrogação e cancelamento de inscrição, baixa temporária, transferência e reativação de inscrição.</p>'],
@@ -1061,9 +1092,10 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Plenário', 'url' => '/plenario'],
                     ['label' => 'Política de ingresso', 'url' => '/paginas/politica-de-ingresso'],
                     ['label' => 'Concurso público', 'url' => '/paginas/concurso-publico'],
-                    ['label' => 'Licitações', 'url' => '/licitacoes'],
                     ['label' => 'Sede', 'url' => '/paginas/sede-delegacias'],
                     ['label' => 'Identidade Visual do CRN-9', 'url' => '/paginas/identidade-visual-do-crn-9'],
+                    ['label' => 'Contato', 'url' => '/paginas/fale-conosco'],
+                    ['label' => 'Convênios', 'url' => '/paginas/convenios'],
                 ],
             ],
             [
@@ -1158,11 +1190,22 @@ class DatabaseSeeder extends Seeder
                 ],
             ],
             [
-                'label' => 'Outros',
+                'label' => 'Transparência',
                 'children' => [
+                    ['label' => 'Portal da Transparência', 'url' => 'https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio', 'external' => true],
+                    ['label' => 'Prestação de Contas', 'url' => '/paginas/prestacao-de-contas'],
+                    ['label' => 'Relatórios de Gestão', 'url' => '/paginas/relatorios-de-gestao'],
+                    ['label' => 'Planejamento Estratégico', 'url' => '/paginas/planejamento-estrategico'],
+                    ['label' => 'Plano de Ação', 'url' => '/paginas/plano-de-acao'],
+                    ['label' => 'Execução Orçamentária', 'url' => '/paginas/execucao-orcamentaria'],
+                    ['label' => 'Licitações e Contratos', 'url' => '/licitacoes'],
+                    ['label' => 'Diárias e Passagens', 'url' => '/paginas/diarias-e-passagens'],
+                    ['label' => 'Pessoal', 'url' => '/paginas/pessoal'],
+                    ['label' => 'Remuneração', 'url' => '/paginas/remuneracao'],
+                    ['label' => 'Dados Abertos', 'url' => '/paginas/dados-abertos'],
                     ['label' => 'Ouvidoria', 'url' => '/paginas/ouvidoria'],
-                    ['label' => 'Contato', 'url' => '/paginas/fale-conosco'],
-                    ['label' => 'Convênios', 'url' => '/paginas/convenios'],
+                    ['label' => 'LGPD', 'url' => '/paginas/lgpd'],
+                    ['label' => 'SIC – Serviço de Informação ao Cidadão', 'url' => '/paginas/sic-servico-de-informacao-ao-cidadao'],
                 ],
             ],
         ];
