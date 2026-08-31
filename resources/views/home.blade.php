@@ -83,8 +83,8 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ([
                 ['label' => 'Banco de Oportunidades', 'route' => 'jobs.index', 'iconBg' => 'bg-brand-orange/10', 'iconText' => 'text-brand-orange', 'path' => 'M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a1 1 0 00-1 1v10a2 2 0 002 2h14a2 2 0 002-2V8a1 1 0 00-1-1zM10 5h4v2h-4V5zm10 13a1 1 0 01-1 1H5a1 1 0 01-1-1v-4.05c.32.033.654.05 1 .05h3v1a1 1 0 002 0v-1h4v1a1 1 0 002 0v-1h3c.346 0 .68-.017 1-.05V18zm0-7c0 1.103-.897 2-2 2h-3v-1a1 1 0 00-2 0v1h-4v-1a1 1 0 00-2 0v1H5c-1.103 0-2-.897-2-2V9h18v2z'],
-                ['label' => 'Revista CRN-9', 'route' => 'magazines.index', 'iconBg' => 'bg-brand-blue/10', 'iconText' => 'text-brand-blue', 'path' => 'M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V4H6.5A2.5 2.5 0 004 6.5v13z'],
-                ['label' => 'Fiscalização', 'route' => 'inspectors.index', 'iconBg' => 'bg-brand-leaf/10', 'iconText' => 'text-brand-leaf', 'path' => 'M12 2l8 3.5v5.4c0 5-3.4 9.4-8 10.6-4.6-1.2-8-5.6-8-10.6V5.5L12 2z'],
+                ['label' => 'Biblioteca Virtual', 'route' => 'library.index', 'iconBg' => 'bg-brand-blue/10', 'iconText' => 'text-brand-blue', 'path' => 'M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V4H6.5A2.5 2.5 0 004 6.5v13z'],
+                ['label' => 'Equipe de Fiscalização', 'route' => 'inspectors.index', 'iconBg' => 'bg-brand-leaf/10', 'iconText' => 'text-brand-leaf', 'path' => 'M12 2l8 3.5v5.4c0 5-3.4 9.4-8 10.6-4.6-1.2-8-5.6-8-10.6V5.5L12 2z'],
                 ['label' => 'Profissionais por Município', 'route' => 'municipalities.index', 'iconBg' => 'bg-brand-100', 'iconText' => 'text-brand-700', 'path' => 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7'],
             ] as $quick)
                 <a href="{{ route($quick['route']) }}" class="group flex flex-col items-center gap-3 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-transparent transition-all duration-300 p-5 sm:p-6 text-center">
