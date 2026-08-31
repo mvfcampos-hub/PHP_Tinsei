@@ -452,6 +452,50 @@ class DatabaseSeeder extends Seeder
 <li><strong>Ações Estratégicas de Fiscalização:</strong> realizadas periodicamente para traçar panoramas da atuação profissional em áreas ou regiões específicas do estado;</li>
 <li><strong>Nutricionista/Equipe 5 Estrelas:</strong> reconhecimento de trabalhos de excelência identificados pela fiscalização durante suas visitas.</li>
 </ul>'],
+            ['title' => 'Código de Ética e Conduta', 'slug' => 'codigo-de-etica-e-conduta', 'content' => '<p>O Código de Ética e Conduta da(o) Nutricionista, instituído pela Resolução CFN nº 599/2018, estabelece os princípios, direitos, responsabilidades, deveres e proibições que regem o exercício ético da profissão em todas as suas áreas de atuação.</p>
+<h3>Alguns princípios fundamentais</h3>
+<ul>
+<li>Zelar pela saúde, dignidade e bem-estar dos indivíduos e coletividades atendidos, sem discriminação de qualquer natureza;</li>
+<li>Exercer a profissão com competência técnica, honestidade e responsabilidade;</li>
+<li>Preservar o sigilo profissional sobre informações obtidas em razão do exercício da profissão;</li>
+<li>Não realizar atos que caracterizem a promoção pessoal em detrimento da qualidade dos serviços prestados;</li>
+<li>Assinar seus trabalhos e prescrições sempre com o número de inscrição no CRN.</li>
+</ul>
+<p>Leia a íntegra da <a href="https://www.cfn.org.br/wpcontent/uploads/resolucoes/Res_599_2018.html" target="_blank" rel="noopener">Resolução CFN nº 599/2018</a>. Veja também: <a href="/paginas/codigo-de-processamento-etico-disciplinar">Código de Processamento Ético-Disciplinar</a> e <a href="/paginas/como-funciona-o-processo-etico">Como Funciona o Processo Ético</a>.</p>'],
+            ['title' => 'Código de Processamento Ético-Disciplinar', 'slug' => 'codigo-de-processamento-etico-disciplinar', 'content' => '<p>O Código de Processamento Ético-Disciplinar, instituído pela Resolução CFN nº 705/2021, regula a apuração de denúncias e a instrução de processos éticos contra Nutricionistas e Técnicos em Nutrição e Dietética, assegurando o contraditório e a ampla defesa em todas as suas fases.</p>
+<h3>Fases do processo</h3>
+<ul>
+<li>Recebimento e admissibilidade da denúncia;</li>
+<li>Instrução e apuração dos fatos, com oitiva das partes;</li>
+<li>Parecer da Comissão de Ética;</li>
+<li>Julgamento pelo Plenário do CRN-9;</li>
+<li>Possibilidade de recurso ao Conselho Federal de Nutricionistas (CFN).</li>
+</ul>
+<p>Consulte também: <a href="/paginas/como-funciona-o-processo-etico">Como Funciona o Processo Ético</a> e <a href="/paginas/denuncia-etica">Denúncia Ética</a>.</p>'],
+            ['title' => 'Orientações Éticas', 'slug' => 'orientacoes-eticas', 'content' => '<p>Antes de chegar a um processo, o CRN-9 busca orientar o(a) profissional sobre suas responsabilidades éticas no exercício diário da Nutrição. Algumas orientações frequentes:</p>
+<ul>
+<li>Toda prescrição dietética e documento técnico deve conter nome completo e número de inscrição no CRN9 do(a) profissional responsável;</li>
+<li>É vedado o uso de títulos ou especializações não registrados junto ao Conselho;</li>
+<li>A publicidade profissional deve ser discreta, informativa e não pode induzir a erro ou prometer resultados;</li>
+<li>O sigilo profissional deve ser mantido mesmo após o fim do atendimento, salvo dever legal de comunicação;</li>
+<li>Conflitos de interesse (por exemplo, em parcerias comerciais ou divulgação de produtos) devem ser evitados ou claramente informados.</li>
+</ul>
+<p>Para dúvidas objetivas com resposta direta, consulte a ferramenta <a href="/pode-ou-nao-pode">Pode ou Não Pode?</a>.</p>'],
+            ['title' => 'Pareceres e Orientações Técnicas', 'slug' => 'pareceres-e-orientacoes', 'content' => '<p>O Sistema CFN/CRN produz pareceres técnicos e éticos que orientam a categoria sobre temas emergentes da prática profissional, subsidiando decisões do Plenário e da Comissão de Ética.</p>
+<p>Um exemplo é o <strong>Parecer do Grupo de Trabalho sobre Teleconsulta em Nutrição</strong>, elaborado pelo CFN para orientar a prática da telenutrição — hoje regulamentada pela Resolução CFN nº 760/2023 —, tratando de temas como consentimento informado, prescrição remota e guarda de prontuário eletrônico.</p>
+<p>Pareceres específicos emitidos pela Comissão de Ética do CRN-9 podem ser solicitados pelo canal de <a href="/paginas/fale-conosco">Fale Conosco</a>.</p>'],
+            ['title' => 'Como Funciona o Processo Ético', 'slug' => 'como-funciona-o-processo-etico', 'content' => '<p>Veja o passo a passo de um processo ético-disciplinar no CRN-9, conforme a Resolução CFN nº 705/2021:</p>
+<ol>
+<li><strong>Denúncia:</strong> qualquer pessoa pode registrar uma denúncia ética contra profissional inscrito, pelo canal <a href="/paginas/denuncia-etica">Denúncia Ética</a>;</li>
+<li><strong>Admissibilidade:</strong> a Comissão de Ética analisa se a denúncia apresenta elementos suficientes para apuração;</li>
+<li><strong>Instrução:</strong> são colhidas manifestações do(a) denunciado(a) e, quando necessário, provas e depoimentos, sempre assegurado o direito à ampla defesa;</li>
+<li><strong>Parecer:</strong> a Comissão de Ética emite parecer técnico fundamentado sobre o caso;</li>
+<li><strong>Julgamento:</strong> o Plenário do CRN-9 julga o processo, podendo arquivá-lo ou aplicar penalidade prevista no Código de Ética;</li>
+<li><strong>Recurso:</strong> cabe recurso ao Conselho Federal de Nutricionistas (CFN), em segunda instância.</li>
+</ol>
+<p>Durante todo o processo, é preservado o sigilo das partes envolvidas, nos termos da legislação aplicável.</p>'],
+            ['title' => 'Decisões e Informações Públicas (Ética)', 'slug' => 'decisoes-e-informacoes-publicas-etica', 'content' => '<p>Em atenção à transparência, o CRN-9 disponibiliza publicamente, quando cabível e sem identificar as partes envolvidas, indicadores sobre os processos éticos e de fiscalização em curso.</p>
+<p>Acesse o painel de acompanhamento em <a href="/fiscalizacao/processos">Processos em Andamento</a>. Decisões finais do Plenário, quando publicáveis, seguem os critérios de sigilo processual e são comunicadas diretamente às partes, conforme o Código de Processamento Ético-Disciplinar.</p>'],
             ['title' => 'Serviços para Nutricionistas', 'slug' => 'servicos-nutricionistas', 'content' => '<p>Serviços disponíveis para Nutricionistas inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva, prorrogação e cancelamento de inscrição, baixa temporária, transferência, reativação de inscrição, registro do Título de Especialista e Anotação de Responsabilidade Técnica.</p>
 <p>Consulte o serviço desejado e os documentos necessários com a Secretaria do CRN-9.</p>'],
             ['title' => 'Serviços para Técnicos em Nutrição e Dietética', 'slug' => 'servicos-tnd', 'content' => '<p>Serviços disponíveis para Técnicos em Nutrição e Dietética (TND) inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva (validade de 12 meses), prorrogação e cancelamento de inscrição, baixa temporária, transferência e reativação de inscrição.</p>'],
@@ -1075,6 +1119,20 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Processos em Andamento', 'url' => '/fiscalizacao/processos'],
                     ['label' => 'Política Nacional de Fiscalização', 'url' => '/paginas/politica-nacional-de-fiscalizacao'],
                     ['label' => 'Visitas Técnicas', 'url' => '/paginas/visitas-tecnicas'],
+                ],
+            ],
+            [
+                'label' => 'Ética Profissional',
+                'children' => [
+                    ['label' => 'Código de Ética e Conduta', 'url' => '/paginas/codigo-de-etica-e-conduta'],
+                    ['label' => 'Código de Processamento Ético-Disciplinar', 'url' => '/paginas/codigo-de-processamento-etico-disciplinar'],
+                    ['label' => 'Orientações Éticas', 'url' => '/paginas/orientacoes-eticas'],
+                    ['label' => 'Perguntas Frequentes', 'url' => '/perguntas-frequentes'],
+                    ['label' => 'Pareceres e Orientações Técnicas', 'url' => '/paginas/pareceres-e-orientacoes'],
+                    ['label' => 'Denúncia Ética', 'url' => '/paginas/denuncia-etica'],
+                    ['label' => 'Como Funciona o Processo Ético', 'url' => '/paginas/como-funciona-o-processo-etico'],
+                    ['label' => 'Comissão de Ética', 'url' => '/plenario'],
+                    ['label' => 'Decisões e Informações Públicas', 'url' => '/paginas/decisoes-e-informacoes-publicas-etica'],
                 ],
             ],
             [
