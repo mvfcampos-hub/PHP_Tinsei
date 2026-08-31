@@ -514,16 +514,57 @@ class DatabaseSeeder extends Seeder
 <p>Consulte os valores atualizados no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a>.</p>'],
             ['title' => 'Dados Abertos', 'slug' => 'dados-abertos', 'content' => '<p>Sempre que possível, o CRN-9 disponibiliza suas informações públicas em formatos abertos e reutilizáveis, permitindo o acesso, o processamento e a análise por qualquer pessoa, em linha com a Política de Dados Abertos do Governo Federal.</p>
 <p>Os conjuntos de dados disponíveis podem ser consultados no <a href="https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio" target="_blank" rel="noopener">Portal da Transparência</a> e em <a href="/profissionais-por-municipio">Profissionais por Município</a>.</p>'],
-            ['title' => 'LGPD — Proteção de Dados Pessoais', 'slug' => 'lgpd', 'content' => '<p>O CRN-9 trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD), como controlador dos dados necessários ao exercício de suas competências legais de registro, orientação e fiscalização profissional (Lei nº 6.583/1978 e Lei nº 8.234/1991).</p>
-<h3>Direitos do titular dos dados</h3>
-<p>Você pode solicitar, a qualquer momento, a confirmação da existência de tratamento, o acesso, a correção ou a exclusão de seus dados pessoais, nos limites previstos em lei, pelo canal <a href="/paginas/fale-conosco">Fale Conosco</a> ou pela <a href="/paginas/ouvidoria">Ouvidoria</a>.</p>
-<h3>Finalidades do tratamento</h3>
+            ['title' => 'Política de Privacidade e Proteção de Dados (LGPD)', 'slug' => 'lgpd', 'content' => '<p>O Conselho Regional de Nutrição da 9ª Região (CRN-9), autarquia federal, trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD) e, na qualidade de entidade da Administração Pública, observa as regras específicas de tratamento de dados pelo poder público previstas nos artigos 23 a 30 da LGPD, sempre em cumprimento de suas competências legais de registro, orientação e fiscalização do exercício profissional (Lei nº 6.583/1978 e Lei nº 8.234/1991).</p>
+
+<h3>1. Quais dados coletamos e em que situações</h3>
+<p>Coletamos apenas os dados pessoais necessários para cada finalidade específica, entre eles:</p>
 <ul>
-<li>Registro e controle da situação cadastral de profissionais e pessoas jurídicas;</li>
-<li>Fiscalização do exercício profissional;</li>
-<li>Comunicação institucional e atendimento a solicitações;</li>
-<li>Cumprimento de obrigações legais e regulatórias do Sistema CFN/CRN.</li>
-</ul>'],
+<li><strong>Cadastro profissional e de pessoas jurídicas:</strong> nome, CPF/CNPJ, dados de contato, formação e demais informações exigidas para inscrição, regularidade e Responsabilidade Técnica junto ao CRN-9;</li>
+<li><strong>Portal de Adequação (fiscalização):</strong> nome do(a) profissional, número de inscrição no CRN9 e os documentos anexados como comprovação de adequação;</li>
+<li><strong>Denúncias:</strong> dados de identificação do(a) denunciante (quando a denúncia não é anônima) e do(a) denunciado(a), estritamente para fins de apuração do processo ético ou de fiscalização;</li>
+<li><strong>Banco de Oportunidades (vagas):</strong> nome e e-mail de quem publica a vaga, e dados de contato informados no anúncio;</li>
+<li><strong>Nutrição em Minas:</strong> nome e e-mail de quem sugere uma história para publicação;</li>
+<li><strong>Navegação no site:</strong> cookies estritamente necessários ao funcionamento do site — veja a <a href="/paginas/politica-de-cookies">Política de Cookies</a>.</li>
+</ul>
+
+<h3>2. Finalidades e base legal (art. 7º da LGPD)</h3>
+<p>Os dados são tratados para: (i) cumprimento de obrigação legal ou regulatória, no exercício das competências de registro, orientação e fiscalização profissional atribuídas por lei ao CRN-9; (ii) execução de políticas públicas previstas em lei, no âmbito de sua atuação como autarquia federal; (iii) exercício regular de direitos em processo administrativo; e, quando aplicável a formulários de participação voluntária (como sugestões para o Nutrição em Minas), (iv) consentimento do titular.</p>
+
+<h3>3. Compartilhamento de dados</h3>
+<p>Os dados podem ser compartilhados com o Conselho Federal de Nutricionistas (CFN) e demais entidades do Sistema CFN/CRN, quando necessário ao exercício de suas competências conjuntas, e com autoridades públicas mediante determinação legal ou judicial. O CRN-9 não compartilha dados pessoais para fins de marketing ou com terceiros alheios às suas finalidades institucionais.</p>
+
+<h3>4. Retenção e segurança</h3>
+<p>Os dados são mantidos pelo prazo necessário ao cumprimento das finalidades para as quais foram coletados ou pelo prazo exigido por obrigação legal ou regulatória, e são protegidos por medidas técnicas e administrativas razoáveis, incluindo conexão criptografada (HTTPS) e controle de acesso.</p>
+
+<h3>5. Seus direitos como titular de dados (art. 18 da LGPD)</h3>
+<p>Você pode solicitar, a qualquer momento e nos limites previstos em lei: confirmação da existência de tratamento; acesso aos dados; correção de dados incompletos, inexatos ou desatualizados; anonimização, bloqueio ou eliminação de dados desnecessários; portabilidade; informação sobre compartilhamento; e revogação do consentimento, quando esta for a base legal aplicável. As solicitações podem ser feitas pelo canal <a href="/paginas/fale-conosco">Fale Conosco</a>, pela <a href="/paginas/ouvidoria">Ouvidoria</a> ou diretamente ao Encarregado de Dados indicado abaixo.</p>
+
+<h3>6. Encarregado de Dados Pessoais (DPO)</h3>
+<p>Nos termos do art. 41 da LGPD, o CRN-9 mantém um(a) Encarregado(a) pelo Tratamento de Dados Pessoais, responsável por receber comunicações de titulares e da Autoridade Nacional de Proteção de Dados (ANPD) e orientar o Conselho sobre boas práticas de proteção de dados.</p>
+<p><em>[A ser preenchido pelo CRN-9: nome e e-mail institucional do(a) Encarregado(a) de Dados designado(a), conforme exigência de divulgação pública do art. 41, §1º da LGPD.]</em></p>
+
+<h3>7. Alterações a esta política</h3>
+<p>Esta política pode ser atualizada para refletir mudanças legais ou operacionais. A data da última atualização será sempre indicada nesta página.</p>'],
+            ['title' => 'Política de Cookies', 'slug' => 'politica-de-cookies', 'content' => '<p>Esta página explica, de forma clara e objetiva, quais cookies o site do CRN-9 utiliza, conforme o princípio da transparência da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).</p>
+
+<h3>O que são cookies</h3>
+<p>Cookies são pequenos arquivos de texto armazenados pelo seu navegador que permitem que um site reconheça seu dispositivo e mantenha informações entre diferentes acessos.</p>
+
+<h3>Quais cookies este site utiliza</h3>
+<p>O site do CRN-9 utiliza <strong>exclusivamente cookies estritamente necessários ao seu funcionamento</strong>, todos de primeira parte (definidos pelo próprio domínio crn9.org.br):</p>
+<ul>
+<li><strong>Cookie de sessão</strong> — mantém você conectado durante a navegação e, no caso de profissionais e da equipe do CRN-9, durante o uso de áreas autenticadas do site;</li>
+<li><strong>Cookie de proteção contra CSRF</strong> — protege os formulários do site (como denúncias, Portal de Adequação e Banco de Oportunidades) contra envios fraudulentos.</li>
+</ul>
+<p>Estes cookies são indispensáveis para o funcionamento do site e <strong>não exigem consentimento prévio</strong>, pois se enquadram na exceção de cookies estritamente necessários. Eles não são utilizados para rastreamento, publicidade ou perfilamento de usuários.</p>
+
+<h3>Cookies de terceiros e ferramentas de análise</h3>
+<p>Atualmente, o site do CRN-9 <strong>não utiliza</strong> cookies de terceiros, ferramentas de análise de tráfego (como Google Analytics) ou pixels de redes sociais. Caso isso venha a mudar, esta política será atualizada e, quando exigido por lei, será solicitado o consentimento prévio do usuário para cookies não essenciais.</p>
+
+<h3>Como gerenciar cookies</h3>
+<p>Você pode configurar seu navegador para bloquear ou apagar cookies a qualquer momento. Como os cookies deste site são estritamente necessários, desativá-los pode impedir o funcionamento de formulários e áreas que exigem login (como o Painel Administrativo).</p>
+
+<p>Para dúvidas sobre esta política, consulte também a <a href="/paginas/lgpd">Política de Privacidade e Proteção de Dados (LGPD)</a> ou entre em contato pelo canal <a href="/paginas/fale-conosco">Fale Conosco</a>.</p>'],
             ['title' => 'SIC — Serviço de Informação ao Cidadão', 'slug' => 'sic-servico-de-informacao-ao-cidadao', 'content' => '<p>O Serviço de Informação ao Cidadão (SIC) é o canal pelo qual qualquer pessoa pode solicitar acesso a informações públicas produzidas ou custodiadas pelo CRN-9, nos termos da Lei de Acesso à Informação (Lei nº 12.527/2011).</p>
 <h3>Como solicitar</h3>
 <p>Os pedidos de informação podem ser encaminhados pelo canal <a href="/paginas/fale-conosco">Fale Conosco</a> ou pela <a href="/paginas/ouvidoria">Ouvidoria</a> do CRN-9, informando de forma clara os dados solicitados. O Conselho tem o dever de responder em prazo razoável, podendo negar o acesso apenas nas hipóteses legais de sigilo.</p>'],
@@ -1204,7 +1245,8 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Remuneração', 'url' => '/paginas/remuneracao'],
                     ['label' => 'Dados Abertos', 'url' => '/paginas/dados-abertos'],
                     ['label' => 'Ouvidoria', 'url' => '/paginas/ouvidoria'],
-                    ['label' => 'LGPD', 'url' => '/paginas/lgpd'],
+                    ['label' => 'Política de Privacidade (LGPD)', 'url' => '/paginas/lgpd'],
+                    ['label' => 'Política de Cookies', 'url' => '/paginas/politica-de-cookies'],
                     ['label' => 'SIC – Serviço de Informação ao Cidadão', 'url' => '/paginas/sic-servico-de-informacao-ao-cidadao'],
                 ],
             ],

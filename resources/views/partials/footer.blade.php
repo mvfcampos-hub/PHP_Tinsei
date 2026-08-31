@@ -16,6 +16,8 @@
                 <li><a href="{{ route('faqs.index') }}" class="hover:text-white transition">Perguntas Frequentes</a></li>
                 <li><a href="{{ route('pages.show', 'identidade-visual-do-crn-9') }}" class="hover:text-white transition">Identidade Visual</a></li>
                 <li><a href="{{ route('pages.show', 'fale-conosco') }}" class="hover:text-white transition">Fale Conosco</a></li>
+                <li><a href="{{ route('pages.show', 'lgpd') }}" class="hover:text-white transition">Política de Privacidade</a></li>
+                <li><a href="{{ route('pages.show', 'politica-de-cookies') }}" class="hover:text-white transition">Política de Cookies</a></li>
             </ul>
         </div>
 

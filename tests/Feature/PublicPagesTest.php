@@ -35,6 +35,33 @@ class PublicPagesTest extends TestCase
         $this->get('/')->assertStatus(200);
     }
 
+    public function test_cookie_notice_is_present_on_every_page(): void
+    {
+        $this->get('/')
+            ->assertStatus(200)
+            ->assertSee('cookies estritamente necessários', false)
+            ->assertSee(route('pages.show', 'politica-de-cookies'), false);
+    }
+
+    public function test_lgpd_and_cookie_policy_pages_load(): void
+    {
+        $lgpd = Page::create([
+            'title' => 'Política de Privacidade e Proteção de Dados (LGPD)',
+            'slug' => 'lgpd',
+            'content' => '<p>Conteúdo LGPD de teste</p>',
+            'is_published' => true,
+        ]);
+        $cookies = Page::create([
+            'title' => 'Política de Cookies',
+            'slug' => 'politica-de-cookies',
+            'content' => '<p>Conteúdo de cookies de teste</p>',
+            'is_published' => true,
+        ]);
+
+        $this->get(route('pages.show', $lgpd->slug))->assertStatus(200)->assertSee($lgpd->title);
+        $this->get(route('pages.show', $cookies->slug))->assertStatus(200)->assertSee($cookies->title);
+    }
+
     public function test_news_index_and_show(): void
     {
         $news = News::create([

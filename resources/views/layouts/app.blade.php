@@ -27,5 +27,6 @@
 
     @include('partials.footer')
     @include('partials.whatsapp-button')
+    @include('partials.cookie-notice')
 </body>
 </html>
