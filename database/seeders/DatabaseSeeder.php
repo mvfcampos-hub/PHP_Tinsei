@@ -315,46 +315,6 @@ class DatabaseSeeder extends Seeder
 <h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgTTnLakzcngTcDGAhXG2RXLGjQh0bUyjdnYIFTLkvy7wwZA/viewform" target="_blank" rel="noopener">Hábitos de consumo de alimentos, leitura de rótulos e compras on-line durante a pandemia de COVID-19</a></h3>
 <h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSf80nDeikb_Oi2IyMGDgzPSwnhvn0I2b1d6K620550EDjXZHQ/viewform" target="_blank" rel="noopener">Utilização das Tecnologias de Informação e Comunicação (TICs) nas diferentes áreas de atuação do nutricionista</a></h3>
 <h3><a href="https://docs.google.com/forms/d/e/1FAIpQLSfMj-jPYxOnbWD27qCNg3ntzijsMUT48eNXV8NkRCktQl_WQA/viewform" target="_blank" rel="noopener">Pesquisa sobre o perfil dos consumidores de produtos de origem animal no Brasil e sua percepção sobre impacto ambiental, bem-estar, qualidade e saúde</a></h3>'],
-            ['title' => 'Eleições CRN-9 2026/2029', 'slug' => 'eleicoes-crn-9-2026-2029', 'content' => <<<'HTML'
-                <p>Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no triênio 2026–2029.</p>
-                <p>Confira abaixo todas as informações que você precisa para participar do pleito.</p>
-                <h2>Material de Campanha</h2>
-                <ul>
-                <li><a href="/paginas/chapa-1-eleicoes-2026-2029">Material de Campanha da Chapa 1 – Conectar Nutrição</a></li>
-                <li><a href="/paginas/chapa-2-eleicoes-2026-2029">Material de Campanha da Chapa 2 – Nova Rota</a></li>
-                </ul>
-                <h2>Notícias sobre o processo eleitoral</h2>
-                <ul>
-                <li><a href="https://crn9.org.br/atencao-nutricionista-gere-sua-senha-para-votar-nas-eleicoes-do-crn-9/" target="_blank" rel="noopener">Atenção, nutricionista: gere sua senha para votar nas eleições do CRN-9</a></li>
-                <li><a href="/noticias/publicado-o-edital-com-o-registro-definitivo-das-chapas-para-as-eleicoes-do-crn-9">Publicado o edital com o registro definitivo das chapas para as eleições do CRN-9</a></li>
-                <li><a href="/noticias/eleicoes-crn-9-participacao-e-democracia-para-a-categoria">Eleições CRN-9: participação e democracia para a categoria</a></li>
-                <li><a href="/noticias/regularize-sua-situacao-e-participe-da-eleicao-20262029-do-crn-9">Regularize sua situação e participe da eleição 2026/2029 do CRN-9</a></li>
-                <li><a href="/noticias/eleicoes-crn-9-edital-com-a-inscricao-das-chapas-e-publicado-no-diario-oficial-da-uniao">Eleições CRN-9: Edital com a inscrição das chapas é publicado no Diário Oficial da União</a></li>
-                <li><a href="/noticias/crn9-divulga-cronograma-do-processo-eleitoral-para-a-gestao-20262029">CRN9 divulga cronograma do Processo Eleitoral para a Gestão 2026/2029</a></li>
-                <li><a href="/noticias/crn9-publica-aviso-de-eleicao-para-a-gestao-20262029">CRN9 publica Aviso de Eleição para a Gestão 2026/2029</a></li>
-                </ul>
-                HTML,
-            ],
-            ['title' => 'Material de Campanha – Chapa 1', 'slug' => 'chapa-1-eleicoes-2026-2029', 'content' => <<<'HTML'
-                <p><a href="/paginas/eleicoes-crn-9-2026-2029">← Voltar para Eleições CRN-9 2026/2029</a></p>
-                <h2>Chapa 1 – Conectar Nutrição</h2>
-                <ul>
-                <li><a href="https://crn9.org.br/wp-content/uploads/2026/02/Propostas_CHAPA_1_CONECTAR_NUTRICAO__1_-1.pdf" target="_blank" rel="noopener">Propostas – Chapa 1 Conectar Nutrição</a></li>
-                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Material_2___Conectar_Nutricao.pdf" target="_blank" rel="noopener">Material de Campanha – 2</a></li>
-                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/material_3_Projeto_Conectar_Nutricao___Chapa_1_1_.pdf" target="_blank" rel="noopener">Material de Campanha – 3</a></li>
-                </ul>
-                HTML,
-            ],
-            ['title' => 'Material de Campanha – Chapa 2', 'slug' => 'chapa-2-eleicoes-2026-2029', 'content' => <<<'HTML'
-                <p><a href="/paginas/eleicoes-crn-9-2026-2029">← Voltar para Eleições CRN-9 2026/2029</a></p>
-                <h2>Chapa 2 – Nova Rota</h2>
-                <ul>
-                <li><a href="https://crn9.org.br/wp-content/uploads/2026/02/Chapa_Nova_Rota___material-1.pdf" target="_blank" rel="noopener">Propostas – Chapa 2 Nova Rota</a></li>
-                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Material_2___Nova_Rota.pdf" target="_blank" rel="noopener">Material de Campanha – 2</a></li>
-                <li><a href="https://crn9.org.br/wp-content/uploads/2021/01/Material_3_CHAPA_2_NOVA_ROTA_Plano_de_Trabalho.pdf" target="_blank" rel="noopener">Material de Campanha – 3 (Plano de Trabalho)</a></li>
-                </ul>
-                HTML,
-            ],
             ['title' => 'Denúncia', 'slug' => 'denuncia', 'content' => <<<'HTML'
                 <p>O CRN-9 recebe e analisa denúncias contra Nutricionistas e Técnicos em Nutrição e Dietética inscritos neste Regional, contra profissionais sem inscrição regular, contra leigos que exerçam ilegalmente a profissão e contra Pessoas Jurídicas. Escolha abaixo o tipo de denúncia:</p>
                 <ul>
@@ -1188,17 +1148,6 @@ class DatabaseSeeder extends Seeder
     private function seedNews(User $admin): void
     {
         $items = [
-            ['title' => 'CRN9 divulga cronograma do Processo Eleitoral para a Gestão 2026/2029', 'category' => 'Institucional', 'is_featured' => true, 'excerpt' => 'O Conselho Regional de Nutrição da 9ª Região (CRN9) e a Comissão Eleitoral tornam público o cronograma oficial do Processo Eleitoral para a gestão 2026/2029.', 'image' => 'eleicoes-cronograma.png', 'body' => '<p>O Conselho Regional de Nutrição da 9ª Região (CRN9) e a Comissão Eleitoral tornam público o cronograma oficial do Processo Eleitoral para a gestão 2026/2029.</p>
-<p>As datas foram definidas em reunião da Comissão Eleitoral, composta pelas nutricionistas Regina Rodrigues de Oliveira, Sirlene Jeronimo de Araujo, Mona Lisa Maria Araujo Pacheco, Monaise Gomes Martins e Thalita Hellen Paula Franco Rodrigues, e validadas em Plenária. De acordo com o Aviso de Eleição, as chapas interessadas em participar do pleito terão 30 dias para se inscrever , entre 19 de novembro e 19 de dezembro de 2025 .</p>
-<p>Com mais de 20 mil profissionais ativos(as) em Minas Gerais, o CRN9 realizará a votação ao longo de três dias: 18, 19 e 20 de março de 2026 , de forma totalmente eletrônica. O resultado final será publicado em edital no dia 23 de março de 2026 .</p>
-<p>Confira abaixo o cronograma completo.</p>
-<p>Gostou? Compartilhe nas suas redes!</p>
-<h3>Deixe um comentário Cancelar resposta</h3>'],
-            ['title' => 'CRN9 publica Aviso de Eleição para a Gestão 2026/2029', 'category' => 'Institucional', 'is_featured' => true, 'excerpt' => 'O Conselho Regional de Nutrição da 9ª Região (CRN9) e a Comissão Eleitoral tornam publico o Aviso de Eleição e o Aviso de Retificação para a gestão 2026/2029, conforme previsto...', 'image' => 'eleicoes-aviso.png', 'body' => '<p>O Conselho Regional de Nutrição da 9ª Região (CRN9) e a Comissão Eleitoral tornam publico o Aviso de Eleição e o Aviso de Retificação para a gestão 2026/2029, conforme previsto no cronograma da Comissão Eleitoral e divulgado no Diário Oficial da União.</p>
-<p>A publicação marca o início oficial do processo eleitoral do Conselho. Nutricionistas regularmente inscritos(as) no CRN9 (Minas Gerais) estão convocados(as) a participar da eleição, que acontecerá entre os dias 18 e 20 de março de 2026 . A votação será realizada de forma exclusivamente eletrônica , permitindo que profissionais de todo o estado participem com praticidade e segurança.</p>
-<p>As chapas interessadas em concorrer devem ser formadas por 18 nutricionistas — sendo 9 titulares e 9 suplentes — e poderão ser registradas no período de 19 de novembro a 19 de dezembro de 2025 .</p>
-<p>Gostou? Compartilhe nas suas redes!</p>
-<h3>Deixe um comentário Cancelar resposta</h3>'],
             ['title' => 'CRN-9 participa do Ganepão e apresenta estudo sobre a atuação do nutricionista em equipes de terapia nutricional', 'category' => 'Institucional', 'is_featured' => true, 'excerpt' => 'O Conselho Regional de Nutrição da 9ª Região (CRN-9) participa do Ganepão 2026, um dos mais importantes eventos científicos da área da Nutrição na América Latina. O congresso...', 'image' => 'ganepao.png', 'body' => '<p>O Conselho Regional de Nutrição da 9ª Região (CRN-9) participa do Ganepão 2026, um dos mais importantes eventos científicos da área da Nutrição na América Latina. O congresso acontece entre os dias 10 e 12 de junho, no Centro de Convenções Frei Caneca, em São Paulo (SP), reunindo profissionais, pesquisadores e estudantes para debater os avanços e os desafios da profissão. A delegação do CRN-9 é composta por conselheiras e nutricionistas fiscais.</p>
 <p>Com o tema “Futuro da Nutrição: ciência, vida real, tecnologia e revolução no cuidado”, a edição deste ano promove discussões sobre inovação, produção científica e práticas que impactam diretamente a assistência nutricional.</p>
 <p>Representando o CRN-9, as nutricionistas fiscais Rayane Lemos e Cleisiane Ruthe apresentam o trabalho “Diagnóstico da atuação do nutricionista em Equipe Multidisciplinar de Terapia Nutricional (EMTN)”. O estudo foi desenvolvido a partir dos dados obtidos durante as ações de fiscalização realizadas pelo Conselho em 2025, evidenciando o papel estratégico do nutricionista nas equipes responsáveis pela terapia nutricional em serviços de saúde.</p>
@@ -1239,16 +1188,6 @@ class DatabaseSeeder extends Seeder
 <p>O encontro ocorre na quinta-feira, 21/07, às 19h, no Auditório do Centro Universitário Estácio Juiz de Fora- Avenida Presidente Goulart nº 600 – Bairro Cruzeiro do Sul (ao lado do Carrefour).</p>
 <p>Gostou? Compartilhe nas suas redes!</p>
 <h3>2 respostas para “Sarcopenia é tema de palestra presencial em Juiz de Fora”</h3>'],
-            ['title' => 'Regularize sua situação e participe da eleição 2026/2029 do CRN-9', 'category' => 'Institucional', 'is_featured' => false, 'excerpt' => '⏰ Encerra no próximo dia 06 de fevereiro o prazo para que os nutricionistas do Estado de Minas Gerais regularizem sua situação junto ao Conselho Regional de Nutrição da 9ª...', 'image' => 'regularize.jpeg', 'body' => '<p>⏰ Encerra no próximo dia 06 de fevereiro o prazo para que os nutricionistas do Estado de Minas Gerais regularizem sua situação junto ao Conselho Regional de Nutrição da 9ª Região – CRN-9 e estejam aptos para votar no pleito eleitoral que escolherá o plenário do Conselho para o triênio 2026/2029. 📅 As eleições ocorrerão nos dias 18, 19 e 20 de março de 2026, de forma totalmente eletrônica.</p>
-<p>💳 Para a regularização, o profissional deverá fazer a quitação das pendências financeiras, o que inclui o pagamento integral ou da primeira parcela decorrente de negociação com o Conselho. O boleto pode ser retirado pelo site. Saiba como. Clique aqui.</p>
-<p>🚫 Não poderá participar do pleito nutricionistas com a inscrição baixada ou cancelada. Aos inadimplentes, além do impedimento ao voto, receberão multa no valor de 10% da anuidade. Aos profissionais aptos para votar, serão enviadas senhas por e-mail para acessar o sistema eleitoral.</p>
-<p>📞 Para fazer a negociação de débito, entre em contato pelo e-mail pf.atendimento@crn9.org.br ou pelo telefone (31) 3226-8403.</p>
-<p>📌 Obrigatoriedade do voto Conforme a Resolução CFN 564/2015, que aprova o regulamento eleitoral dos Conselhos Regionais, o voto é obrigatório, pessoal e secreto.</p>
-<p>📝 Justificativa O nutricionista deverá justificar sua abstenção em até 30 dias após o pleito. Em caso de deferimento, não haverá cobrança de multa. A justificativa será feita por meio de plataforma online, que será disponibilizada posteriormente.</p>
-<p>Gostou? Compartilhe nas suas redes!</p>
-<h3>Uma resposta para “Regularize sua situação e participe da eleição 2026/2029 do CRN-9”</h3>
-<p>BOA TARDE! NÃO CONSEGUI REALIZAR A VOTAÇÃO, POIS NÃO RECEBI A SENHA. COMO FAÇO PARA JUSTIFICAR?</p>
-<h3>Deixe um comentário Cancelar resposta</h3>'],
             ['title' => 'Mês de conscientização da saúde mental e emocional', 'category' => 'Campanhas', 'is_featured' => false, 'excerpt' => 'Janeiro é o mês da conscientização sobre a saúde mental. Inspirado no recomeço que o novo ano traz, o Janeiro Branco nos convida a refletir sobre nosso bem-estar emocional,...', 'image' => 'saude-mental.png', 'body' => '<p>Janeiro é o mês da conscientização sobre a saúde mental. Inspirado no recomeço que o novo ano traz, o Janeiro Branco nos convida a refletir sobre nosso bem-estar emocional, nossos relacionamentos e a qualidade de vida.</p>
 <p>A saúde mental é tão importante quanto a física! Assim como cuidamos da alimentação para nutrir nosso corpo, também precisamos cultivar hábitos que fortaleçam a mente. Práticas como manter uma alimentação equilibrada, realizar atividades físicas regularmente e reservar momentos para o autocuidado são pilares fundamentais para uma mente saudável.</p>
 <p>🌟 Lembre-se: Procure suporte profissional adequado se sentir que precisa!</p>
@@ -1336,38 +1275,6 @@ class DatabaseSeeder extends Seeder
 <p>Inscrições para o segundo semestre</p>
 <p>As inscrições para as próximas edições do Projeto Portas Abertas devem ser realizadas exclusivamente por coordenadores(as) e docentes dos cursos de Nutrição. A agenda do segundo semestre será divulgada no mês agosto e as vagas são limitadas.</p>
 <p>Mais informações podem ser obtidas junto à Unidade Técnica pelo e-mail: ut@crn9.org.br . O CRN-9 reforça o convite às instituições de ensino para participarem da iniciativa e fortalecerem a integração entre a formação acadêmica e o exercício profissional.</p>
-<p>Gostou? Compartilhe nas suas redes!</p>
-<h3>Deixe um comentário Cancelar resposta</h3>'],
-            ['title' => 'Atenção, nutricionista: fique atento ao recebimento do e-mail com o link para a geração da senha provisória de votação', 'category' => 'Institucional', 'is_featured' => false, 'excerpt' => 'O Conselho Regional de Nutrição da 9ª Região (CRN-9) informa que, já estão sendo enviados por e-mail os links para geração da senha provisória de votação, aos profissionais...', 'image' => null, 'body' => '<p>O Conselho Regional de Nutrição da 9ª Região (CRN-9) informa que, já estão sendo enviados por e-mail os links para geração da senha provisória de votação, aos profissionais aptos a votar. Fique atento à sua caixa de entrada!</p>
-<p>Após o recebimento da comunicação, o profissional deverá cadastrar sua senha definitiva, que será utilizada para acessar o sistema nos dias da eleição.</p>
-<p>Para evitar problemas no recebimento do e-mail, orientamos que: • verifique se sua caixa de entrada possui espaço disponível; • esvazie a lixeira, se necessário, para evitar bloqueio de novas mensagens; • confira também as pastas de spam ou lixo eletrônico.</p>
-<p>Contamos com a colaboração de todos para garantir o recebimento das comunicações e fortalecer o processo democrático da categoria.</p>
-<p>Em caso de dúvidas ou não recebimento do link, entre em contato com o CRN-9 pelos canais oficiais de atendimento.</p>
-<p>Gostou? Compartilhe nas suas redes!</p>
-<h3>Uma resposta para “Atenção, nutricionista: fique atento ao recebimento do e-mail com o link para a geração da senha provisória de votação”</h3>
-<p>Gostaria de receber a senha</p>
-<h3>Deixe um comentário Cancelar resposta</h3>'],
-            ['title' => 'Publicado o edital com o registro definitivo das chapas para as eleições do CRN-9', 'category' => 'Institucional', 'is_featured' => false, 'excerpt' => 'Foi publicado, no Diário Oficial da União (DOU) , desta quinta-feira, 22 de janeiro, o edital de eleição número três de 2026, que traz o Registro Definitivo das Chapas da...', 'image' => null, 'body' => '<p>Foi publicado, no Diário Oficial da União (DOU) , desta quinta-feira, 22 de janeiro, o edital de eleição número três de 2026, que traz o Registro Definitivo das Chapas da Eleição do Conselho Regional de Nutrição da 9ª Região – CRN-9. O pleito definirá o plenário que estará à frente dos trabalhos do Conselho para o triênio 2026/2029.</p>
-<p>Confira as chapas inscritas:</p>
-<p>Chapa 01 CONECTAR NUTRIÇÃO.</p>
-<p>Candidatos a Conselheiro Efetivo: ALINE CÁSSIA DE ANDRADE SAYÃO: 6036 FÁBIA CAROLINA PEREIRA RESENDE: 4179 GEANA PAULA APARECIDA DOS SANTOS: 17759 LEANDRA SOARES ALEXANDRINO: 7607 LUDMILA AZZALIN DE PAULA: 9897 PATRÍCIA PEIXOTO QUEIROZ: 2727 PAULA SILVA SOUZA: 5813 SUELLEN FABIANE CAMPOS: 7267 VIVIANE MAGALHÃES ALVES: 25849</p>
-<p>Os Candidatos a Conselheiro Suplente, são: DAYSE DE MORAIS MACHADO: 13600 ESMERALDINA ALVES DA SILVA: 27606 GABRIELLE VILELA ALCÂNTARA: 1406 GISELLE BICALHO DE CASTRO: 10508 HENRIQUE ALVES ANTUNES: 29410 ISABEL CRISTINA MIRANDA PINHEIRO MAIA: 0269 JENIFER ANDREIA NASCIMENTO DE OLIVEIRA: 13420 JULIANA GOMES MOREIRA DUVAL: 26378 KARINE RAMOS DA SILVA TEIXEIRA: 1995</p>
-<p>Chapa 02 NOVA ROTA: INOVAÇÃO, GESTÃO E AÇÃO.</p>
-<p>Candidatos a Conselheiro Efetivo: MILTON COSME RIBEIRO: 23474 DEYRILUCY FERREIRA: 1543 ANA CLÁUDIA ALVES FREIRE RIBEIRO: 13566 MARIA GONCALVES SOARES: 1618 MELISSA DE PAULA PACHECO: 9404 THIAGO TASSAR ROSA SOUZA: 14886 DEISE LIMA SANTOS: 16338 SARAH CAROLINE RENAN MONTEIRO: 17514 ALINE SOLEANE CARMO BRAGA: 13077</p>
-<p>Os Candidatos a Conselheiro Suplente, são: LUANA LARA ROCHA: 21862 WALDIRENE RODRIGUES DE SOUZA SOARES: 7523 VIVIANE CRISTINA SALGADO DIAS: 15371 SILVIA ELOIZA PRIORE: 0098 JULIANA MIGUEL: 14549 LAISA RODRIGUES CAVALCANTE: 4105 PAMELA GRACIELLE DA FONSECA: 26596 LUCAS VICENTE DA SILVA: 26222 NATALIA FENNER PENA: 10190.</p>
-<p>A eleição do CRN-9 – Gestão 2026/2029 será realizada nos dias 18, 19 e 20 de março de 2026, com início às 08:00h do dia 18 de março de 2026 e encerramento no dia 20 de março de 2026 às 18:00h, horário de Brasília.</p>
-<p>A votação será realizada exclusivamente por meio eletrônico (voto não presencial via internet). Os nutricionistas aptos a votar receberão, via e-mail, senha provisória encaminhada pelo CRN-9, com as orientações para a votação.</p>'],
-            ['title' => '​Eleições CRN-9: participação e democracia para a categoria', 'category' => 'Institucional', 'is_featured' => false, 'excerpt' => 'Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no...', 'image' => null, 'body' => '<p>Está em andamento o processo eleitoral do Conselho Regional de Nutrição da 9ª Região (CRN-9), que definirá a gestão responsável por conduzir as atividades do Conselho no triênio 2026–2029.</p>
-<p>As eleições representam um momento fundamental de participação democrática, no qual os profissionais da Nutrição exercem sua cidadania ao escolher os seus representantes. A chapa eleita irá compor o Plenário do CRN-9.</p>
-<p>Com mais de 20 mil profissionais ativos em Minas Gerais, o CRN-9 realizará a votação de forma totalmente eletrônica, nos dias 18, 19 e 20 de março de 2026. O resultado final será publicado em edital no dia 23 de março de 2026.</p>
-<p>Participe do Processo Eleitoral CRN-9 – Triênio 2026/2029 e fortaleça a representatividade da categoria.</p>
-<p>Para conferir o calendário eleitoral completo, clique aqui.</p>
-<p>Gostou? Compartilhe nas suas redes!</p>
-<h3>Deixe um comentário Cancelar resposta</h3>'],
-            ['title' => 'Eleições CRN-9: Edital com a inscrição das chapas é publicado no Diário Oficial da União', 'category' => 'Institucional', 'is_featured' => false, 'excerpt' => 'A Comissão Eleitoral que rege sobre as Eleições do Conselho Regional de Nutricionistas da 9ª Região (CRN-9), de acordo com a Resolução CFN 564 de 2015, divulgou nesta...', 'image' => null, 'body' => '<p>A Comissão Eleitoral que rege sobre as Eleições do Conselho Regional de Nutricionistas da 9ª Região (CRN-9), de acordo com a Resolução CFN 564 de 2015, divulgou nesta terça-feira, 23, o edital de eleição número 02, com as chapas inscritas para o pleito que definirá o plenário do triênio 2026/2029. A publicação foi feita no Diário Oficial da União (DOU) , do dia 23/12/2025. O prazo para pedidos de impugnação de chapas vai até às 23h59 do dia 30/12/2025.</p>
-<p>Segundo a publicação, foram inscritas duas chapas com nove candidatos(as) a conselheiros(as) efetivos(as) e nove candidatos(as) a conselheiros(as) suplentes.</p>
-<p>Para saber mais detalhes sobre as regras eleitorais, acesse a Resolução CFN 564/2015 no link: https://www.cfn.org.br/wp-content/uploads/2015/12/Resol-CFN-564-regulamento-eleitoral-CRN-retificada.pdf</p>
-<p>Em caso de dúvidas, entre em contato com a Comissão Eleitoral pelo e-mail: eleicoes@crn9.org.br .</p>
 <p>Gostou? Compartilhe nas suas redes!</p>
 <h3>Deixe um comentário Cancelar resposta</h3>'],
             ['title' => 'Belo Horizonte: pontos de arrecadação de doações para o RS', 'category' => 'Institucional', 'is_featured' => false, 'excerpt' => 'O Rio Grande do Sul enfrenta um dos piores desastres ambientais da sua história. Chuvas intensas, inundações, mortes, pessoas desaparecidas, famílias desabrigadas, pessoas e...', 'image' => null, 'body' => '<p>O Rio Grande do Sul enfrenta um dos piores desastres ambientais da sua história. Chuvas intensas, inundações, mortes, pessoas desaparecidas, famílias desabrigadas, pessoas e animais em condições precárias. O estado está em situação de calamidade.</p>
@@ -1606,32 +1513,6 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        if (! Storage::disk('public')->exists('banners/eleicoes-illustrative.svg')) {
-            Storage::disk('public')->put(
-                'banners/eleicoes-illustrative.svg',
-                <<<'SVG'
-                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
-                    <defs>
-                        <linearGradient id="eleicoesBg" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#313318"/>
-                            <stop offset="100%" stop-color="#5C5E2B"/>
-                        </linearGradient>
-                    </defs>
-                    <rect width="1200" height="400" fill="url(#eleicoesBg)"/>
-                    <circle cx="890" cy="200" r="190" fill="#85B0FF" opacity="0.12"/>
-                    <rect x="770" y="190" width="240" height="150" rx="14" fill="#3A3D22"/>
-                    <rect x="770" y="190" width="240" height="150" rx="14" fill="none" stroke="#A3A64A" stroke-width="6"/>
-                    <rect x="840" y="176" width="100" height="22" rx="11" fill="#1C1E0E"/>
-                    <g transform="translate(858,90) rotate(-8)">
-                        <rect x="0" y="0" width="80" height="104" rx="6" fill="#ffffff"/>
-                        <path d="M18 58 L34 76 L64 34" fill="none" stroke="#F58C4A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <circle cx="250" cy="95" r="9" fill="#85B0FF"/>
-                    <circle cx="290" cy="140" r="6" fill="#F58C4A"/>
-                </svg>
-                SVG
-            );
-        }
 
         if (! Storage::disk('public')->exists('banners/denuncia-illustrative.svg')) {
             Storage::disk('public')->put(
@@ -1657,11 +1538,8 @@ class DatabaseSeeder extends Seeder
         }
 
         $items = [
-            ['title' => 'Eleições CRN-9 2026/2029: participe', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-cronograma-full.png'],
-            ['title' => 'Regularize sua situação e vote nas eleições', 'placement' => 'home_hero', 'sort_order' => 2, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => 'eleicoes-aviso-full.png'],
             ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => null, 'illustrative' => 'denuncia-illustrative.svg'],
             ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
-            ['title' => 'Eleições CR9 2026/2029', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/paginas/eleicoes-crn-9-2026-2029', 'image' => null, 'illustrative' => 'eleicoes-illustrative.svg'],
         ];
 
         foreach ($items as $item) {
