@@ -1928,12 +1928,12 @@ class DatabaseSeeder extends Seeder
      */
     private function seedMagazines(): void
     {
+        Magazine::query()->where('year', '!=', 2023)->delete();
+
+        $cover = $this->seedImage('magazines/revista-crn9-2023-capa.svg', 'magazines/revista-crn9-2023-capa.svg');
+
         $items = [
-            ['title' => 'Revista Digital do CRN-9', 'edition' => '2023', 'year' => 2023, 'url' => 'https://crn9.org.br/revista/9936/'],
-            ['title' => 'Revista CRN9 10 anos', 'edition' => 'Edição comemorativa', 'year' => 2021, 'url' => 'https://crn9.org.br/revista/revista-crn9-10-anos/'],
-            ['title' => 'Revista CRN9', 'edition' => '2019', 'year' => 2019, 'url' => 'https://crn9.org.br/revista/revista-crn9-2019/'],
-            ['title' => 'Revista CRN9', 'edition' => '2018', 'year' => 2018, 'url' => 'https://crn9.org.br/revista/revista-crn9-2018/'],
-            ['title' => 'Revista CRN9', 'edition' => '2016', 'year' => 2016, 'url' => 'https://crn9.org.br/revista/revista-crn9-2016/'],
+            ['title' => 'Revista Digital do CRN-9', 'edition' => '2023', 'year' => 2023, 'url' => 'https://2023.revistacrn9.org.br/'],
         ];
 
         foreach ($items as $item) {
@@ -1943,6 +1943,7 @@ class DatabaseSeeder extends Seeder
                     'title' => $item['title'],
                     'edition' => $item['edition'],
                     'year' => $item['year'],
+                    'cover_image' => $cover,
                     'external_url' => $item['url'],
                     'published_at' => now()->setYear($item['year'])->startOfYear(),
                 ]
