@@ -1811,10 +1811,60 @@ class DatabaseSeeder extends Seeder
             );
         }
 
+        if (! Storage::disk('public')->exists('banners/nutricao-minas-illustrative.svg')) {
+            Storage::disk('public')->put(
+                'banners/nutricao-minas-illustrative.svg',
+                <<<'SVG'
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+                    <defs>
+                        <linearGradient id="nutricaoMinasBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3E5C1F"/>
+                            <stop offset="55%" stop-color="#5C5E2B"/>
+                            <stop offset="100%" stop-color="#7C9A3C"/>
+                        </linearGradient>
+                        <radialGradient id="nutricaoMinasGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#A3A64A" stop-opacity="0.4"/>
+                            <stop offset="100%" stop-color="#A3A64A" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="url(#nutricaoMinasBg)"/>
+                    <circle cx="900" cy="200" r="200" fill="url(#nutricaoMinasGlow)"/>
+                    <circle cx="900" cy="200" r="150" fill="#ffffff" opacity="0.06"/>
+
+                    <!-- small map-pin cluster suggesting statewide reach -->
+                    <g fill="#F58C4A">
+                        <path d="M1005 120 c0 14 -16 32 -16 32 s-16 -18 -16 -32 a16 16 0 0 1 32 0 Z"/>
+                        <circle cx="989" cy="120" r="6" fill="#5C5E2B"/>
+                    </g>
+                    <g fill="#85B0FF">
+                        <path d="M815 150 c0 12 -13 26 -13 26 s-13 -14 -13 -26 a13 13 0 0 1 26 0 Z"/>
+                        <circle cx="802" cy="150" r="5" fill="#5C5E2B"/>
+                    </g>
+                    <g fill="#ffffff" opacity="0.9">
+                        <path d="M950 100 c0 10 -11 22 -11 22 s-11 -12 -11 -22 a11 11 0 0 1 22 0 Z"/>
+                        <circle cx="939" cy="100" r="4" fill="#5C5E2B"/>
+                    </g>
+
+                    <!-- sprout growing from the ground: nutrition + growth -->
+                    <rect x="860" y="290" width="80" height="6" rx="3" fill="#ffffff" opacity="0.25"/>
+                    <path d="M900 292 L900 200" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+                    <path d="M900 235 C860 235 850 195 860 165 C895 175 905 215 900 235 Z" fill="#A3A64A"/>
+                    <path d="M900 210 C940 210 952 172 944 145 C907 153 895 190 900 210 Z" fill="#F58C4A"/>
+
+                    <!-- decorative dots (bottom-left, matches other illustrative banners) -->
+                    <circle cx="230" cy="90" r="10" fill="#A3A64A"/>
+                    <circle cx="270" cy="130" r="6" fill="#85B0FF"/>
+                    <circle cx="200" cy="330" r="8" fill="#F58C4A" opacity="0.7"/>
+                </svg>
+                SVG
+            );
+        }
+
         $items = [
             ['title' => 'Nutrição é profissão. Saúde é direito.', 'subtitle' => 'O CRN9 orienta, disciplina e fiscaliza o exercício profissional em Minas Gerais.', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/o-que-e-fiscalizacao', 'image' => null, 'illustrative' => 'manifesto-illustrative.svg'],
             ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => null, 'illustrative' => 'denuncia-illustrative.svg'],
             ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
+            ['title' => 'Nutrição em Minas', 'placement' => 'home_secondary', 'sort_order' => 3, 'link' => '/nutricao-em-minas', 'image' => null, 'illustrative' => 'nutricao-minas-illustrative.svg'],
         ];
 
         foreach ($items as $item) {
