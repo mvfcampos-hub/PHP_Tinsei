@@ -28,6 +28,13 @@ class FilesRelationManager extends RelationManager
                 Forms\Components\FileUpload::make('file')
                     ->label('Arquivo (upload)')
                     ->directory('modelos-editaveis')
+                    ->acceptedFileTypes([
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'application/rtf',
+                        'text/rtf',
+                    ])
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('sort_order')

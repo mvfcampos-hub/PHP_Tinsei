@@ -35,6 +35,16 @@ class PublicPagesTest extends TestCase
         $this->get('/')->assertStatus(200);
     }
 
+    public function test_security_headers_are_present(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertHeader('X-Content-Type-Options', 'nosniff');
+        $response->assertHeader('X-Frame-Options', 'SAMEORIGIN');
+        $response->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+        $response->assertHeader('Content-Security-Policy');
+    }
+
     public function test_cookie_notice_is_present_on_every_page(): void
     {
         $this->get('/')

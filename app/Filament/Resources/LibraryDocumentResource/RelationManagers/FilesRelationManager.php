@@ -28,6 +28,13 @@ class FilesRelationManager extends RelationManager
                 Forms\Components\FileUpload::make('file')
                     ->label('Arquivo (upload)')
                     ->directory('biblioteca')
+                    ->acceptedFileTypes([
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'image/jpeg',
+                        'image/png',
+                    ])
                     ->helperText('Envie um arquivo novo aqui, ou preencha o link externo abaixo para um documento já publicado em outro endereço.')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('external_url')
