@@ -380,6 +380,22 @@ class PublicPagesTest extends TestCase
             ->assertSee('Baixar modelo (Word/RTF)');
     }
 
+    public function test_fiscalizacao_numeros_page_loads(): void
+    {
+        \App\Models\FiscalizacaoStat::create([
+            'label' => 'Visitas realizadas',
+            'value' => '420 (exemplo)',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        $this->get(route('fiscalizacao.numeros'))
+            ->assertStatus(200)
+            ->assertSee('Fiscalização em Números')
+            ->assertSee('Visitas realizadas')
+            ->assertSee('420 (exemplo)');
+    }
+
     public function test_fiscalizacao_guide_loads(): void
     {
         $this->get(route('fiscalizacao.guide'))

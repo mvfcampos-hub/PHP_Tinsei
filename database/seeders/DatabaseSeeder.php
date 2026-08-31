@@ -12,6 +12,7 @@ use App\Models\DocumentTemplateFile;
 use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Faq;
+use App\Models\FiscalizacaoStat;
 use App\Models\Inspector;
 use App\Models\JobListing;
 use App\Models\LibraryDocument;
@@ -69,6 +70,7 @@ class DatabaseSeeder extends Seeder
         $this->seedPodeNaoPode();
         $this->seedNutritionStories();
         $this->seedDocumentTemplates();
+        $this->seedFiscalizacaoStats();
     }
 
     /**
@@ -409,6 +411,43 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Dúvidas Frequentes (Fiscalização)', 'slug' => 'duvidas-frequentes-fiscalizacao', 'content' => '<p>A Responsabilidade Técnica exercida pelo Nutricionista é o compromisso profissional e legal na execução de suas atividades, compatível com a formação e os princípios éticos da profissão, visando à qualidade dos serviços prestados à sociedade.</p>
 <p>O profissional assume o planejamento, coordenação, direção, supervisão e avaliação na área de alimentação e nutrição, pautado nas Normas Técnicas e no Código de Ética dos Nutricionistas. A assunção de Responsabilidade Técnica deve ser solicitada através de formulário próprio; o afastamento por mais de 30 dias também deve ser comunicado ao CRN.</p>
 <p>Para mais esclarecimentos, consulte a Resolução CFN nº 576/2016 e as Resoluções CFN nº 645 a 650/2020, que tratam de prazos de anuidade, atendimento não presencial e Carteira de Identidade Profissional.</p>'],
+            ['title' => 'O que é Fiscalização', 'slug' => 'o-que-e-fiscalizacao', 'content' => '<p>A fiscalização do exercício profissional é uma das competências legais do CRN-9, prevista na Lei nº 6.583/1978 e na Lei nº 8.234/1991, que instituíram o Sistema CFN/CRN. Fiscalizar é, antes de tudo, proteger a sociedade: garantir que a assistência alimentar e nutricional seja prestada por profissionais habilitados, dentro de condições técnicas e éticas adequadas.</p>
+<p><strong>Fiscalizar também é orientar.</strong> A Política Nacional de Fiscalização (Resolução CFN nº 527/2013) determina que a atuação da fiscalização seja pautada por uma conduta orientadora, e não apenas punitiva — priorizando a prevenção de irregularidades e o apoio técnico ao profissional e às instituições.</p>
+<p>Conheça as demais frentes desta área: <a href="/paginas/areas-de-atuacao-fiscalizadas">Áreas de Atuação Fiscalizadas</a>, <a href="/paginas/atividades-da-fiscalizacao">Como Funciona a Fiscalização</a>, <a href="/fiscalizacao">Quadro Técnico</a> e <a href="/fiscalizacao/em-numeros">Fiscalização em Números</a>.</p>'],
+            ['title' => 'Áreas de Atuação Fiscalizadas', 'slug' => 'areas-de-atuacao-fiscalizadas', 'content' => '<p>Conforme a Resolução CFN nº 380/2005, a fiscalização do CRN-9 alcança o exercício profissional em todas as áreas de atuação do(a) nutricionista e do(a) técnico(a) em Nutrição e Dietética:</p>
+<ul>
+<li><strong>Alimentação Coletiva:</strong> Unidades de Alimentação e Nutrição (UAN), restaurantes, cozinhas industriais, alimentação escolar e alimentação do trabalhador;</li>
+<li><strong>Nutrição Clínica:</strong> hospitais, clínicas, consultórios, Instituições de Longa Permanência para Idosos (ILPI), bancos de leite humano e atendimento domiciliar;</li>
+<li><strong>Saúde Coletiva:</strong> políticas e programas institucionais, atenção básica e vigilância sanitária;</li>
+<li><strong>Docência</strong> nos cursos de graduação em Nutrição;</li>
+<li><strong>Indústria de Alimentos</strong>, no desenvolvimento e controle de qualidade de produtos;</li>
+<li><strong>Nutrição em Esportes</strong>, em academias e clubes esportivos;</li>
+<li><strong>Marketing na área de Alimentação e Nutrição.</strong></li>
+</ul>
+<p>Em todas essas áreas, a fiscalização verifica, entre outros pontos, a existência de Responsabilidade Técnica regularmente registrada e o cumprimento dos parâmetros normativos de cada atividade.</p>'],
+            ['title' => 'Responsabilidade Técnica', 'slug' => 'responsabilidade-tecnica', 'content' => '<p>A Responsabilidade Técnica (RT) é o compromisso profissional e legal assumido pelo(a) nutricionista pelo planejamento, coordenação, direção, supervisão e avaliação dos serviços de alimentação e nutrição de uma instituição, nos termos da Resolução CFN nº 576/2016 e do Código de Ética e Conduta (Resolução CFN nº 599/2018).</p>
+<h3>Como assumir a Responsabilidade Técnica</h3>
+<p>A assunção de RT é feita por meio de formulário próprio junto ao CRN-9. O afastamento por período superior a 30 dias — férias, licenças ou outros motivos — também deve ser formalmente comunicado ao Conselho, com indicação de substituto quando aplicável.</p>
+<h3>Deveres do Responsável Técnico</h3>
+<ul>
+<li>Elaborar e manter atualizado o Manual de Boas Práticas do serviço;</li>
+<li>Zelar pelo cumprimento das normas técnicas e sanitárias aplicáveis à atividade;</li>
+<li>Detectar e comunicar ao hierárquico superior e às autoridades competentes condições que coloquem em risco a saúde da coletividade atendida (veja o <a href="/ferramentas/modelos">modelo de Laudo de Notificação de Irregularidades</a>);</li>
+<li>Colaborar com as autoridades de fiscalização profissional e sanitária.</li>
+</ul>
+<p>Dúvidas frequentes sobre o tema estão disponíveis em <a href="/paginas/duvidas-frequentes-fiscalizacao">Dúvidas Frequentes (Fiscalização)</a> e na ferramenta <a href="/pode-ou-nao-pode">Pode ou Não Pode?</a>.</p>'],
+            ['title' => 'Exercício Ilegal da Profissão', 'slug' => 'exercicio-ilegal-da-profissao', 'content' => '<p>O exercício ilegal da profissão ocorre quando uma pessoa sem habilitação e sem inscrição regular no CRN-9 realiza atividades privativas do(a) nutricionista ou do(a) técnico(a) em Nutrição e Dietética — como elaborar prescrição dietética, planos alimentares individualizados ou assumir Responsabilidade Técnica por um serviço de alimentação e nutrição — nos termos dos artigos 3º e 4º da Lei nº 8.234/1991.</p>
+<p>Essa prática coloca em risco a saúde da população, por não haver garantia de formação técnica e compromisso ético na orientação prestada, e é passível de apuração pelo CRN-9, inclusive com encaminhamento ao Ministério Público quando cabível.</p>
+<p>Se você identificar uma situação de exercício ilegal da profissão, utilize o canal específico: <a href="/paginas/denuncia-leigo">Denúncia contra Leigo que Atua como Nutricionista</a>.</p>'],
+            ['title' => 'Relatórios da Fiscalização', 'slug' => 'relatorios-da-fiscalizacao', 'content' => '<p>O CRN-9 consolida periodicamente os resultados do trabalho da equipe de fiscalização, reunindo indicadores como visitas realizadas, orientações prestadas e denúncias apuradas, como parte do compromisso com a transparência das ações do Conselho junto à categoria e à sociedade.</p>
+<p>Acesse o painel consolidado em <a href="/fiscalizacao/em-numeros">Fiscalização em Números</a>. Relatórios de gestão e prestação de contas mais amplos do CRN-9 estão disponíveis no Portal da Transparência.</p>'],
+            ['title' => 'Projetos Especiais da Fiscalização', 'slug' => 'projetos-especiais-fiscalizacao', 'content' => '<p>Além das visitas de rotina e da apuração de denúncias, a equipe de fiscalização do CRN-9 desenvolve projetos temáticos voltados ao aprimoramento do exercício profissional em áreas específicas, entre eles:</p>
+<ul>
+<li><strong>Aprimoramento da atuação da(o) Nutricionista em Instituições de Longa Permanência para Idosos (ILPI):</strong> projeto que traça panorama do cuidado nutricional oferecido a idosos em ILPIs de Minas Gerais, com produção de material orientativo para os profissionais responsáveis técnicos;</li>
+<li><strong>Projeto Portas Abertas:</strong> aproximação entre o CRN-9 e as Instituições de Ensino Superior (IES) de Nutrição, com apresentação da constituição e do funcionamento do Conselho a estudantes concluintes;</li>
+<li><strong>Ações Estratégicas de Fiscalização:</strong> realizadas periodicamente para traçar panoramas da atuação profissional em áreas ou regiões específicas do estado;</li>
+<li><strong>Nutricionista/Equipe 5 Estrelas:</strong> reconhecimento de trabalhos de excelência identificados pela fiscalização durante suas visitas.</li>
+</ul>'],
             ['title' => 'Serviços para Nutricionistas', 'slug' => 'servicos-nutricionistas', 'content' => '<p>Serviços disponíveis para Nutricionistas inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva, prorrogação e cancelamento de inscrição, baixa temporária, transferência, reativação de inscrição, registro do Título de Especialista e Anotação de Responsabilidade Técnica.</p>
 <p>Consulte o serviço desejado e os documentos necessários com a Secretaria do CRN-9.</p>'],
             ['title' => 'Serviços para Técnicos em Nutrição e Dietética', 'slug' => 'servicos-tnd', 'content' => '<p>Serviços disponíveis para Técnicos em Nutrição e Dietética (TND) inscritos no CRN-9: valores e datas da anuidade, inscrição provisória e definitiva (validade de 12 meses), prorrogação e cancelamento de inscrição, baixa temporária, transferência e reativação de inscrição.</p>'],
@@ -1016,13 +1055,21 @@ class DatabaseSeeder extends Seeder
             [
                 'label' => 'Fiscalização',
                 'children' => [
+                    ['label' => 'O que é Fiscalização', 'url' => '/paginas/o-que-e-fiscalizacao'],
+                    ['label' => 'Como Funciona (Atividades da Fiscalização)', 'url' => '/paginas/atividades-da-fiscalizacao'],
+                    ['label' => 'Áreas de Atuação Fiscalizadas', 'url' => '/paginas/areas-de-atuacao-fiscalizadas'],
+                    ['label' => 'Visita Fiscal (Recebi uma Fiscalização)', 'url' => '/fiscalizacao/recebi-uma-fiscalizacao'],
+                    ['label' => 'Responsabilidade Técnica', 'url' => '/paginas/responsabilidade-tecnica'],
+                    ['label' => 'Quadro Técnico', 'url' => '/fiscalizacao'],
+                    ['label' => 'Exercício Ilegal da Profissão', 'url' => '/paginas/exercicio-ilegal-da-profissao'],
+                    ['label' => 'Denúncias', 'url' => '/paginas/denuncia'],
+                    ['label' => 'Perguntas Frequentes (Fiscalização)', 'url' => '/paginas/duvidas-frequentes-fiscalizacao'],
+                    ['label' => 'Materiais Orientativos', 'url' => '/paginas/orientacoes-online'],
+                    ['label' => 'Relatórios da Fiscalização', 'url' => '/paginas/relatorios-da-fiscalizacao'],
+                    ['label' => 'Projetos Especiais', 'url' => '/paginas/projetos-especiais-fiscalizacao'],
+                    ['label' => 'Fiscalização em Números', 'url' => '/fiscalizacao/em-numeros'],
                     ['label' => 'Política Nacional de Fiscalização', 'url' => '/paginas/politica-nacional-de-fiscalizacao'],
-                    ['label' => 'Equipe de Fiscalização', 'url' => '/fiscalizacao'],
-                    ['label' => 'Atividades da Fiscalização', 'url' => '/paginas/atividades-da-fiscalizacao'],
                     ['label' => 'Visitas Técnicas', 'url' => '/paginas/visitas-tecnicas'],
-                    ['label' => 'Orientações On-line', 'url' => '/paginas/orientacoes-online'],
-                    ['label' => 'Dúvidas frequentes', 'url' => '/paginas/duvidas-frequentes-fiscalizacao'],
-                    ['label' => 'Recebi uma Fiscalização', 'url' => '/fiscalizacao/recebi-uma-fiscalizacao'],
                 ],
             ],
             [
@@ -2151,6 +2198,30 @@ class DatabaseSeeder extends Seeder
             DocumentTemplateFile::updateOrCreate(
                 ['document_template_id' => $template->id, 'label' => 'Baixar modelo (Word/RTF)'],
                 ['file' => $item['file'], 'sort_order' => 1]
+            );
+        }
+    }
+
+    private function seedFiscalizacaoStats(): void
+    {
+        $stats = [
+            ['label' => 'Visitas realizadas', 'value' => '420 (exemplo)'],
+            ['label' => 'Profissionais fiscalizados', 'value' => '310 (exemplo)'],
+            ['label' => 'Pessoas jurídicas fiscalizadas', 'value' => '95 (exemplo)'],
+            ['label' => 'Orientações realizadas', 'value' => '540 (exemplo)'],
+            ['label' => 'Denúncias recebidas', 'value' => '48 (exemplo)'],
+            ['label' => 'Denúncias encaminhadas', 'value' => '31 (exemplo)'],
+            ['label' => 'Municípios alcançados', 'value' => '112 (exemplo)'],
+        ];
+
+        foreach ($stats as $index => $stat) {
+            FiscalizacaoStat::updateOrCreate(
+                ['label' => $stat['label']],
+                [
+                    'value' => $stat['value'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
             );
         }
     }
