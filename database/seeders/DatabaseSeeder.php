@@ -1032,6 +1032,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Oportunidade de emprego', 'url' => '/vagas'],
                     ['label' => 'Perguntas Frequentes', 'url' => '/perguntas-frequentes'],
                     ['label' => 'Pode ou Não Pode?', 'url' => '/pode-ou-nao-pode'],
+                    ['label' => 'Calculadoras de Dimensionamento', 'url' => '/ferramentas/calculadoras'],
                 ],
             ],
             [

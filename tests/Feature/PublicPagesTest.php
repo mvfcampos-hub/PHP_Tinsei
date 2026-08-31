@@ -342,6 +342,16 @@ class PublicPagesTest extends TestCase
         $this->get(route('pode-nao-pode.index', ['q' => 'termoinexistentexyz']))->assertStatus(200)->assertDontSee('Pode prescrever suplemento de teste?');
     }
 
+    public function test_staffing_calculators_page_loads(): void
+    {
+        $this->get(route('tools.calculators'))
+            ->assertStatus(200)
+            ->assertSee('Calculadoras de Dimensionamento de Equipe')
+            ->assertSee('Alimentação Coletiva / UAN')
+            ->assertSee('Área Hospitalar / SND')
+            ->assertSee('Resolução CFN nº 380/2005');
+    }
+
     public function test_fiscalizacao_guide_loads(): void
     {
         $this->get(route('fiscalizacao.guide'))

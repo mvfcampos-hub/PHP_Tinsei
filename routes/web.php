@@ -22,6 +22,7 @@ use App\Http\Controllers\NutritionStorySubmissionController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PodeNaoPodeController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\StaffingCalculatorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -61,6 +62,8 @@ Route::get('/campanhas/{campaign:slug}', [CampaignController::class, 'show'])->n
 Route::get('/perguntas-frequentes', [FaqController::class, 'index'])->name('faqs.index');
 
 Route::get('/pode-ou-nao-pode', [PodeNaoPodeController::class, 'index'])->name('pode-nao-pode.index');
+
+Route::get('/ferramentas/calculadoras', [StaffingCalculatorController::class, 'index'])->name('tools.calculators');
 
 Route::get('/fiscalizacao/recebi-uma-fiscalizacao', [FiscalizacaoGuideController::class, 'show'])->name('fiscalizacao.guide');
 Route::post('/portal-adequacao', [ComplianceSubmissionController::class, 'store'])->name('compliance.store');
