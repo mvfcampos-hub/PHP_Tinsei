@@ -437,6 +437,15 @@ class PublicPagesTest extends TestCase
         $this->get(route('nutrition-stories.index'))->assertDontSee('Indicação de teste');
     }
 
+    public function test_new_graduate_guide_loads(): void
+    {
+        $this->get(route('orientacao.guia-recem-formado'))
+            ->assertStatus(200)
+            ->assertSee('Guia do Recém-Formado')
+            ->assertSee('Emita seu registro no CRN-9')
+            ->assertSee('Prepare seu consultório');
+    }
+
     public function test_education_institutions_index(): void
     {
         EducationInstitution::create([

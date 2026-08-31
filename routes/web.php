@@ -15,6 +15,7 @@ use App\Http\Controllers\LibraryDocumentController;
 use App\Http\Controllers\LicitacaoController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\MunicipalityController;
+use App\Http\Controllers\NewGraduateGuideController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NutritionStoryController;
 use App\Http\Controllers\NutritionStorySubmissionController;
@@ -64,6 +65,8 @@ Route::get('/pode-ou-nao-pode', [PodeNaoPodeController::class, 'index'])->name('
 Route::get('/fiscalizacao/recebi-uma-fiscalizacao', [FiscalizacaoGuideController::class, 'show'])->name('fiscalizacao.guide');
 Route::post('/portal-adequacao', [ComplianceSubmissionController::class, 'store'])->name('compliance.store');
 Route::get('/portal-adequacao/{submission:protocol}', [ComplianceSubmissionController::class, 'show'])->name('compliance.show');
+
+Route::get('/orientacao/guia-do-recem-formado', [NewGraduateGuideController::class, 'show'])->name('orientacao.guia-recem-formado');
 
 Route::get('/nutricao-em-minas', [NutritionStoryController::class, 'index'])->name('nutrition-stories.index');
 Route::get('/nutricao-em-minas/indicar', [NutritionStorySubmissionController::class, 'create'])->name('nutrition-stories.suggest');

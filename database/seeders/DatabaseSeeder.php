@@ -1065,6 +1065,7 @@ class DatabaseSeeder extends Seeder
             [
                 'label' => 'Orientação',
                 'children' => [
+                    ['label' => 'Guia do Recém-Formado', 'url' => '/orientacao/guia-do-recem-formado'],
                     ['label' => 'Legislação Regional', 'url' => 'https://crn-mg.implanta.net.br/portaltransparencia/#publico/inicio', 'external' => true],
                     ['label' => 'Legislação Federal', 'url' => 'https://cfn.org.br/legislacao/', 'external' => true],
                     ['label' => 'Links Importantes', 'url' => '/paginas/links-importantes'],
