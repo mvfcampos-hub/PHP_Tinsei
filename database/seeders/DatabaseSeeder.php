@@ -1036,6 +1036,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Visitas Técnicas', 'url' => '/paginas/visitas-tecnicas'],
                     ['label' => 'Orientações On-line', 'url' => '/paginas/orientacoes-online'],
                     ['label' => 'Dúvidas frequentes', 'url' => '/paginas/duvidas-frequentes-fiscalizacao'],
+                    ['label' => 'Recebi uma Fiscalização', 'url' => '/fiscalizacao/recebi-uma-fiscalizacao'],
                 ],
             ],
             [

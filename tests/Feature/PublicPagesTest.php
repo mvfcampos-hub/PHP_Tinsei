@@ -281,6 +281,43 @@ class PublicPagesTest extends TestCase
         $this->get(route('pode-nao-pode.index', ['q' => 'termoinexistentexyz']))->assertStatus(200)->assertDontSee('Pode prescrever suplemento de teste?');
     }
 
+    public function test_fiscalizacao_guide_loads(): void
+    {
+        $this->get(route('fiscalizacao.guide'))
+            ->assertStatus(200)
+            ->assertSee('Recebi uma Fiscalização')
+            ->assertSee('Portal de Adequação');
+    }
+
+    public function test_compliance_submission_upload_and_receipt(): void
+    {
+        \Illuminate\Support\Facades\Storage::fake('public');
+
+        $file = \Illuminate\Http\UploadedFile::fake()->create('comprovante.pdf', 100, 'application/pdf');
+
+        $response = $this->post(route('compliance.store'), [
+            'nutritionist_name' => 'Fulana de Tal',
+            'crn_number' => '12345',
+            'inspection_reference' => 'CF-2026-001',
+            'notes' => 'Segue o comprovante solicitado.',
+            'files' => [$file],
+        ]);
+
+        $submission = \App\Models\ComplianceSubmission::where('nutritionist_name', 'Fulana de Tal')->first();
+        $this->assertNotNull($submission);
+        $this->assertSame('pending', $submission->status);
+        $this->assertCount(1, $submission->files);
+
+        $response->assertRedirect(route('compliance.show', $submission));
+
+        $this->get(route('compliance.show', $submission))
+            ->assertStatus(200)
+            ->assertSee($submission->protocol)
+            ->assertSee('comprovante.pdf');
+
+        \Illuminate\Support\Facades\Storage::disk('public')->assertExists($submission->files->first()->file);
+    }
+
     public function test_education_institutions_index(): void
     {
         EducationInstitution::create([

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\ComplianceSubmissionController;
 use App\Http\Controllers\CouncilController;
 use App\Http\Controllers\EducationInstitutionController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FiscalizacaoGuideController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
 use App\Http\Controllers\JobListingController;
@@ -56,5 +58,9 @@ Route::get('/campanhas/{campaign:slug}', [CampaignController::class, 'show'])->n
 Route::get('/perguntas-frequentes', [FaqController::class, 'index'])->name('faqs.index');
 
 Route::get('/pode-ou-nao-pode', [PodeNaoPodeController::class, 'index'])->name('pode-nao-pode.index');
+
+Route::get('/fiscalizacao/recebi-uma-fiscalizacao', [FiscalizacaoGuideController::class, 'show'])->name('fiscalizacao.guide');
+Route::post('/portal-adequacao', [ComplianceSubmissionController::class, 'store'])->name('compliance.store');
+Route::get('/portal-adequacao/{submission:protocol}', [ComplianceSubmissionController::class, 'show'])->name('compliance.show');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');
