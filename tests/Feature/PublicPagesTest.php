@@ -396,6 +396,27 @@ class PublicPagesTest extends TestCase
             ->assertSee('420 (exemplo)');
     }
 
+    public function test_fiscalizacao_processos_page_loads(): void
+    {
+        \App\Models\FiscalizacaoProcess::create([
+            'category' => 'Ética: conduta inadequada',
+            'code' => 'A12',
+            'subject' => 'ILPI',
+            'started_at' => '2024-01-01',
+            'status' => 'No jurídico',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        $this->get(route('fiscalizacao.processos'))
+            ->assertStatus(200)
+            ->assertSee('Processos de Fiscalização e Ética em Andamento')
+            ->assertSee('A12')
+            ->assertSee('ILPI')
+            ->assertSee('No jurídico')
+            ->assertSee('2024');
+    }
+
     public function test_fiscalizacao_guide_loads(): void
     {
         $this->get(route('fiscalizacao.guide'))

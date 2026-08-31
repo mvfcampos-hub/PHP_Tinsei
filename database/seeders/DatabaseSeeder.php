@@ -12,6 +12,7 @@ use App\Models\DocumentTemplateFile;
 use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Faq;
+use App\Models\FiscalizacaoProcess;
 use App\Models\FiscalizacaoStat;
 use App\Models\Inspector;
 use App\Models\JobListing;
@@ -71,6 +72,7 @@ class DatabaseSeeder extends Seeder
         $this->seedNutritionStories();
         $this->seedDocumentTemplates();
         $this->seedFiscalizacaoStats();
+        $this->seedFiscalizacaoProcesses();
     }
 
     /**
@@ -1068,6 +1070,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Relatórios da Fiscalização', 'url' => '/paginas/relatorios-da-fiscalizacao'],
                     ['label' => 'Projetos Especiais', 'url' => '/paginas/projetos-especiais-fiscalizacao'],
                     ['label' => 'Fiscalização em Números', 'url' => '/fiscalizacao/em-numeros'],
+                    ['label' => 'Processos em Andamento', 'url' => '/fiscalizacao/processos'],
                     ['label' => 'Política Nacional de Fiscalização', 'url' => '/paginas/politica-nacional-de-fiscalizacao'],
                     ['label' => 'Visitas Técnicas', 'url' => '/paginas/visitas-tecnicas'],
                 ],
@@ -2295,6 +2298,29 @@ class DatabaseSeeder extends Seeder
                 ['label' => $stat['label']],
                 [
                     'value' => $stat['value'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+        }
+    }
+
+    private function seedFiscalizacaoProcesses(): void
+    {
+        $processes = [
+            ['category' => 'Ética: conduta inadequada', 'code' => 'A12', 'subject' => 'ILPI', 'started_at' => '2024-01-01', 'status' => 'No jurídico'],
+            ['category' => 'Fiscalização: exercício sem inscrição', 'code' => 'B07', 'subject' => 'Alimentação Coletiva', 'started_at' => '2025-03-01', 'status' => 'Em andamento'],
+            ['category' => 'Fiscalização: irregularidade de RT', 'code' => 'B12', 'subject' => 'Hospitalar', 'started_at' => '2025-08-01', 'status' => 'Aguardando defesa'],
+        ];
+
+        foreach ($processes as $index => $process) {
+            FiscalizacaoProcess::updateOrCreate(
+                ['code' => $process['code']],
+                [
+                    'category' => $process['category'],
+                    'subject' => $process['subject'],
+                    'started_at' => $process['started_at'],
+                    'status' => $process['status'],
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]

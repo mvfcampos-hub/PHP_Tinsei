@@ -8,6 +8,7 @@ use App\Http\Controllers\EducationInstitutionController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FiscalizacaoGuideController;
+use App\Http\Controllers\FiscalizacaoProcessController;
 use App\Http\Controllers\FiscalizacaoStatsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InspectorController;
@@ -71,6 +72,7 @@ Route::get('/ferramentas/modelos', [DocumentTemplateController::class, 'index'])
 
 Route::get('/fiscalizacao/recebi-uma-fiscalizacao', [FiscalizacaoGuideController::class, 'show'])->name('fiscalizacao.guide');
 Route::get('/fiscalizacao/em-numeros', [FiscalizacaoStatsController::class, 'show'])->name('fiscalizacao.numeros');
+Route::get('/fiscalizacao/processos', [FiscalizacaoProcessController::class, 'index'])->name('fiscalizacao.processos');
 Route::post('/portal-adequacao', [ComplianceSubmissionController::class, 'store'])->name('compliance.store');
 Route::get('/portal-adequacao/{submission:protocol}', [ComplianceSubmissionController::class, 'show'])->name('compliance.show');
 
