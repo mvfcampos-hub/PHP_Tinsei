@@ -26,5 +26,6 @@
     </main>
 
     @include('partials.footer')
+    @include('partials.whatsapp-button')
 </body>
 </html>
