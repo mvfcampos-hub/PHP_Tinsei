@@ -73,8 +73,13 @@ Pronto, pule para o passo 7 — não precisa mexer em `public_html`.
 
 **Opção B — se não permitir (comum no M_100):**
 
-1. Copie o **conteúdo** de `crn9-app/public/` (o `index.php`, o `.htaccess`
-   e a pasta `build/`) para dentro de `public_html/`.
+1. Copie **todo o conteúdo** de `crn9-app/public/` para dentro de
+   `public_html/` — isso inclui `index.php`, `.htaccess`, a pasta
+   `build/`, e também `images/`, `css/`, `js/`, `favicon.ico` e
+   `robots.txt`. Não copie a pasta/link `storage` (o passo 7 cuida
+   disso). É fácil esquecer `images/`, `css/` e `js/` porque não
+   aparecem em destaque — se esquecer, o logo e outras imagens fixas do
+   site não aparecem.
 2. Substitua o `public_html/index.php` pelo conteúdo de
    `deploy/index_public_html.php` (já incluído nesta pasta), ajustando a
    variável `$appPath` no topo para o caminho real do passo 5.
@@ -146,6 +151,18 @@ falharem, ajuste para `775` pelo Gerenciador de Arquivos.
   `migrate:fresh` (que derruba e recria tudo) exatamente para evitar
   isso — se você editou o script e trocou para `migrate` simples, volte
   para `migrate:fresh`.
+- **Logo/imagens fixas do site não aparecem** (mas o resto do site
+  funciona): faltou copiar `images/`, `css/` e/ou `js/` de dentro de
+  `public/` para `public_html/` na Rota B (veja o passo 6.1).
+- **Imagens de banners/notícias/uploads não aparecem, mas o logo
+  aparece normalmente**: o `storage:link` do Artisan cria o link dentro
+  de `crn9-app/public/storage`, que na Rota B não é a pasta servida pelo
+  domínio. O `deploy.php` já cria um segundo link na pasta correta
+  automaticamente — se mesmo assim não funcionar, a função `symlink()`
+  pode estar desabilitada no servidor; nesse caso copie manualmente o
+  conteúdo de `crn9-app/storage/app/public/` para uma pasta `storage/`
+  dentro de `public_html/` (uploads futuros pelo painel não aparecerão
+  até você repetir essa cópia).
 - **"Specified key was too long"** ao rodar `migrate`: já tratado no
   código (`Schema::defaultStringLength(191)` em `AppServiceProvider`) —
   se aparecer mesmo assim, confirme que o `.env` enviado é o mesmo que

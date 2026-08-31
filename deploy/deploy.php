@@ -71,4 +71,23 @@ run('Populando conteúdo institucional (db:seed)', 'db:seed', ['--force' => true
 
 run('Criando link de storage público', 'storage:link');
 
+// O comando storage:link do Artisan sempre cria o link dentro de
+// $appPath/public/storage. Na Rota A isso é exatamente a pasta servida
+// pelo domínio, mas na Rota B (deploy.php e index.php vivendo em
+// public_html/, separado de $appPath) esse link fica invisível para o
+// navegador — as imagens enviadas pelo painel (banners, notícias etc.)
+// dão 404 mesmo com o storage:link tendo rodado "com sucesso". Por isso,
+// garantimos aqui um segundo link na pasta onde este script realmente
+// está (__DIR__), que é sempre a raiz que o domínio serve.
+echo "\n=== Link de storage (document root) ===\n";
+$publicLink = __DIR__.'/storage';
+$publicTarget = $appPath.'/storage/app/public';
+if (file_exists($publicLink) || is_link($publicLink)) {
+    echo "Já existe, pulando.\n[OK]\n";
+} elseif (@symlink($publicTarget, $publicLink)) {
+    echo "Criado em {$publicLink}\n[OK]\n";
+} else {
+    echo "Não foi possível criar automaticamente (a função symlink() pode estar desabilitada neste servidor). Crie manualmente pelo Gerenciador de Arquivos: uma pasta 'storage' dentro da pasta onde está este deploy.php, apontando para {$publicTarget} — ou, se o Gerenciador de Arquivos não permitir criar links, copie o conteúdo de storage/app/public para dentro dessa pasta 'storage' (nesse caso, uploads futuros feitos pelo painel não aparecerão automaticamente, só os que já existem agora).\n[AVISO]\n";
+}
+
 echo "\nDeploy concluído. Confira o site e, em seguida, APAGUE este arquivo (deploy.php) do servidor.\n";
