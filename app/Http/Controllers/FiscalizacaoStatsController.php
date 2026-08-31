@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FiscalizacaoRegionStat;
 use App\Models\FiscalizacaoStat;
 
 class FiscalizacaoStatsController extends Controller
@@ -12,6 +13,12 @@ class FiscalizacaoStatsController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        return view('fiscalizacao.em-numeros', compact('stats'));
+        $regionStats = FiscalizacaoRegionStat::active()
+            ->orderBy('sort_order')
+            ->get();
+
+        $maxRegionVisits = max($regionStats->max('visits_count'), 1);
+
+        return view('fiscalizacao.em-numeros', compact('stats', 'regionStats', 'maxRegionVisits'));
     }
 }

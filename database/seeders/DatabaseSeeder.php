@@ -13,6 +13,7 @@ use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Faq;
 use App\Models\FiscalizacaoProcess;
+use App\Models\FiscalizacaoRegionStat;
 use App\Models\FiscalizacaoStat;
 use App\Models\Inspector;
 use App\Models\JobListing;
@@ -73,6 +74,7 @@ class DatabaseSeeder extends Seeder
         $this->seedDocumentTemplates();
         $this->seedFiscalizacaoStats();
         $this->seedFiscalizacaoProcesses();
+        $this->seedFiscalizacaoRegionStats();
     }
 
     /**
@@ -2321,6 +2323,30 @@ class DatabaseSeeder extends Seeder
                     'subject' => $process['subject'],
                     'started_at' => $process['started_at'],
                     'status' => $process['status'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+        }
+    }
+
+    private function seedFiscalizacaoRegionStats(): void
+    {
+        $regions = [
+            ['region' => 'Sede (Belo Horizonte)', 'visits_count' => 180],
+            ['region' => 'Delegacia de Uberlândia', 'visits_count' => 65],
+            ['region' => 'Delegacia de Juiz de Fora', 'visits_count' => 55],
+            ['region' => 'Delegacia de Montes Claros', 'visits_count' => 40],
+            ['region' => 'Delegacia de Pouso Alegre', 'visits_count' => 38],
+            ['region' => 'Delegacia de Ipatinga', 'visits_count' => 32],
+            ['region' => 'Barbacena', 'visits_count' => 10],
+        ];
+
+        foreach ($regions as $index => $region) {
+            FiscalizacaoRegionStat::updateOrCreate(
+                ['region' => $region['region']],
+                [
+                    'visits_count' => $region['visits_count'],
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]
