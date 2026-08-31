@@ -86,6 +86,12 @@ Pronto, pule para o passo 7 — não precisa mexer em `public_html`.
 1. Envie `deploy/deploy.php` para a **mesma pasta** que ficou com o
    `index.php` final (ou seja, o document root do site — `public_html/`
    na Opção B, ou `crn9-app/public/` na Opção A).
+   - **Se você seguiu a Opção B**, abra o `deploy.php` que acabou de
+     enviar e ajuste a linha `$appPath = dirname(__DIR__);` para o
+     caminho absoluto real do projeto — o mesmo valor que você usou no
+     `$appPath` de `public_html/index.php`. Ex.:
+     `$appPath = '/home/SEUUSUARIO/crn9-app';`. Sem esse ajuste, o
+     `deploy.php` não encontra o `vendor/autoload.php` e dá erro 500.
 2. Acesse no navegador:
    ```
    https://seudominio.com.br/deploy.php?token=SEU_DEPLOY_SECRET
@@ -120,6 +126,11 @@ falharem, ajuste para `775` pelo Gerenciador de Arquivos.
 - **Erro 500 sem detalhes**: confirme `APP_DEBUG=false` no `.env` (não
   mude para `true` em produção, mas para depurar temporariamente você
   pode olhar `storage/logs/laravel.log` pelo Gerenciador de Arquivos).
+- **Erro 500 especificamente no `deploy.php`, mas o site normal
+  funciona**: na Opção B, o `$appPath` dentro do `deploy.php` precisa
+  ser ajustado manualmente (veja o passo 7) — se ficar no valor padrão
+  `dirname(__DIR__)`, ele procura `vendor/` dentro de `public_html/`, que
+  não existe ali.
 - **"Specified key was too long"** ao rodar `migrate`: já tratado no
   código (`Schema::defaultStringLength(191)` em `AppServiceProvider`) —
   se aparecer mesmo assim, confirme que o `.env` enviado é o mesmo que

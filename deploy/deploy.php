@@ -13,9 +13,18 @@
  *      ficar publicado permanentemente.
  */
 
-require __DIR__.'/../vendor/autoload.php';
+// Caminho ABSOLUTO da pasta do projeto (onde estão vendor/ e bootstrap/).
+// - Rota A (Document Root aponta direto para public/): não precisa mexer,
+//   dirname(__DIR__) já resolve certo, pois deploy.php fica dentro de public/.
+// - Rota B (arquivos copiados para public_html/, deploy.php também foi
+//   parar lá): troque a linha abaixo pelo caminho real do projeto, o
+//   mesmo que você usou no $appPath de public_html/index.php. Ex.:
+//   $appPath = '/home/SEUUSUARIO/crn9-app';
+$appPath = dirname(__DIR__);
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+require $appPath.'/vendor/autoload.php';
+
+$app = require_once $appPath.'/bootstrap/app.php';
 /** @var \Illuminate\Contracts\Console\Kernel $kernel */
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
