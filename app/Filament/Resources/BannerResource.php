@@ -41,6 +41,9 @@ class BannerResource extends Resource
                     ->label('Título')
                     ->required()
                     ->columnSpanFull(),
+                Forms\Components\TextInput::make('subtitle')
+                    ->label('Subtítulo (opcional)')
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Imagem')
                     ->image()

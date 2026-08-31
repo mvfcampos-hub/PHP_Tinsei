@@ -1589,7 +1589,82 @@ class DatabaseSeeder extends Seeder
             );
         }
 
+        if (! Storage::disk('public')->exists('banners/manifesto-illustrative.svg')) {
+            Storage::disk('public')->put(
+                'banners/manifesto-illustrative.svg',
+                <<<'SVG'
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+                    <defs>
+                        <linearGradient id="manifestoBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#2E2F14"/>
+                            <stop offset="55%" stop-color="#5C5E2B"/>
+                            <stop offset="100%" stop-color="#7C6A33"/>
+                        </linearGradient>
+                        <radialGradient id="manifestoGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#F58C4A" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#F58C4A" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="url(#manifestoBg)"/>
+                    <circle cx="930" cy="200" r="230" fill="url(#manifestoGlow)"/>
+                    <circle cx="930" cy="200" r="175" fill="#ffffff" opacity="0.05"/>
+
+                    <!-- radiating accent lines -->
+                    <g stroke="#A3A64A" stroke-width="3" opacity="0.5" stroke-linecap="round">
+                        <line x1="930" y1="20" x2="930" y2="55"/>
+                        <line x1="1080" y1="70" x2="1055" y2="95"/>
+                        <line x1="1130" y1="200" x2="1095" y2="200"/>
+                        <line x1="1080" y1="330" x2="1055" y2="305"/>
+                        <line x1="780" y1="70" x2="805" y2="95"/>
+                    </g>
+
+                    <!-- shield -->
+                    <path d="M930 70 L1035 108 L1035 205 Q1035 300 930 350 Q825 300 825 205 L825 108 Z"
+                          fill="#ffffff" opacity="0.97"/>
+                    <path d="M930 70 L1035 108 L1035 205 Q1035 300 930 350 Q825 300 825 205 L825 108 Z"
+                          fill="none" stroke="#F58C4A" stroke-width="6"/>
+
+                    <!-- leaf / sprout inside shield -->
+                    <path d="M930 130 C975 140 992 180 985 222 C978 262 948 285 930 292 C930 240 930 185 930 130 Z"
+                          fill="#5C5E2B"/>
+                    <path d="M930 130 C885 140 868 180 875 222 C882 262 912 285 930 292 C930 240 930 185 930 130 Z"
+                          fill="#85B0FF"/>
+                    <line x1="930" y1="150" x2="930" y2="288" stroke="#ffffff" stroke-width="3" opacity="0.6"/>
+
+                    <!-- decorative dots (bottom-left, matches other illustrative banners) -->
+                    <circle cx="230" cy="90" r="10" fill="#A3A64A"/>
+                    <circle cx="270" cy="130" r="6" fill="#85B0FF"/>
+                    <circle cx="200" cy="330" r="8" fill="#F58C4A" opacity="0.7"/>
+                </svg>
+                SVG
+            );
+        }
+
+        if (! Storage::disk('public')->exists('banners/denuncia-illustrative.svg')) {
+            Storage::disk('public')->put(
+                'banners/denuncia-illustrative.svg',
+                <<<'SVG'
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+                    <defs>
+                        <linearGradient id="denunciaBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#3A1F16"/>
+                            <stop offset="100%" stop-color="#5C5E2B"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="400" fill="url(#denunciaBg)"/>
+                    <circle cx="900" cy="200" r="190" fill="#F58C4A" opacity="0.08"/>
+                    <path d="M900 95 L1005 285 L795 285 Z" fill="none" stroke="#F58C4A" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+                    <rect x="892" y="165" width="16" height="70" rx="8" fill="#F58C4A"/>
+                    <circle cx="900" cy="260" r="10" fill="#F58C4A"/>
+                    <circle cx="230" cy="90" r="10" fill="#A3A64A"/>
+                    <circle cx="270" cy="130" r="6" fill="#85B0FF"/>
+                </svg>
+                SVG
+            );
+        }
+
         $items = [
+            ['title' => 'Nutrição é profissão. Saúde é direito.', 'subtitle' => 'O CRN9 orienta, disciplina e fiscaliza o exercício profissional em Minas Gerais.', 'placement' => 'home_hero', 'sort_order' => 1, 'link' => '/paginas/o-que-e-fiscalizacao', 'image' => null, 'illustrative' => 'manifesto-illustrative.svg'],
             ['title' => 'Denúncias e fiscalização', 'placement' => 'home_secondary', 'sort_order' => 1, 'link' => '/paginas/denuncia', 'image' => null, 'illustrative' => 'denuncia-illustrative.svg'],
             ['title' => 'Perguntas Frequentes', 'placement' => 'home_secondary', 'sort_order' => 2, 'link' => '/perguntas-frequentes', 'image' => null, 'illustrative' => 'faq-illustrative.svg'],
         ];
@@ -1603,6 +1678,7 @@ class DatabaseSeeder extends Seeder
                 ['title' => $item['title']],
                 [
                     'title' => $item['title'],
+                    'subtitle' => $item['subtitle'] ?? null,
                     'image' => $image,
                     'link_url' => $item['link'],
                     'placement' => $item['placement'],

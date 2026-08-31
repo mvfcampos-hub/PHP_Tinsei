@@ -27,6 +27,9 @@
                                     CRN-9 em destaque
                                 </span>
                                 <h1 class="font-heading text-3xl sm:text-5xl font-bold text-white max-w-3xl leading-tight">{{ $banner->title }}</h1>
+                                @if ($banner->subtitle)
+                                    <p class="mt-3 text-base sm:text-lg text-brand-100 max-w-2xl">{{ $banner->subtitle }}</p>
+                                @endif
                                 <span class="inline-flex items-center gap-2 mt-6 text-white font-medium border-b-2 border-brand-orange pb-1 group-hover:gap-3 transition-all">
                                     Saiba mais
                                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
