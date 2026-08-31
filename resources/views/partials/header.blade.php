@@ -6,48 +6,75 @@
                 <img src="{{ asset('images/brand/logo-crn9-compacto.png') }}" alt="CRN-9 — Conselho Regional de Nutrição da 9ª Região" class="hidden min-[1460px]:block h-9 sm:h-10 w-auto">
             </a>
 
-            <nav class="hidden min-[1460px]:flex items-center">
+            <nav class="hidden min-[1460px]:flex items-center gap-1">
                 @foreach ($mainMenu ?? [] as $item)
                     <div class="relative group">
                         <a
                             href="{{ $item->resolveUrl() }}"
                             @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif
-                            class="flex items-center whitespace-nowrap px-1 py-2 text-xs font-medium text-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-800 transition"
+                            class="relative flex items-center whitespace-nowrap px-3.5 py-2.5 text-sm font-semibold text-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-800 transition after:content-[''] after:absolute after:left-3.5 after:right-3.5 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-brand-700 after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform"
                         >
                             {{ $item->label }}
                         </a>
                         @if ($item->children->isNotEmpty())
-                            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition absolute left-0 top-full pt-2 w-64">
-                                <div class="rounded-xl border border-slate-200 bg-white shadow-lg py-2">
-                                    @foreach ($item->children as $child)
-                                        @if ($child->children->isNotEmpty())
-                                            <div class="relative group/sub">
-                                                <a
-                                                    href="{{ $child->resolveUrl() }}"
-                                                    @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif
-                                                    class="flex items-center justify-between gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800"
-                                                >
-                                                    {{ $child->label }}
-                                                    <svg class="h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                                                </a>
-                                                <div class="invisible opacity-0 group-hover/sub:visible group-hover/sub:opacity-100 transition absolute left-full top-0 pl-2 w-64">
-                                                    <div class="rounded-xl border border-slate-200 bg-white shadow-lg py-2">
-                                                        @foreach ($child->children as $grandchild)
-                                                            <a href="{{ $grandchild->resolveUrl() }}" @if ($grandchild->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800">
-                                                                {{ $grandchild->label }}
-                                                            </a>
-                                                        @endforeach
-                                                    </div>
+                            @php
+                                $sections = $item->children->pluck('section')->filter()->unique();
+                                $colCount = min(max($sections->count(), 1), 3);
+                                $panelWidth = $colCount * 16 + ($colCount - 1) * 2;
+                                $alignRight = ($mainMenu ?? collect())->count() > 0 && $loop->index >= intdiv(($mainMenu ?? collect())->count(), 2);
+                            @endphp
+                            @if ($sections->isNotEmpty())
+                                <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition absolute {{ $alignRight ? 'right-0' : 'left-0' }} top-full pt-3">
+                                    <div class="rounded-xl border border-slate-200 bg-white shadow-xl p-6" style="column-count: {{ $colCount }}; column-gap: 2.5rem; width: {{ $panelWidth }}rem;">
+                                        @foreach ($item->children->groupBy(fn ($child) => $child->section ?? '') as $sectionLabel => $sectionItems)
+                                            <div class="mb-6" style="break-inside: avoid;">
+                                                @if ($sectionLabel !== '')
+                                                    <p class="px-1 pb-2.5 text-xs font-bold uppercase tracking-wider text-brand-700 border-b border-brand-100">{{ $sectionLabel }}</p>
+                                                @endif
+                                                <div class="space-y-1 pt-1">
+                                                    @foreach ($sectionItems as $child)
+                                                        <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="block rounded-lg px-1.5 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800 hover:font-medium">
+                                                            {{ $child->label }}
+                                                        </a>
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                        @else
-                                            <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-4 py-2 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800">
-                                                {{ $child->label }}
-                                            </a>
-                                        @endif
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
+                            @else
+                                <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition absolute left-0 top-full pt-3 w-72">
+                                    <div class="rounded-xl border border-slate-200 bg-white shadow-xl py-3">
+                                        @foreach ($item->children as $child)
+                                            @if ($child->children->isNotEmpty())
+                                                <div class="relative group/sub">
+                                                    <a
+                                                        href="{{ $child->resolveUrl() }}"
+                                                        @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif
+                                                        class="flex items-center justify-between gap-2 px-5 py-2.5 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800 hover:font-medium"
+                                                    >
+                                                        {{ $child->label }}
+                                                        <svg class="h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                                                    </a>
+                                                    <div class="invisible opacity-0 group-hover/sub:visible group-hover/sub:opacity-100 transition absolute left-full top-0 pl-3 w-72">
+                                                        <div class="rounded-xl border border-slate-200 bg-white shadow-xl py-3">
+                                                            @foreach ($child->children as $grandchild)
+                                                                <a href="{{ $grandchild->resolveUrl() }}" @if ($grandchild->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-5 py-2.5 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800 hover:font-medium">
+                                                                    {{ $grandchild->label }}
+                                                                </a>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="block px-5 py-2.5 text-sm text-slate-700 hover:bg-brand-50 hover:text-brand-800 hover:font-medium">
+                                                    {{ $child->label }}
+                                                </a>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
                         @endif
                     </div>
                 @endforeach
@@ -108,7 +135,12 @@
                     <a href="{{ $item->resolveUrl() }}" @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-brand-50">
                         {{ $item->label }}
                     </a>
+                    @php $lastSection = null; @endphp
                     @foreach ($item->children as $child)
+                        @if ($child->section && $child->section !== $lastSection)
+                            <p class="px-6 pt-2 pb-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-400">{{ $child->section }}</p>
+                            @php $lastSection = $child->section; @endphp
+                        @endif
                         <a href="{{ $child->resolveUrl() }}" @if ($child->opens_new_tab) target="_blank" rel="noopener" @endif class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">
                             {{ $child->label }}
                         </a>

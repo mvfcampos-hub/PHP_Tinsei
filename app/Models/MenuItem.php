@@ -16,6 +16,7 @@ class MenuItem extends Model
         'url',
         'page_id',
         'parent_id',
+        'section',
         'sort_order',
         'is_external',
         'opens_new_tab',
