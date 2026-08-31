@@ -130,6 +130,46 @@ falharem, ajuste para `775` pelo Gerenciador de Arquivos.
 
 ---
 
+## 10. Como atualizar o site depois (novas funcionalidades)
+
+Depois que o site já está no ar com dados reais (notícias, eventos,
+denúncias, etc.), **nunca rode o `deploy.php` de novo** — ele usa
+`migrate:fresh`, que apaga o banco inteiro. Para subir atualizações de
+código (correções, novas páginas, menu, etc.), use este roteiro em vez
+disso:
+
+1. **Na sua máquina**, com a branch atualizada (`git pull`):
+   ```bash
+   npm ci
+   npm run build
+   composer install --no-dev --optimize-autoloader
+   ```
+2. **Envie os arquivos atualizados** por FTP/Gerenciador de Arquivos,
+   sobrescrevendo os antigos. Pode reenviar o projeto inteiro (mais
+   simples e sem risco), **exceto**:
+   - `.env` — nunca sobrescreva o `.env` que já está no servidor (tem as
+     credenciais reais do banco e o `APP_KEY`);
+   - a pasta `storage/app/public` (ou o link `storage/` do document
+     root) — é onde ficam os uploads feitos pelo painel (banners,
+     imagens de notícias etc.), não sobrescreva com a versão local.
+   - Se seguiu a Rota B (passo 6), lembre de copiar de novo o conteúdo
+     de `public/` para dentro de `public_html/` (`build/`, `images/`,
+     `css/`, `js/`, `index.php`, `.htaccess`) — é o jeito das novas
+     classes CSS/JS e do menu atualizado aparecerem no ar.
+3. **Envie `deploy/update.php`** para a mesma pasta onde está (ou estava)
+   o `deploy.php` — o document root do site. Se estiver na Rota B, ajuste
+   o `$appPath` no topo do arquivo, igual foi feito no `deploy.php`.
+4. Acesse no navegador:
+   ```
+   https://seudominio.com.br/update.php?token=SEU_DEPLOY_SECRET
+   ```
+   Isso roda `migrate` (só as migrations novas, sem apagar nada),
+   `db:seed` (atualiza páginas/menu/conteúdo institucional para a versão
+   nova — seguro rodar de novo, não duplica nem apaga o que foi
+   cadastrado pelo painel) e limpa os caches do Laravel.
+5. Confira o site. **Apague `update.php` do servidor** em seguida (mesma
+   regra do `deploy.php` — nunca deixar publicado).
+
 ### Se algo der errado
 
 - **Erro 500 sem detalhes**: confirme `APP_DEBUG=false` no `.env` (não
