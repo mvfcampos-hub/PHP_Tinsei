@@ -379,6 +379,64 @@ class PublicPagesTest extends TestCase
         \Illuminate\Support\Facades\Storage::disk('public')->assertExists($submission->files->first()->file);
     }
 
+    public function test_nutrition_stories_index_and_show(): void
+    {
+        $story = \App\Models\NutritionStory::create([
+            'title' => 'História de teste',
+            'slug' => 'historia-de-teste',
+            'area' => 'Hospitais',
+            'region' => 'Belo Horizonte/MG',
+            'summary' => 'Resumo de teste.',
+            'body' => 'Corpo da história de teste.',
+            'status' => 'published',
+            'is_active' => true,
+            'published_at' => now(),
+        ]);
+
+        $this->get(route('nutrition-stories.index'))->assertStatus(200)->assertSee('História de teste');
+        $this->get(route('nutrition-stories.index', ['area' => 'Hospitais']))->assertStatus(200)->assertSee('História de teste');
+        $this->get(route('nutrition-stories.index', ['area' => 'Consultórios']))->assertStatus(200)->assertDontSee('História de teste');
+        $this->get(route('nutrition-stories.show', $story))->assertStatus(200)->assertSee('Corpo da história de teste.');
+    }
+
+    public function test_pending_nutrition_story_is_hidden_until_published(): void
+    {
+        $story = \App\Models\NutritionStory::create([
+            'title' => 'História pendente',
+            'slug' => 'historia-pendente',
+            'area' => 'Consultórios',
+            'region' => 'Belo Horizonte/MG',
+            'summary' => 'Resumo.',
+            'body' => 'Corpo.',
+            'status' => 'pending',
+            'is_active' => false,
+        ]);
+
+        $this->get(route('nutrition-stories.index'))->assertDontSee('História pendente');
+        $this->get(route('nutrition-stories.show', $story))->assertStatus(404);
+    }
+
+    public function test_public_can_suggest_a_nutrition_story(): void
+    {
+        $response = $this->post(route('nutrition-stories.suggest.store'), [
+            'title' => 'Indicação de teste',
+            'area' => 'Segurança Alimentar e Nutricional',
+            'region' => 'Ipatinga/MG',
+            'summary' => 'Resumo da indicação.',
+            'body' => 'História completa da indicação.',
+            'submitter_name' => 'Fulano de Tal',
+            'submitter_email' => 'fulano@example.com',
+        ]);
+
+        $story = \App\Models\NutritionStory::where('title', 'Indicação de teste')->first();
+        $this->assertNotNull($story);
+        $this->assertSame('pending', $story->status);
+        $this->assertFalse($story->is_active);
+
+        $response->assertRedirect(route('nutrition-stories.index'));
+        $this->get(route('nutrition-stories.index'))->assertDontSee('Indicação de teste');
+    }
+
     public function test_education_institutions_index(): void
     {
         EducationInstitution::create([

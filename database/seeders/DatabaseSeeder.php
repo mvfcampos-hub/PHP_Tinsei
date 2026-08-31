@@ -20,6 +20,7 @@ use App\Models\Magazine;
 use App\Models\MenuItem;
 use App\Models\MunicipalityProfessionalCount;
 use App\Models\News;
+use App\Models\NutritionStory;
 use App\Models\Page;
 use App\Models\PodeNaoPodeQuestion;
 use App\Models\User;
@@ -64,6 +65,7 @@ class DatabaseSeeder extends Seeder
         $this->seedLibraryDocuments();
         $this->seedFaqs();
         $this->seedPodeNaoPode();
+        $this->seedNutritionStories();
     }
 
     /**
@@ -1026,6 +1028,10 @@ class DatabaseSeeder extends Seeder
             [
                 'label' => 'Biblioteca Virtual',
                 'url' => '/biblioteca',
+            ],
+            [
+                'label' => 'Nutrição em Minas',
+                'url' => '/nutricao-em-minas',
             ],
             [
                 'label' => 'Fiscalização',
@@ -2047,6 +2053,72 @@ class DatabaseSeeder extends Seeder
                     'template_text' => $item['template_text'] ?? null,
                     'sort_order' => $index + 1,
                     'is_active' => true,
+                ]
+            );
+        }
+    }
+
+    /**
+     * "Nutrição em Minas": histórias reais de nutricionistas e técnicos
+     * atuando nas diferentes áreas da profissão pelo estado, para mostrar
+     * o valor da Nutrição além do papel fiscalizador do CRN-9. Os itens
+     * abaixo são exemplos ilustrativos de estrutura/tom, a serem
+     * substituídos por histórias reais levantadas pela equipe de
+     * comunicação do CRN-9 (ou indicadas pelo público via /nutricao-em-minas/indicar).
+     */
+    private function seedNutritionStories(): void
+    {
+        $items = [
+            [
+                'title' => 'Exemplo: Nutrição na rede municipal de saúde',
+                'area' => 'Saúde Pública',
+                'region' => 'Belo Horizonte/MG',
+                'role' => 'Nutricionista da Atenção Primária à Saúde',
+                'summary' => 'Como o acompanhamento nutricional em unidades básicas de saúde previne doenças crônicas e melhora a qualidade de vida da população.',
+                'body' => "Substituir por uma história real: como é o dia a dia de um(a) nutricionista atuando na Atenção Primária à Saúde, os desafios enfrentados, o impacto na comunidade atendida e por que esse trabalho importa para a sociedade.\n\nSugestão de estrutura: contexto do serviço, um caso ou conquista concreta, e uma reflexão sobre o valor da Nutrição na saúde pública.",
+            ],
+            [
+                'title' => 'Exemplo: Alimentação Escolar que transforma',
+                'area' => 'Alimentação Escolar',
+                'region' => 'Uberlândia/MG',
+                'role' => 'Nutricionista Responsável Técnica pelo PNAE',
+                'summary' => 'A responsabilidade técnica pelo Programa Nacional de Alimentação Escolar garante refeições seguras e nutritivas para milhares de estudantes.',
+                'body' => "Substituir por uma história real de um(a) profissional responsável técnico pela alimentação escolar em um município mineiro: como planeja cardápios, garante segurança alimentar e contribui para a aprendizagem dos estudantes.",
+            ],
+            [
+                'title' => 'Exemplo: Pesquisa que gera política pública',
+                'area' => 'Universidades e Pesquisa',
+                'region' => 'Juiz de Fora/MG',
+                'role' => 'Nutricionista pesquisadora',
+                'summary' => 'Pesquisas desenvolvidas em universidades mineiras têm influenciado diretrizes de segurança alimentar e nutricional no estado.',
+                'body' => "Substituir por uma história real sobre uma pesquisa acadêmica conduzida por nutricionista em Minas Gerais e seu impacto prático — por exemplo, em políticas públicas, diretrizes clínicas ou programas de segurança alimentar.",
+            ],
+            [
+                'title' => 'Exemplo: Cuidado nutricional hospitalar',
+                'area' => 'Hospitais',
+                'region' => 'Montes Claros/MG',
+                'role' => 'Nutricionista Clínica',
+                'summary' => 'A atuação da equipe de nutrição em ambiente hospitalar é decisiva para a recuperação de pacientes em estado grave.',
+                'body' => "Substituir por uma história real de um(a) nutricionista clínico(a) hospitalar, destacando um caso (sem identificar pacientes) em que a intervenção nutricional fez diferença concreta na recuperação.",
+            ],
+        ];
+
+        foreach ($items as $index => $item) {
+            NutritionStory::updateOrCreate(
+                ['slug' => Str::slug($item['title'])],
+                [
+                    'title' => $item['title'],
+                    'slug' => Str::slug($item['title']),
+                    'area' => $item['area'],
+                    'region' => $item['region'],
+                    'role' => $item['role'],
+                    'summary' => $item['summary'],
+                    'body' => $item['body'],
+                    'status' => 'published',
+                    'is_active' => true,
+                    'is_featured' => $index === 0,
+                    'sort_order' => $index + 1,
+                    'published_at' => now()->subDays($index),
                 ]
             );
         }
