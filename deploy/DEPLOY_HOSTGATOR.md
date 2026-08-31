@@ -96,11 +96,15 @@ Pronto, pule para o passo 7 — não precisa mexer em `public_html`.
    ```
    https://seudominio.com.br/deploy.php?token=SEU_DEPLOY_SECRET
    ```
-3. Confira a saída: `key:generate`, `migrate` e `db:seed` devem terminar
-   com `[OK]`. Isso já popula o site com todo o conteúdo institucional
-   preparado (notícias, páginas, FAQ, Ética Profissional, Transparência,
-   etc.) — se preferir subir com o banco vazio, comente a linha do
+3. Confira a saída: `key:generate`, `migrate:fresh` e `db:seed` devem
+   terminar com `[OK]`. Isso já popula o site com todo o conteúdo
+   institucional preparado (notícias, páginas, FAQ, Ética Profissional,
+   Transparência, etc.) — se preferir subir com o banco vazio, comente a linha do
    `db:seed` dentro de `deploy.php` antes de enviar.
+   - **Atenção:** `migrate:fresh` apaga TODAS as tabelas existentes antes
+     de recriar — correto para o primeiro deploy (banco vazio), mas nunca
+     rode este script de novo contra um site já em produção com dados
+     reais, ou você perde tudo.
 4. **Apague `deploy.php` do servidor imediatamente após o uso.** Ele não
    deve ficar publicado — é só para essa execução única.
 
@@ -131,6 +135,17 @@ falharem, ajuste para `775` pelo Gerenciador de Arquivos.
   ser ajustado manualmente (veja o passo 7) — se ficar no valor padrão
   `dirname(__DIR__)`, ele procura `vendor/` dentro de `public_html/`, que
   não existe ali.
+- **"Trait/Class ... not found"** vindo de dentro de `vendor/`: o upload
+  do `vendor/` ficou incompleto (comum ao enviar milhares de arquivos
+  pequenos por FTP). Zipe a pasta `vendor/` inteira localmente, envie
+  esse único arquivo, e extraia pelo "Extract" do Gerenciador de Arquivos
+  do cPanel em vez de reenviar arquivo por arquivo.
+- **"SQLSTATE[42S01]: ... already exists"** ao rodar as migrations: uma
+  tentativa anterior de deploy travou no meio do caminho e deixou
+  tabelas criadas sem registrar isso no Laravel. O `deploy.php` já usa
+  `migrate:fresh` (que derruba e recria tudo) exatamente para evitar
+  isso — se você editou o script e trocou para `migrate` simples, volte
+  para `migrate:fresh`.
 - **"Specified key was too long"** ao rodar `migrate`: já tratado no
   código (`Schema::defaultStringLength(191)` em `AppServiceProvider`) —
   se aparecer mesmo assim, confirme que o `.env` enviado é o mesmo que

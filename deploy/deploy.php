@@ -57,7 +57,13 @@ if (empty(config('app.key'))) {
     echo "\n=== APP_KEY ===\nJá definida, pulando.\n";
 }
 
-run('Rodando migrations', 'migrate', ['--force' => true]);
+// migrate:fresh (em vez de migrate) porque este script é de uso único
+// para o PRIMEIRO deploy: se uma tentativa anterior tiver travado no meio
+// do caminho, pode ter deixado tabelas criadas sem registrar isso no
+// Laravel, causando erro de "tabela já existe". fresh derruba tudo e
+// recria do zero — seguro aqui pois o banco ainda não tem conteúdo real.
+// NUNCA rode este script contra um site já em produção com dados reais.
+run('Rodando migrations (fresh)', 'migrate:fresh', ['--force' => true]);
 
 // Comente a linha abaixo se NÃO quiser popular o banco com o conteúdo
 // institucional já preparado (notícias, páginas, FAQ, etc.).
