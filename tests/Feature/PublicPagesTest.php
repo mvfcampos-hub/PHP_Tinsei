@@ -6,6 +6,8 @@ use App\Models\Campaign;
 use App\Models\CampaignEpisode;
 use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
+use App\Models\DocumentTemplate;
+use App\Models\DocumentTemplateFile;
 use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Faq;
@@ -350,6 +352,32 @@ class PublicPagesTest extends TestCase
             ->assertSee('Alimentação Coletiva / UAN')
             ->assertSee('Área Hospitalar / SND')
             ->assertSee('Resolução CFN nº 380/2005');
+    }
+
+    public function test_document_templates_index_lists_downloadable_files(): void
+    {
+        $template = DocumentTemplate::create([
+            'title' => 'Modelo de teste',
+            'slug' => 'modelo-de-teste',
+            'category' => 'Atendimento Clínico',
+            'description' => 'Descrição de teste.',
+            'sort_order' => 1,
+            'is_active' => true,
+        ]);
+
+        DocumentTemplateFile::create([
+            'document_template_id' => $template->id,
+            'label' => 'Baixar modelo (Word/RTF)',
+            'file' => 'modelos-editaveis/modelo-de-teste.rtf',
+            'sort_order' => 1,
+        ]);
+
+        $this->get(route('document-templates.index'))
+            ->assertStatus(200)
+            ->assertSee('Repositório de Modelos Editáveis')
+            ->assertSee('Atendimento Clínico')
+            ->assertSee('Modelo de teste')
+            ->assertSee('Baixar modelo (Word/RTF)');
     }
 
     public function test_fiscalizacao_guide_loads(): void

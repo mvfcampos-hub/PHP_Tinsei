@@ -3,6 +3,7 @@
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ComplianceSubmissionController;
 use App\Http\Controllers\CouncilController;
+use App\Http\Controllers\DocumentTemplateController;
 use App\Http\Controllers\EducationInstitutionController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FaqController;
@@ -64,6 +65,8 @@ Route::get('/perguntas-frequentes', [FaqController::class, 'index'])->name('faqs
 Route::get('/pode-ou-nao-pode', [PodeNaoPodeController::class, 'index'])->name('pode-nao-pode.index');
 
 Route::get('/ferramentas/calculadoras', [StaffingCalculatorController::class, 'index'])->name('tools.calculators');
+
+Route::get('/ferramentas/modelos', [DocumentTemplateController::class, 'index'])->name('document-templates.index');
 
 Route::get('/fiscalizacao/recebi-uma-fiscalizacao', [FiscalizacaoGuideController::class, 'show'])->name('fiscalizacao.guide');
 Route::post('/portal-adequacao', [ComplianceSubmissionController::class, 'store'])->name('compliance.store');

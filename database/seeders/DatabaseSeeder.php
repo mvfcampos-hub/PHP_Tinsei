@@ -7,6 +7,8 @@ use App\Models\Campaign;
 use App\Models\CampaignEpisode;
 use App\Models\CouncilGroup;
 use App\Models\CouncilMember;
+use App\Models\DocumentTemplate;
+use App\Models\DocumentTemplateFile;
 use App\Models\EducationInstitution;
 use App\Models\EventItem;
 use App\Models\Faq;
@@ -66,6 +68,7 @@ class DatabaseSeeder extends Seeder
         $this->seedFaqs();
         $this->seedPodeNaoPode();
         $this->seedNutritionStories();
+        $this->seedDocumentTemplates();
     }
 
     /**
@@ -1033,6 +1036,7 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Perguntas Frequentes', 'url' => '/perguntas-frequentes'],
                     ['label' => 'Pode ou Não Pode?', 'url' => '/pode-ou-nao-pode'],
                     ['label' => 'Calculadoras de Dimensionamento', 'url' => '/ferramentas/calculadoras'],
+                    ['label' => 'Repositório de Modelos Editáveis', 'url' => '/ferramentas/modelos'],
                 ],
             ],
             [
@@ -2017,6 +2021,136 @@ class DatabaseSeeder extends Seeder
                     'sort_order' => $index + 1,
                     'published_at' => now()->subDays($index),
                 ]
+            );
+        }
+    }
+
+    private function seedDocumentTemplates(): void
+    {
+        $tcle = <<<'RTF'
+        {\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0 Arial;}}\f0\fs22
+        {\b TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (TCLE) \line ATENDIMENTO NUTRICIONAL}\par\par
+        Eu, [nome completo do paciente/cliente], CPF [n\'famero do CPF], declaro que fui informado(a) de forma clara pelo(a) nutricionista [nome completo do profissional], CRN9 n\'ba [n\'famero de inscri\'e7\'e3o], sobre o atendimento nutricional a ser realizado, e manifesto meu consentimento livre e esclarecido nos termos abaixo.\par\par
+        {\b 1. Natureza do atendimento}\par
+        ( ) Presencial, em [endere\'e7o/unidade].\par
+        ( ) Por telenutri\'e7\'e3o (teleatendimento), nos termos da Resolu\'e7\'e3o CFN n\'ba 760/2023, mediante uso de tecnologias de informa\'e7\'e3o e comunica\'e7\'e3o, com garantia de sigilo e confidencialidade das informa\'e7\'f5es transmitidas.\par\par
+        {\b 2. Objetivo do atendimento}\par
+        [Descrever objetivo: avalia\'e7\'e3o nutricional, acompanhamento cl\'ednico, orienta\'e7\'e3o alimentar, entre outros].\par\par
+        {\b 3. Procedimentos}\par
+        O atendimento poder\'e1 incluir anamnese alimentar e cl\'ednica, avalia\'e7\'e3o antropom\'e9trica, an\'e1lise de exames complementares (quando fornecidos pelo paciente/cliente) e elabora\'e7\'e3o de progn\'f3stico e conduta nutricional, conforme o C\'f3digo de \'c9tica e Conduta do(a) Nutricionista (Resolu\'e7\'e3o CFN n\'ba 599/2018).\par\par
+        {\b 4. Confidencialidade e prote\'e7\'e3o de dados}\par
+        As informa\'e7\'f5es pessoais e de sa\'fade coletadas ser\'e3o tratadas com sigilo profissional e em conformidade com a Lei Geral de Prote\'e7\'e3o de Dados (Lei n\'ba 13.709/2018 \'96 LGPD), sendo utilizadas exclusivamente para fins do atendimento nutricional, salvo autoriza\'e7\'e3o expressa em contr\'e1rio ou obriga\'e7\'e3o legal.\par\par
+        {\b 5. Direitos do paciente/cliente}\par
+        Fica assegurado o direito de recusar, interromper ou revogar este consentimento a qualquer momento, sem preju\'edzo ao atendimento, bem como o direito de solicitar esclarecimentos adicionais sobre a conduta nutricional proposta.\par\par
+        {\b 6. Declara\'e7\'e3o de consentimento}\par
+        Declaro estar ciente das informa\'e7\'f5es acima e concordo, de forma livre e esclarecida, com a realiza\'e7\'e3o do atendimento nutricional descrito.\par\par
+        [Local], [data].\par\par
+        _______________________________________\par
+        Assinatura do paciente/cliente ou respons\'e1vel legal\par\par
+        _______________________________________\par
+        [Nome completo do profissional] \'96 Nutricionista \'96 CRN9 n\'ba [n\'famero de inscri\'e7\'e3o]\par
+        }
+        RTF;
+
+        $laudo = <<<'RTF'
+        {\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0 Arial;}}\f0\fs22
+        {\b LAUDO DE NOTIFICA\'c7\'c3O DE IRREGULARIDADES / FALTA DE INSUMOS}\par
+        {\i Uso em hospitais, servi\'e7os de sa\'fade e unidades de alimenta\'e7\'e3o e nutri\'e7\'e3o (UAN)}\par\par
+        {\b 1. Identifica\'e7\'e3o da unidade/servi\'e7o}\par
+        Institui\'e7\'e3o/empresa: [nome]\par
+        Unidade/setor: [unidade ou setor]\par
+        Endere\'e7o: [endere\'e7o completo]\par\par
+        {\b 2. Identifica\'e7\'e3o do nutricionista respons\'e1vel t\'e9cnico}\par
+        Nome: [nome completo do profissional]\par
+        CRN9 n\'ba: [n\'famero de inscri\'e7\'e3o]\par
+        Data e hora da constata\'e7\'e3o: [data] \'e0s [hor\'e1rio]\par\par
+        {\b 3. Descri\'e7\'e3o da irregularidade / falta de insumo}\par
+        [Descrever objetivamente o fato constatado: falta de g\'eaneros aliment\'edcios, quebra da cadeia de frio, condi\'e7\'e3o inadequada de instala\'e7\'f5es, equipamento com defeito, descumprimento de Procedimento Operacional Padronizado (POP), entre outros].\par\par
+        {\b 4. Risco identificado}\par
+        [Descrever o risco \'e0 sa\'fade dos clientes/pacientes/coletividade e/ou \'e0 seguran\'e7a alimentar decorrente da irregularidade].\par\par
+        {\b 5. Medidas corretivas solicitadas}\par
+        [Descrever as medidas solicitadas e o prazo para regulariza\'e7\'e3o].\par\par
+        {\b 6. Encaminhamento}\par
+        Nos termos do item 1.1.18 do Anexo II da Resolu\'e7\'e3o CFN n\'ba 380/2005, este laudo \'e9 encaminhado ao hier\'e1rquico superior e, quando aplic\'e1vel, \'e0s autoridades sanit\'e1rias e/ou ao CRN9, para as provid\'eancias cab\'edveis.\par\par
+        [Local], [data].\par\par
+        _______________________________________\par
+        [Nome completo do profissional] \'96 Nutricionista \'96 CRN9 n\'ba [n\'famero de inscri\'e7\'e3o]\par\par
+        _______________________________________\par
+        Ci\'eancia do respons\'e1vel pela unidade/institui\'e7\'e3o\par
+        }
+        RTF;
+
+        $prontuario = <<<'RTF'
+        {\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0 Arial;}}\f0\fs22
+        {\b MODELO DE PRONTU\'c1RIO NUTRICIONAL PADR\'c3O}\par\par
+        {\b 1. Identifica\'e7\'e3o}\par
+        Nome: [nome completo] \'96 Data de nascimento: [data] \'96 Sexo: [sexo]\par
+        Data do atendimento: [data] \'96 Tipo de consulta: ( ) Inicial ( ) Retorno/reconsulta\par\par
+        {\b 2. Anamnese alimentar e cl\'ednica}\par
+        Queixa principal: [descrever]\par
+        Hist\'f3rico cl\'ednico e patologias associadas: [descrever]\par
+        H\'e1bitos alimentares e recorda\'e7\'e3o de 24h: [descrever]\par\par
+        {\b 3. Avalia\'e7\'e3o antropom\'e9trica}\par
+        Peso atual: [ ] kg \'96 Estatura: [ ] cm \'96 IMC: [ ]\par
+        Circunfer\'eancias e demais medidas (quando aplic\'e1vel): [descrever]\par\par
+        {\b 4. Dados bioqu\'edmicos (quando dispon\'edveis)}\par
+        [Listar exames e valores de refer\'eancia]\par\par
+        {\b 5. Diagn\'f3stico nutricional}\par
+        [Descrever com base nos dados cl\'ednicos, bioqu\'edmicos, antropom\'e9tricos e diet\'e9ticos, conforme Resolu\'e7\'e3o CFN n\'ba 380/2005, Anexo II]\par\par
+        {\b 6. Prescri\'e7\'e3o diet\'e9tica / conduta}\par
+        [Descrever plano alimentar, orienta\'e7\'f5es e, quando necess\'e1rio, suplementos nutricionais prescritos em conformidade com a legisla\'e7\'e3o vigente]\par\par
+        {\b 7. Evolu\'e7\'e3o nutricional (retornos)}\par
+        [Data] \'96 [Registro da evolu\'e7\'e3o e ajustes de conduta]\par\par
+        {\b 8. Identifica\'e7\'e3o do profissional}\par
+        [Nome completo do profissional]\par
+        Nutricionista \'96 CRN9 n\'ba [n\'famero de inscri\'e7\'e3o]\par
+        }
+        RTF;
+
+        $items = [
+            [
+                'title' => 'Modelo de Termo de Consentimento Livre e Esclarecido (TCLE)',
+                'category' => 'Atendimento Clínico',
+                'description' => 'Modelo de TCLE para uso em teleatendimento (telenutrição) e em consultas presenciais, com referência à Resolução CFN nº 760/2023 e à LGPD (Lei nº 13.709/2018).',
+                'file' => 'modelos-editaveis/tcle-atendimento-nutricional.rtf',
+                'content' => $tcle,
+            ],
+            [
+                'title' => 'Laudo de Notificação de Irregularidades / Falta de Insumos',
+                'category' => 'Alimentação Coletiva e Serviços de Saúde',
+                'description' => 'Modelo de laudo para uso em hospitais e unidades de alimentação e nutrição (UAN), para notificação formal de irregularidades ou falta de insumos ao hierárquico superior e às autoridades competentes.',
+                'file' => 'modelos-editaveis/laudo-notificacao-irregularidades.rtf',
+                'content' => $laudo,
+            ],
+            [
+                'title' => 'Modelo de Prontuário Nutricional Padrão',
+                'category' => 'Atendimento Clínico',
+                'description' => 'Estrutura padrão de prontuário nutricional (identificação, anamnese, avaliação antropométrica, diagnóstico, prescrição e evolução), ajustada às exigências normativas do CFN/CRN.',
+                'file' => 'modelos-editaveis/prontuario-nutricional-padrao.rtf',
+                'content' => $prontuario,
+            ],
+        ];
+
+        foreach ($items as $index => $item) {
+            if (! Storage::disk('public')->exists($item['file'])) {
+                Storage::disk('public')->put($item['file'], mb_convert_encoding($item['content'], 'Windows-1252', 'UTF-8'));
+            }
+
+            $template = DocumentTemplate::updateOrCreate(
+                ['slug' => Str::slug($item['title'])],
+                [
+                    'title' => $item['title'],
+                    'slug' => Str::slug($item['title']),
+                    'category' => $item['category'],
+                    'description' => $item['description'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+
+            DocumentTemplateFile::updateOrCreate(
+                ['document_template_id' => $template->id, 'label' => 'Baixar modelo (Word/RTF)'],
+                ['file' => $item['file'], 'sort_order' => 1]
             );
         }
     }
