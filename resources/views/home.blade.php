@@ -12,7 +12,7 @@
         @if ($heroBanners->isNotEmpty())
             <div x-data="{ active: 0, total: {{ $heroBanners->count() }} }"
                  x-init="setInterval(() => active = (active + 1) % total, 6500)"
-                 class="relative h-[440px] sm:h-[520px] overflow-hidden">
+                 class="relative h-[320px] sm:h-[400px] overflow-hidden">
                 @foreach ($heroBanners as $index => $banner)
                     <a href="{{ $banner->link_url ?? '#' }}"
                        x-show="active === {{ $index }}" x-transition:enter.duration.700ms
@@ -53,7 +53,7 @@
                 @endif
             </div>
         @else
-            <div class="h-[320px] flex items-center justify-center text-brand-100 relative">
+            <div class="h-[240px] flex items-center justify-center text-brand-100 relative">
                 <p>Nenhum banner de destaque cadastrado.</p>
             </div>
         @endif

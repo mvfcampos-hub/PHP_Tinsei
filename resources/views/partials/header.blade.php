@@ -118,7 +118,7 @@
             </form>
         </div>
 
-        <div x-show="mobileOpen" x-cloak x-transition class="min-[1460px]:hidden pb-4">
+        <div x-show="mobileOpen" x-cloak x-transition class="min-[1460px]:hidden pb-4 max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain">
             <form action="{{ route('search.index') }}" method="GET" class="flex gap-2 mb-3">
                 <input
                     type="search"
@@ -130,7 +130,7 @@
                     Buscar
                 </button>
             </form>
-            <nav class="flex flex-col gap-1">
+            <nav class="flex flex-col gap-1 pb-2">
                 @foreach ($mainMenu ?? [] as $item)
                     <a href="{{ $item->resolveUrl() }}" @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-brand-50">
                         {{ $item->label }}
