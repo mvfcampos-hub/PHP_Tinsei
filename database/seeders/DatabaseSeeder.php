@@ -1168,8 +1168,8 @@ class DatabaseSeeder extends Seeder
                     ['label' => 'Encontre um Nutricionista', 'url' => 'https://cnn.cfn.org.br/application/index/consulta-nacional', 'external' => true, 'section' => 'Informações'],
                     ['label' => 'Banco de Oportunidades', 'url' => '/vagas', 'section' => 'Informações'],
                     ['label' => 'Pode ou Não Pode?', 'url' => '/pode-ou-nao-pode', 'section' => 'Informações'],
-                    ['label' => 'Calculadoras de Dimensionamento', 'url' => '/ferramentas/calculadoras', 'section' => 'Informações'],
-                    ['label' => 'Repositório de Modelos Editáveis', 'url' => '/ferramentas/modelos', 'section' => 'Informações'],
+                    ['label' => 'Calculadoras de Dimensionamento', 'url' => '/ferramentas/calculadoras', 'section' => 'Ferramentas'],
+                    ['label' => 'Repositório de Modelos Editáveis', 'url' => '/ferramentas/modelos', 'section' => 'Ferramentas'],
                 ],
             ],
             [
