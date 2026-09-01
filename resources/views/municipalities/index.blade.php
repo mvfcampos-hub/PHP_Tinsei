@@ -7,11 +7,27 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
             <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Profissionais por Município</h1>
             <p class="text-slate-500 mt-2">
-                Quantidade de nutricionistas e técnicos registrados por município da área de abrangência do CRN-9
+                Quantidade de profissionais ativos (nutricionistas, TND e pessoas jurídicas) por município de Minas Gerais
+                @if ($referenceDate)
+                    &mdash; atualizado em {{ \Illuminate\Support\Carbon::parse($referenceDate)->format('d/m/Y') }}
+                @endif
             </p>
-            <p class="mt-4 inline-flex items-center rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700">
-                Total de profissionais: {{ number_format($totalProfessionals, 0, ',', '.') }}
-            </p>
+            <div class="mt-4 flex flex-wrap gap-3">
+                <p class="inline-flex items-center rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700">
+                    Total de profissionais: {{ number_format($totalProfessionals, 0, ',', '.') }}
+                </p>
+                <p class="inline-flex items-center rounded-full bg-slate-100 px-4 py-1.5 text-sm font-medium text-slate-700">
+                    Municípios cobertos: {{ number_format($totalMunicipalities, 0, ',', '.') }}
+                </p>
+            </div>
+            <a
+                href="https://cnn.cfn.org.br/application/index/consulta-nacional"
+                target="_blank" rel="noopener"
+                class="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 transition"
+            >
+                Encontre um Nutricionista perto de você
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
         </div>
     </section>
 
@@ -24,31 +40,37 @@
             >
         </form>
 
-        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+        <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
             <table class="min-w-full divide-y divide-slate-200 text-sm">
                 <thead class="bg-slate-50">
                     <tr>
                         <th class="px-6 py-3 text-left font-semibold text-slate-700">Município</th>
-                        <th class="px-6 py-3 text-left font-semibold text-slate-700">Categoria</th>
-                        <th class="px-6 py-3 text-right font-semibold text-slate-700">Profissionais</th>
-                        <th class="px-6 py-3 text-right font-semibold text-slate-700">Atualizado em</th>
+                        <th class="px-4 py-3 text-right font-semibold text-slate-700">Nutricionistas</th>
+                        <th class="px-4 py-3 text-right font-semibold text-slate-700">TND</th>
+                        <th class="px-4 py-3 text-right font-semibold text-slate-700">Pessoas Jurídicas</th>
+                        <th class="px-6 py-3 text-right font-semibold text-slate-700">Total</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     @forelse ($counts as $count)
                         <tr class="hover:bg-slate-50">
                             <td class="px-6 py-3 text-slate-900 font-medium">{{ $count->municipality }}/{{ $count->state }}</td>
-                            <td class="px-6 py-3 text-slate-600">{{ $count->category }}</td>
-                            <td class="px-6 py-3 text-right text-slate-900 font-semibold">{{ number_format($count->professionals_count, 0, ',', '.') }}</td>
-                            <td class="px-6 py-3 text-right text-slate-500">{{ optional($count->reference_date)->format('d/m/Y') }}</td>
+                            <td class="px-4 py-3 text-right text-slate-600">{{ number_format($count->nutritionists_count, 0, ',', '.') }}</td>
+                            <td class="px-4 py-3 text-right text-slate-600">{{ number_format($count->technicians_count, 0, ',', '.') }}</td>
+                            <td class="px-4 py-3 text-right text-slate-600">{{ number_format($count->legal_entities_count, 0, ',', '.') }}</td>
+                            <td class="px-6 py-3 text-right text-slate-900 font-semibold">{{ number_format($count->total_count, 0, ',', '.') }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-6 text-center text-slate-500">Nenhum registro encontrado.</td>
+                            <td colspan="5" class="px-6 py-6 text-center text-slate-500">Nenhum registro encontrado.</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
+        </div>
+
+        <div class="mt-6">
+            {{ $counts->links() }}
         </div>
     </section>
 @endsection

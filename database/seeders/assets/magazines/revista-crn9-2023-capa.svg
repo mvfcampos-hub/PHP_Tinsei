@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="Capa da Revista CRN-9, edição 2023">
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#474921"/>
+            <stop offset="0.55" stop-color="#5c5e2b"/>
+            <stop offset="1" stop-color="#878963"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="600" height="800" fill="url(#bg)"/>
+
+    <circle cx="520" cy="90" r="130" fill="#a3a64a" opacity="0.18"/>
+    <circle cx="60" cy="720" r="170" fill="#f58c4a" opacity="0.12"/>
+    <circle cx="500" cy="700" r="60" fill="#85b0ff" opacity="0.16"/>
+
+    <g transform="translate(60,64)">
+        <circle cx="7" cy="7" r="7" fill="#f58c4a"/>
+        <circle cx="27" cy="7" r="7" fill="#85b0ff"/>
+        <circle cx="47" cy="7" r="7" fill="#a3a64a"/>
+        <text x="66" y="13" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#f4f4f0">CRN-9 · 9&#170; REGIÃO</text>
+    </g>
+
+    <g transform="translate(60,330)">
+        <text x="0" y="0" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-style="italic" fill="#deded4">Revista</text>
+        <text x="0" y="86" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="1" fill="#ffffff">CRN-9</text>
+        <rect x="4" y="112" width="120" height="6" rx="3" fill="#f58c4a"/>
+    </g>
+
+    <g transform="translate(60,470)">
+        <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#f4f4f0" opacity="0.92">Conteúdo, ciência e atuação profissional</text>
+        <text x="0" y="32" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#f4f4f0" opacity="0.92">em Nutrição para toda a 9&#170; Região</text>
+    </g>
+
+    <g transform="translate(60,700)">
+        <rect x="0" y="0" width="480" height="1" fill="#deded4" opacity="0.35"/>
+        <text x="0" y="40" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Edição 2023</text>
+        <text x="0" y="72" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#deded4" opacity="0.85">2023.revistacrn9.org.br</text>
+    </g>
+</svg>

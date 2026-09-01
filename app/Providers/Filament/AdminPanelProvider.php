@@ -27,9 +27,14 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->brandName('CRN-9 Admin')
+            ->brandLogo(asset('images/brand/logo-crn9.png'))
+            ->favicon(asset('images/brand/favicon-32x32.png'))
             ->login()
             ->colors([
-                'primary' => Color::Emerald,
+                'primary' => Color::hex('#5C5E2B'),
+                'warning' => Color::hex('#F58C4A'),
+                'info' => Color::hex('#85B0FF'),
+                'success' => Color::hex('#A3A64A'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

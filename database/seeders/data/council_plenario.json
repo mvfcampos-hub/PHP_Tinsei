@@ -1,0 +1,432 @@
+[
+ {
+  "group": "Diretoria",
+  "kind": "diretoria",
+  "contact_email": "diretoria@crn9.org.br",
+  "sort_order": 1,
+  "members": [
+   {
+    "name": "Deyrilucy Ferreira",
+    "role": "Presidente",
+    "registration_number": "CRN9 1543",
+    "bio": "Nutricionista formada pela Universidade Federal de Ouro Preto em 2001.<br/>\nPós graduada em Nutrição Humana e Saúde pela Universidade Federal de Lavras.<br/>\nTécnica em Segurança do Trabalho.<br/>\nAtua em Alimentação Escolar (Responsável Técnica pelo PNAE) desde 2006, no município de Guimarânia- MG.",
+    "sort_order": 1
+   },
+   {
+    "name": "Melissa de Paula Pacheco",
+    "role": "Vice-presidente",
+    "registration_number": "CRN9 9404",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Sarah Caroline Renan Monteiro",
+    "role": "Diretora Secretária",
+    "registration_number": "CRN9 17514",
+    "bio": null,
+    "sort_order": 3
+   },
+   {
+    "name": "Maria Gonçalves Soares",
+    "role": "Diretora Tesoureira",
+    "registration_number": "CRN9 1618",
+    "bio": null,
+    "sort_order": 4
+   }
+  ]
+ },
+ {
+  "group": "I – Comissão de Tomada de Contas",
+  "kind": "comissao",
+  "contact_email": "c.tomadadecontas@crn9.org.br",
+  "sort_order": 2,
+  "members": [
+   {
+    "name": "Milton Cosme Ribeiro",
+    "role": "Coordenador",
+    "registration_number": "CRN9 23474",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Aline Soleane Carmo Braga",
+    "role": null,
+    "registration_number": "CRN9 13077",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Pamela Gracielle da Fonseca",
+    "role": null,
+    "registration_number": "CRN9 26596",
+    "bio": null,
+    "sort_order": 3
+   }
+  ]
+ },
+ {
+  "group": "II – Comissão de Fiscalização",
+  "kind": "comissao",
+  "contact_email": "c.fiscalizacao@crn9.org.br",
+  "sort_order": 3,
+  "members": [
+   {
+    "name": "Thiago Tassar Rosa Souza",
+    "role": "Coordenador",
+    "registration_number": "CRN9 14886",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Melissa de Paula Pacheco",
+    "role": null,
+    "registration_number": "CRN9 9404",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Sarah Caroline Renan Monteiro",
+    "role": null,
+    "registration_number": "CRN9 17514",
+    "bio": null,
+    "sort_order": 3
+   },
+   {
+    "name": "Laisa Rodrigues Cavalcante",
+    "role": null,
+    "registration_number": "CRN9 4105",
+    "bio": null,
+    "sort_order": 4
+   },
+   {
+    "name": "Deise Lima Santos",
+    "role": null,
+    "registration_number": "CRN9 16338",
+    "bio": null,
+    "sort_order": 5
+   },
+   {
+    "name": "Waldirene Rodrigues de Souza Soares",
+    "role": null,
+    "registration_number": "CRN9 7523",
+    "bio": null,
+    "sort_order": 6
+   }
+  ]
+ },
+ {
+  "group": "III- Comissão de Formação Profissional",
+  "kind": "comissao",
+  "contact_email": "c.formacaoprofissional@crn9.org.br",
+  "sort_order": 4,
+  "members": [
+   {
+    "name": "Viviane Cristina Salgado Dias",
+    "role": "Coordenadora",
+    "registration_number": "CRN9 15371",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Thiago Tassar Rosa Souza",
+    "role": null,
+    "registration_number": "CRN9 14886",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Aline Soleane Carmo Braga",
+    "role": null,
+    "registration_number": "CRN9 13077",
+    "bio": null,
+    "sort_order": 3
+   },
+   {
+    "name": "Juliana Miguel",
+    "role": null,
+    "registration_number": "CRN9 14549",
+    "bio": null,
+    "sort_order": 4
+   },
+   {
+    "name": "Luana Lara Rocha",
+    "role": null,
+    "registration_number": "CRN9 21862",
+    "bio": null,
+    "sort_order": 5
+   },
+   {
+    "name": "Natalia Fenner Pena",
+    "role": null,
+    "registration_number": "CRN9 10190",
+    "bio": null,
+    "sort_order": 6
+   },
+   {
+    "name": "Silvia Eloiza Priore",
+    "role": null,
+    "registration_number": "CRN9 0098",
+    "bio": null,
+    "sort_order": 7
+   }
+  ]
+ },
+ {
+  "group": "IV – Comissão de Ética",
+  "kind": "comissao",
+  "contact_email": "c.etica@crn9.org.br",
+  "sort_order": 5,
+  "members": [
+   {
+    "name": "Lucas Vicente da Silva",
+    "role": "Coordenador",
+    "registration_number": "CRN9 26222",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Ana Claúdia Alves Freire Ribeiro",
+    "role": null,
+    "registration_number": "CRN9 13566",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Laisa Rodrigues Cavalcante",
+    "role": null,
+    "registration_number": "CRN9 4105",
+    "bio": null,
+    "sort_order": 3
+   },
+   {
+    "name": "Natalia Fenner Pena",
+    "role": null,
+    "registration_number": "CRN9 10190",
+    "bio": null,
+    "sort_order": 4
+   },
+   {
+    "name": "Silvia Eloiza Priore",
+    "role": null,
+    "registration_number": "CRN9 0098",
+    "bio": null,
+    "sort_order": 5
+   }
+  ]
+ },
+ {
+  "group": "V – Comissão de Comunicação",
+  "kind": "comissao",
+  "contact_email": "c.com@crn9.org.br",
+  "sort_order": 6,
+  "members": [
+   {
+    "name": "Pamela Gracielle da Fonseca",
+    "role": "Coordenadora",
+    "registration_number": "CRN9 26596",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Maria Gonçalves Soares",
+    "role": null,
+    "registration_number": "CRN9 1618",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Laisa Rodrigues Cavalcante",
+    "role": null,
+    "registration_number": "CRN9 4105",
+    "bio": null,
+    "sort_order": 3
+   },
+   {
+    "name": "Lucas Vicente da Silva",
+    "role": null,
+    "registration_number": "CRN9 26222",
+    "bio": null,
+    "sort_order": 4
+   }
+  ]
+ },
+ {
+  "group": "VI – Câmara Técnica de Saúde Coletiva",
+  "kind": "camara",
+  "contact_email": "ct.saudecoletiva@crn9.org.br",
+  "sort_order": 7,
+  "members": []
+ },
+ {
+  "group": "VII - Câmara Técnica de Nutrição Clínica",
+  "kind": "camara",
+  "contact_email": "ct.nutricaoclinica@crn9.org.br",
+  "sort_order": 8,
+  "members": []
+ },
+ {
+  "group": "VIII - Câmara Técnica de Alimentação Coletiva",
+  "kind": "camara",
+  "contact_email": "ct.acoletiva@crn9.org.br",
+  "sort_order": 9,
+  "members": []
+ },
+ {
+  "group": "IX - Câmara Técnica de PNAE",
+  "kind": "camara",
+  "contact_email": null,
+  "sort_order": 10,
+  "members": []
+ },
+ {
+  "group": "X - Comissão de Relações Institucionais e Governamentais",
+  "kind": "comissao",
+  "contact_email": null,
+  "sort_order": 11,
+  "members": [
+   {
+    "name": "Aline Soleane Carmo Braga",
+    "role": "Coordenadora",
+    "registration_number": "CRN9 13077",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Milton Cosme Ribeiro",
+    "role": null,
+    "registration_number": "CRN9 23474",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Thiago Tassar Rosa Souza",
+    "role": null,
+    "registration_number": "CRN9 14886",
+    "bio": null,
+    "sort_order": 3
+   }
+  ]
+ },
+ {
+  "group": "XI - Gestões Anteriores",
+  "kind": "historico",
+  "contact_email": null,
+  "sort_order": 12,
+  "members": [
+   {
+    "name": "CRN9 - Diretoria Gestão 2026/2029",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2026<br/>\nDeyrilucy Ferreira – Presidente <br/>\nMelissa de Paula Pacheco – Vice-Presidente<br/>\nSarah Caroline Renan Monteiro – Diretora Secretária<br/>\nMaria Gonçalves Soares – Diretora Financeira <br/>\n<br/>",
+    "sort_order": 1
+   },
+   {
+    "name": "CRN9 - Diretoria Gestão 2023/2026",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2023<br/>\nErika Simone Coelho Carvalho - Presidenta<br/>\nAngelina do Carmo Lessa - Vice-presidenta<br/>\nDaniela Correa Ferreira - Diretora Tesoureira<br/>\nBruna Soares Faria - Diretora Secretária<br/>\n<br/>\nAno 2024 (Abril a Julho)<br/>\nErika Simone Coelho Carvalho - Presidenta<br/>\nDaniela Correa Ferreira - Vice-presidenta<br/>\nBruna Soares Faria - Diretora Tesoureira<br/>\nDeyrilucy Ferreira - Diretora Secretária<br/>\n<br/>\nAno 2024  (Julho a Setembro)<br/>\nDaniela Correa Ferreira - Presidenta<br/>\nBruna Soares Faria - Diretora Tesoureira<br/>\nDeyrilucy Ferreira - Diretora Secretária<br/>\n<br/>\n<br/>\nAno 2024  (SET/24 a ABR/25)<br/>\nDaniela Correa Ferreira - Presidenta<br/>\nBruna Soares Faria - Vice-presidenta<br/>\nGeralda Kelen Fonseca - Diretora Tesoureira<br/>\nDeyrilucy Ferreira - Diretora Secretária<br/>\n<br/>\nAno 2025<br/>\nDaniela Correa Ferreira - Presidenta<br/>\nBruna Soares Faria - Vice-presidenta<br/>\nGeralda Kelen Fonseca - Diretora Tesoureira<br/>\nDeyrilucy Ferreira - Diretora Secretária",
+    "sort_order": 2
+   },
+   {
+    "name": "CRN9 - Diretoria Gestão 2020/2023",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2020<br/>\nRegina Rodrigues de Oliveira - Presidente<br/>\nErika Simone Coelho Carvalho - Vice-presidenta<br/>\nLuiz Carlos Gomes Junior - Diretor Tesoureiro<br/>\nDiego Vaz Gondim Faria - Diretor Secretário<br/>\n<br/>\nAno 2021<br/>\nLuiz Carlos Gomes Junior - Presidente <br/>\nErika Simone Coelho Carvalho - Vice-presidenta<br/>\nRegina Rodrigues de Oliveira - Diretora Tesoureira<br/>\nMilton Cosme Ribeiro - Diretor Secretário<br/>\n<br/>\nAno 2022<br/>\nErika Simone Coelho Carvalho - Presidenta<br/>\nAngelina do Carmo Lessa - Vice-presidenta<br/>\nDaniela Correa Ferreira - Diretora Tesoureira<br/>\nEmanuelle Cardoso Zibral Santos - Diretora Secretária<br/>\n<br/>\nAno 2023<br/>\nErika Simone Coelho Carvalho - Presidenta<br/>\nAngelina do Carmo Lessa - Vice-presidenta<br/>\nDaniela Correa Ferreira - Diretora Tesoureira<br/>\nBruna Soares Faria - Diretora Secretária",
+    "sort_order": 3
+   },
+   {
+    "name": "CRN9 - Diretoria Gestão 2017/2020",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2019 2:<br/>\nViviane Admus Nunes Paixão – Presidente<br/>\nMarina Moreno Wardi - Vice-presidente<br/>\nEdith Zulato Chaves Figueiredo - Diretora Secretária<br/>\nFernando Jose Mandacaru – Diretor Tesoureiro<br/>\n<br/>\nAno 2019:<br/>\nViviane Admus Nunes Paixão – Presidente<br/>\nFernando Jose Mandacaru – Vice-presidente<br/>\nMarina Moreno Wardi – Diretora Secretária<br/>\nEdines Moreira Alves – Tesoureira<br/>\n<br/>\nAno 2018:<br/>\nViviane Admus Nunes Paixão – Presidente<br/>\nFernando Jose Mandacaru – Vice-presidente<br/>\nMarina Moreno Wardi – Diretora Secretária<br/>\nEdines Moreira Alves – Tesoureira<br/>\n<br/>\nAno 2017:<br/>\nViviane Admus Nunes Paixão – Presidente<br/>\nFernando Jose Mandacaru – Vice-presidente<br/>\nMarina Moreno Wardi – Diretora Secretária<br/>\nEdines Moreira Alves – Tesoureira<br/>",
+    "sort_order": 4
+   },
+   {
+    "name": "CRN9 - Diretoria Gestão 2014/2017",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2017:<br/>\nViviane Admus Nunes Paixão - Presidente<br/>\nFernando Jose Mandacaru - Vice Presidente<br/>\nMarina Moreno Wardi - Diretora Secretária<br/>\nEdines Moreira Alves - Diretora Tesoureira<br/>\n<br/>\nAno 2016:<br/>\nElisabeth Chiari Rios Neto – Presidente<br/>\nDreycson Cristian Silva – Vice-Presidente<br/>\nAdriana de Meira Pazzini da Silva - Diretora Secretária<br/>\nJoyce Andrade Batista - Diretora Tesoureira<br/>\n<br/>\nAno 2015:<br/>\nBeatriz Leandro de Carvalho – Presidente<br/>\nDreycson Cristian Silva – Vice-Presidente<br/>\nElisabeth Chiari Rios Neto - Diretora Secretária<br/>\nAdriana de Meira Pazzini da Silva - Diretora Tesoureira<br/>\n<br/>\nAno 2014:<br/>\nBeatriz Leandro de Carvalho – Presidente<br/>\nDreycson Cristian Silva – Vice-Presidente<br/>\nElisabeth Chiari Rios Neto - Diretora Secretária<br/>\nAdriana de Meira Pazzini da Silva - Diretora Tesoureira<br/>\n<br/>\n<br/>\n<br/>",
+    "sort_order": 5
+   },
+   {
+    "name": "CRN9 - Diretoria Gestão 2011/2014",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2014:<br/>\nBeatriz Leandro de Carvalho - Presidente<br/>\nDreycson Cristian Silva - Vice Presidente<br/>\nElisabeth Chiari Rios Neto - Diretora Secretária<br/>\nAdriana de Meira Pazzini da Silva - Diretora Tesoureira<br/>\n<br/>\nAno 2013:<br/>\nHeloísa Magalhães de Oliveira – Presidente<br/>\nFernando José Mandacaru – Vice-presidente<br/>\nElisabeth Chiari Rios Neto - Diretora Secretária<br/>\nJoyce Andrade Batista - Diretora Tesoureira<br/>\n<br/>\nAno 2012:<br/>\nHeloísa Magalhães de Oliveira – Presidente<br/>\nRegina Rodrigues de Oliveira – Vice-presidente<br/>\nJoyce Andrade Batista – Diretora Secretária<br/>\nFernando José Mandacaru – Diretor Tesoureiro<br/>\n<br/>\nAno 2011:<br/>\nÉlido Bonomo – Presidente<br/>\nHeloísa Magalhães de Oliveira – Vice-Presidente<br/>\nJoyce Andrade Batista – Diretora Secretária<br/>\nFernando José Mandacaru – Diretor Tesoureiro<br/>\n<br/>",
+    "sort_order": 6
+   },
+   {
+    "name": "CRN9 - Diretoria Gestão 2008/2011",
+    "role": null,
+    "registration_number": null,
+    "bio": "Ano 2011:<br/>\nÉlido Bonomo - Presidente<br/>\nHeloísa Magalhães de Oliveira - Vice Presidente<br/>\nJoyce Andrade Batista - Diretora Secretária<br/>\nFernando José Mandacaru - Diretor Tesoureiro<br/>\n<br/>\nAno 2010:<br/>\nÉlido Bonomo – Presidente<br/>\nBeatriz Leandro de Carvalho – Vice-presidente<br/>\nHeloísa Magalhães de Oliveira – Diretora Secretária<br/>\nFernando José Mandacaru – Diretor Tesoureiro<br/>\n<br/>\nAno 2009:<br/>\nÉlido Bonomo – Presidente<br/>\nBeatriz Leandro de Carvalho – Vice-presidente<br/>\nHeloísa Magalhães de Oliveira – Diretora Secretária<br/>\nFernando José Mandacaru – Diretor Tesoureiro<br/>\n<br/>\nAno 2008:<br/>\nÉlido Bonomo – Presidente<br/>\nBeatriz Leandro de Carvalho – Vice-presidente<br/>\nRegina Rodrigues de Oliveira – Diretora Secretária<br/>\nRomero Alves Teixeira – Diretor Tesoureiro<br/>",
+    "sort_order": 7
+   }
+  ]
+ },
+ {
+  "group": "Comissão Eleitoral - Pleito 2026/2029",
+  "kind": "comissao",
+  "contact_email": null,
+  "sort_order": 13,
+  "members": [
+   {
+    "name": "Regina Rodrigues de Oliveira",
+    "role": null,
+    "registration_number": "CRN9 0901",
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Sirlene Jeronimo de Araujo",
+    "role": null,
+    "registration_number": "CRN9 6988",
+    "bio": null,
+    "sort_order": 2
+   },
+   {
+    "name": "Mona Lisa Maria Araújo Pacheco",
+    "role": null,
+    "registration_number": "CRN9 7422",
+    "bio": null,
+    "sort_order": 3
+   },
+   {
+    "name": "Monaise Gomes Martins Guimuzzi",
+    "role": null,
+    "registration_number": "CRN9 10035",
+    "bio": null,
+    "sort_order": 4
+   },
+   {
+    "name": "Thalita Hellen Paula Franco Rodrigues",
+    "role": null,
+    "registration_number": "CRN9 11444",
+    "bio": null,
+    "sort_order": 5
+   }
+  ]
+ },
+ {
+  "group": "Comissão de Eventos",
+  "kind": "comissao",
+  "contact_email": null,
+  "sort_order": 14,
+  "members": [
+   {
+    "name": "Elisa Alves Dias e Álvares",
+    "role": "Coordenadora",
+    "registration_number": null,
+    "bio": null,
+    "sort_order": 1
+   },
+   {
+    "name": "Raissa Roberta Marra da Costa Chagas",
+    "role": "Membro",
+    "registration_number": null,
+    "bio": null,
+    "sort_order": 2
+   }
+  ]
+ }
+]

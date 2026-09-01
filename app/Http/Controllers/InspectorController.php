@@ -11,6 +11,13 @@ class InspectorController extends Controller
     {
         $inspectors = Inspector::active()->get();
 
-        return view('inspectors.index', compact('inspectors'));
+        $groupedInspectors = $inspectors->groupBy('region');
+
+        $roleSummary = $inspectors
+            ->groupBy('role')
+            ->map(fn ($group) => $group->count())
+            ->sortDesc();
+
+        return view('inspectors.index', compact('groupedInspectors', 'roleSummary'));
     }
 }

@@ -1,0 +1,594 @@
+[
+ {
+  "index": "1",
+  "nome": "CENTRO SUPERIOR DE ENSINO E PESQUISA DE MACHADO - CESEP",
+  "endereco": "Av Dr Athayde Pereira de Souza, Nº: 730, Bairro: Centro, CEP: 37750-000",
+  "cidade": "Machado",
+  "telefone": "(35) 3295-9501",
+  "email": "secretaria@fem.com.br"
+ },
+ {
+  "index": "2",
+  "nome": "CENTRO UNIFICADO DO SUDESTE MINEIRO - UNICSUM",
+  "endereco": "Avenida Presidente Itamar Franco, Nº: 3180, Complemento: Loja 01, 02 e 03 do Ed. Saint Pietro, Bairro: São Mateus, CEP: 36025-290",
+  "cidade": "Juiz de Fora",
+  "telefone": "(11)5586 4291",
+  "email": "bbrihy@unip.br;pigeral@unip.br;pigeral2020@gmail.com"
+ },
+ {
+  "index": "3",
+  "nome": "CENTRO UNIVERSITÁRIO ACADEMIA - UNIACADEMIA",
+  "endereco": "R. Halfeld, 1179 - Centro, Juiz de Fora - MG, 36016-000",
+  "cidade": "Juiz de Fora",
+  "telefone": "(32)3250-3800;(32)3250-3803",
+  "email": "assessoriainstitucional@cesjf.br"
+ },
+ {
+  "index": "4",
+  "nome": "CENTRO UNIVERSITÁRIO ATENAS - UniAtenas",
+  "endereco": "Rua Euridamas Avelino de Barros, Nº: 1.400, Bairro: Prado, CEP: 38602-002",
+  "cidade": "Paracatu",
+  "telefone": "38-3672-3737",
+  "email": "faculdade@atenas.edu.br"
+ },
+ {
+  "index": "5",
+  "nome": "CENTRO UNIVERSITÁRIO DE BELO HORIZONTE - UNI-BH",
+  "endereco": "Avenida Prof. Mário Werneck, Nº: 1685, Complemento: Campus Buritis - Unidade SEDE, Bairro: Estoril, CEP: 30455-610",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 3319-9219 / (31) 3319-9220",
+  "email": "regulatorio@animaeducacao.com.br;reitoria@unibh.br"
+ },
+ {
+  "index": "6",
+  "nome": "CENTRO UNIVERSITÁRIO DE CARATINGA - UNEC",
+  "endereco": "Av. Moacyr de Mattos, Nº: 87, Bairro: Centro, CEP: 35300-047",
+  "cidade": "Caratinga",
+  "telefone": "(33) 3322 7900 Ramal 7902",
+  "email": "raquel.carvalho06@hotmail.com"
+ },
+ {
+  "index": "7",
+  "nome": "CENTRO UNIVERSITÁRIO DE LAVRAS - UNILAVRAS",
+  "endereco": "Rua Padre José Poggel, Nº: 506, Bairro: Centenário, CEP: 37200-000",
+  "cidade": "Lavras",
+  "telefone": "(35)36948136 e/ou (35)36948134",
+  "email": "reitoria@unilavras.edu.br;christiane@unilavras.edu.br;proen@unilavras.edu.br"
+ },
+ {
+  "index": "8",
+  "nome": "CENTRO UNIVERSITÁRIO DE PATOS DE MINAS - UNIPAM",
+  "endereco": "Rua Major Gote, Nº: 808, Bairro: Caiçaras, CEP: 38702-054",
+  "cidade": "Patos de Minas",
+  "telefone": "(34)38230300",
+  "email": "assessoria.educacional@unipam.edu.br"
+ },
+ {
+  "index": "9",
+  "nome": "CENTRO UNIVERSITÁRIO DE SETE LAGOAS - UNIFEMM",
+  "endereco": "Avenida Marechal Castelo Branco, Nº: 2.765, Bairro: Santo Antônio, CEP: 35701-242",
+  "cidade": "Sete Lagoas",
+  "telefone": "31) 2106 2106",
+  "email": "secretariageral@unifemm.edu.br"
+ },
+ {
+  "index": "10",
+  "nome": "CENTRO UNIVERSITÁRIO DE VIÇOSA - UNIVIÇOSA",
+  "endereco": "Avenida Maria de Paula Santana, Nº: 3.815, Bairro: Silvestre, CEP: 36576-340",
+  "cidade": "Viçosa",
+  "telefone": "(31) 3899 8000",
+  "email": "univicosa@univicosa.com.br"
+ },
+ {
+  "index": "11",
+  "nome": "CENTRO UNIVERSITÁRIO DO CERRADO-PATROCÍNIO - UNICERP",
+  "endereco": "Avenida Liria Terezinha Lassi Capuano, Nº: 466, Bairro: Universitário, CEP: 38747-792",
+  "cidade": "Patrocínio",
+  "telefone": "(34) 3839 3737",
+  "email": "reitoria@unicerp.edu.br"
+ },
+ {
+  "index": "12",
+  "nome": "CENTRO UNIVERSITÁRIO DOCTUM DE TEÓFILO OTONI - UNIDOCTUM",
+  "endereco": "Rua Gustavo Leonardo, Nº: 1.127, Bairro: São Jacinto, CEP: 39801-260",
+  "cidade": "Teófilo Otoni",
+  "telefone": "(33)3322 6321/ 3322 6329 / 3322 6323",
+  "email": "diretoria@doctum.edu.br; morgana@doctum.edu.br; heloisa@doctum.edu.br"
+ },
+ {
+  "index": "13",
+  "nome": "CENTRO UNIVERSITÁRIO DO SUL DE MINAS - UNIS-MG",
+  "endereco": "Avenda Alzira Barra Gazzola, Nº: 650, Bairro: Aeroporto, CEP: 37031-099",
+  "cidade": "Varginha",
+  "telefone": "(35)32195031",
+  "email": "p.institucional@unis.edu.br;marcelof@unis.edu.br"
+ },
+ {
+  "index": "14",
+  "nome": "CENTRO UNIVERSITÁRIO DO TRIÂNGULO - UNITRI",
+  "endereco": "Av. Nicomedes Alves dos Santos, Nº: 4545, Bairro: Gávea, CEP: 38411-106",
+  "cidade": "Uberlândia",
+  "telefone": "(34) 4009-9039",
+  "email": "pi@unitri.edu.br"
+ },
+ {
+  "index": "15",
+  "nome": "CENTRO UNIVERSITÁRIO ESTÁCIO DE BELO HORIZONTE - ESTÁCIO BH - ESTÁCIO BH",
+  "endereco": "Avenida Francisco Sales, Nº: 23, Complemento: - até 813/814, Bairro: Floresta, CEP: 30150-220",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 32985200",
+  "email": "cgfesbh@gmail.com;regulatorio.nacional@estacio.br;marcia.aparecida@yduqs.com.br;"
+ },
+ {
+  "index": "16",
+  "nome": "CENTRO UNIVERSITÁRIO ESTÁCIO JUIZ DE FORA - ESTÁCIO JUIZ DE FORA -",
+  "endereco": "Avenida Presidente João Goulart, Nº: 600, Bairro: Cruzeiro do Sul, CEP: 36030-900",
+  "cidade": "Juiz de Fora",
+  "telefone": "(32) 3249-3600",
+  "email": "cgfesjf@gmail.com;regulatorio.nacional@estacio.br;marcia.aparecida@yduqs.com.br;"
+ },
+ {
+  "index": "17",
+  "nome": "CENTRO UNIVERSITÁRIO FAMINAS - UNIFAMINAS",
+  "endereco": "Av Avenida Cristiano Ferreira Varella, Nº: 655, Rodovia BR 116 Km 701, Bairro: Universitário, CEP: 36888-233",
+  "cidade": "Muriaé",
+  "telefone": "(32) 3729 7527",
+  "email": "roberta.gouvea@unifaminas.edu.br;secretaria@unifaminas.edu.br"
+ },
+ {
+  "index": "18",
+  "nome": "CENTRO UNIVERSITÁRIO GOVERNADOR OZANAM COELHO - UNIFAGOC",
+  "endereco": "Rua Dr. Adjalme da Silva Botelho, Nº: 20, Bairro: Seminário, CEP: 36500-000",
+  "cidade": "Ubá",
+  "telefone": "32 3539-5600",
+  "email": "daibert@unifagoc.edu.br;ana.amelia@unifagoc.edu.br"
+ },
+ {
+  "index": "19",
+  "nome": "CENTRO UNIVERSITÁRIO IMEPAC - ARAGUARI -",
+  "endereco": "Avenida Minas Gerais, Nº: 1.889, Bairro: Centro, CEP: 38440-042",
+  "cidade": "Araguari",
+  "telefone": "(34)3249-3900",
+  "email": "divaniafreitas@imepac.edu.br"
+ },
+ {
+  "index": "20",
+  "nome": "CENTRO UNIVERSITÁRIO ÍTALO-BRASILEIRO - UNIÍTALO",
+  "endereco": "Avenida João Dias, Nº: 2046, Bairro: Santo Amaro, CEP: 04724-003",
+  "cidade": "São Paulo/SP",
+  "telefone": "(11) 5645-0073",
+  "email": "marcial.chaves@italo.br"
+ },
+ {
+  "index": "21",
+  "nome": "CENTRO UNIVERSITÁRIO MAURÍCIO DE NASSAU - UNINASSAU",
+  "endereco": "Rua Guilherme Pinto, Nº: 114, Bairro: Graças, CEP: 52011-210",
+  "cidade": "Recife/PE",
+  "telefone": "(81) 3413-4611 / (81) 9649-1504",
+  "email": "emec@sereducacional.com"
+ },
+ {
+  "index": "22",
+  "nome": "CENTRO UNIVERSITÁRIO METODISTA IZABELA HENDRIX - CEUNIH",
+  "endereco": "Rua da Bahia, Nº: 2.020, Bairro: Funcionários, CEP: 30160-012",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 3244-7269",
+  "email": "paula.silva@izabelahendrix.metodista.br"
+ },
+ {
+  "index": "23",
+  "nome": "CENTRO UNIVERSITÁRIO PRESIDENTE ANTÔNIO CARLOS - UNIPAC",
+  "endereco": "Rodovia BR-338, Nº: s/n, Complemento: - do km 10,000 ao km 12,000, CEP: 36201-143",
+  "cidade": "Barbacena",
+  "telefone": "(31)32473400",
+  "email": "proreitoriadeensinobh@gmail.com"
+ },
+ {
+  "index": "24",
+  "nome": "CENTRO UNIVERSITÁRIO PRESIDENTE TANCREDO DE ALMEIDA NEVES - UNIPTAN",
+  "endereco": "Avenida Leite de Castro, Nº: 1.101, Bairro: Fábricas, CEP: 36301-182",
+  "cidade": "São João del Rei",
+  "telefone": "(32) 3379 2725",
+  "email": "fies3.uniptan@nreeducacional.com.br"
+ },
+ {
+  "index": "25",
+  "nome": "CENTRO UNIVERSITÁRIO UNA DE BOM DESPACHO - UNA",
+  "endereco": "Br 262 - Km 480, Nº: S/N, Bairro: Zona Rural, CEP: 35600-000",
+  "cidade": "Bom Despacho",
+  "telefone": "31 3319-9226",
+  "email": "regulatorio@animaeducacao.com.br"
+ },
+ {
+  "index": "26",
+  "nome": "CENTRO UNIVERSITÁRIO UNA DE CONTAGEM - UNA",
+  "endereco": "Avenida João César de Oliveira, Nº: 5775, Bairro: Beatriz, CEP: 32040-000",
+  "cidade": "Contagem",
+  "telefone": "31 33199226",
+  "email": "regulatorio@animaeducacao.com.br"
+ },
+ {
+  "index": "27",
+  "nome": "CENTRO UNIVERSITÁRIO UNA DE UBERLÂNDIA - UNA",
+  "endereco": "Alameda Paulina Margonari, Nº: 59, Bairro: Jardim Karaíba, CEP: 38411-206",
+  "cidade": "Uberlândia",
+  "telefone": "31 3319-9226",
+  "email": "regulatorio@animaeducacao.com.br"
+ },
+ {
+  "index": "28",
+  "nome": "CENTRO UNIVERSITÁRIO UNA - UNA",
+  "endereco": "Rua dos Aimorés, Nº: 1.451, Bairro: Lourdes, CEP: 30140-071",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 33199226",
+  "email": "regulatorio@animaeducacao.com.br"
+ },
+ {
+  "index": "30",
+  "nome": "FACULDADE CIÊNCIAS DA VIDA - FCV",
+  "endereco": "Avenida Prefeito Alberto Moura, Nº: 12632, Bairro: Distrito Industrial, CEP: 35702-383",
+  "cidade": "Sete Lagoas",
+  "telefone": "(31) 37765150",
+  "email": "valcirfarias@cienciasdavida.com.br"
+ },
+ {
+  "index": "31",
+  "nome": "FACULDADE DE CIÊNCIAS DA SAÚDE ARCHIMEDES THEODORO - FAC - SAUDE ARTHE",
+  "endereco": "PRAÇA LAROCA, Nº: 29, Bairro: VILA LAROCA,",
+  "cidade": "Além Paraíba",
+  "telefone": "(32) 3462 2999",
+  "email": "NÃO TEM"
+ },
+ {
+  "index": "32",
+  "nome": "FACULDADE DE CIÊNCIAS E TECNOLOGIAS DE CAMPOS GERAIS - FACICA",
+  "endereco": "Rua Santa Terezinha, Nº: 389, Bairro: Centro, CEP: 37160-000",
+  "cidade": "Campos Gerais",
+  "telefone": "(35) 3853 1169",
+  "email": "secretaria@facica.edu.br"
+ },
+ {
+  "index": "33",
+  "nome": "FACULDADE DE FRUTAL - FAF",
+  "endereco": "Rua Nova Ponte, Nº: 439, Bairro: Jardim Laranjeiras, CEP: 38200-000",
+  "cidade": "Frutal",
+  "telefone": "(34)3429.4000",
+  "email": "legis.educ@universidadebrasil.edu.br"
+ },
+ {
+  "index": "34",
+  "nome": "FACULDADE DE MEDICINA DE ITAJUBÁ - FMIT",
+  "endereco": "AV. RENNO JUNIOR, Nº: 368, Bairro: SÃO VICENTE, Bairro: SÃO VICENTE",
+  "cidade": "Itajubá",
+  "telefone": "(35) 3629-8700",
+  "email": "secretaria@fmit.edu.br"
+ },
+ {
+  "index": "35",
+  "nome": "FACULDADE DE MINAS BH - FAMINAS-BH",
+  "endereco": "Avenida Cristiano Machado, Nº: 12001, Bairro: Vila Cloris, CEP: 31744-007",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31)21263100",
+  "email": "everton.reis@faminasbh.edu.br"
+ },
+ {
+  "index": "36",
+  "nome": "FACULDADE DE PARÁ DE MINAS - FAPAM",
+  "endereco": "Rua Ricardo Marinho, Nº: 110, Bairro: São Geraldo, CEP: 35660-398",
+  "cidade": "Pará de Minas",
+  "telefone": "(37) 3237-2000",
+  "email": "secretaria@fapam.edu.br"
+ },
+ {
+  "index": "37",
+  "nome": "FACULDADE DE SÃO LOURENÇO - FASAMA",
+  "endereco": "Rua Madame Schimidt, Nº: 90, Bairro: Federal, CEP: 37470-000",
+  "cidade": "São Lourenço",
+  "telefone": "(35) 3332 3355",
+  "email": "secretaria@faculdadesaolourenco.com.br"
+ },
+ {
+  "index": "38",
+  "nome": "FACULDADE DE SAÚDE E HUMANIDADES IBITURUNA - FASI",
+  "endereco": "Avenida Nice, Nº: 99, Bairro: Ibituruna, CEP: 39400-089",
+  "cidade": "Montes Claros",
+  "telefone": "(38) 3690 6600",
+  "email": "thalita.pimentel@funorte.edu.br;ruth.figueiredo@funorte.edu.br"
+ },
+ {
+  "index": "39",
+  "nome": "FACULDADE DINÂMICA DO VALE DO PIRANGA - FADIP",
+  "endereco": "Rua G, Nº: 205, Bairro: Paraíso, CEP: 35430-302",
+  "cidade": "Ponte Nova",
+  "telefone": "(31) 3817-2010",
+  "email": "joseclaudio@faculdadedinamica.com.br"
+ },
+ {
+  "index": "40",
+  "nome": "FACULDADE KENNEDY DE BELO HORIZONTE - FKBH",
+  "endereco": "Rua José Dias Vieira, Nº: 46, Bairro: Rio Branco, Distrito Venda Nova, CEP: 31535-040",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31)21032134 / (31)3408-2363",
+  "email": "secretaria.geral@promove.net.br;angelica@unicesp.edu.br"
+ },
+ {
+  "index": "41",
+  "nome": "FACULDADE PITÁGORAS -",
+  "endereco": "Avenida Presidente Antonio Carlos, Nº: 4.157, Bairro: São Francisco, CEP: 31270-010",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 2126-0976/(31)9.8878-9981",
+  "email": "ddi@kroton.com.br; adriana.lourenco@kroton.com.br"
+ },
+ {
+  "index": "42",
+  "nome": "FACULDADE PITÁGORAS DE BELO HORIZONTE - FPAS",
+  "endereco": "Rua Santa Madalena Sofia, Nº: 25, Bairro: Cidade Jardim",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 2126-0976/(31)9.8878-9981",
+  "email": "ddi@kroton.com.br;adriana.lourenco@kroton.com.br"
+ },
+ {
+  "index": "43",
+  "nome": "FACULDADE PITÁGORAS DE BETIM - PITÁGORAS-BETIM",
+  "endereco": "Avenida Edméia Mattos Lazzarotti, Nº: 1655, Bairro: Angola, CEP: 32604-155",
+  "cidade": "Betim",
+  "telefone": "(31) 3297 5442; (31) 2126-0822",
+  "email": "louisianac@kroton.com.br; ddi@kroton.com.br"
+ },
+ {
+  "index": "44",
+  "nome": "FACULDADE PITÁGORAS DE DIVINÓPOLIS - FPD - FPD",
+  "endereco": "Rua Santos Dumont, Nº: 1.001, Bairro: Do Carmo, Bairro: Do Carmo",
+  "cidade": "Divinópolis",
+  "telefone": "(31) 2126 0834",
+  "email": "ddi@kroton.com.br; quezia.rebula@kroton.com.br"
+ },
+ {
+  "index": "45",
+  "nome": "FACULDADE PITÁGORAS DE GOVERNADOR VALADARES - PIT GV",
+  "endereco": "Avenida Doutor Raimundo Monteiro Rezende, Nº: 330, Bairro: Centro, CEP: 35010-177",
+  "cidade": "Governador Valadares",
+  "telefone": "(31) 2126.0976",
+  "email": "ddi@kroton.com.br;josianec@pitagoras.com.br"
+ },
+ {
+  "index": "46",
+  "nome": "FACULDADE PITÁGORAS DE IPATINGA - FPI",
+  "endereco": "Rua Jequitibá, Nº: 401, Bairro: Horto, CEP: 35160-036",
+  "cidade": "Ipatinga",
+  "telefone": "(31) 21260413",
+  "email": "ddi@kroton.com.br;quezia.rebula@kroton.com.br"
+ },
+ {
+  "index": "47",
+  "nome": "FACULDADE PITÁGORAS DE POÇOS DE CALDAS -",
+  "endereco": "Avenida João Pinheiro, Nº: 1.046, Bairro: Jardim do Ginásio, CEP: 37701-386",
+  "cidade": "Poços de Caldas",
+  "telefone": "(35) 3722.2836",
+  "email": "ddi@kroton.com.br;petre.rebac@kroton.com.br"
+ },
+ {
+  "index": "48",
+  "nome": "FACULDADE PITÁGORAS DE UBERLÂNDIA - PIT UBERLÂNDIA",
+  "endereco": "Avenida dos Vinhedos, Nº: 1200, Bairro: Morada da Colina, CEP: 38411-159",
+  "cidade": "Uberlândia",
+  "telefone": "(34)3292 1900; (31) 98634-9711",
+  "email": "ddi@kroton.com.br; katia.parreiras@kroton.com.br"
+ },
+ {
+  "index": "49",
+  "nome": "FACULDADE PRESIDENTE ANTÔNIO CARLOS DE TEÓFILO OTONI -",
+  "endereco": "Rua Engenheiro Celso Murta, Nº: 600, Bairro: Ola Prates Correia, CEP: 39803-087",
+  "cidade": "Teófilo Otoni",
+  "telefone": "(33) 3529 4750",
+  "email": "direcao@unipacto.com.br; patriciahalves@yahoo.com.br"
+ },
+ {
+  "index": "50",
+  "nome": "FACULDADE PRESIDENTE ANTÔNIO CARLOS DE UBERLÂNDIA -",
+  "endereco": "Avenida Cipriano Del Fávero, Nº: 991, Bairro: Martins, CEP: 38400-106",
+  "cidade": "Uberlândia",
+  "telefone": "(34) 3291-2100",
+  "email": "proreitoriadeensinobh@gmail.com;raquel@unipacuberlandia.com.br"
+ },
+ {
+  "index": "51",
+  "nome": "FACULDADE SANTA RITA - FASAR",
+  "endereco": "Área Rural, Nº: S/N, Bairro: Área Rural Conselheiro Lafaiete, CEP: 36408-899",
+  "cidade": "Conselheiro Lafaiete",
+  "telefone": "(31) 3062 2016",
+  "email": "paz@fasar.com.br"
+ },
+ {
+  "index": "52",
+  "nome": "FACULDADES INTEGRADAS ASMEC - ASMEC",
+  "endereco": "Avenida Prof. Dr. Antônio Eufrásio de Toledo, Nº: 100, Bairro: Jardim dos Ipês, CEP: 37570-000",
+  "cidade": "Ouro Fino",
+  "telefone": "(35)3441-1617",
+  "email": "asmec@asmec.br"
+ },
+ {
+  "index": "53",
+  "nome": "FACULDADE ÚNICA DE CONTAGEM - FUNIC",
+  "endereco": "Rua Professor Sigefredo Marques, Nº: 341, Bairro: Estância do Hibisco, CEP: 32017-590",
+  "cidade": "Contagem",
+  "telefone": "(31) 2519-5100",
+  "email": "diretoriaexecutiva@faculdadeunica.com.br"
+ },
+ {
+  "index": "54",
+  "nome": "FACULDADE ÚNICA DE IPATINGA - FUNIP",
+  "endereco": "Rua Salermo, Nº: 299, Bairro: Bethânia, CEP: 35164-779",
+  "cidade": "Ipatinga",
+  "telefone": "(31) 2109-2300",
+  "email": "diretoriaexecutiva@faculdadeunica.com.br"
+ },
+ {
+  "index": "55",
+  "nome": "INSTITUTO BELO HORIZONTE DE ENSINO SUPERIOR - IBHES",
+  "endereco": "Rua Padre Pedro Pinto, Nº: 1388 / 1410, Bairro: Venda Nova, CEP: 31615-310",
+  "cidade": "Belo Horizonte",
+  "telefone": "(11) 5586 4291",
+  "email": "bbrihy@unip.br;pigeral@unip.br;pigeral2020@gmail.com"
+ },
+ {
+  "index": "56",
+  "nome": "INSTITUTO DE CIÊNCIAS DA SAÚDE - ICS",
+  "endereco": "Avenida Osmane Barbosa, Nº: 11.111, Bairro: JK, CEP: 39404-006",
+  "cidade": "Montes Claros",
+  "telefone": "(38)2101-9268",
+  "email": "thalita.pimentel@funorte.edu.br;ruth.figueiredo@funorte.edu.br;ruy.muniz@funorte.com.br"
+ },
+ {
+  "index": "57",
+  "nome": "INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAIS - IFSEMG",
+  "endereco": "Rua Luz Interior, Nº: 360, Bairro: Estrela Luz - Santa Luzia, CEP: 36030-776",
+  "cidade": "Juiz de Fora",
+  "telefone": "(32) 32574100",
+  "email": "gabinete@ifsudestemg.edu.br"
+ },
+ {
+  "index": "58",
+  "nome": "PONTIFÍCIA UNIVERSIDADE CATÓLICA DE MINAS GERAIS - PUC MINAS",
+  "endereco": "Avenida Dom José Gaspar, Nº: 500, Bairro: Coração Eucarístico, CEP: 30535-901",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 3319 4444; (31) 3319 4337",
+  "email": "progradmec@pucminas.br"
+ },
+ {
+  "index": "59",
+  "nome": "UNI BH PRESENCIAL - CAMPUS CRISTIANO MACHADO",
+  "endereco": "AVENIDA CRISTIANO MACHADO,CAMPUS CRISTIANO CRISTIANO MACHADO,4000-UNIÃO",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 9 99573674",
+  "email": "tania.silveira@prof.unibh.br"
+ },
+ {
+  "index": "60",
+  "nome": "UNIVERSIDADE DE ITAÚNA - UI",
+  "endereco": "Rodovia Mg 431 Km 45, Nº: s/n, Bairro: Campus Verde, CEP: 35680-142",
+  "cidade": "Itaúna",
+  "telefone": "37 3249-3003",
+  "email": "gab001@fui.edu.br / cintiatarabal@uit.br"
+ },
+ {
+  "index": "61",
+  "nome": "UNIVERSIDADE DE UBERABA - UNIUBE",
+  "endereco": "Av. Nene Sabino, 1801, Bairro: Universitário, CEP: 38055-550",
+  "cidade": "Uberaba",
+  "telefone": "(34) 3319 8800",
+  "email": "uniube@uniube.br"
+ },
+ {
+  "index": "62",
+  "nome": "UNIVERSIDADE DO ESTADO DE MINAS GERAIS - UEMG",
+  "endereco": "Rodovia Prefeito Américo Renê Gianetti, Nº: 3701, CAMG, Bairro: Serra Verde, CEP: 31630-900",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 3916-0471",
+  "email": "gabinete@uemg.br"
+ },
+ {
+  "index": "63",
+  "nome": "UNIVERSIDADE DO VALE DO SAPUCAÍ - UNIVÁS",
+  "endereco": "Avenida Coronel Alfredo Custódio Paula, Nº: 320, Bairro: Alfredo Custódio de Paula, CEP: 37553-068",
+  "cidade": "Pouso Alegre",
+  "telefone": "(35) 3449-9211",
+  "email": "reitoria@univas.edu.br"
+ },
+ {
+  "index": "64",
+  "nome": "UNIVERSIDADE FEDERAL DE ALFENAS - UNIFAL-MG",
+  "endereco": "Rua Gabriel Monteiro da Silva, Nº: 700, Bairro: Centro, CEP: 37130-001",
+  "cidade": "Alfenas",
+  "telefone": "(35)37019004",
+  "email": "reitoria@unifal-mg.edu.br"
+ },
+ {
+  "index": "65",
+  "nome": "UNIVERSIDADE FEDERAL DE JUIZ DE FORA - UFJF",
+  "endereco": "Campus Universitário, Nº: s/n, Bairro: São Pedro, CEP: 36036-900",
+  "cidade": "Juiz de Fora",
+  "telefone": "(32)2102-3903",
+  "email": "piufjf.regulacao@gmail.com"
+ },
+ {
+  "index": "66",
+  "nome": "UNIVERSIDADE FEDERAL DE LAVRAS - UFLA",
+  "endereco": "Praça Prof. Edmir Sá Santos, Nº: S/N, Bairro: Campus Universitário, CEP: 37200-000",
+  "cidade": "Lavras",
+  "telefone": "(35) 3829-1546; 35 988554791",
+  "email": "dias@ufla.br;claudiapontello@hotmail.com"
+ },
+ {
+  "index": "67",
+  "nome": "UNIVERSIDADE FEDERAL DE MINAS GERAIS - UFMG",
+  "endereco": "Avenida Antonio Carlos, Nº: 6627, Bairro: Pampulha, CEP: 31270-901",
+  "cidade": "Belo Horizonte",
+  "telefone": "(31) 3409 4124",
+  "email": "reitor@ufmg.br;info@dai.ufmg.br, colgradnutufmg@gmail.com,\nritagastronomia@hotmail.com"
+ },
+ {
+  "index": "68",
+  "nome": "UNIVERSIDADE FEDERAL DE OURO PRETO - UFOP",
+  "endereco": "Rua Diogo de Vasconcelos, Nº: 122, Bairro: Centro, CEP: 35400-000",
+  "cidade": "Ouro Preto",
+  "telefone": "(31)3559-1218",
+  "email": "reitoria@ufop.edu.br"
+ },
+ {
+  "index": "69",
+  "nome": "UNIVERSIDADE FEDERAL DE UBERLÂNDIA - UFU",
+  "endereco": "Avenida João Naves de Ávila, Nº: 2121 , Bairro: Santa Mônica, CEP: 38400-902",
+  "cidade": "Uberlândia",
+  "telefone": "(34)3239-4411",
+  "email": "reitoria@ufu.br"
+ },
+ {
+  "index": "70",
+  "nome": "UNIVERSIDADE FEDERAL DE VIÇOSA - UFV",
+  "endereco": "Av. P.H. Rolfs, Nº: s/n, Bairro: Campus Universitário, CEP: 36570-000",
+  "cidade": "Viçosa",
+  "telefone": "(31)3612-1001",
+  "email": "reitoria@ufv.br"
+ },
+ {
+  "index": "71",
+  "nome": "UNIVERSIDADE FEDERAL DOS VALES DO JEQUITINHONHA E MUCURI - UFVJM",
+  "endereco": "MGT 367, Nº: 5000, Bairro: Alto do Jacuba, CEP: 39100-000",
+  "cidade": "Diamantina",
+  "telefone": "38-3532-1200 Ramal 8108",
+  "email": "reitoria@ufvjm.edu.br, pi@ufvjm.edu.br"
+ },
+ {
+  "index": "72",
+  "nome": "UNIVERSIDADE FEDERAL DO TRIÂNGULO MINEIRO - UFTM",
+  "endereco": "Rua Frei Paulino, Nº: 30, Bairro: Abadia, CEP: 38025-180",
+  "cidade": "Uberaba",
+  "telefone": "(34) 3700-6000",
+  "email": "gabinete@uftm.edu.br"
+ },
+ {
+  "index": "73",
+  "nome": "UNIVERSIDADE JOSÉ DO ROSÁRIO VELLANO - UNIFENAS",
+  "endereco": "Rod Rodovia MG-179, Nº: s/n, Bairro: Loteamento Trevo, CEP: 37132-440",
+  "cidade": "Alfenas",
+  "telefone": "(35)32993257",
+  "email": "unifenas@unifenas.br"
+ },
+ {
+  "index": "74",
+  "nome": "UNIVERSIDADE VALE DO RIO DOCE - UNIVALE",
+  "endereco": "Rua Israel Pinheiro, Nº: 2000, Bairro: Universitário, CEP: 35020-220",
+  "cidade": "Governador Valadares",
+  "telefone": "(33) 3279 5560",
+  "email": "reitoria@univale.br;fpf@univale.br;pesquisador@univale.br"
+ },
+ {
+  "index": "75",
+  "nome": "UNIVERSIDADE VALE DO RIO VERDE - UNINCOR",
+  "endereco": "Avenida Castelo Branco, Nº: 82, Bairro: Chacara das Rosas, CEP: 37417-150",
+  "cidade": "Três Corações",
+  "telefone": "(35) 3239-1218/3239-1136",
+  "email": "pi@unincor.edu.br"
+ }
+]

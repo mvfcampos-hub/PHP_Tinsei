@@ -92,6 +92,11 @@ class EventItemResource extends Resource
                 Tables\Columns\IconColumn::make('is_featured')
                     ->label('Destaque')
                     ->boolean(),
+                Tables\Columns\TextColumn::make('source')
+                    ->label('Origem')
+                    ->badge()
+                    ->formatStateUsing(fn (string $state) => $state === 'cfn_sync' ? 'Calendário CFN' : 'Manual')
+                    ->color(fn (string $state) => $state === 'cfn_sync' ? 'info' : 'gray'),
             ])
             ->defaultSort('starts_at', 'desc')
             ->filters([
@@ -100,6 +105,12 @@ class EventItemResource extends Resource
                 Tables\Filters\Filter::make('upcoming')
                     ->label('Somente futuros')
                     ->query(fn (Builder $query) => $query->where('starts_at', '>=', now())),
+                Tables\Filters\SelectFilter::make('source')
+                    ->label('Origem')
+                    ->options([
+                        'manual' => 'Manual',
+                        'cfn_sync' => 'Calendário CFN',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
