@@ -81,6 +81,7 @@
             </nav>
 
             <div class="flex items-center gap-2 shrink-0">
+                @include('partials.accessibility-widget')
                 <button
                     @click="searchOpen = !searchOpen"
                     class="p-2 rounded-lg text-slate-700 hover:bg-slate-100"
@@ -95,7 +96,7 @@
                 <a href="http://www.incorpnet.com.br/app/incorpnet.asp?conselho=crnmg" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center rounded-lg bg-brand-700 px-2.5 2xl:px-4 py-2 text-xs 2xl:text-sm font-semibold text-white hover:bg-brand-800 transition">
                     Área do Profissional
                 </a>
-                <button @click="mobileOpen = !mobileOpen" class="min-[1460px]:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100" aria-label="Abrir menu">
+                <button @click="mobileOpen = !mobileOpen" class="min-[1460px]:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100" :aria-expanded="mobileOpen.toString()" aria-label="Abrir menu">
                     <svg x-show="!mobileOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
                     <svg x-show="mobileOpen" x-cloak class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
@@ -110,6 +111,7 @@
                     x-ref="searchInput"
                     x-init="$watch('searchOpen', value => value && $nextTick(() => $refs.searchInput.focus()))"
                     placeholder="Buscar notícias, páginas, vagas, revistas..."
+                    aria-label="Buscar notícias, páginas, vagas, revistas"
                     class="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brand-500 focus:ring-brand-500"
                 >
                 <button type="submit" class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
@@ -124,6 +126,7 @@
                     type="search"
                     name="q"
                     placeholder="Buscar no site..."
+                    aria-label="Buscar no site"
                     class="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brand-500 focus:ring-brand-500"
                 >
                 <button type="submit" class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
