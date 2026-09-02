@@ -9,13 +9,26 @@ class ProductController extends Controller
     public function index()
     {
         $all = Product::active()->get();
-        $products = $all->groupBy('category');
+
+        // Soluções de sistemas (ERP, mobilidade, atendimento, fiscal, CRM,
+        // comunicação) são apresentadas separadas de Cloud e Serviços de TI,
+        // que são ofertas de infraestrutura/serviço, não módulos de sistema.
+        $systemProducts = $all->filter(fn (Product $product) => $product->isSystem())->groupBy('category');
+        $cloudProducts = $all->where('category', 'cloud')->values();
+        $tiProducts = $all->where('category', 'ti')->values();
+
         $ecosystemHub = $all->firstWhere('slug', 'dataclassic');
         $ecosystemSatellites = $ecosystemHub
-            ? $all->reject(fn ($product) => $product->id === $ecosystemHub->id)
+            ? $all->filter(fn (Product $product) => $product->isSystem() && $product->id !== $ecosystemHub->id)->values()
             : collect();
 
-        return view('products.index', compact('products', 'ecosystemHub', 'ecosystemSatellites'));
+        return view('products.index', compact(
+            'systemProducts',
+            'cloudProducts',
+            'tiProducts',
+            'ecosystemHub',
+            'ecosystemSatellites'
+        ));
     }
 
     public function show(Product $product)

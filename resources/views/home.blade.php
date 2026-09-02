@@ -141,12 +141,12 @@
         </section>
     @endif
 
-    {{-- Produtos em destaque --}}
+    {{-- Soluções de sistemas em destaque --}}
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex items-end justify-between mb-8">
             <div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Um ecossistema completo</h2>
-                <p class="text-slate-500 mt-1">Sistemas de gestão, cloud, mobilidade e atendimento em um só lugar</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Soluções de sistemas integradas</h2>
+                <p class="text-slate-500 mt-1">ERP, mobilidade, atendimento, fiscal, CRM e comunicação — tudo conectado ao DataClassic</p>
             </div>
             <a href="{{ route('products.index') }}" class="hidden sm:inline-flex items-center gap-1 text-brand-700 font-medium hover:text-brand-800">
                 Ver todos os produtos
@@ -171,6 +171,30 @@
             @endforelse
         </div>
     </section>
+
+    {{-- Serviços de TI (tratado à parte das soluções de sistemas e do DataCloud) --}}
+    @if ($tiProduct)
+        <section class="bg-white border-t border-slate-200">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex flex-col sm:flex-row items-center gap-6 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+                        @if ($tiProduct->icon)
+                            <x-dynamic-component :component="$tiProduct->icon" class="h-7 w-7" />
+                        @endif
+                    </span>
+                    <div class="flex-1 text-center sm:text-left">
+                        <span class="text-xs font-medium text-accent-600 uppercase tracking-wide">Além dos sistemas e do DataCloud</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">{{ $tiProduct->name }}</h3>
+                        <p class="text-slate-600 text-sm mt-1">{{ $tiProduct->summary }}</p>
+                    </div>
+                    <a href="{{ route('products.show', $tiProduct->slug) }}" class="shrink-0 inline-flex items-center gap-1 rounded-lg bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800 transition">
+                        Conhecer o serviço
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    @endif
 
     {{-- Novidades + Agenda --}}
     <section class="bg-white border-t border-slate-200">

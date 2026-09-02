@@ -22,6 +22,18 @@ class Product extends Model
         'ti' => 'Serviços de TI',
     ];
 
+    // Agrupamento de alto nível usado nas listagens: DataCloud (infraestrutura)
+    // e Serviços de TI são ofertas de natureza diferente dos sistemas/softwares
+    // e por isso são sempre apresentados em seções separadas das "Soluções de
+    // Sistemas" (ERP, mobilidade, atendimento, fiscal, CRM e comunicação).
+    public const GROUPS = [
+        'sistemas' => 'Soluções de Sistemas',
+        'cloud' => 'Cloud & Infraestrutura',
+        'ti' => 'Serviços de TI',
+    ];
+
+    private const NON_SYSTEM_CATEGORIES = ['cloud', 'ti'];
+
     protected $fillable = [
         'name',
         'slug',
@@ -64,8 +76,28 @@ class Product extends Model
         return $query->where('category', $category);
     }
 
+    public function scopeSystems(Builder $query): Builder
+    {
+        return $query->whereNotIn('category', self::NON_SYSTEM_CATEGORIES);
+    }
+
     public function categoryLabel(): string
     {
         return self::CATEGORIES[$this->category] ?? $this->category;
+    }
+
+    public function group(): string
+    {
+        return in_array($this->category, self::NON_SYSTEM_CATEGORIES, true) ? $this->category : 'sistemas';
+    }
+
+    public function groupLabel(): string
+    {
+        return self::GROUPS[$this->group()] ?? $this->group();
+    }
+
+    public function isSystem(): bool
+    {
+        return $this->group() === 'sistemas';
     }
 }
