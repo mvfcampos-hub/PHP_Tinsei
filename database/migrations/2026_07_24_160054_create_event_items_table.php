@@ -15,16 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('type')->default('evento');
             $table->text('description')->nullable();
             $table->string('location')->nullable();
             $table->dateTime('starts_at');
             $table->dateTime('ends_at')->nullable();
             $table->string('cover_image')->nullable();
             $table->string('external_url')->nullable();
+            $table->foreignId('product_id')->nullable()->constrained('products')->nullOnDelete();
             $table->boolean('is_featured')->default(false);
             $table->timestamps();
 
             $table->index('starts_at');
+            $table->index('type');
         });
     }
 

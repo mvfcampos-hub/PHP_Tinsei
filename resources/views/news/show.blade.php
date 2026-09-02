@@ -7,7 +7,7 @@
     <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
         <a href="{{ route('news.index') }}" class="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-800 mb-6">
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" /></svg>
-            Voltar para notícias
+            Voltar para novidades
         </a>
 
         @if ($news->category)
@@ -34,7 +34,7 @@
     @if ($related->isNotEmpty())
         <section class="bg-white border-t border-slate-200">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-                <h2 class="text-xl font-bold text-slate-900 mb-6">Notícias relacionadas</h2>
+                <h2 class="text-xl font-bold text-slate-900 mb-6">Novidades relacionadas</h2>
                 <div class="grid sm:grid-cols-3 gap-6">
                     @foreach ($related as $item)
                         <x-news-card :news="$item" />

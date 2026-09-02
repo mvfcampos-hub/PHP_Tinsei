@@ -4,20 +4,23 @@
 
 @section('content')
 
-    {{-- Hero / banners de campanha --}}
-    <section class="relative bg-brand-900">
+    {{-- Hero / banners de avisos gerais --}}
+    <section class="relative bg-brand-950 bg-grid-pattern">
         @if ($heroBanners->isNotEmpty())
             <div x-data="{ active: 0, total: {{ $heroBanners->count() }} }"
                  x-init="setInterval(() => active = (active + 1) % total, 6000)"
-                 class="relative h-[380px] sm:h-[460px] overflow-hidden">
+                 class="relative h-[420px] sm:h-[500px] overflow-hidden">
                 @foreach ($heroBanners as $index => $banner)
                     <a href="{{ $banner->link_url ?? '#' }}"
                        x-show="active === {{ $index }}" x-transition:enter.duration.700ms
                        class="absolute inset-0 block">
-                        <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-70">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/30 to-transparent"></div>
+                        <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-60">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
                         <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
                             <div class="mx-auto max-w-7xl">
+                                <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/20 text-accent-300 px-3 py-1 text-xs font-semibold mb-3">
+                                    Aviso Databit
+                                </span>
                                 <h2 class="text-2xl sm:text-4xl font-bold text-white max-w-2xl">{{ $banner->title }}</h2>
                             </div>
                         </div>
@@ -33,8 +36,13 @@
                 @endif
             </div>
         @else
-            <div class="h-[300px] flex items-center justify-center text-brand-100">
-                <p>Nenhum banner de destaque cadastrado.</p>
+            <div class="h-[380px] flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-3xl sm:text-5xl font-bold text-white max-w-3xl">
+                    Tecnologia que simplifica a gestão do seu negócio
+                </h1>
+                <p class="text-brand-200 mt-4 max-w-xl">
+                    ERP, Cloud, mobilidade e atendimento ao cliente em um único ecossistema. Mais de 30 anos de experiência.
+                </p>
             </div>
         @endif
     </section>
@@ -43,10 +51,10 @@
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ([
-                ['label' => 'Banco de Oportunidades', 'route' => 'jobs.index', 'path' => 'M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a1 1 0 00-1 1v10a2 2 0 002 2h14a2 2 0 002-2V8a1 1 0 00-1-1zM10 5h4v2h-4V5zm10 13a1 1 0 01-1 1H5a1 1 0 01-1-1v-4.05c.32.033.654.05 1 .05h3v1a1 1 0 002 0v-1h4v1a1 1 0 002 0v-1h3c.346 0 .68-.017 1-.05V18zm0-7c0 1.103-.897 2-2 2h-3v-1a1 1 0 00-2 0v1h-4v-1a1 1 0 00-2 0v1H5c-1.103 0-2-.897-2-2V9h18v2z'],
-                ['label' => 'Revista CRN-9', 'route' => 'magazines.index', 'path' => 'M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V4H6.5A2.5 2.5 0 004 6.5v13z'],
-                ['label' => 'Fiscalização', 'route' => 'inspectors.index', 'path' => 'M12 2l8 3.5v5.4c0 5-3.4 9.4-8 10.6-4.6-1.2-8-5.6-8-10.6V5.5L12 2z'],
-                ['label' => 'Profissionais por Município', 'route' => 'municipalities.index', 'path' => 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7'],
+                ['label' => 'Produtos', 'route' => 'products.index', 'path' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25-2.25m-2.25 2.25V6.75m-8.25.75h16.5'],
+                ['label' => 'DataCloud', 'route' => 'cloud.show', 'path' => 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z'],
+                ['label' => 'Novidades', 'route' => 'news.index', 'path' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-1.519-2.121L12 13.5m1.481 1.629L15 13.5m-1.519 1.629L12 17.25M8.25 21h7.5a2.25 2.25 0 002.25-2.25V9.75L14.25 3H8.25a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 008.25 21z'],
+                ['label' => 'Agenda', 'route' => 'events.index', 'path' => 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5'],
             ] as $quick)
                 <a href="{{ route($quick['route']) }}" class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center">
                     <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
@@ -58,40 +66,114 @@
         </div>
     </section>
 
-    {{-- Notícias em destaque --}}
+    {{-- Estatísticas --}}
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            @foreach ([
+                ['value' => '+30', 'label' => 'anos de mercado'],
+                ['value' => '+9', 'label' => 'produtos integrados'],
+                ['value' => '99,9%', 'label' => 'uptime no DataCloud'],
+                ['value' => '100%', 'label' => 'suporte em português'],
+            ] as $stat)
+                <div>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-700">{{ $stat['value'] }}</p>
+                    <p class="text-sm text-slate-500 mt-1">{{ $stat['label'] }}</p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- Destaque DataCloud --}}
+    @if ($cloudProduct || $cloudPlans->isNotEmpty())
+        <section class="bg-brand-950 bg-grid-pattern text-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 text-accent-300 px-3 py-1 text-xs font-semibold mb-4">
+                            Cloud & Infraestrutura
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                            {{ $cloudProduct->name ?? 'DataCloud' }} — Máquinas virtuais sob demanda
+                        </h2>
+                        <p class="text-brand-200 leading-relaxed mb-6">
+                            {{ $cloudProduct->summary ?? 'VMs com Linux, Windows e SQL Server, dimensionadas de acordo com a necessidade do seu projeto. Escale vCPU, RAM e disco sem migrações complexas, com previsibilidade de custos em reais e suporte especializado.' }}
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="{{ route('cloud.show') }}" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition">
+                                Ver planos DataCloud
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </a>
+                            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Quero falar sobre o DataCloud.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
+                                Falar com um especialista
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        @foreach ([
+                            ['label' => 'Escalabilidade sob demanda', 'desc' => 'Aumente vCPU, RAM e disco conforme o crescimento do projeto.'],
+                            ['label' => 'Linux, Windows e SQL Server', 'desc' => 'Ambientes prontos para produção com banco de dados incluso.'],
+                            ['label' => 'Segurança dedicada', 'desc' => 'Firewall e políticas de segurança isoladas por ambiente.'],
+                            ['label' => 'Suporte especializado', 'desc' => 'Atendimento consultivo em português, 30+ anos de experiência.'],
+                        ] as $feature)
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                                <svg class="h-6 w-6 text-accent-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                                <p class="font-semibold text-sm">{{ $feature['label'] }}</p>
+                                <p class="text-xs text-brand-300 mt-1">{{ $feature['desc'] }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                @if ($cloudPlans->isNotEmpty())
+                    <div class="grid sm:grid-cols-3 gap-6 mt-16">
+                        @foreach ($cloudPlans as $plan)
+                            <x-cloud-plan-card :plan="$plan" />
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </section>
+    @endif
+
+    {{-- Produtos em destaque --}}
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex items-end justify-between mb-8">
             <div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Notícias em destaque</h2>
-                <p class="text-slate-500 mt-1">Fique por dentro das novidades do CRN-9</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Um ecossistema completo</h2>
+                <p class="text-slate-500 mt-1">Sistemas de gestão, cloud, mobilidade e atendimento em um só lugar</p>
             </div>
-            <a href="{{ route('news.index') }}" class="hidden sm:inline-flex items-center gap-1 text-brand-700 font-medium hover:text-brand-800">
-                Ver todas
+            <a href="{{ route('products.index') }}" class="hidden sm:inline-flex items-center gap-1 text-brand-700 font-medium hover:text-brand-800">
+                Ver todos os produtos
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            @forelse ($featuredNews as $news)
-                <x-news-card :news="$news" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            @forelse ($featuredProducts as $product)
+                <x-product-card :product="$product" />
             @empty
-                <p class="text-slate-500 col-span-full">Nenhuma notícia em destaque no momento.</p>
+                <p class="text-slate-500 col-span-full">Nenhum produto em destaque no momento.</p>
             @endforelse
         </div>
     </section>
 
-    {{-- Agenda + últimas notícias --}}
+    {{-- Novidades + Agenda --}}
     <section class="bg-white border-t border-slate-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div class="lg:col-span-2">
                 <div class="flex items-end justify-between mb-8">
-                    <h2 class="text-2xl font-bold text-slate-900">Últimas notícias</h2>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Novidades e lançamentos</h2>
+                        <p class="text-slate-500 mt-1 text-sm">Fique por dentro dos lançamentos de produtos da Databit</p>
+                    </div>
                     <a href="{{ route('news.index') }}" class="text-brand-700 font-medium hover:text-brand-800 text-sm">Ver todas</a>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-6">
-                    @foreach ($latestNews as $news)
+                    @forelse ($featuredNews->isNotEmpty() ? $featuredNews : $latestNews as $news)
                         <x-news-card :news="$news" />
-                    @endforeach
+                    @empty
+                        <p class="text-slate-500">Nenhuma novidade publicada no momento.</p>
+                    @endforelse
                 </div>
             </div>
 
@@ -100,6 +182,7 @@
                     <h2 class="text-2xl font-bold text-slate-900">Agenda</h2>
                     <a href="{{ route('events.index') }}" class="text-brand-700 font-medium hover:text-brand-800 text-sm">Ver tudo</a>
                 </div>
+                <p class="text-slate-500 mt-1 text-sm mb-4 -mt-4">Eventos, webinars e lançamentos de produtos</p>
                 <div class="space-y-4">
                     @forelse ($upcomingEvents as $event)
                         <x-event-card :event="$event" />
@@ -110,6 +193,50 @@
             </div>
         </div>
     </section>
+
+    {{-- Depoimentos --}}
+    @if ($testimonials->isNotEmpty())
+        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <div class="mb-8 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Quem confia na Databit</h2>
+                <p class="text-slate-500 mt-1">Depoimentos de quem já transformou a gestão do negócio com a gente</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach ($testimonials as $testimonial)
+                    <x-testimonial-card :testimonial="$testimonial" />
+                @endforeach
+            </div>
+        </section>
+    @endif
+
+    {{-- Clientes e parceiros --}}
+    @if ($clients->isNotEmpty() || $partners->isNotEmpty())
+        <section class="bg-white border-t border-slate-200">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+                @if ($clients->isNotEmpty())
+                    <h2 class="text-center text-sm font-semibold text-slate-400 uppercase tracking-wide mb-6">
+                        Empresas que confiam na Databit
+                    </h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+                        @foreach ($clients as $client)
+                            <x-client-logo :client="$client" />
+                        @endforeach
+                    </div>
+                @endif
+
+                @if ($partners->isNotEmpty())
+                    <h2 class="text-center text-sm font-semibold text-slate-400 uppercase tracking-wide mb-6">
+                        Parceiros de tecnologia
+                    </h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                        @foreach ($partners as $partner)
+                            <x-client-logo :client="$partner" />
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </section>
+    @endif
 
     {{-- Banners secundários / campanhas --}}
     @if ($secondaryBanners->isNotEmpty())
@@ -127,5 +254,18 @@
             </div>
         </section>
     @endif
+
+    {{-- CTA final --}}
+    <section class="bg-brand-700">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Pronto para modernizar a gestão da sua empresa?</h2>
+                <p class="text-brand-100 mt-2">Fale com um especialista Databit e descubra a solução ideal para o seu negócio.</p>
+            </div>
+            <a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+                Falar com um especialista
+            </a>
+        </div>
+    </section>
 
 @endsection

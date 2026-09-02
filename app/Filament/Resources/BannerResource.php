@@ -21,7 +21,7 @@ class BannerResource extends Resource
 
     protected static ?string $navigationGroup = 'Conteúdo';
 
-    protected static ?string $navigationLabel = 'Banners e Campanhas';
+    protected static ?string $navigationLabel = 'Banners e Avisos';
 
     protected static ?string $modelLabel = 'banner';
 
@@ -29,6 +29,7 @@ class BannerResource extends Resource
 
     public const PLACEMENTS = [
         'home_hero' => 'Destaque principal (topo da home)',
+        'home_notice' => 'Aviso geral (faixa de avisos da home)',
         'home_secondary' => 'Home - seção secundária',
         'campaign' => 'Campanha / data especial',
     ];

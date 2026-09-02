@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Início') · CRN-9 · Conselho Regional de Nutrição da 9ª Região</title>
-    <meta name="description" content="@yield('description', 'Portal oficial do Conselho Regional de Nutrição da 9ª Região (CRN-9): notícias, agenda de eventos, banco de oportunidades, revista, fiscalização e serviços ao profissional de nutrição.')">
+    <title>@yield('title', 'Início') · Databit · Tecnologia para Gestão Empresarial</title>
+    <meta name="description" content="@yield('description', 'Databit: sistemas de gestão empresarial (ERP), Cloud, mobilidade, atendimento ao cliente e serviços de TI. Mais de 30 anos transformando a gestão de empresas em todo o Brasil.')">
     <link rel="icon" href="data:,">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -16,6 +16,7 @@
 
     @include('partials.topbar')
     @include('partials.header')
+    @include('partials.notice-banner')
 
     <main id="conteudo" class="flex-1">
         @yield('content')

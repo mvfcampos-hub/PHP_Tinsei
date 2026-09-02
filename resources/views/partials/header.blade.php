@@ -1,12 +1,8 @@
 <header x-data="{ mobileOpen: false }" class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-700 text-white font-bold text-lg">C9</span>
-                <span class="leading-tight">
-                    <span class="block text-lg font-bold text-slate-900">CRN-9</span>
-                    <span class="block text-xs text-slate-500">Conselho Regional de Nutrição</span>
-                </span>
+            <a href="{{ route('home') }}" class="shrink-0">
+                <x-logo />
             </a>
 
             <nav class="hidden lg:flex items-center gap-1">
@@ -38,8 +34,11 @@
             </nav>
 
             <div class="flex items-center gap-2">
-                <a href="#" class="hidden sm:inline-flex items-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
-                    Área do Profissional
+                <a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
+                    Fale com um especialista
+                </a>
+                <a href="#" class="hidden md:inline-flex items-center rounded-lg border border-brand-200 px-4 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+                    Área do Cliente
                 </a>
                 <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100" aria-label="Abrir menu">
                     <svg x-show="!mobileOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -60,6 +59,9 @@
                         </a>
                     @endforeach
                 @endforeach
+                <a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="mt-2 inline-flex items-center justify-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
+                    Fale com um especialista
+                </a>
             </nav>
         </div>
     </div>

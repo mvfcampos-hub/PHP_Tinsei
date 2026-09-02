@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Notícias')
+@section('title', 'Novidades')
+@section('description', 'Novidades, lançamentos de produtos e comunicados da Databit.')
 
 @section('content')
     <section class="bg-white border-b border-slate-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Notícias</h1>
-            <p class="text-slate-500 mt-2">Acompanhe as novidades e comunicados do CRN-9</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Novidades</h1>
+            <p class="text-slate-500 mt-2">Lançamentos de produtos, atualizações e comunicados da Databit</p>
         </div>
     </section>
 
@@ -15,7 +16,7 @@
             @forelse ($news as $item)
                 <x-news-card :news="$item" />
             @empty
-                <p class="text-slate-500 col-span-full">Nenhuma notícia publicada no momento.</p>
+                <p class="text-slate-500 col-span-full">Nenhuma novidade publicada no momento.</p>
             @endforelse
         </div>
 

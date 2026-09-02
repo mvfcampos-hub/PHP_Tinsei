@@ -22,11 +22,11 @@ class EventItemResource extends Resource
 
     protected static ?string $navigationGroup = 'Conteúdo';
 
-    protected static ?string $navigationLabel = 'Agenda de Eventos';
+    protected static ?string $navigationLabel = 'Agenda';
 
-    protected static ?string $modelLabel = 'evento';
+    protected static ?string $modelLabel = 'item de agenda';
 
-    protected static ?string $pluralModelLabel = 'eventos';
+    protected static ?string $pluralModelLabel = 'agenda';
 
     public static function form(Form $form): Form
     {
@@ -42,8 +42,20 @@ class EventItemResource extends Resource
                     ->label('Slug (URL)')
                     ->required()
                     ->unique(ignoreRecord: true),
+                Forms\Components\Select::make('type')
+                    ->label('Tipo')
+                    ->options(EventItem::TYPES)
+                    ->native(false)
+                    ->default('evento')
+                    ->required(),
+                Forms\Components\Select::make('product_id')
+                    ->label('Produto relacionado (para lançamentos)')
+                    ->relationship('product', 'name')
+                    ->searchable()
+                    ->preload(),
                 Forms\Components\TextInput::make('location')
-                    ->label('Local'),
+                    ->label('Local')
+                    ->placeholder('Presencial, on-line, Belo Horizonte/MG...'),
                 Forms\Components\DateTimePicker::make('starts_at')
                     ->label('Início')
                     ->native(false)
@@ -61,7 +73,7 @@ class EventItemResource extends Resource
                     ->directory('events')
                     ->imageEditor(),
                 Forms\Components\TextInput::make('external_url')
-                    ->label('Link externo (ex.: Sympla)')
+                    ->label('Link externo (inscrição, transmissão...)')
                     ->url(),
                 Forms\Components\Toggle::make('is_featured')
                     ->label('Destaque na home'),
@@ -78,6 +90,10 @@ class EventItemResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('type')
+                    ->label('Tipo')
+                    ->badge()
+                    ->formatStateUsing(fn (string $state) => EventItem::TYPES[$state] ?? $state),
                 Tables\Columns\TextColumn::make('location')
                     ->label('Local')
                     ->searchable(),
@@ -95,6 +111,9 @@ class EventItemResource extends Resource
             ])
             ->defaultSort('starts_at', 'desc')
             ->filters([
+                Tables\Filters\SelectFilter::make('type')
+                    ->label('Tipo')
+                    ->options(EventItem::TYPES),
                 Tables\Filters\TernaryFilter::make('is_featured')
                     ->label('Destaque'),
                 Tables\Filters\Filter::make('upcoming')

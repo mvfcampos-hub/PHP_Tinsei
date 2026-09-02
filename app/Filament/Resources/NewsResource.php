@@ -22,11 +22,11 @@ class NewsResource extends Resource
 
     protected static ?string $navigationGroup = 'Conteúdo';
 
-    protected static ?string $navigationLabel = 'Notícias';
+    protected static ?string $navigationLabel = 'Novidades';
 
-    protected static ?string $modelLabel = 'notícia';
+    protected static ?string $modelLabel = 'novidade';
 
-    protected static ?string $pluralModelLabel = 'notícias';
+    protected static ?string $pluralModelLabel = 'novidades';
 
     public static function form(Form $form): Form
     {
@@ -45,11 +45,12 @@ class NewsResource extends Resource
                 Forms\Components\Select::make('category')
                     ->label('Categoria')
                     ->options([
+                        'Lançamento' => 'Lançamento de produto',
+                        'Novidade' => 'Novidade',
                         'Institucional' => 'Institucional',
-                        'Fiscalização' => 'Fiscalização',
-                        'Eventos' => 'Eventos',
-                        'Nutrição' => 'Nutrição',
-                        'Comunicados' => 'Comunicados',
+                        'Cloud' => 'Cloud',
+                        'Mobile' => 'Mobile',
+                        'Parcerias' => 'Parcerias',
                     ])
                     ->native(false),
                 Forms\Components\Textarea::make('excerpt')
@@ -116,11 +117,12 @@ class NewsResource extends Resource
                 Tables\Filters\SelectFilter::make('category')
                     ->label('Categoria')
                     ->options([
+                        'Lançamento' => 'Lançamento de produto',
+                        'Novidade' => 'Novidade',
                         'Institucional' => 'Institucional',
-                        'Fiscalização' => 'Fiscalização',
-                        'Eventos' => 'Eventos',
-                        'Nutrição' => 'Nutrição',
-                        'Comunicados' => 'Comunicados',
+                        'Cloud' => 'Cloud',
+                        'Mobile' => 'Mobile',
+                        'Parcerias' => 'Parcerias',
                     ]),
             ])
             ->actions([
