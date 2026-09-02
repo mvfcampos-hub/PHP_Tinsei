@@ -15,6 +15,15 @@
                 tudo integrado para simplificar a gestão da sua empresa.
             </p>
         </div>
+
+        @if ($ecosystemHub)
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+                <p class="hidden lg:block text-center text-sm text-brand-200 mb-8">
+                    Clique em qualquer módulo para conhecer os detalhes
+                </p>
+                <x-ecosystem-diagram :hub="$ecosystemHub" :satellites="$ecosystemSatellites" />
+            </div>
+        @endif
     </section>
 
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-16">

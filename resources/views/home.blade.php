@@ -148,6 +148,15 @@
             </a>
         </div>
 
+        @if ($ecosystemHub)
+            <p class="hidden lg:block text-center text-sm text-slate-500 mb-8">
+                Clique em qualquer módulo para conhecer os detalhes
+            </p>
+            <div class="mb-12">
+                <x-ecosystem-diagram :hub="$ecosystemHub" :satellites="$ecosystemSatellites" />
+            </div>
+        @endif
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @forelse ($featuredProducts as $product)
                 <x-product-card :product="$product" />

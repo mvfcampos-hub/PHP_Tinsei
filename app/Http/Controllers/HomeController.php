@@ -15,11 +15,17 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request)
     {
+        $ecosystemHub = Product::active()->where('slug', 'dataclassic')->first();
+
         return view('home', [
             'heroBanners' => Banner::active()->placement('home_hero')->get(),
             'noticeBanners' => Banner::active()->placement('home_notice')->get(),
             'secondaryBanners' => Banner::active()->placement('home_secondary')->get(),
             'featuredProducts' => Product::active()->featured()->get(),
+            'ecosystemHub' => $ecosystemHub,
+            'ecosystemSatellites' => $ecosystemHub
+                ? Product::active()->where('id', '!=', $ecosystemHub->id)->get()
+                : collect(),
             'cloudProduct' => Product::active()->where('is_cloud_highlight', true)->first(),
             'cloudPlans' => CloudPlan::active()->take(3)->get(),
             'featuredNews' => News::published()->where('is_featured', true)->latest('published_at')->take(3)->get(),

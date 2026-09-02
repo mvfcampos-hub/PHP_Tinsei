@@ -8,9 +8,14 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::active()->get()->groupBy('category');
+        $all = Product::active()->get();
+        $products = $all->groupBy('category');
+        $ecosystemHub = $all->firstWhere('slug', 'dataclassic');
+        $ecosystemSatellites = $ecosystemHub
+            ? $all->reject(fn ($product) => $product->id === $ecosystemHub->id)
+            : collect();
 
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'ecosystemHub', 'ecosystemSatellites'));
     }
 
     public function show(Product $product)
