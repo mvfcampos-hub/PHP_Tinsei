@@ -21,6 +21,7 @@ return new class extends Migration
             $table->dateTime('ends_at')->nullable();
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
+            $table->boolean('overlay_title')->default(true);
             $table->timestamps();
 
             $table->index(['placement', 'is_active', 'sort_order']);

@@ -331,14 +331,16 @@ class DatabaseSeeder extends Seeder
 
     private function seedBanners(): void
     {
+        $this->putSeedFile('banners/databit-minasparts-da-placa-a-peca.png', 'banners/databit-minasparts-da-placa-a-peca.png');
         $this->putPlaceholderSvg('banners/hero-datamobile.svg', 1200, 500, '#1b2c6e', 'Databit · Conheça o novo DataMobile 2025');
         $this->putPlaceholderSvg('banners/hero-datacloud.svg', 1200, 500, '#0e1836', 'Databit · DataCloud, infraestrutura sob demanda');
         $this->putPlaceholderSvg('banners/campaign-30-anos.svg', 800, 400, '#2347d6', 'Databit · +30 anos de mercado');
         $this->putPlaceholderSvg('banners/campaign-datasac.svg', 800, 400, '#0891b2', 'Databit · Conheça o DataSAC');
 
         $items = [
-            ['title' => 'Conheça o novo DataMobile 2025', 'image' => 'banners/hero-datamobile.svg', 'placement' => 'home_hero', 'sort_order' => 1],
-            ['title' => 'DataCloud: infraestrutura sob demanda para o seu negócio', 'image' => 'banners/hero-datacloud.svg', 'placement' => 'home_hero', 'sort_order' => 2],
+            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 1, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => false],
+            ['title' => 'Conheça o novo DataMobile 2025', 'image' => 'banners/hero-datamobile.svg', 'placement' => 'home_hero', 'sort_order' => 2],
+            ['title' => 'DataCloud: infraestrutura sob demanda para o seu negócio', 'image' => 'banners/hero-datacloud.svg', 'placement' => 'home_hero', 'sort_order' => 3],
             ['title' => 'Databit — mais de 30 anos simplificando a gestão empresarial', 'image' => 'banners/campaign-30-anos.svg', 'placement' => 'home_secondary', 'sort_order' => 1],
             ['title' => 'Centralize o atendimento da sua empresa com o DataSAC', 'image' => 'banners/campaign-datasac.svg', 'placement' => 'home_secondary', 'sort_order' => 2],
         ];
@@ -349,9 +351,11 @@ class DatabaseSeeder extends Seeder
                 [
                     'title' => $item['title'],
                     'image' => $item['image'],
+                    'link_url' => $item['link_url'] ?? null,
                     'placement' => $item['placement'],
                     'sort_order' => $item['sort_order'],
                     'is_active' => true,
+                    'overlay_title' => $item['overlay_title'] ?? true,
                 ]
             );
         }
@@ -446,6 +450,21 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+    }
+
+    private function putSeedFile(string $assetPath, string $publicPath): void
+    {
+        if (Storage::disk('public')->exists($publicPath)) {
+            return;
+        }
+
+        $source = __DIR__.'/assets/'.$assetPath;
+
+        if (! is_file($source)) {
+            return;
+        }
+
+        Storage::disk('public')->put($publicPath, file_get_contents($source));
     }
 
     private function putPlaceholderSvg(string $path, int $width, int $height, string $background, string $label, string $textColor = '#ffffff', ?int $fontSize = null): void

@@ -72,6 +72,11 @@ class BannerResource extends Resource
                     ->label('Ativo')
                     ->default(true)
                     ->required(),
+                Forms\Components\Toggle::make('overlay_title')
+                    ->label('Sobrepor título e gradiente na imagem')
+                    ->helperText('Desative quando a imagem já for uma peça pronta (com texto e logomarca), para exibi-la sem sobreposição.')
+                    ->default(true)
+                    ->required(),
             ])->columns(2);
     }
 
@@ -103,6 +108,10 @@ class BannerResource extends Resource
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Ativo')
                     ->boolean(),
+                Tables\Columns\IconColumn::make('overlay_title')
+                    ->label('Título sobreposto')
+                    ->boolean()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('sort_order')
             ->filters([

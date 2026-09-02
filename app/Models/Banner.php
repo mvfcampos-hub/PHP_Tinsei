@@ -19,12 +19,14 @@ class Banner extends Model
         'ends_at',
         'sort_order',
         'is_active',
+        'overlay_title',
     ];
 
     protected $casts = [
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
         'is_active' => 'boolean',
+        'overlay_title' => 'boolean',
     ];
 
     public function scopeActive(Builder $query): Builder

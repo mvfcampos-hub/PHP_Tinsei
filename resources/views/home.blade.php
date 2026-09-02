@@ -14,16 +14,22 @@
                     <a href="{{ $banner->link_url ?? '#' }}"
                        x-show="active === {{ $index }}" x-transition:enter.duration.700ms
                        class="absolute inset-0 block">
-                        <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-60">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
-                        <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-                            <div class="mx-auto max-w-7xl">
-                                <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/20 text-accent-300 px-3 py-1 text-xs font-semibold mb-3">
-                                    Aviso Databit
-                                </span>
-                                <h2 class="text-2xl sm:text-4xl font-bold text-white max-w-2xl">{{ $banner->title }}</h2>
+                        @if ($banner->overlay_title)
+                            <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-60">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
+                            <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
+                                <div class="mx-auto max-w-7xl">
+                                    <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/20 text-accent-300 px-3 py-1 text-xs font-semibold mb-3">
+                                        Aviso Databit
+                                    </span>
+                                    <h2 class="text-2xl sm:text-4xl font-bold text-white max-w-2xl">{{ $banner->title }}</h2>
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="flex h-full w-full items-center justify-center bg-white">
+                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain">
+                            </div>
+                        @endif
                     </a>
                 @endforeach
 
@@ -252,12 +258,18 @@
         <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid sm:grid-cols-2 gap-6">
                 @foreach ($secondaryBanners as $banner)
-                    <a href="{{ $banner->link_url ?? '#' }}" class="group relative rounded-2xl overflow-hidden h-52 block">
-                        <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <h3 class="text-white font-semibold text-lg">{{ $banner->title }}</h3>
-                        </div>
+                    <a href="{{ $banner->link_url ?? '#' }}" class="group relative rounded-2xl overflow-hidden h-52 block border border-slate-200">
+                        @if ($banner->overlay_title)
+                            <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-white font-semibold text-lg">{{ $banner->title }}</h3>
+                            </div>
+                        @else
+                            <div class="flex h-full w-full items-center justify-center bg-white">
+                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain group-hover:scale-105 transition duration-500">
+                            </div>
+                        @endif
                     </a>
                 @endforeach
             </div>
