@@ -14,6 +14,7 @@
         'datainvoice' => ['Data', 'Invoice', 'text-amber-600'],
         'datashipping' => ['Data', 'Shipping', 'text-emerald-600'],
         'datadashboard' => ['Data', 'Dashboard', 'text-blue-700'],
+        'datamdfe' => ['Data', 'MDFe', 'text-fuchsia-600'],
     ];
 
     $radius = 38;
@@ -45,7 +46,7 @@
 
     {{-- Hub central --}}
     <a
-        href="{{ route('products.show', $hub->slug) }}"
+        href="{{ $hub->resolveUrl() }}"
         class="group absolute left-1/2 top-1/2 z-10 flex h-32 w-32 md:h-36 md:w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border-4 border-white bg-white text-center shadow-xl ring-4 ring-brand-100 transition hover:-translate-y-[calc(50%+2px)] hover:shadow-2xl hover:ring-accent-300"
     >
         <span class="text-xs font-bold uppercase tracking-wide text-slate-400 group-hover:text-slate-500">Data</span>
@@ -57,7 +58,8 @@
     @foreach ($nodes as $node)
         @php $product = $node['product']; @endphp
         <a
-            href="{{ route('products.show', $product->slug) }}"
+            href="{{ $product->resolveUrl() }}"
+            @if ($product->opens_externally) target="_blank" rel="noopener" @endif
             style="left: {{ $node['x'] }}%; top: {{ $node['y'] }}%;"
             class="group absolute z-10 flex h-24 w-24 md:h-28 md:w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-slate-200 bg-white text-center shadow-lg transition hover:-translate-y-[calc(50%+3px)] hover:shadow-xl hover:border-accent-300"
         >

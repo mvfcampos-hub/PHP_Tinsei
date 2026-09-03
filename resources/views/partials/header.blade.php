@@ -30,7 +30,11 @@
                                 <div class="rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden grid grid-cols-3">
                                     <div class="col-span-2 p-5 grid grid-cols-2 gap-1">
                                         @foreach ($systemsMenuProducts ?? [] as $product)
-                                            <a href="{{ route('products.show', $product->slug) }}" class="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-brand-50 transition">
+                                            <a
+                                                href="{{ $product->resolveUrl() }}"
+                                                @if ($product->opens_externally) target="_blank" rel="noopener" @endif
+                                                class="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-brand-50 transition"
+                                            >
                                                 <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
                                                     @if ($product->icon)
                                                         <x-dynamic-component :component="$product->icon" class="h-5 w-5" />
@@ -177,7 +181,11 @@
                     </a>
                     @if ($item->url === '/sistemas')
                         @foreach ($systemsMenuProducts ?? [] as $product)
-                            <a href="{{ route('products.show', $product->slug) }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">
+                            <a
+                                href="{{ $product->resolveUrl() }}"
+                                @if ($product->opens_externally) target="_blank" rel="noopener" @endif
+                                class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50"
+                            >
                                 {{ $product->name }}
                             </a>
                         @endforeach

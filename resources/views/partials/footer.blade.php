@@ -1,5 +1,6 @@
-<footer class="bg-brand-950 text-brand-100">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
+<footer class="relative bg-brand-950 text-brand-100 overflow-hidden">
+    <x-brand-mark class="hidden lg:block absolute -right-4 -top-6 h-28 w-auto opacity-[0.08] pointer-events-none select-none" aria-hidden="true" />
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 relative">
         <div class="lg:col-span-2">
             <x-logo variant="white" class="mb-4" />
             <p class="text-sm text-brand-200">
@@ -84,7 +85,7 @@
     <div class="border-t border-brand-800">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 text-xs text-brand-300 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p>&copy; {{ now()->year }} Databit Tecnologia e Sistemas. Todos os direitos reservados.</p>
-            <p>Conteúdo em migração a partir do site atual — layout de demonstração.</p>
+            <p>Desenvolvido por: Databit Tecnologia</p>
         </div>
     </div>
 </footer>

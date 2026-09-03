@@ -32,6 +32,10 @@ class ProductController extends Controller
     {
         abort_unless($product->is_active, 404);
 
+        if ($product->opens_externally && $product->external_url) {
+            return redirect()->away($product->external_url);
+        }
+
         $related = Product::active()
             ->where('id', '!=', $product->id)
             ->where('category', $product->category)

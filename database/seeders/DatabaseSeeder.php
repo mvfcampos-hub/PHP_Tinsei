@@ -195,6 +195,103 @@ class DatabaseSeeder extends Seeder
             .'</ul>'
             .'<p>O DataClassic também conta com conferência de estoque, gestor de documentos fiscais, coletor de série/lote, integrações de outsourcing (Printwayy, Orbix, Doc Service, IBSTracker), APIs abertas (Tray Commerce, Pluggto), emissão de etiquetas, aplicativo de XML, disparo de e-mails de OS, NFS-e e integrações com transportadoras (Correios, Mercocamp, Leolog).</p>';
 
+        $dataMobileDescription = '<p>O aplicativo que a sua equipe técnica sempre precisou — reescrito do zero, com interface moderna, sincronização em tempo real com o DataClassic e uma nova geração de recursos para quem trabalha em campo. Disponível oficialmente na Google Play Store, com atualizações 100% automáticas.</p>'
+            .'<h3>Gestão de campo completa</h3><ul>'
+            .'<li><strong>Ordens de serviço:</strong> receba, visualize e execute OS diretamente no app, com check-in e check-out por geolocalização, laudo técnico completo e histórico de equipamentos.</li>'
+            .'<li><strong>Monitoramento em tempo real:</strong> gestores acompanham a equipe técnica em campo via geolocalização, integrado ao DataService Web.</li>'
+            .'<li><strong>Controle de entregas:</strong> gestão de entrega de peças e suprimentos, com check-out total ou parcial, assinatura do cliente e envio automático do protocolo por e-mail.</li>'
+            .'<li><strong>Controle de ponto:</strong> registro de início, intervalo e fim de expediente com geolocalização, com relatório completo de banco de horas.</li>'
+            .'<li><strong>Modo offline:</strong> OS previamente sincronizadas ficam disponíveis sem conexão, com envio automático dos dados assim que a rede voltar.</li>'
+            .'<li><strong>Login com biometria:</strong> acesso rápido e seguro por leitor de digitais, habilitado automaticamente após o primeiro login.</li>'
+            .'</ul>'
+            .'<h3>Novidades da versão atual</h3><ul>'
+            .'<li><strong>Assinatura de OS em lote:</strong> o cliente valida múltiplos atendimentos com uma única assinatura, acelerando o fechamento de chamados.</li>'
+            .'<li><strong>Registro de despesas:</strong> o técnico registra gastos do dia e consulta adiantamentos direto no app, sem planilhas extras.</li>'
+            .'<li><strong>Meu Kit — estoque em campo:</strong> visibilidade total sobre as peças e insumos sob responsabilidade do técnico.</li>'
+            .'<li><strong>Rota inteligente:</strong> integração nativa com o Google Maps, com planejamento de até 9 paradas simultâneas e filtro por proximidade.</li>'
+            .'<li><strong>Base de conhecimento:</strong> a experiência acumulada da empresa disponível para o técnico em campo, editável pelo DataClassic.</li>'
+            .'<li><strong>Dashboard do dia:</strong> nova tela inicial com cards interativos de OS, despesas e entregas, com filtros rápidos por tipo de atendimento.</li>'
+            .'</ul>'
+            .'<h3>Performance e segurança</h3>'
+            .'<p>O DATAMOBILE foi reescrito com foco em velocidade e proteção de dados: ganho de até 60% no desempenho de sincronização e carregamento, comunicação totalmente criptografada (SSL) entre app e servidores Databit, e uma interface renovada com hierarquia visual mais clara para reduzir o esforço em uso contínuo no campo.</p>'
+            .'<h3>Como funciona na prática</h3><ol>'
+            .'<li>O cliente ou gestor abre a OS no DataService Web ou no DataClassic.</li>'
+            .'<li>O gestor define o técnico no DataClassic — a OS aparece no app instantaneamente.</li>'
+            .'<li>O técnico executa, registra e encerra a OS com assinatura no DATAMOBILE.</li>'
+            .'<li>O DataClassic é atualizado em tempo real — o gestor acompanha o SLA e emite relatórios.</li>'
+            .'</ol>';
+
+        $dataClientDescription = '<p>O DataClient é o CRM 100% web da Databit, integrado nativamente ao DataSAC e ao DataClassic. Centralize o pipeline comercial, automatize follow-ups e feche mais negócios — sem deixar nenhum lead esfriar.</p>'
+            .'<h3>O problema que o DataClient resolve</h3><ul>'
+            .'<li><strong>Planilhas desatualizadas</strong> que ninguém mantém e ninguém confia, levando a decisões erradas e oportunidades perdidas.</li>'
+            .'<li><strong>Follow-ups esquecidos</strong> por falta de alertas e de visibilidade sobre onde cada negociação está no funil.</li>'
+            .'<li><strong>Atendimento fragmentado</strong> em vários canais sem histórico centralizado, gerando retrabalho e má experiência para o cliente.</li>'
+            .'</ul>'
+            .'<h3>Um ecossistema comercial integrado</h3>'
+            .'<p>O DataClient não é um CRM isolado: é o elo comercial do ecossistema Databit. O <strong>DataSAC</strong> recebe contatos por WhatsApp, Telegram, Instagram, Facebook Messenger, e-mail e webchat e os transforma em leads direto no DataClient; negócios fechados disparam automaticamente pedidos e faturamento no <strong>DataClassic</strong>, sem retrabalho.</p>'
+            .'<h3>Fluxo de vendas, do primeiro contato ao contrato assinado</h3><ol>'
+            .'<li><strong>Contato:</strong> chega pelo DataSAC, por qualquer canal omnichannel.</li>'
+            .'<li><strong>Lead:</strong> convertido para o DataClient com histórico completo.</li>'
+            .'<li><strong>Oportunidade:</strong> gerenciada em múltiplos funis, com visão Kanban e lista.</li>'
+            .'<li><strong>Proposta:</strong> elaborada e enviada de forma personalizada pelo sistema.</li>'
+            .'<li><strong>Fechamento:</strong> integração automática com o DataClassic para faturamento.</li>'
+            .'</ol>'
+            .'<h3>Funcionalidades</h3><ul>'
+            .'<li><strong>Gestão de usuários e permissões:</strong> controle de acesso granular para vendedores, gerentes e administradores.</li>'
+            .'<li><strong>Dashboards e métricas:</strong> funil de vendas, taxa de conversão, ranking de vendedores e metas em tempo real.</li>'
+            .'<li><strong>Múltiplos funis de venda:</strong> etapas, critérios e responsáveis específicos por produto ou segmento.</li>'
+            .'<li><strong>Agenda integrada:</strong> reuniões, ligações e atividades da equipe comercial em um só lugar.</li>'
+            .'<li><strong>Campanhas de marketing:</strong> disparos por e-mail e WhatsApp para nutrição de leads e reativação de clientes.</li>'
+            .'<li><strong>Propostas personalizadas:</strong> elaboração e envio direto do sistema, com controle de versões e aprovação.</li>'
+            .'<li><strong>Pós-venda integrado:</strong> fluxo parametrizável de aprovação, geração de contrato e acompanhamento até a entrega.</li>'
+            .'<li><strong>Integração com o DataClassic:</strong> pré-contratos viram pedidos automaticamente no ERP.</li>'
+            .'<li><strong>Gestão de documentos e motivos de perda:</strong> histórico completo, rastreabilidade e análise de padrões para melhorar a abordagem comercial.</li>'
+            .'</ul>';
+
+        $dataServiceDescription = '<p>O DataService é a ferramenta web para gestão de ordens de serviço e requisições de suprimentos, com consulta em tempo real e integração direta ao DataClassic — automatizando a comunicação com o cliente e dando agilidade e precisão ao processo. Os técnicos acessam os chamados e atendem diretamente no local, enquanto os gestores acompanham tudo em tempo real pelo monitor de SLA do DataClassic.</p>'
+            .'<h3>Portal de Serviços</h3><p>Gestão completa de equipamentos locados: solicitação de suprimentos, abertura de chamados técnicos, informações contratuais, relatórios de atendimento e suporte financeiro, tudo em um único lugar.</p>'
+            .'<h3>Portal do Técnico</h3><p>O técnico abre o chamado na web, que é registrado imediatamente no DataClassic e notifica o gestor. Assim que o gestor define o técnico e encaminha a solicitação, a funcionalidade web do técnico é liberada, permitindo uma intervenção rápida e integrada.</p>'
+            .'<h3>Portal do Cliente</h3><p>Uma central de controle completa: abertura de chamados técnicos, geração de QR code e requisição direta de suprimentos, consulta de contrato e equipamentos, informações financeiras (com reimpressão de boletos e notas fiscais) e gráficos para análise visual de chamados, requisições e compras.</p>';
+
+        $dataWhatsDescription = '<p>O DataWhats é a ferramenta de comunicação da Databit integrada ao WhatsApp, que cria diversos canais de comunicação entre os usuários do DataClassic e seus clientes.</p>'
+            .'<h3>Notificações</h3><p>Configure o envio automático de mensagens por mudança de status no sistema: envio de NF-e/XML/boleto em determinado status do processo, fatura de locação e demonstrativo logo após o faturamento, pesquisa de satisfação na finalização da OS pelo técnico, e mensagens personalizadas em qualquer status do fluxo.</p>'
+            .'<h3>Alertas</h3><p>Agende procedimentos automatizados a partir de consultas configuráveis no banco de dados: cobranças, informações estratégicas para gestores, OS/requisições no limite do SLA, processos parados em determinado status, produtos com saldo abaixo do mínimo e avisos programados de faturamento, recebimentos e pagamentos do dia.</p>'
+            .'<h3>Atendimento eletrônico (Chatbot)</h3><p>Crie um WhatsApp Business com menu de atendimento configurável para abertura e acompanhamento de chamados, segunda via de documentos fiscais e boletos, e divulgação de produtos em promoção.</p>'
+            .'<h3>Atendimento humano (DataTalk)</h3><p>Substitua a central telefônica por um canal digital personalizado, acionado pelo site ou pelo menu do chatbot: crie equipes por setor, deixe o cliente escolher o setor de contato, capture a conversa com redirecionamento quando necessário e mantenha o log completo de todos os atendimentos.</p>';
+
+        $dataCountDescription = '<p>O DataCount realiza a contagem de conferência dos itens que chegam e que saem do estoque em um determinado centro de logística, com base nos movimentos de compras e vendas registrados no DataClassic.</p>'
+            .'<h3>Como funciona</h3><ul>'
+            .'<li>Contagem por coletor de dados ou aplicativo, sem parar a operação do estoque.</li>'
+            .'<li>Conferência automática contra os movimentos de compra e venda já lançados no ERP.</li>'
+            .'<li>Identificação imediata de divergências entre o contado e o esperado.</li>'
+            .'<li>Integração 100% nativa com o módulo de estoque do DataClassic — sem digitação manual.</li>'
+            .'</ul>';
+
+        $dataInvoiceDescription = '<p>O DataInvoice simplifica as operações de emissão de NF-e, automatizando o envio de notas fiscais e boletos com apenas um clique — economizando tempo e reduzindo erros manuais da equipe fiscal.</p>'
+            .'<h3>O que o DataInvoice automatiza</h3><ul>'
+            .'<li>Captura e conferência de notas fiscais de entrada, com lançamento automatizado no DataClassic.</li>'
+            .'<li>Envio automático de NF-e, XML e boletos ao cliente logo após o faturamento.</li>'
+            .'<li>Redução do trabalho manual da equipe fiscal e menor risco de erro de digitação.</li>'
+            .'<li>Integração nativa com o módulo fiscal do DataClassic, sem retrabalho entre sistemas.</li>'
+            .'</ul>';
+
+        $dataShippingDescription = '<p>O DataShipping automatiza a cotação online de frete com diversas transportadoras parceiras, direto do ERP — impulsionando a eficiência e a produtividade da expedição.</p>'
+            .'<h3>O que o DataShipping automatiza</h3><ul>'
+            .'<li>Cotação online simultânea com múltiplas transportadoras integradas (Correios, Mercocamp, Leolog e outras).</li>'
+            .'<li>Emissão de etiquetas e envio de dados do pedido direto do DataClassic.</li>'
+            .'<li>Rastreamento de encomendas integrado à gestão de expedição do ERP.</li>'
+            .'<li>Redução de erros manuais na escolha de transportadora e cálculo de frete.</li>'
+            .'</ul>';
+
+        $dataDashboardDescription = '<p>Painéis estratégicos de gestão, totalmente integrados ao DataClassic e configurados de acordo com o perfil do seu negócio — pensados originalmente para operações de locação e outsourcing de impressão.</p>'
+            .'<h3>Análise de Contratos</h3><p>Rentabilidade de cada contrato em uma única tela: receitas, impostos, quantidade de equipamentos, custos de suprimentos e peças, custo com chamados técnicos, comissão e rentabilidade final.</p>'
+            .'<h3>Parque de Equipamentos</h3><p>Controle de todos os equipamentos em contrato e em estoque, com status por equipamento (revisado, a revisar, novo, canibalizado).</p>'
+            .'<h3>Acompanhamento de Faturamento</h3><p>Contratos faturados e pendentes de faturamento, com quantidade, valor e destaque para contratos com faturamento atrasado.</p>'
+            .'<h3>Produção x Vida Útil de Suprimentos</h3><p>Análise da produção de cada contrato em relação à quantidade de suprimentos enviados e à vida útil de cada um, identificando desvios em relação ao que deveria ser impresso.</p>'
+            .'<h3>Assistência Técnica</h3><p>Ranking de produtividade da equipe técnica: quantidade de OS por técnico, média mensal, média por cliente, tempo de deslocamento, tempo trabalhado, rechamados e tempo médio de solução — com análise por cliente, defeito, cidade e técnico.</p>'
+            .'<h3>Fluxo de Caixa e Resumo Financeiro</h3><p>Visão dinâmica e completa do fluxo de caixa, com detalhamento de inadimplência, além da análise de contas a receber versus contas a pagar por centro e subcentro de custo, com visão de caixa e de competência.</p>'
+            .'<h3>DRE Personalizada</h3><p>Demonstrativo de resultados construído sob medida, de acordo com a forma de análise e os rateios da sua empresa.</p>';
+
         $items = [
             [
                 'name' => 'DataClassic',
@@ -224,8 +321,9 @@ class DatabaseSeeder extends Seeder
                 'category' => 'mobile',
                 'tagline' => 'O aplicativo que sua equipe técnica sempre precisou',
                 'summary' => 'App para gestão de técnicos de campo: ordens de serviço, rota inteligente, assinatura em lote, controle de ponto por geolocalização e modo offline.',
+                'description' => $dataMobileDescription,
                 'icon' => 'heroicon-o-device-phone-mobile',
-                'external_url' => 'https://databit.com.br/mobile.html',
+                'external_url' => null,
                 'is_featured' => true,
                 'is_cloud_highlight' => false,
                 'is_ecosystem_node' => true,
@@ -237,6 +335,7 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Plataforma de atendimento com automações, IA e integrações que centraliza WhatsApp, e-mail e chat em uma única caixa de entrada, com relatórios em tempo real.',
                 'icon' => 'heroicon-o-chat-bubble-left-right',
                 'external_url' => 'https://datasac.com.br',
+                'opens_externally' => true,
                 'is_featured' => true,
                 'is_cloud_highlight' => false,
                 'is_ecosystem_node' => true,
@@ -248,18 +347,20 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Emissão, gestão e monitoramento do MDF-e, vinculando NF-e e CT-e a uma única unidade de carga e simplificando as obrigações acessórias do transporte.',
                 'icon' => 'heroicon-o-document-check',
                 'external_url' => 'https://datamdfe.com.br',
-                'is_featured' => true,
+                'opens_externally' => true,
+                'is_featured' => false,
                 'is_cloud_highlight' => false,
-                'is_ecosystem_node' => false,
+                'is_ecosystem_node' => true,
             ],
             [
                 'name' => 'DataClient CRM',
                 'category' => 'crm',
                 'tagline' => 'Transforme cada contato em uma oportunidade real',
                 'summary' => 'CRM 100% web que centraliza o pipeline comercial, automatiza follow-ups e se integra ao DataSAC e ao DataClassic para um ecossistema completo de vendas.',
+                'description' => $dataClientDescription,
                 'icon' => 'heroicon-o-users',
-                'external_url' => 'https://databit.com.br/DataClient.html',
-                'is_featured' => false,
+                'external_url' => null,
+                'is_featured' => true,
                 'is_cloud_highlight' => false,
                 'is_ecosystem_node' => true,
             ],
@@ -268,6 +369,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'comunicacao',
                 'tagline' => 'WhatsApp integrado, comunicação facilitada',
                 'summary' => 'Integração oficial do WhatsApp aos sistemas Databit para comunicação com clientes direto do ERP e do atendimento.',
+                'description' => $dataWhatsDescription,
                 'icon' => 'heroicon-o-chat-bubble-oval-left-ellipsis',
                 'external_url' => null,
                 'is_featured' => false,
@@ -279,6 +381,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'integracoes',
                 'tagline' => 'O DataClassic no navegador, de qualquer lugar',
                 'summary' => 'Ferramenta de gestão via navegador que leva o acesso ao DataClassic para fora do escritório, sem instalação local.',
+                'description' => $dataServiceDescription,
                 'icon' => 'heroicon-o-globe-alt',
                 'external_url' => null,
                 'is_featured' => false,
@@ -290,6 +393,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'integracoes',
                 'tagline' => 'Contagem de estoque sem parar a operação',
                 'summary' => 'Ferramenta de contagem de inventário por coletor ou aplicativo, integrada ao estoque do DataClassic.',
+                'description' => $dataCountDescription,
                 'icon' => 'heroicon-o-clipboard-document-check',
                 'external_url' => null,
                 'is_featured' => false,
@@ -301,6 +405,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'integracoes',
                 'tagline' => 'Gestão eletrônica de notas fiscais de entrada',
                 'summary' => 'Captura, conferência e lançamento automatizado de notas fiscais de entrada, reduzindo o trabalho manual da equipe fiscal.',
+                'description' => $dataInvoiceDescription,
                 'icon' => 'heroicon-o-document-duplicate',
                 'external_url' => null,
                 'is_featured' => false,
@@ -312,6 +417,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'integracoes',
                 'tagline' => 'Expedição e rastreio integrados às transportadoras',
                 'summary' => 'Integração com transportadoras parceiras para cotação, etiquetagem e rastreamento de encomendas direto do DataClassic.',
+                'description' => $dataShippingDescription,
                 'icon' => 'heroicon-o-truck',
                 'external_url' => null,
                 'is_featured' => false,
@@ -323,6 +429,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'integracoes',
                 'tagline' => 'Indicadores do seu negócio em tempo real',
                 'summary' => 'Painéis gerenciais com os principais indicadores de vendas, estoque e financeiro do DataClassic, atualizados em tempo real.',
+                'description' => $dataDashboardDescription,
                 'icon' => 'heroicon-o-chart-bar',
                 'external_url' => null,
                 'is_featured' => false,
@@ -342,6 +449,7 @@ class DatabaseSeeder extends Seeder
                     'description' => $item['description'] ?? '<p>'.$item['summary'].'</p><p>Conteúdo completo do produto a ser migrado do site atual (databit.com.br).</p>',
                     'icon' => $item['icon'],
                     'external_url' => $item['external_url'],
+                    'opens_externally' => $item['opens_externally'] ?? false,
                     'is_featured' => $item['is_featured'],
                     'is_cloud_highlight' => $item['is_cloud_highlight'],
                     'is_ecosystem_node' => $item['is_ecosystem_node'],

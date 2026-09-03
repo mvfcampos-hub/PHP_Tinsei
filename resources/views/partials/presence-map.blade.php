@@ -8,8 +8,9 @@
     $flags = ['MX' => '🇲🇽', 'US' => '🇺🇸'];
 @endphp
 
-<section class="bg-brand-950 bg-grid-pattern">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+<section class="relative bg-brand-950 bg-grid-pattern overflow-hidden">
+    <x-brand-mark class="hidden lg:block absolute -left-6 -bottom-8 h-32 w-auto opacity-[0.07] pointer-events-none select-none" aria-hidden="true" />
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 text-accent-300 px-3 py-1 text-xs font-semibold mb-4 tracking-wide uppercase">
                 Onde estamos

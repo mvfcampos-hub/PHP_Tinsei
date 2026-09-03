@@ -8,7 +8,8 @@
     <meta name="description" content="@yield('description', 'Databit: sistemas de gestão empresarial (ERP), Cloud, mobilidade, atendimento ao cliente e serviços de TI. Mais de 30 anos transformando a gestão de empresas em todo o Brasil.')">
     <link rel="canonical" href="@yield('canonical', url()->current())">
     <meta name="robots" content="@yield('robots', 'index, follow')">
-    <link rel="icon" href="data:,">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
 
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:site_name" content="Databit">

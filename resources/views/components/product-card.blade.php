@@ -10,14 +10,14 @@
     </span>
     <span class="text-xs font-medium text-accent-600 uppercase tracking-wide mb-1">{{ $product->categoryLabel() }}</span>
     <h3 class="font-semibold text-slate-900 text-lg leading-snug mb-2">
-        <a href="{{ route('products.show', $product->slug) }}" class="hover:text-brand-700 transition">
+        <a href="{{ $product->resolveUrl() }}" @if ($product->opens_externally) target="_blank" rel="noopener" @endif class="hover:text-brand-700 transition">
             {{ $product->name }}
         </a>
     </h3>
     @if ($product->summary)
         <p class="text-sm text-slate-600 line-clamp-3 mb-4">{{ $product->summary }}</p>
     @endif
-    <a href="{{ route('products.show', $product->slug) }}" class="mt-auto inline-flex items-center gap-1 text-sm font-medium text-brand-700 group-hover:text-brand-800">
+    <a href="{{ $product->resolveUrl() }}" @if ($product->opens_externally) target="_blank" rel="noopener" @endif class="mt-auto inline-flex items-center gap-1 text-sm font-medium text-brand-700 group-hover:text-brand-800">
         Conhecer o produto
         <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
     </a>

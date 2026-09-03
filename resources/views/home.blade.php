@@ -145,12 +145,16 @@
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8 relative z-10">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ([
-                ['label' => 'DataClassic ERP', 'href' => route('products.show', 'dataclassic'), 'icon' => 'heroicon-o-building-storefront'],
-                ['label' => 'DataClient CRM', 'href' => route('products.show', 'dataclient-crm'), 'icon' => 'heroicon-o-users'],
-                ['label' => 'DataSAC', 'href' => route('products.show', 'datasac'), 'icon' => 'heroicon-o-chat-bubble-left-right'],
-                ['label' => 'DataCloud', 'href' => route('cloud.show'), 'icon' => 'heroicon-o-cloud'],
+                ['label' => 'DataClassic ERP', 'href' => route('products.show', 'dataclassic'), 'icon' => 'heroicon-o-building-storefront', 'external' => false],
+                ['label' => 'DataClient CRM', 'href' => route('products.show', 'dataclient-crm'), 'icon' => 'heroicon-o-users', 'external' => false],
+                ['label' => 'DataSAC', 'href' => 'https://datasac.com.br', 'icon' => 'heroicon-o-chat-bubble-left-right', 'external' => true],
+                ['label' => 'DataCloud', 'href' => route('cloud.show'), 'icon' => 'heroicon-o-cloud', 'external' => false],
             ] as $quick)
-                <a href="{{ $quick['href'] }}" class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center">
+                <a
+                    href="{{ $quick['href'] }}"
+                    @if ($quick['external']) target="_blank" rel="noopener" @endif
+                    class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center"
+                >
                     <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
                         <x-dynamic-component :component="$quick['icon']" class="h-6 w-6" />
                     </span>

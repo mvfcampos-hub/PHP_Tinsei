@@ -44,6 +44,7 @@ class Product extends Model
         'icon',
         'cover_image',
         'external_url',
+        'opens_externally',
         'is_featured',
         'is_cloud_highlight',
         'is_ecosystem_node',
@@ -56,7 +57,20 @@ class Product extends Model
         'is_cloud_highlight' => 'boolean',
         'is_ecosystem_node' => 'boolean',
         'is_active' => 'boolean',
+        'opens_externally' => 'boolean',
     ];
+
+    // DataSAC e DataMDFe são produtos com plataforma própria fora do site
+    // institucional (datasac.com.br, datamdfe.com.br) — todo link para eles
+    // deve abrir o site externo direto, em vez da página interna de detalhe.
+    public function resolveUrl(): string
+    {
+        if ($this->opens_externally && $this->external_url) {
+            return $this->external_url;
+        }
+
+        return route('products.show', $this->slug);
+    }
 
     public function events(): HasMany
     {

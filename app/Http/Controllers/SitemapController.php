@@ -37,7 +37,7 @@ class SitemapController extends Controller
             ]);
         }
 
-        foreach (Product::active()->get() as $product) {
+        foreach (Product::active()->where('opens_externally', false)->get() as $product) {
             $urls->push([
                 'loc' => route('products.show', $product->slug),
                 'lastmod' => $product->updated_at->toAtomString(),
