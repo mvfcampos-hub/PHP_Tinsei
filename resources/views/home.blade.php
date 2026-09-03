@@ -262,27 +262,13 @@
     {{-- Clientes e parceiros --}}
     @if ($clients->isNotEmpty() || $partners->isNotEmpty())
         <section class="bg-white border-t border-slate-200">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-12">
                 @if ($clients->isNotEmpty())
-                    <h2 class="text-center text-sm font-semibold text-slate-400 uppercase tracking-wide mb-6">
-                        Empresas que confiam na Databit
-                    </h2>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-                        @foreach ($clients as $client)
-                            <x-client-logo :client="$client" />
-                        @endforeach
-                    </div>
+                    <x-logo-marquee :items="$clients" label="Empresas que confiam na Databit" />
                 @endif
 
                 @if ($partners->isNotEmpty())
-                    <h2 class="text-center text-sm font-semibold text-slate-400 uppercase tracking-wide mb-6">
-                        Parceiros de tecnologia
-                    </h2>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                        @foreach ($partners as $partner)
-                            <x-client-logo :client="$partner" />
-                        @endforeach
-                    </div>
+                    <x-logo-marquee :items="$partners" label="Parceiros de tecnologia" :reverse="true" />
                 @endif
             </div>
         </section>

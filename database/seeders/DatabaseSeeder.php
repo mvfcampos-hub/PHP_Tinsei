@@ -82,21 +82,34 @@ class DatabaseSeeder extends Seeder
             ['label' => 'DataCloud', 'url' => '/datacloud', 'sort_order' => 2],
             ['label' => 'Serviços TI', 'url' => '/servicos-ti', 'sort_order' => 3],
             ['label' => 'Novidades', 'url' => '/novidades', 'sort_order' => 4],
-            ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 5],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 6],
+            ['label' => 'Institucional', 'url' => '/paginas/grupo-databit', 'sort_order' => 5],
         ];
 
         foreach ($items as $item) {
             MenuItem::firstOrCreate(['label' => $item['label']], $item);
         }
 
-        // Agenda entra como submenu de Novidades para manter o menu principal
-        // enxuto, no mesmo formato de navegação (7-8 itens) do site atual.
+        // Agenda entra como submenu de Novidades, e Grupo Databit / Perguntas
+        // Frequentes / Fale Conosco entram sob Institucional — menu principal
+        // enxuto (5 itens) com o restante distribuído em dropdowns.
         $novidades = MenuItem::where('label', 'Novidades')->first();
         MenuItem::firstOrCreate(
             ['label' => 'Agenda'],
             ['label' => 'Agenda', 'url' => '/agenda', 'parent_id' => $novidades?->id, 'sort_order' => 1]
         );
+
+        $institucional = MenuItem::where('label', 'Institucional')->first();
+        $institucionalChildren = [
+            ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 1],
+            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 2],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 3],
+        ];
+        foreach ($institucionalChildren as $child) {
+            MenuItem::firstOrCreate(
+                ['label' => $child['label'], 'parent_id' => $institucional?->id],
+                [...$child, 'parent_id' => $institucional?->id]
+            );
+        }
     }
 
     private function seedProducts(): void

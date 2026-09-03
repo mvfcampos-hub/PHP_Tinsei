@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Banner;
 use App\Models\MenuItem;
+use App\Models\Product;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,6 +34,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with(
                 'globalNoticeBanners',
                 Banner::active()->placement('home_notice')->get()
+            );
+        });
+
+        View::composer('partials.header', function ($view) {
+            $view->with(
+                'systemsMenuProducts',
+                Product::active()->systems()->get()
             );
         });
     }
