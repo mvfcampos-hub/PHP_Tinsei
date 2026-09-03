@@ -207,8 +207,10 @@ class DatabaseSeeder extends Seeder
             'Gestão de Faturamento' => 'Emissão de notas fiscais, consulta de IE de fornecedores e ambiente de contingência.',
         ];
 
-        $dataClassicDescription = '<p>Sistema de gestão empresarial completo, modular e de fácil operação, para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço nos segmentos de comércio, locação, prestação de serviço e outsourcing. Confira os módulos que já são integrados.</p>'
-            .'<p>O DataClassic também conta com conferência de estoque, gestor de documentos fiscais, coletor de série/lote, integrações de outsourcing (Printwayy, Orbix, Doc Service, IBSTracker), APIs abertas (Tray Commerce, Pluggto), emissão de etiquetas, aplicativo de XML, disparo de e-mails de OS, NFS-e e integrações com transportadoras (Correios, Mercocamp, Leolog).</p>';
+        $dataClassicDescription = '<p>Sistema de gestão empresarial completo, dinâmico, modular e de fácil operação.</p>'
+            .'<p>O ERP DataClassic é o motor para gerir toda a operação, que somado com as soluções complementares se transforma num ecossistema completo e poderoso para sua empresa.</p>'
+            .'<p>O DataClassic tem aderência perfeita para empresas de outsourcing de impressão, locação de equipamentos, prestadores de serviço e atacadistas/distribuidores.</p>'
+            .'<p>Estamos modernizando o sistema para maior aderência no mercado de autopeças.</p>';
 
         $dataClassicHighlights = [
             ['icon' => 'M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z', 'title' => 'Gestão de Cadastros', 'desc' => $dataClassicModules['Gestão de Cadastros']],
