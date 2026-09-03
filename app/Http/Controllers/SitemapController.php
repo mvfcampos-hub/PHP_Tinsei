@@ -40,7 +40,7 @@ class SitemapController extends Controller
 
         foreach (Product::active()->where('opens_externally', false)->get() as $product) {
             $urls->push([
-                'loc' => route('products.show', $product->slug),
+                'loc' => $product->resolveUrl(),
                 'lastmod' => $product->updated_at->toAtomString(),
                 'changefreq' => 'monthly',
                 'priority' => '0.8',

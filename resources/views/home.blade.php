@@ -17,7 +17,7 @@
                         @php
                             $product = $banner->product;
                             $isCloud = $product->category === 'cloud';
-                            $spotlightHref = $banner->link_url ?: ($isCloud ? route('cloud.show') : route('products.show', $product->slug));
+                            $spotlightHref = $banner->link_url ?: ($isCloud ? route('cloud.show') : $product->resolveUrl());
                         @endphp
                         <a href="{{ $spotlightHref }}"
                            x-show="active === {{ $index }}" x-transition:enter.duration.700ms
@@ -148,7 +148,7 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ([
                 ['label' => 'DataClassic ERP', 'href' => route('products.show', 'dataclassic'), 'icon' => 'heroicon-o-building-storefront', 'external' => false],
-                ['label' => 'DataClient CRM', 'href' => route('products.show', 'dataclient-crm'), 'icon' => 'heroicon-o-users', 'external' => false],
+                ['label' => 'DataClient CRM', 'href' => route('dataclient.show'), 'icon' => 'heroicon-o-users', 'external' => false],
                 ['label' => 'DataSAC', 'href' => 'https://datasac.com.br', 'icon' => 'heroicon-o-chat-bubble-left-right', 'external' => true],
                 ['label' => 'DataCloud', 'href' => route('cloud.show'), 'icon' => 'heroicon-o-cloud', 'external' => false],
             ] as $quick)

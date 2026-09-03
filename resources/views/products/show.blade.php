@@ -58,7 +58,25 @@
         </div>
     @endif
 
-    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+    @if (!empty($product->highlights))
+        <section class="py-16 sm:py-20">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    @foreach ($product->highlights as $highlight)
+                        <div class="rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-lg hover:-translate-y-1 transition">
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-brand-500 text-white mb-4">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $highlight['icon'] }}" /></svg>
+                            </span>
+                            <h3 class="font-semibold text-slate-900 mb-2">{{ $highlight['title'] }}</h3>
+                            <p class="text-sm text-slate-500">{{ $highlight['desc'] }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-16 {{ empty($product->highlights) ? 'pt-16' : '' }}">
         @if ($product->description)
             <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-brand-700">
                 {!! $product->description !!}

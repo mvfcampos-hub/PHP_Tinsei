@@ -189,11 +189,23 @@ class DatabaseSeeder extends Seeder
             'Gestão de Faturamento' => 'Emissão de notas fiscais, consulta de IE de fornecedores e ambiente de contingência.',
         ];
 
-        $dataClassicDescription = '<p>Sistema de gestão empresarial completo, modular e de fácil operação, para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço nos segmentos de comércio, locação, prestação de serviço e outsourcing.</p>'
-            .'<h3>Módulos do DataClassic</h3><ul>'
-            .collect($dataClassicModules)->map(fn ($desc, $name) => "<li><strong>{$name}:</strong> {$desc}</li>")->implode('')
-            .'</ul>'
+        $dataClassicDescription = '<p>Sistema de gestão empresarial completo, modular e de fácil operação, para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço nos segmentos de comércio, locação, prestação de serviço e outsourcing. Confira os módulos que já são integrados.</p>'
             .'<p>O DataClassic também conta com conferência de estoque, gestor de documentos fiscais, coletor de série/lote, integrações de outsourcing (Printwayy, Orbix, Doc Service, IBSTracker), APIs abertas (Tray Commerce, Pluggto), emissão de etiquetas, aplicativo de XML, disparo de e-mails de OS, NFS-e e integrações com transportadoras (Correios, Mercocamp, Leolog).</p>';
+
+        $dataClassicHighlights = [
+            ['icon' => 'M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z', 'title' => 'Gestão de Cadastros', 'desc' => $dataClassicModules['Gestão de Cadastros']],
+            ['icon' => 'M2.25 3h1.386c.51 0 .955.343 1.087.836l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z', 'title' => 'Gestão de Compras', 'desc' => $dataClassicModules['Gestão de Compras']],
+            ['icon' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z', 'title' => 'Gestão de Estoque', 'desc' => $dataClassicModules['Gestão de Estoque']],
+            ['icon' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z', 'title' => 'Gestão de Contratos', 'desc' => $dataClassicModules['Gestão de Contratos']],
+            ['icon' => 'M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322-1.834.212-3.34 1.717-3.34 3.552v13.5A2.25 2.25 0 004.5 21.75h15a2.25 2.25 0 002.25-2.25V6.125c0-1.836-1.505-3.34-3.34-3.553A48.554 48.554 0 0012 2.25z', 'title' => 'Gestão de Orçamentos', 'desc' => $dataClassicModules['Gestão de Orçamentos']],
+            ['icon' => 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', 'title' => 'Gestão Fiscal e Integração Contábil', 'desc' => $dataClassicModules['Gestão Fiscal e Integração Contábil']],
+            ['icon' => 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z', 'title' => 'Análise Gerencial', 'desc' => $dataClassicModules['Análise Gerencial']],
+            ['icon' => 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085', 'title' => 'Gestão de Assistência Técnica', 'desc' => $dataClassicModules['Gestão de Assistência Técnica']],
+            ['icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h5.379c.621 0 1.129.504 1.09 1.124a17.902 17.902 0 01-3.213 9.193 2.056 2.056 0 01-1.58.86H14.25M9 3v11.25M6 6.75H3.75m5.25 0h5.25M6 15h5.25', 'title' => 'Gestão de Expedição', 'desc' => $dataClassicModules['Gestão de Expedição']],
+            ['icon' => 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99', 'title' => 'Logística Reversa', 'desc' => $dataClassicModules['Logística Reversa']],
+            ['icon' => 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z', 'title' => 'Gestão Financeira', 'desc' => $dataClassicModules['Gestão Financeira']],
+            ['icon' => 'M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z', 'title' => 'Gestão de Faturamento', 'desc' => $dataClassicModules['Gestão de Faturamento']],
+        ];
 
         $dataMobileDescription = '<p>O aplicativo que a sua equipe técnica sempre precisou — reescrito do zero, com interface moderna, sincronização em tempo real com o DataClassic e uma nova geração de recursos para quem trabalha em campo. Disponível oficialmente na Google Play Store, com atualizações 100% automáticas.</p>'
             .'<h3>Gestão de campo completa</h3><ul>'
@@ -248,49 +260,61 @@ class DatabaseSeeder extends Seeder
             .'<li><strong>Gestão de documentos e motivos de perda:</strong> histórico completo, rastreabilidade e análise de padrões para melhorar a abordagem comercial.</li>'
             .'</ul>';
 
-        $dataServiceDescription = '<p>O DataService é a ferramenta web para gestão de ordens de serviço e requisições de suprimentos, com consulta em tempo real e integração direta ao DataClassic — automatizando a comunicação com o cliente e dando agilidade e precisão ao processo. Os técnicos acessam os chamados e atendem diretamente no local, enquanto os gestores acompanham tudo em tempo real pelo monitor de SLA do DataClassic.</p>'
-            .'<h3>Portal de Serviços</h3><p>Gestão completa de equipamentos locados: solicitação de suprimentos, abertura de chamados técnicos, informações contratuais, relatórios de atendimento e suporte financeiro, tudo em um único lugar.</p>'
-            .'<h3>Portal do Técnico</h3><p>O técnico abre o chamado na web, que é registrado imediatamente no DataClassic e notifica o gestor. Assim que o gestor define o técnico e encaminha a solicitação, a funcionalidade web do técnico é liberada, permitindo uma intervenção rápida e integrada.</p>'
-            .'<h3>Portal do Cliente</h3><p>Uma central de controle completa: abertura de chamados técnicos, geração de QR code e requisição direta de suprimentos, consulta de contrato e equipamentos, informações financeiras (com reimpressão de boletos e notas fiscais) e gráficos para análise visual de chamados, requisições e compras.</p>';
+        $dataServiceDescription = '<p>O DataService é a ferramenta web para gestão de ordens de serviço e requisições de suprimentos, com consulta em tempo real e integração direta ao DataClassic — automatizando a comunicação com o cliente e dando agilidade e precisão ao processo. Os técnicos acessam os chamados e atendem diretamente no local, enquanto os gestores acompanham tudo em tempo real pelo monitor de SLA do DataClassic. Confira as facilidades que sua empresa terá.</p>';
 
-        $dataWhatsDescription = '<p>O DataWhats é a ferramenta de comunicação da Databit integrada ao WhatsApp, que cria diversos canais de comunicação entre os usuários do DataClassic e seus clientes.</p>'
-            .'<h3>Notificações</h3><p>Configure o envio automático de mensagens por mudança de status no sistema: envio de NF-e/XML/boleto em determinado status do processo, fatura de locação e demonstrativo logo após o faturamento, pesquisa de satisfação na finalização da OS pelo técnico, e mensagens personalizadas em qualquer status do fluxo.</p>'
-            .'<h3>Alertas</h3><p>Agende procedimentos automatizados a partir de consultas configuráveis no banco de dados: cobranças, informações estratégicas para gestores, OS/requisições no limite do SLA, processos parados em determinado status, produtos com saldo abaixo do mínimo e avisos programados de faturamento, recebimentos e pagamentos do dia.</p>'
-            .'<h3>Atendimento eletrônico (Chatbot)</h3><p>Crie um WhatsApp Business com menu de atendimento configurável para abertura e acompanhamento de chamados, segunda via de documentos fiscais e boletos, e divulgação de produtos em promoção.</p>'
-            .'<h3>Atendimento humano (DataTalk)</h3><p>Substitua a central telefônica por um canal digital personalizado, acionado pelo site ou pelo menu do chatbot: crie equipes por setor, deixe o cliente escolher o setor de contato, capture a conversa com redirecionamento quando necessário e mantenha o log completo de todos os atendimentos.</p>';
+        $dataServiceHighlights = [
+            ['icon' => 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6 21v-3.375c0-.621.504-1.125 1.125-1.125h1.5c.621 0 1.125.504 1.125 1.125V21', 'title' => 'Portal de Serviços', 'desc' => 'Gestão completa de equipamentos locados: solicitação de suprimentos, abertura de chamados técnicos, informações contratuais, relatórios de atendimento e suporte financeiro, tudo em um único lugar.'],
+            ['icon' => 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085', 'title' => 'Portal do Técnico', 'desc' => 'O técnico abre o chamado na web, que é registrado imediatamente no DataClassic e notifica o gestor. Assim que o gestor define o técnico e encaminha a solicitação, a funcionalidade web do técnico é liberada, permitindo uma intervenção rápida e integrada.'],
+            ['icon' => 'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z', 'title' => 'Portal do Cliente', 'desc' => 'Central de controle completa: abertura de chamados técnicos, geração de QR code e requisição direta de suprimentos, consulta de contrato e equipamentos, informações financeiras (com reimpressão de boletos e notas fiscais) e gráficos para análise visual de chamados, requisições e compras.'],
+        ];
 
-        $dataCountDescription = '<p>O DataCount realiza a contagem de conferência dos itens que chegam e que saem do estoque em um determinado centro de logística, com base nos movimentos de compras e vendas registrados no DataClassic.</p>'
-            .'<h3>Como funciona</h3><ul>'
-            .'<li>Contagem por coletor de dados ou aplicativo, sem parar a operação do estoque.</li>'
-            .'<li>Conferência automática contra os movimentos de compra e venda já lançados no ERP.</li>'
-            .'<li>Identificação imediata de divergências entre o contado e o esperado.</li>'
-            .'<li>Integração 100% nativa com o módulo de estoque do DataClassic — sem digitação manual.</li>'
-            .'</ul>';
+        $dataWhatsDescription = '<p>O DataWhats é a ferramenta de comunicação da Databit integrada ao WhatsApp, que cria diversos canais de comunicação entre os usuários do DataClassic e seus clientes. Confira algumas facilidades na comunicação que sua empresa terá.</p>';
 
-        $dataInvoiceDescription = '<p>O DataInvoice simplifica as operações de emissão de NF-e, automatizando o envio de notas fiscais e boletos com apenas um clique — economizando tempo e reduzindo erros manuais da equipe fiscal.</p>'
-            .'<h3>O que o DataInvoice automatiza</h3><ul>'
-            .'<li>Captura e conferência de notas fiscais de entrada, com lançamento automatizado no DataClassic.</li>'
-            .'<li>Envio automático de NF-e, XML e boletos ao cliente logo após o faturamento.</li>'
-            .'<li>Redução do trabalho manual da equipe fiscal e menor risco de erro de digitação.</li>'
-            .'<li>Integração nativa com o módulo fiscal do DataClassic, sem retrabalho entre sistemas.</li>'
-            .'</ul>';
+        $dataWhatsHighlights = [
+            ['icon' => 'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75e-3V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0', 'title' => 'Notificações', 'desc' => 'Envio automático de mensagens por mudança de status no sistema: NF-e/XML/boleto em determinado status do processo, fatura de locação e demonstrativo logo após o faturamento, e pesquisa de satisfação na finalização da OS pelo técnico.'],
+            ['icon' => 'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z', 'title' => 'Alertas', 'desc' => 'Procedimentos automatizados a partir de consultas configuráveis no banco de dados: cobranças, informações estratégicas para gestores, OS/requisições no limite do SLA, processos parados e produtos com saldo abaixo do mínimo.'],
+            ['icon' => 'M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z', 'title' => 'Atendimento eletrônico (Chatbot)', 'desc' => 'WhatsApp Business com menu de atendimento configurável para abertura e acompanhamento de chamados, segunda via de documentos fiscais e boletos, e divulgação de produtos em promoção.'],
+            ['icon' => 'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z', 'title' => 'Atendimento humano (DataTalk)', 'desc' => 'Substitua a central telefônica por um canal digital personalizado: crie equipes por setor, deixe o cliente escolher o setor de contato e mantenha o log completo de todos os atendimentos.'],
+        ];
 
-        $dataShippingDescription = '<p>O DataShipping automatiza a cotação online de frete com diversas transportadoras parceiras, direto do ERP — impulsionando a eficiência e a produtividade da expedição.</p>'
-            .'<h3>O que o DataShipping automatiza</h3><ul>'
-            .'<li>Cotação online simultânea com múltiplas transportadoras integradas (Correios, Mercocamp, Leolog e outras).</li>'
-            .'<li>Emissão de etiquetas e envio de dados do pedido direto do DataClassic.</li>'
-            .'<li>Rastreamento de encomendas integrado à gestão de expedição do ERP.</li>'
-            .'<li>Redução de erros manuais na escolha de transportadora e cálculo de frete.</li>'
-            .'</ul>';
+        $dataCountDescription = '<p>O DataCount realiza a contagem de conferência dos itens que chegam e que saem do estoque em um determinado centro de logística, com base nos movimentos de compras e vendas registrados no DataClassic.</p>';
 
-        $dataDashboardDescription = '<p>Painéis estratégicos de gestão, totalmente integrados ao DataClassic e configurados de acordo com o perfil do seu negócio — pensados originalmente para operações de locação e outsourcing de impressão.</p>'
-            .'<h3>Análise de Contratos</h3><p>Rentabilidade de cada contrato em uma única tela: receitas, impostos, quantidade de equipamentos, custos de suprimentos e peças, custo com chamados técnicos, comissão e rentabilidade final.</p>'
-            .'<h3>Parque de Equipamentos</h3><p>Controle de todos os equipamentos em contrato e em estoque, com status por equipamento (revisado, a revisar, novo, canibalizado).</p>'
-            .'<h3>Acompanhamento de Faturamento</h3><p>Contratos faturados e pendentes de faturamento, com quantidade, valor e destaque para contratos com faturamento atrasado.</p>'
-            .'<h3>Produção x Vida Útil de Suprimentos</h3><p>Análise da produção de cada contrato em relação à quantidade de suprimentos enviados e à vida útil de cada um, identificando desvios em relação ao que deveria ser impresso.</p>'
-            .'<h3>Assistência Técnica</h3><p>Ranking de produtividade da equipe técnica: quantidade de OS por técnico, média mensal, média por cliente, tempo de deslocamento, tempo trabalhado, rechamados e tempo médio de solução — com análise por cliente, defeito, cidade e técnico.</p>'
-            .'<h3>Fluxo de Caixa e Resumo Financeiro</h3><p>Visão dinâmica e completa do fluxo de caixa, com detalhamento de inadimplência, além da análise de contas a receber versus contas a pagar por centro e subcentro de custo, com visão de caixa e de competência.</p>'
-            .'<h3>DRE Personalizada</h3><p>Demonstrativo de resultados construído sob medida, de acordo com a forma de análise e os rateios da sua empresa.</p>';
+        $dataCountHighlights = [
+            ['icon' => 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', 'title' => 'Contagem sem parar o estoque', 'desc' => 'Contagem por coletor de dados ou aplicativo, sem parar a operação do estoque.'],
+            ['icon' => 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99', 'title' => 'Conferência automática', 'desc' => 'Conferência automática contra os movimentos de compra e venda já lançados no ERP.'],
+            ['icon' => 'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z', 'title' => 'Divergências à vista', 'desc' => 'Identificação imediata de divergências entre o contado e o esperado.'],
+            ['icon' => 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244', 'title' => 'Integração 100% nativa', 'desc' => 'Integração nativa com o módulo de estoque do DataClassic — sem digitação manual.'],
+        ];
+
+        $dataInvoiceDescription = '<p>O DataInvoice simplifica as operações de emissão de NF-e, automatizando o envio de notas fiscais e boletos com apenas um clique — economizando tempo e reduzindo erros manuais da equipe fiscal.</p>';
+
+        $dataInvoiceHighlights = [
+            ['icon' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z', 'title' => 'Captura e conferência', 'desc' => 'Notas fiscais de entrada capturadas e conferidas, com lançamento automatizado no DataClassic.'],
+            ['icon' => 'M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5', 'title' => 'Envio automático', 'desc' => 'Envio automático de NF-e, XML e boletos ao cliente logo após o faturamento.'],
+            ['icon' => 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Menos trabalho manual', 'desc' => 'Redução do trabalho manual da equipe fiscal e menor risco de erro de digitação.'],
+            ['icon' => 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244', 'title' => 'Integração nativa', 'desc' => 'Integração nativa com o módulo fiscal do DataClassic, sem retrabalho entre sistemas.'],
+        ];
+
+        $dataShippingDescription = '<p>O DataShipping automatiza a cotação online de frete com diversas transportadoras parceiras, direto do ERP — impulsionando a eficiência e a produtividade da expedição.</p>';
+
+        $dataShippingHighlights = [
+            ['icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h5.379c.621 0 1.129.504 1.09 1.124a17.902 17.902 0 01-3.213 9.193 2.056 2.056 0 01-1.58.86H14.25M9 3v11.25M6 6.75H3.75m5.25 0h5.25M6 15h5.25', 'title' => 'Cotação simultânea', 'desc' => 'Cotação online simultânea com múltiplas transportadoras integradas (Correios, Mercocamp, Leolog e outras).'],
+            ['icon' => 'M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z', 'title' => 'Etiquetas automáticas', 'desc' => 'Emissão de etiquetas e envio de dados do pedido direto do DataClassic.'],
+            ['icon' => 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z', 'title' => 'Rastreamento integrado', 'desc' => 'Rastreamento de encomendas integrado à gestão de expedição do ERP.'],
+            ['icon' => 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', 'title' => 'Menos erro manual', 'desc' => 'Redução de erros manuais na escolha de transportadora e cálculo de frete.'],
+        ];
+
+        $dataDashboardDescription = '<p>Painéis estratégicos de gestão, totalmente integrados ao DataClassic e configurados de acordo com o perfil do seu negócio — pensados originalmente para operações de locação e outsourcing de impressão.</p>';
+
+        $dataDashboardHighlights = [
+            ['icon' => 'M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z', 'title' => 'Análise de Contratos', 'desc' => 'Rentabilidade de cada contrato em uma única tela: receitas, impostos, quantidade de equipamentos, custos de suprimentos e peças, custo com chamados técnicos, comissão e rentabilidade final.'],
+            ['icon' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z', 'title' => 'Parque de Equipamentos', 'desc' => 'Controle de todos os equipamentos em contrato e em estoque, com status por equipamento (revisado, a revisar, novo, canibalizado).'],
+            ['icon' => 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z', 'title' => 'Acompanhamento de Faturamento', 'desc' => 'Contratos faturados e pendentes de faturamento, com quantidade, valor e destaque para contratos com faturamento atrasado.'],
+            ['icon' => 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z', 'title' => 'Produção x Vida Útil de Suprimentos', 'desc' => 'Análise da produção de cada contrato em relação à quantidade de suprimentos enviados e à vida útil de cada um, identificando desvios em relação ao que deveria ser impresso.'],
+            ['icon' => 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085', 'title' => 'Assistência Técnica', 'desc' => 'Ranking de produtividade da equipe técnica: quantidade de OS por técnico, média mensal, tempo de deslocamento, rechamados e tempo médio de solução — por cliente, defeito, cidade e técnico.'],
+            ['icon' => 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99', 'title' => 'Fluxo de Caixa e Resumo Financeiro', 'desc' => 'Visão dinâmica e completa do fluxo de caixa, com detalhamento de inadimplência e análise de contas a receber versus contas a pagar por centro e subcentro de custo.'],
+            ['icon' => 'M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z', 'title' => 'DRE Personalizada', 'desc' => 'Demonstrativo de resultados construído sob medida, de acordo com a forma de análise e os rateios da sua empresa.'],
+        ];
 
         $items = [
             [
@@ -299,6 +323,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'O sistema de gestão do seu negócio',
                 'summary' => 'ERP completo para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço, com 12 módulos integrados — de cadastros e compras a fiscal, financeiro e faturamento.',
                 'description' => $dataClassicDescription,
+                'highlights' => $dataClassicHighlights,
                 'icon' => 'heroicon-o-building-storefront',
                 'external_url' => null,
                 'is_featured' => true,
@@ -370,6 +395,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'WhatsApp integrado, comunicação facilitada',
                 'summary' => 'Integração oficial do WhatsApp aos sistemas Databit para comunicação com clientes direto do ERP e do atendimento.',
                 'description' => $dataWhatsDescription,
+                'highlights' => $dataWhatsHighlights,
                 'icon' => 'heroicon-o-chat-bubble-oval-left-ellipsis',
                 'external_url' => null,
                 'is_featured' => false,
@@ -382,6 +408,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'O DataClassic no navegador, de qualquer lugar',
                 'summary' => 'Ferramenta de gestão via navegador que leva o acesso ao DataClassic para fora do escritório, sem instalação local.',
                 'description' => $dataServiceDescription,
+                'highlights' => $dataServiceHighlights,
                 'icon' => 'heroicon-o-globe-alt',
                 'external_url' => null,
                 'is_featured' => false,
@@ -394,6 +421,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'Contagem de estoque sem parar a operação',
                 'summary' => 'Ferramenta de contagem de inventário por coletor ou aplicativo, integrada ao estoque do DataClassic.',
                 'description' => $dataCountDescription,
+                'highlights' => $dataCountHighlights,
                 'icon' => 'heroicon-o-clipboard-document-check',
                 'external_url' => null,
                 'is_featured' => false,
@@ -406,6 +434,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'Gestão eletrônica de notas fiscais de entrada',
                 'summary' => 'Captura, conferência e lançamento automatizado de notas fiscais de entrada, reduzindo o trabalho manual da equipe fiscal.',
                 'description' => $dataInvoiceDescription,
+                'highlights' => $dataInvoiceHighlights,
                 'icon' => 'heroicon-o-document-duplicate',
                 'external_url' => null,
                 'is_featured' => false,
@@ -418,6 +447,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'Expedição e rastreio integrados às transportadoras',
                 'summary' => 'Integração com transportadoras parceiras para cotação, etiquetagem e rastreamento de encomendas direto do DataClassic.',
                 'description' => $dataShippingDescription,
+                'highlights' => $dataShippingHighlights,
                 'icon' => 'heroicon-o-truck',
                 'external_url' => null,
                 'is_featured' => false,
@@ -430,6 +460,7 @@ class DatabaseSeeder extends Seeder
                 'tagline' => 'Indicadores do seu negócio em tempo real',
                 'summary' => 'Painéis gerenciais com os principais indicadores de vendas, estoque e financeiro do DataClassic, atualizados em tempo real.',
                 'description' => $dataDashboardDescription,
+                'highlights' => $dataDashboardHighlights,
                 'icon' => 'heroicon-o-chart-bar',
                 'external_url' => null,
                 'is_featured' => false,
@@ -447,6 +478,7 @@ class DatabaseSeeder extends Seeder
                     'tagline' => $item['tagline'],
                     'summary' => $item['summary'],
                     'description' => $item['description'] ?? '<p>'.$item['summary'].'</p><p>Conteúdo completo do produto a ser migrado do site atual (databit.com.br).</p>',
+                    'highlights' => $item['highlights'] ?? null,
                     'icon' => $item['icon'],
                     'external_url' => $item['external_url'],
                     'opens_externally' => $item['opens_externally'] ?? false,

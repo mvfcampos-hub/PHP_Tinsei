@@ -30,7 +30,7 @@
                 </a>
             @endif
             @if ($event->product)
-                <a href="{{ route('products.show', $event->product->slug) }}" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-700">
+                <a href="{{ $event->product->resolveUrl() }}" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-700">
                     Ver produto
                 </a>
             @endif

@@ -41,6 +41,7 @@ class Product extends Model
         'tagline',
         'summary',
         'description',
+        'highlights',
         'icon',
         'cover_image',
         'external_url',
@@ -53,6 +54,7 @@ class Product extends Model
     ];
 
     protected $casts = [
+        'highlights' => 'array',
         'is_featured' => 'boolean',
         'is_cloud_highlight' => 'boolean',
         'is_ecosystem_node' => 'boolean',
@@ -63,10 +65,20 @@ class Product extends Model
     // DataSAC e DataMDFe são produtos com plataforma própria fora do site
     // institucional (datasac.com.br, datamdfe.com.br) — todo link para eles
     // deve abrir o site externo direto, em vez da página interna de detalhe.
+    // O DataClient CRM tem página própria (como DataCloud, MSP e DataBackup+)
+    // em vez da página genérica de produto.
     public function resolveUrl(): string
     {
         if ($this->opens_externally && $this->external_url) {
             return $this->external_url;
+        }
+
+        if ($this->slug === 'dataclient-crm') {
+            return route('dataclient.show');
+        }
+
+        if ($this->slug === 'datamobile') {
+            return route('datamobile.show');
         }
 
         return route('products.show', $this->slug);
