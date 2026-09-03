@@ -91,6 +91,10 @@ class Product extends Model
             return route('dataservice.show');
         }
 
+        if ($this->slug === 'datacount') {
+            return route('datacount.show');
+        }
+
         return route('products.show', $this->slug);
     }
 
