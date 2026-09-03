@@ -213,6 +213,114 @@
         </div>
     </section>
 
+    {{-- Interface real --}}
+    <section class="py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 text-brand-700 px-3 py-1 text-xs font-semibold mb-4">
+                    Interface real
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Veja o DataClient por dentro.</h2>
+                <p class="text-slate-500 mt-3">
+                    Painel visual de acompanhamento, agenda integrada e acesso seguro por parceiro — tudo pensado
+                    para o dia a dia da sua equipe comercial.
+                </p>
+            </div>
+
+            {{-- Mockup: Painel Kanban --}}
+            <div class="rounded-2xl border border-slate-200 shadow-2xl shadow-slate-900/10 overflow-hidden bg-white">
+                <div class="flex items-center gap-1.5 bg-slate-100 border-b border-slate-200 px-4 py-3">
+                    <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                    <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+                    <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                    <span class="ml-3 text-xs text-slate-400 font-medium truncate">app.dataclient.com.br/pre-contratos/painel</span>
+                </div>
+                <div class="flex">
+                    <div class="hidden md:flex w-44 shrink-0 flex-col bg-[#141d33] text-white/60 text-[11px] py-4">
+                        <div class="px-4 pb-4 mb-2 border-b border-white/10 flex items-center gap-2">
+                            <span class="h-6 w-6 rounded-md bg-gradient-to-br from-accent-400 to-brand-500"></span>
+                            <span class="font-bold text-white text-xs tracking-wide">DataClient</span>
+                        </div>
+                        <div class="flex flex-col gap-0.5 px-2">
+                            @foreach (['Página Inicial', 'Clientes', 'Vendedores', 'Oportunidades', 'Pré-Contratos', 'Atividades', 'Consultas'] as $item)
+                                <span @class([
+                                    'rounded-md px-2.5 py-1.5',
+                                    'bg-white/10 text-white font-semibold' => $item === 'Pré-Contratos',
+                                ])>{{ $item }}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-5">
+                            <p class="text-white font-bold text-sm sm:text-base">Painel de Acompanhamento</p>
+                            <p class="text-brand-100 text-xs mt-0.5">Gerencie contratos, vigências, valores e movimentações.</p>
+                        </div>
+                        <div class="p-4 overflow-x-auto">
+                            <div class="flex gap-3 min-w-[880px]">
+                                @foreach ([
+                                    ['label' => '1 · EM GERAÇÃO', 'color' => '#991b1b', 'count' => 0, 'cards' => []],
+                                    ['label' => '2 · CRÉDITO', 'color' => '#0d9488', 'count' => 1, 'cards' => [['name' => 'Comércio Modelo S/A', 'value' => 'R$ 2.370,00']]],
+                                    ['label' => '3 · ESTOQUE', 'color' => '#7e22ce', 'count' => 4, 'cards' => [['name' => 'Distribuidora Beta Ltda', 'value' => 'R$ 720,00'], ['name' => 'Indústria Alfa Ltda', 'value' => 'R$ 2.370,00']]],
+                                    ['label' => '4 · COMERCIAL', 'color' => '#dc2626', 'count' => 3, 'cards' => [['name' => 'Grupo Ômega Serviços', 'value' => 'R$ 360,00'], ['name' => 'Hospital Central', 'value' => 'R$ 794,96']]],
+                                    ['label' => '5 · ANÁLISE', 'color' => '#475569', 'count' => 2, 'cards' => [['name' => 'Atacado Vitória Ltda', 'value' => 'R$ 512,00']]],
+                                    ['label' => '6 · GESTÃO', 'color' => '#d97706', 'count' => 5, 'cards' => [['name' => 'Serviços Gama Ltda', 'value' => 'R$ 215,00'], ['name' => 'Consórcio Estrela SPE', 'value' => 'R$ 980,00']]],
+                                    ['label' => '7 · CONTRATOS', 'color' => '#ea580c', 'count' => 2, 'cards' => [['name' => 'Locadora Prime S/A', 'value' => 'R$ 1.140,00']]],
+                                ] as $column)
+                                    <div class="w-32 shrink-0">
+                                        <div class="rounded-t-lg px-2.5 py-1.5 text-[10px] font-bold text-white flex items-center justify-between" style="background: {{ $column['color'] }}">
+                                            <span class="truncate">{{ $column['label'] }}</span>
+                                            <span class="opacity-80">{{ $column['count'] }}</span>
+                                        </div>
+                                        <div class="border border-t-0 border-slate-200 rounded-b-lg bg-slate-50 p-1.5 space-y-1.5 h-44 overflow-hidden">
+                                            @foreach ($column['cards'] as $card)
+                                                <div class="rounded-md bg-white border border-slate-200 p-2 shadow-sm">
+                                                    <p class="text-[10px] font-semibold text-slate-700 leading-tight truncate">{{ $card['name'] }}</p>
+                                                    <p class="text-[9px] text-slate-400 mt-1">{{ $card['value'] }}</p>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Mockups: Agenda + acesso por parceiro --}}
+            <div class="grid lg:grid-cols-5 gap-6 mt-6">
+                <div class="lg:col-span-3 rounded-2xl border border-slate-200 shadow-lg shadow-slate-900/5 overflow-hidden bg-white">
+                    <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-5 py-3 flex items-center justify-between">
+                        <p class="text-white font-semibold text-xs sm:text-sm">Agenda · Setembro 2026</p>
+                        <span class="text-brand-100 text-[10px]">Compromissos e eventos</span>
+                    </div>
+                    <div class="grid grid-cols-7 text-center text-[10px] p-3 gap-1">
+                        @foreach (['D', 'S', 'T', 'Q', 'Q', 'S', 'S'] as $d)
+                            <span class="text-slate-400 font-semibold pb-1">{{ $d }}</span>
+                        @endforeach
+                        @for ($i = 1; $i <= 28; $i++)
+                            <span @class([
+                                'rounded-md py-1.5',
+                                'bg-brand-600 text-white font-bold' => $i === 3,
+                                'text-slate-500' => $i !== 3,
+                            ])>{{ $i }}</span>
+                        @endfor
+                    </div>
+                </div>
+                <div class="lg:col-span-2 rounded-2xl border border-slate-200 shadow-lg shadow-slate-900/5 overflow-hidden bg-brand-950 p-6 flex flex-col justify-center">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-accent-400 to-brand-500 mb-4">
+                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                    </span>
+                    <h3 class="font-semibold text-white text-sm mb-2">Acesso seguro por parceiro</h3>
+                    <p class="text-brand-200 text-xs">
+                        Login white-label por CNPJ parceiro e empresa, com senha própria para cada usuário — cada
+                        cliente Databit acessa o seu ambiente, com a sua identidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="bg-brand-700">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
