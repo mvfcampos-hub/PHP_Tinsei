@@ -278,7 +278,8 @@ class DatabaseSeeder extends Seeder
             .'<li><strong>Gestão de documentos e motivos de perda:</strong> histórico completo, rastreabilidade e análise de padrões para melhorar a abordagem comercial.</li>'
             .'</ul>';
 
-        $dataServiceDescription = '<p>O DataService é a ferramenta web para gestão de ordens de serviço e requisições de suprimentos de forma fácil e eficiente. Com módulos de consulta em tempo real e integração direta ao DataClassic, automatizamos a comunicação com o cliente, garantindo agilidade e precisão no processo. Os técnicos têm acesso fácil aos chamados e podem realizar atendimentos diretamente no local, enquanto os gestores acompanham as atividades em tempo real através do monitor de SLA no DataClassic, proporcionando uma gestão mais eficiente e assertiva. Confira algumas das facilidades que sua empresa terá.</p>';
+        $dataServiceDescription = '<p>O DataService é o portal de gestão completa da assistência técnica da Databit. Com módulos de consulta em tempo real e integração direta ao DataClassic e ao DataMobile, automatizamos a comunicação com o cliente e a roteirização das equipes técnicas, garantindo agilidade e precisão no processo.</p>'
+            .'<p>Funciona também de forma independente para quem usa outro ERP, sem depender do DataClassic.</p>';
 
         $dataServiceHighlights = [
             ['icon' => 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6 21v-3.375c0-.621.504-1.125 1.125-1.125h1.5c.621 0 1.125.504 1.125 1.125V21', 'title' => 'Portal de Serviços', 'desc' => 'Oferece soluções completas para a gestão de equipamentos locados. Desde a solicitação de suprimentos até a assistência técnica, nossa plataforma simplifica todo o processo. Com facilidade, você pode solicitar suprimentos, abrir chamados técnicos, obter informações contratuais, relatórios de atendimentos e suporte financeiro.'],
@@ -440,8 +441,8 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'DataService',
                 'category' => 'integracoes',
-                'tagline' => 'O DataClassic no navegador, de qualquer lugar',
-                'summary' => 'Ferramenta de gestão via navegador que leva o acesso ao DataClassic para fora do escritório, sem instalação local.',
+                'tagline' => 'Portal de gestão completa da assistência técnica',
+                'summary' => 'Abertura e acompanhamento de OS e requisições, consultas fiscais e financeiras, roteirização e monitoramento de SLA em tempo real — integrado ao DataMobile e ao DataClassic, ou de forma independente.',
                 'description' => $dataServiceDescription,
                 'highlights' => $dataServiceHighlights,
                 'video_url' => 'https://youtu.be/S26jpSToYBM',

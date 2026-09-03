@@ -87,6 +87,10 @@ class Product extends Model
             return route('datastore.show');
         }
 
+        if ($this->slug === 'dataservice') {
+            return route('dataservice.show');
+        }
+
         return route('products.show', $this->slug);
     }
 
