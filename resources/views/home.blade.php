@@ -177,57 +177,8 @@
         </div>
     </section>
 
-    {{-- Destaque DataCloud --}}
-    @if ($cloudProduct || $cloudPlans->isNotEmpty())
-        <section class="bg-brand-950 bg-grid-pattern text-white">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 text-accent-300 px-3 py-1 text-xs font-semibold mb-4">
-                            Cloud & Infraestrutura
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                            {{ $cloudProduct->name ?? 'DataCloud' }} — Máquinas virtuais sob demanda
-                        </h2>
-                        <p class="text-brand-200 leading-relaxed mb-6">
-                            {{ $cloudProduct->summary ?? 'VMs com Linux, Windows e SQL Server, dimensionadas de acordo com a necessidade do seu projeto. Escale vCPU, RAM e disco sem migrações complexas, com previsibilidade de custos em reais e suporte especializado.' }}
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="{{ route('cloud.show') }}" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition">
-                                Ver planos DataCloud
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </a>
-                            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero falar sobre o DataCloud.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
-                                Falar com um especialista
-                            </a>
-                        </div>
-                    </div>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        @foreach ([
-                            ['label' => 'Escalabilidade sob demanda', 'desc' => 'Aumente vCPU, RAM e disco conforme o crescimento do projeto.'],
-                            ['label' => 'Linux, Windows e SQL Server', 'desc' => 'Ambientes prontos para produção com banco de dados incluso.'],
-                            ['label' => 'Segurança dedicada', 'desc' => 'Firewall e políticas de segurança isoladas por ambiente.'],
-                            ['label' => 'Suporte especializado', 'desc' => 'Atendimento consultivo em português, 30+ anos de experiência.'],
-                        ] as $feature)
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                <svg class="h-6 w-6 text-accent-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-                                <p class="font-semibold text-sm">{{ $feature['label'] }}</p>
-                                <p class="text-xs text-brand-300 mt-1">{{ $feature['desc'] }}</p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                @if ($cloudPlans->isNotEmpty())
-                    <div class="grid sm:grid-cols-3 gap-6 mt-16">
-                        @foreach ($cloudPlans as $plan)
-                            <x-cloud-plan-card :plan="$plan" />
-                        @endforeach
-                    </div>
-                @endif
-            </div>
-        </section>
-    @endif
+    {{-- Presença Databit: mapa de clientes por estado/país --}}
+    @include('partials.presence-map')
 
     {{-- Soluções de sistemas em destaque --}}
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
@@ -260,20 +211,33 @@
         </div>
     </section>
 
-    {{-- Serviços de TI e Produtos de informática (tratados à parte das soluções de sistemas e do DataCloud) --}}
+    {{-- Databit MSP, DataCloud e Produtos de informática (tratados à parte das soluções de sistemas) --}}
     <section class="bg-white border-t border-slate-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <span class="text-xs font-medium text-accent-600 uppercase tracking-wide">Além dos sistemas e do DataCloud</span>
-            <div class="grid sm:grid-cols-2 gap-6 mt-4">
+            <span class="text-xs font-medium text-accent-600 uppercase tracking-wide">Além dos sistemas</span>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
                 <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                     <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
                     </span>
                     <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900">Serviços de TI</h3>
-                        <p class="text-slate-600 text-sm mt-1">Do atendimento avulso ao outsourcing completo, uma empresa parceira para a sua operação.</p>
-                        <a href="{{ route('it-services.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
-                            Conhecer os serviços
+                        <h3 class="text-lg font-bold text-slate-900">Databit MSP</h3>
+                        <p class="text-slate-600 text-sm mt-1">Mensalidade fixa para a administração completa do seu ambiente de TI, com SLA e suporte ilimitado.</p>
+                        <a href="{{ route('msp.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
+                            Conhecer o MSP
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg>
+                    </span>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-slate-900">DataCloud</h3>
+                        <p class="text-slate-600 text-sm mt-1">Máquinas virtuais sob demanda, com Linux, Windows e SQL Server, escaláveis conforme o seu projeto.</p>
+                        <a href="{{ route('cloud.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
+                            Ver planos DataCloud
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
