@@ -59,7 +59,7 @@
             @foreach ([
                 ['label' => 'Sistemas', 'route' => 'products.index', 'path' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25-2.25m-2.25 2.25V6.75m-8.25.75h16.5'],
                 ['label' => 'DataCloud', 'route' => 'cloud.show', 'path' => 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z'],
-                ['label' => 'Novidades', 'route' => 'news.index', 'path' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-1.519-2.121L12 13.5m1.481 1.629L15 13.5m-1.519 1.629L12 17.25M8.25 21h7.5a2.25 2.25 0 002.25-2.25V9.75L14.25 3H8.25a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 008.25 21z'],
+                ['label' => 'Notícias', 'route' => 'news.index', 'path' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-1.519-2.121L12 13.5m1.481 1.629L15 13.5m-1.519 1.629L12 17.25M8.25 21h7.5a2.25 2.25 0 002.25-2.25V9.75L14.25 3H8.25a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 008.25 21z'],
                 ['label' => 'Agenda', 'route' => 'events.index', 'path' => 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5'],
             ] as $quick)
                 <a href="{{ route($quick['route']) }}" class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center">
@@ -207,14 +207,14 @@
         </div>
     </section>
 
-    {{-- Novidades + Agenda --}}
+    {{-- Notícias + Agenda --}}
     <section class="bg-white border-t border-slate-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div class="lg:col-span-2">
                 <div class="flex items-end justify-between mb-8">
                     <div>
-                        <h2 class="text-2xl font-bold text-slate-900">Novidades e lançamentos</h2>
-                        <p class="text-slate-500 mt-1 text-sm">Fique por dentro dos lançamentos de produtos da Databit</p>
+                        <h2 class="text-2xl font-bold text-slate-900">Notícias e novidades</h2>
+                        <p class="text-slate-500 mt-1 text-sm">Lançamentos da Databit e artigos de interesse sobre tecnologia e gestão</p>
                     </div>
                     <a href="{{ route('news.index') }}" class="text-brand-700 font-medium hover:text-brand-800 text-sm">Ver todas</a>
                 </div>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Novidades')
-@section('description', 'Novidades, lançamentos de produtos e comunicados da Databit.')
+@section('title', 'Notícias')
+@section('description', 'Notícias da Databit e do mercado de tecnologia: lançamentos de produtos, reforma tributária, segurança da informação e mais.')
 
 @section('content')
     <section class="bg-white border-b border-slate-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Novidades</h1>
-            <p class="text-slate-500 mt-2">Lançamentos de produtos, atualizações e comunicados da Databit</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Notícias</h1>
+            <p class="text-slate-500 mt-2">Lançamentos, atualizações e artigos de interesse sobre tecnologia, segurança e gestão empresarial</p>
         </div>
     </section>
 

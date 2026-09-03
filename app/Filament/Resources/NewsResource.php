@@ -22,11 +22,11 @@ class NewsResource extends Resource
 
     protected static ?string $navigationGroup = 'Conteúdo';
 
-    protected static ?string $navigationLabel = 'Novidades';
+    protected static ?string $navigationLabel = 'Notícias';
 
-    protected static ?string $modelLabel = 'novidade';
+    protected static ?string $modelLabel = 'notícia';
 
-    protected static ?string $pluralModelLabel = 'novidades';
+    protected static ?string $pluralModelLabel = 'notícias';
 
     public static function form(Form $form): Form
     {
@@ -44,14 +44,7 @@ class NewsResource extends Resource
                     ->unique(ignoreRecord: true),
                 Forms\Components\Select::make('category')
                     ->label('Categoria')
-                    ->options([
-                        'Lançamento' => 'Lançamento de produto',
-                        'Novidade' => 'Novidade',
-                        'Institucional' => 'Institucional',
-                        'Cloud' => 'Cloud',
-                        'Mobile' => 'Mobile',
-                        'Parcerias' => 'Parcerias',
-                    ])
+                    ->options(News::CATEGORIES)
                     ->native(false),
                 Forms\Components\Textarea::make('excerpt')
                     ->label('Resumo')
@@ -116,14 +109,7 @@ class NewsResource extends Resource
                     ->label('Destaque'),
                 Tables\Filters\SelectFilter::make('category')
                     ->label('Categoria')
-                    ->options([
-                        'Lançamento' => 'Lançamento de produto',
-                        'Novidade' => 'Novidade',
-                        'Institucional' => 'Institucional',
-                        'Cloud' => 'Cloud',
-                        'Mobile' => 'Mobile',
-                        'Parcerias' => 'Parcerias',
-                    ]),
+                    ->options(News::CATEGORIES),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

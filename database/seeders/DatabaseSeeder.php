@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder
             ['label' => 'Sistemas', 'url' => '/sistemas', 'sort_order' => 1],
             ['label' => 'DataCloud', 'url' => '/datacloud', 'sort_order' => 2],
             ['label' => 'Serviços TI', 'url' => '/servicos-ti', 'sort_order' => 3],
-            ['label' => 'Novidades', 'url' => '/novidades', 'sort_order' => 4],
+            ['label' => 'Notícias', 'url' => '/novidades', 'sort_order' => 4],
             ['label' => 'Institucional', 'url' => '/paginas/grupo-databit', 'sort_order' => 5],
         ];
 
@@ -145,10 +145,10 @@ class DatabaseSeeder extends Seeder
             MenuItem::firstOrCreate(['label' => $item['label']], $item);
         }
 
-        // Agenda entra como submenu de Novidades, e Grupo Databit / Perguntas
+        // Agenda entra como submenu de Notícias, e Grupo Databit / Perguntas
         // Frequentes / Fale Conosco entram sob Institucional — menu principal
         // enxuto (5 itens) com o restante distribuído em dropdowns.
-        $novidades = MenuItem::where('label', 'Novidades')->first();
+        $novidades = MenuItem::where('label', 'Notícias')->first();
         MenuItem::firstOrCreate(
             ['label' => 'Agenda'],
             ['label' => 'Agenda', 'url' => '/agenda', 'parent_id' => $novidades?->id, 'sort_order' => 1]
@@ -416,6 +416,72 @@ class DatabaseSeeder extends Seeder
                 'is_featured' => false,
                 'excerpt' => 'Solução vincula NF-e e CT-e em um único documento, reduzindo o trabalho manual das equipes fiscais.',
             ],
+            [
+                'title' => 'Reforma Tributária: o que muda para sua empresa e como preparar seus sistemas',
+                'category' => 'Reforma Tributária',
+                'is_featured' => true,
+                'published_at' => now()->subDays(2),
+                'excerpt' => 'Entenda as principais mudanças da Reforma Tributária (EC 132/2023) e o cronograma de transição até 2033 — e por que a atualização dos seus sistemas não pode esperar.',
+                'body' => '<p>A Reforma Tributária do consumo (Emenda Constitucional nº 132/2023, regulamentada pela Lei Complementar nº 214/2025) representa a maior mudança na tributação brasileira em décadas. Para empresas de todos os portes, entender o que muda — e quando — é essencial para não ser pego de surpresa.</p>'
+                    .'<h3>O que muda</h3>'
+                    .'<p>Cinco tributos sobre o consumo (PIS, Cofins, IPI, ICMS e ISS) serão substituídos por um modelo de IVA dual:</p>'
+                    .'<ul>'
+                    .'<li><strong>CBS (Contribuição sobre Bens e Serviços)</strong> — tributo federal, substitui PIS e Cofins;</li>'
+                    .'<li><strong>IBS (Imposto sobre Bens e Serviços)</strong> — tributo estadual e municipal, substitui ICMS e ISS;</li>'
+                    .'<li><strong>Imposto Seletivo</strong> — incide sobre produtos prejudiciais à saúde ou ao meio ambiente.</li>'
+                    .'</ul>'
+                    .'<h3>Cronograma de transição</h3>'
+                    .'<ul>'
+                    .'<li><strong>2026:</strong> ano de teste, com alíquotas simbólicas de CBS e IBS, sem aumento de carga tributária;</li>'
+                    .'<li><strong>2027:</strong> CBS entra em vigor de forma plena, substituindo PIS/Cofins; IPI é reduzido a zero para a maioria dos produtos;</li>'
+                    .'<li><strong>2029 a 2032:</strong> transição gradual entre ICMS/ISS e IBS, com redução progressiva dos tributos antigos e aumento progressivo do novo;</li>'
+                    .'<li><strong>2033:</strong> extinção definitiva de ICMS e ISS — modelo totalmente migrado para CBS e IBS.</li>'
+                    .'</ul>'
+                    .'<h3>Por que isso afeta diretamente os seus sistemas</h3>'
+                    .'<p>Notas fiscais, cálculo de tributos, regras de crédito e obrigações acessórias vão mudar ao longo de toda a transição — e, durante alguns anos, empresas vão precisar operar simultaneamente com o modelo antigo e o novo. Sistemas de gestão desatualizados são o maior risco de erro fiscal nesse período.</p>'
+                    .'<p>O módulo fiscal do <strong>DataClassic</strong> vem sendo atualizado para acompanhar cada etapa da transição, com o suporte da equipe Databit para orientar sua empresa em cada mudança. Fale com a gente para saber se o seu ambiente está preparado.</p>',
+            ],
+            [
+                'title' => 'Ataques de ransomware: por que nenhuma empresa está imune',
+                'category' => 'Segurança da Informação',
+                'is_featured' => true,
+                'published_at' => now()->subDays(6),
+                'excerpt' => 'Casos de ransomware amplamente noticiados nos últimos anos mostram que o alvo não é mais só a grande corporação — é qualquer empresa com proteção insuficiente.',
+                'body' => '<p>Nos últimos anos, ataques de ransomware saíram das manchetes de tecnologia para o noticiário geral. Hospitais, redes varejistas, empresas de logística e órgãos públicos ao redor do mundo já tiveram sistemas paralisados por dias — às vezes semanas — depois de um ataque bem-sucedido.</p>'
+                    .'<h3>Como o ataque acontece</h3>'
+                    .'<p>Na maioria dos casos noticiados, o ransomware não explora uma falha sofisticada: ele entra por um e-mail de phishing, uma senha fraca ou reutilizada, ou um acesso remoto mal protegido. Uma vez dentro da rede, o software malicioso criptografa arquivos e sistemas inteiros, exigindo pagamento de resgate para a suposta liberação dos dados — sem garantia de que o pagamento realmente resolva o problema.</p>'
+                    .'<h3>Por que empresas de médio porte também são alvo</h3>'
+                    .'<p>Diferente do que muitos pensam, criminosos não miram apenas grandes corporações. Empresas de médio porte costumam ter dados valiosos e defesas mais fracas — uma combinação atrativa para esse tipo de ataque. A ausência de um plano de backup testado é, na prática, o que transforma um incidente de segurança em uma paralisação de dias ou semanas.</p>'
+                    .'<h3>Como reduzir o risco</h3>'
+                    .'<ul>'
+                    .'<li>Backup automatizado, com cópias isoladas da rede principal (offline ou imutáveis);</li>'
+                    .'<li>Testes periódicos de restauração — um backup que nunca foi testado é uma falsa sensação de segurança;</li>'
+                    .'<li>Antivírus/EDR gerenciado em todas as estações e servidores;</li>'
+                    .'<li>Autenticação multifator (MFA) em acessos críticos;</li>'
+                    .'<li>Treinamento periódico da equipe para reconhecer tentativas de phishing.</li>'
+                    .'</ul>'
+                    .'<p>O pacote <strong>Databit MSP</strong> inclui antivírus gerenciado e hardening de estações no plano base, com camadas adicionais de proteção disponíveis nos add-ons <strong>Security+</strong> e <strong>Backup+</strong>. Fale com a gente para avaliar o nível de proteção do seu ambiente.</p>',
+            ],
+            [
+                'title' => 'Backup e disponibilidade: o seguro que sua empresa não pode deixar de ter',
+                'category' => 'Segurança da Informação',
+                'is_featured' => true,
+                'published_at' => now()->subDays(10),
+                'excerpt' => 'Falhas de hardware, erro humano e ataques cibernéticos têm uma coisa em comum: só não viram desastre para quem tem backup testado e um plano de disponibilidade.',
+                'body' => '<p>Toda empresa depende de dados para operar — cadastros de clientes, histórico financeiro, notas fiscais, planilhas de controle. E, mais cedo ou mais tarde, todo ambiente de TI enfrenta um imprevisto: uma falha de disco, um erro humano, uma atualização malsucedida ou um ataque. A diferença entre um susto e uma crise é ter, ou não ter, um backup confiável.</p>'
+                    .'<h3>Backup não é só "ter uma cópia"</h3>'
+                    .'<p>Um backup só é útil se puder ser restaurado quando for preciso. Isso exige mais do que copiar arquivos periodicamente:</p>'
+                    .'<ul>'
+                    .'<li><strong>Regra 3-2-1:</strong> pelo menos três cópias dos dados, em dois tipos de mídia diferentes, com uma cópia fora do ambiente principal;</li>'
+                    .'<li><strong>Testes de restauração periódicos</strong>, documentados — backup que nunca foi restaurado em teste é uma incógnita, não uma garantia;</li>'
+                    .'<li><strong>Retenção adequada</strong>, para conseguir voltar a um ponto anterior a um ataque que pode ter ficado semanas não detectado.</li>'
+                    .'</ul>'
+                    .'<h3>Disponibilidade: o outro lado da mesma moeda</h3>'
+                    .'<p>Backup protege os dados; disponibilidade protege a operação. Ambientes bem projetados combinam backup com monitoramento 24/7, redundância de componentes críticos e um plano de recuperação de desastres (DR) documentado — para que uma falha vire minutos de indisponibilidade, não dias.</p>'
+                    .'<h3>O custo de não ter um plano</h3>'
+                    .'<p>O cálculo é simples: o custo de manter backup e monitoramento é previsível e recorrente; o custo de uma parada não planejada é, quase sempre, muito maior — em produtividade perdida, em reputação e, em casos de ataque, no próprio resgate exigido.</p>'
+                    .'<p>O add-on <strong>Databit Backup+</strong> oferece backup diário automatizado, testes de restauração periódicos e plano de recuperação de desastres documentado. Conheça o modelo completo de gestão de TI no <a href="/servicos-ti/msp">Databit MSP</a>.</p>',
+            ],
         ];
 
         foreach ($items as $item) {
@@ -424,10 +490,10 @@ class DatabaseSeeder extends Seeder
                 [
                     'title' => $item['title'],
                     'excerpt' => $item['excerpt'],
-                    'body' => '<p>'.$item['excerpt'].'</p><p>Conteúdo completo da novidade a ser migrado do site atual (databit.com.br).</p>',
+                    'body' => $item['body'] ?? '<p>'.$item['excerpt'].'</p><p>Conteúdo completo da novidade a ser migrado do site atual (databit.com.br).</p>',
                     'category' => $item['category'],
                     'is_featured' => $item['is_featured'],
-                    'published_at' => now()->subDays(random_int(1, 60)),
+                    'published_at' => $item['published_at'] ?? now()->subDays(random_int(1, 60)),
                     'author_id' => $admin->id,
                 ]
             );
