@@ -72,13 +72,11 @@ class DatabaseSeeder extends Seeder
 
     private function grupoDatabitContent(): string
     {
-        // Linha do tempo e liderança (com fotos reais) são renderizadas à parte
-        // por PageController/pages/grupo-databit.blade.php; este texto cobre
-        // apenas a introdução e missão/visão/valores.
-        return '<p>Há mais de 30 anos no mercado, a Databit desenvolve tecnologia para simplificar a gestão de atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço em todo o Brasil — com um ecossistema que integra ERP, Cloud, mobilidade, atendimento ao cliente e serviços de TI.</p>'
-            .'<h3>Missão</h3><p>Entregar soluções de tecnologia de ponta a preços competitivos, com profissionais qualificados e serviços de alta qualidade, garantindo a completa satisfação dos clientes.</p>'
-            .'<h3>Visão</h3><p>Ser referência nacional em consultoria de TI e sistemas de gestão.</p>'
-            .'<h3>Valores</h3><p>Ética, comprometimento, integridade, respeito, profissionalismo, valorização das pessoas, criatividade, proatividade e inovação.</p>';
+        // Linha do tempo, liderança e missão/visão/valores (com fotos reais)
+        // são renderizadas à parte por PageController/pages/grupo-databit.blade.php,
+        // em blocos estruturados mais modernos que uma lista de <h3>; este
+        // texto cobre apenas a introdução em prosa.
+        return '<p>Há mais de 30 anos no mercado, a Databit desenvolve tecnologia para simplificar a gestão de atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço em todo o Brasil — com um ecossistema que integra ERP, Cloud, mobilidade, atendimento ao cliente e serviços de TI.</p>';
     }
 
     private function privacyPolicyContent(): string

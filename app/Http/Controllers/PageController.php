@@ -33,6 +33,35 @@ class PageController extends Controller
         ['name' => 'Fabricio Alcantara', 'role' => 'Gerente de Soluções Integradas', 'photo' => 'fabricio-alcantara.jpg'],
     ];
 
+    // Missão, visão e valores em blocos estruturados (cards), no lugar do
+    // antigo texto corrido em <h3> — mesmo padrão de conteúdo estruturado
+    // usado em TIMELINE/LEADERSHIP acima.
+    public const MISSION = 'Entregar soluções de tecnologia de ponta a preços competitivos, com profissionais qualificados e serviços de alta qualidade, garantindo a completa satisfação dos clientes.';
+
+    public const VISION = 'Ser referência nacional em consultoria de TI e sistemas de gestão.';
+
+    public const VALUES = [
+        'Ética', 'Comprometimento', 'Integridade', 'Respeito', 'Profissionalismo',
+        'Valorização das pessoas', 'Criatividade', 'Proatividade', 'Inovação',
+    ];
+
+    // Destaques narrativos dos sócios que sustentam a operação do dia a dia —
+    // complementam a grade de liderança acima com o "porquê" de cada um.
+    public const PARTNER_HIGHLIGHTS = [
+        [
+            'name' => 'Marcos Campos',
+            'role' => 'Sócio-diretor (COO)',
+            'photo' => 'marcos-campos.jpg',
+            'bio' => 'Figura de referência na operação da empresa: especialista em TI, consultor de negócios e consultor fiscal, com conhecimento pleno de todas as soluções da Databit. Um pilar de sustentação fundamental para o negócio.',
+        ],
+        [
+            'name' => 'Sidney Sanches',
+            'role' => 'Sócio-diretor (CTO)',
+            'photo' => 'sidney-sanches.png',
+            'bio' => 'A mente brilhante por trás das soluções da Databit: pensa de forma ampla e sistêmica sobre cada problema e transforma ideias em produtos reais, do primeiro rascunho ao ERP que roda em centenas de empresas.',
+        ],
+    ];
+
     // Perguntas frequentes reais sobre os modelos de contratação e produtos
     // da Databit, estruturadas em grupos — conteúdo estruturado à parte do
     // texto livre da página, no mesmo padrão de TIMELINE/LEADERSHIP acima.
@@ -87,6 +116,10 @@ class PageController extends Controller
                 'page' => $page,
                 'timeline' => self::TIMELINE,
                 'leadership' => self::LEADERSHIP,
+                'mission' => self::MISSION,
+                'vision' => self::VISION,
+                'values' => self::VALUES,
+                'partnerHighlights' => self::PARTNER_HIGHLIGHTS,
             ]);
         }
 
