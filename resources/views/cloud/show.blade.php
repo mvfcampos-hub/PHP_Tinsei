@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('title', 'DataCloud — Máquinas Virtuais sob demanda')
-@section('description', 'DataCloud: máquinas virtuais Linux e Windows sob demanda, com SQL Server, dimensionadas para o seu projeto. Infraestrutura flexível e suporte próximo.')
+@section('description', 'DataCloud: serviços cloud com VPS e máquinas virtuais sob demanda (Linux, Windows e SQL Server), dimensionadas para o seu projeto. Infraestrutura flexível e suporte próximo.')
 @section('canonical', route('cloud.show'))
 
 @section('content')
     <section class="bg-brand-950 bg-grid-pattern relative overflow-hidden">
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center relative z-10">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 text-accent-300 px-3 py-1 text-xs font-semibold mb-5 tracking-wide uppercase">
-                DataCloud
+                DataCloud · Serviços Cloud
             </span>
             <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight">
-                Máquinas virtuais <span class="text-accent-400">sob demanda</span> para o seu negócio
+                VPS e máquinas virtuais <span class="text-accent-400">sob demanda</span> para o seu negócio
             </h1>
             <p class="text-brand-200 mt-5 max-w-2xl mx-auto text-lg">
                 VMs com Linux, Windows e SQL Server, dimensionadas de acordo com a necessidade de cada cliente e projeto.

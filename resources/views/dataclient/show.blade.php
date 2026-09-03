@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'DataClient CRM — Transforme cada contato em uma oportunidade real')
-@section('description', 'DataClient CRM: sistema comercial 100% web da Databit, integrado ao DataSAC e ao DataClassic. Centralize o pipeline, automatize follow-ups e feche mais negócios.')
+@section('description', 'DataClient CRM: CRM completo e sistema comercial 100% web da Databit, integrado ao DataSAC e ao DataClassic. Centralize o pipeline, automatize follow-ups e feche mais negócios.')
 @section('canonical', route('dataclient.show'))
 
 @push('schema')

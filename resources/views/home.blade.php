@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Início')
-@section('description', 'Databit: mais de 30 anos em sistemas de gestão empresarial (ERP), DataCloud, Serviços de TI gerenciados (MSP) e produtos de informática. Conheça nosso ecossistema completo.')
+@section('title', 'ERP para Distribuidoras, Atacadistas, Locadoras e Autopeças')
+@section('description', 'Databit: ERP para distribuidoras, empresas atacadistas, locadoras de equipamentos, outsourcing de impressão e lojas de autopeças. CRM completo, atendimento omnichannel, app mobile para técnicos de campo, bot para WhatsApp, emissor de MDF-e, serviços cloud (VPS), backup em nuvem e serviços de TI (MSP). Mais de 30 anos de mercado.')
 @section('canonical', route('home'))
 
 @section('content')

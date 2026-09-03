@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'DataMobile — Gestão de técnicos de campo')
-@section('description', 'DataMobile: app oficial da Databit para gestão de técnicos de campo. Ordens de serviço, rota inteligente, assinatura em lote, controle de ponto por geolocalização e modo offline. Disponível na Google Play Store.')
+@section('description', 'DataMobile: app mobile para gestão de atendimento técnico e técnicos de campo. Ordens de serviço, rota inteligente, assinatura em lote, controle de ponto por geolocalização e modo offline. Disponível na Google Play Store.')
 @section('canonical', route('datamobile.show'))
 
 @push('schema')

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $product->name)
+@section('title', $product->slug === 'dataclassic'
+    ? 'DataClassic — ERP para Distribuidoras, Atacadistas, Locadoras e Autopeças'
+    : $product->name . ($product->tagline ? ' — ' . $product->tagline : ''))
 @section('description', $product->summary ?? '')
 @section('canonical', route('products.show', $product->slug))
 @if ($product->cover_image)
@@ -82,6 +84,37 @@
                     <p class="text-slate-500 mt-2">O DataClassic conversa nativamente com os módulos abaixo — clique em qualquer um para conhecer os detalhes.</p>
                 </div>
                 <x-ecosystem-diagram :hub="$ecosystemHub" :satellites="$ecosystemSatellites" />
+            </div>
+        </section>
+    @endif
+
+    @if ($product->slug === 'dataclassic')
+        <section class="py-16 sm:py-20">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Para quem é o DataClassic</h2>
+                    <p class="text-slate-500 mt-3">
+                        Um sistema de gestão (ERP) pensado para a realidade de quem compra, vende, aluga ou presta
+                        serviço em grande volume.
+                    </p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    @foreach ([
+                        ['icon' => 'M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21M3 9l9-6 9 6v9.75a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18.75V9z', 'title' => 'Distribuidoras', 'desc' => 'Sistema de gestão para distribuidoras com controle de estoque, compras e faturamento em um só lugar.'],
+                        ['icon' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z', 'title' => 'Empresas atacadistas', 'desc' => 'ERP para empresas atacadistas, com gestão de preços, tabelas por cliente e logística de expedição.'],
+                        ['icon' => 'M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.017-1.837-2.185a48.554 48.554 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.017 1.837-2.185a48.554 48.554 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z', 'title' => 'Outsourcing de impressão', 'desc' => 'Sistema de gestão para empresas de outsourcing de impressão, com contratos, medição e faturamento por página.'],
+                        ['icon' => 'M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75', 'title' => 'Locadoras de equipamentos', 'desc' => 'Sistema de gestão para empresas de locação de equipamentos, com controle de contratos e retiradas de estoque.'],
+                        ['icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h5.379c.621 0 1.129.504 1.09 1.124a17.902 17.902 0 01-3.213 9.193 2.056 2.056 0 01-1.58.86H14.25M9 3v11.25M6 6.75H3.75m5.25 0h5.25M6 15h5.25', 'title' => 'Lojas de autopeças', 'desc' => 'Sistema de gestão para loja de autopeças e ERP para empresas de autopeças, com aplicação veicular e catálogo de produtos.'],
+                    ] as $segment)
+                        <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 mb-3">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $segment['icon'] }}" /></svg>
+                            </span>
+                            <h3 class="font-semibold text-slate-900 text-sm mb-1.5">{{ $segment['title'] }}</h3>
+                            <p class="text-xs text-slate-500">{{ $segment['desc'] }}</p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </section>
     @endif

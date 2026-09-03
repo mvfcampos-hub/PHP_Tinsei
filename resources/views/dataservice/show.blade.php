@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'DataService — Portal de gestão completa da assistência técnica')
-@section('description', 'DataService: portal de gestão de assistência técnica com abertura e acompanhamento de OS e requisições, consultas fiscais e financeiras, roteirização e monitoramento de SLA em tempo real. Integrado ao DataMobile e ao DataClassic, ou de forma independente.')
+@section('description', 'DataService: sistema web para ordens de serviço, com abertura e acompanhamento de OS e requisições, consultas fiscais e financeiras, roteirização e monitoramento de SLA em tempo real. Integrado ao DataMobile e ao DataClassic, ou de forma independente.')
 @section('canonical', route('dataservice.show'))
 
 @push('schema')

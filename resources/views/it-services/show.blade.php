@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Serviços de TI')
-@section('description', 'Serviços de TI Databit: Databit MSP, DataGateway+, DataSecurity+, DataBackup+ e Consultoria e Projetos de TI.')
+@section('title', 'Serviços de TI — MSP, Projetos de TI e Suporte para Empresas')
+@section('description', 'Serviços de TI Databit: contratos de suporte de TI (MSP), projetos de Microsoft 365, Google Workspace, virtualização, redes WiFi e DataCenter, backup em nuvem e segurança gerenciada.')
 
 @section('content')
     <section class="bg-brand-950 bg-grid-pattern">
@@ -17,6 +17,11 @@
             <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero falar sobre Serviços de TI.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition mt-8">
                 Falar com um especialista
             </a>
+            <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+                @foreach (['Contratos de suporte de TI', 'Projetos Microsoft 365', 'Projetos Google Workspace', 'Projetos de virtualização', 'Projetos WiFi', 'Serviços de DataCenter'] as $chip)
+                    <span class="rounded-full border border-white/20 px-3 py-1 text-xs font-medium text-brand-200">{{ $chip }}</span>
+                @endforeach
+            </div>
         </div>
     </section>
 

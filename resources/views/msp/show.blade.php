@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Serviços Gerenciados de TI (MSP)')
-@section('description', 'Databit MSP: gestão completa da TI da sua empresa por uma mensalidade fixa — service desk, monitoramento 24/7, segurança, rede, patches, inventário e consultoria estratégica.')
+@section('title', 'Databit MSP — Serviços MSP e Contrato de Suporte de TI')
+@section('description', 'Databit MSP: contrato de suporte de TI com gestão completa da sua infraestrutura por uma mensalidade fixa — service desk, monitoramento 24/7, segurança, rede, patches, inventário e consultoria estratégica (vCIO).')
 
 @section('content')
     <section class="bg-brand-950 bg-grid-pattern">
