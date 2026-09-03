@@ -13,30 +13,116 @@
                  x-init="setInterval(() => active = (active + 1) % total, 6000)"
                  class="relative h-[420px] sm:h-[500px] overflow-hidden">
                 @foreach ($heroBanners as $index => $banner)
-                    <a href="{{ $banner->link_url ?? '#' }}"
-                       x-show="active === {{ $index }}" x-transition:enter.duration.700ms
-                       class="absolute inset-0 block">
-                        @if ($banner->overlay_title)
-                            <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-60">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
-                            <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-                                <div class="mx-auto max-w-7xl">
-                                    <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/20 text-accent-300 px-3 py-1 text-xs font-semibold mb-3">
-                                        Aviso Databit
-                                    </span>
-                                    <h2 class="text-2xl sm:text-4xl font-bold text-white max-w-2xl">{{ $banner->title }}</h2>
+                    @if ($banner->variant === 'product_spotlight' && $banner->product)
+                        @php
+                            $product = $banner->product;
+                            $isCloud = $product->category === 'cloud';
+                            $spotlightHref = $banner->link_url ?: ($isCloud ? route('cloud.show') : route('products.show', $product->slug));
+                        @endphp
+                        <a href="{{ $spotlightHref }}"
+                           x-show="active === {{ $index }}" x-transition:enter.duration.700ms
+                           @class([
+                               'absolute inset-0 block overflow-hidden bg-brand-950',
+                               'bg-gradient-to-br from-accent-950 via-brand-950 to-brand-950' => $isCloud,
+                               'bg-gradient-to-br from-brand-900 via-brand-950 to-brand-950' => ! $isCloud,
+                           ])
+                        >
+                            <div class="absolute inset-0 bg-grid-pattern"></div>
+                            <div @class([
+                                'absolute -top-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-30',
+                                'right-0 bg-accent-500' => $isCloud,
+                                '-right-10 bg-brand-500' => ! $isCloud,
+                            ])></div>
+
+                            <div class="relative h-full mx-auto max-w-7xl px-6 sm:px-10 flex items-center">
+                                <div class="grid lg:grid-cols-2 gap-10 items-center w-full">
+                                    <div>
+                                        <span @class([
+                                            'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold mb-4',
+                                            'bg-accent-500/15 text-accent-300' => $isCloud,
+                                            'bg-white/10 text-brand-200' => ! $isCloud,
+                                        ])>
+                                            {{ $product->categoryLabel() }}
+                                        </span>
+                                        <h2 class="text-3xl sm:text-5xl font-bold text-white leading-tight">{{ $product->tagline ?: $product->name }}</h2>
+                                        <p class="text-brand-200 mt-4 max-w-lg text-base sm:text-lg">{{ $product->summary }}</p>
+
+                                        @if (!empty($banner->highlights))
+                                            <div class="flex flex-wrap gap-2 mt-6">
+                                                @foreach ($banner->highlights as $highlight)
+                                                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-medium text-white">
+                                                        <svg class="h-3.5 w-3.5 {{ $isCloud ? 'text-accent-400' : 'text-accent-400' }}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                                                        {{ $highlight }}
+                                                    </span>
+                                                @endforeach
+                                            </div>
+                                        @endif
+
+                                        <span @class([
+                                            'inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold mt-8 transition',
+                                            'bg-accent-500 text-white hover:bg-accent-600' => $isCloud,
+                                            'bg-white text-brand-900 hover:bg-brand-50' => ! $isCloud,
+                                        ])>
+                                            Conhecer o {{ $product->name }}
+                                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                        </span>
+                                    </div>
+
+                                    <div class="hidden lg:flex items-center justify-center relative h-72">
+                                        <div @class([
+                                            'flex h-56 w-56 items-center justify-center rounded-[2.5rem] border backdrop-blur-sm',
+                                            'bg-accent-500/10 border-accent-400/30' => $isCloud,
+                                            'bg-white/5 border-white/10' => ! $isCloud,
+                                        ])>
+                                            @if ($product->icon)
+                                                <x-dynamic-component :component="$product->icon" @class([
+                                                    'h-24 w-24',
+                                                    'text-accent-300' => $isCloud,
+                                                    'text-white' => ! $isCloud,
+                                                ]) />
+                                            @endif
+                                        </div>
+
+                                        @if (!empty($banner->highlights[0]))
+                                            <div class="absolute -top-2 -left-6 rounded-xl bg-white shadow-xl px-4 py-2.5 text-xs font-semibold text-slate-800">
+                                                {{ $banner->highlights[0] }}
+                                            </div>
+                                        @endif
+                                        @if (!empty($banner->highlights[1]))
+                                            <div class="absolute bottom-4 -right-4 rounded-xl bg-white shadow-xl px-4 py-2.5 text-xs font-semibold text-slate-800">
+                                                {{ $banner->highlights[1] }}
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        @else
-                            <div class="flex h-full w-full items-center justify-center bg-white">
-                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain">
-                            </div>
-                        @endif
-                    </a>
+                        </a>
+                    @else
+                        <a href="{{ $banner->link_url ?? '#' }}"
+                           x-show="active === {{ $index }}" x-transition:enter.duration.700ms
+                           class="absolute inset-0 block">
+                            @if ($banner->overlay_title)
+                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-60">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
+                                <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
+                                    <div class="mx-auto max-w-7xl">
+                                        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/20 text-accent-300 px-3 py-1 text-xs font-semibold mb-3">
+                                            Aviso Databit
+                                        </span>
+                                        <h2 class="text-2xl sm:text-4xl font-bold text-white max-w-2xl">{{ $banner->title }}</h2>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="flex h-full w-full items-center justify-center bg-white">
+                                    <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain">
+                                </div>
+                            @endif
+                        </a>
+                    @endif
                 @endforeach
 
                 @if ($heroBanners->count() > 1)
-                    <div class="absolute bottom-4 right-4 sm:right-10 flex gap-2">
+                    <div class="absolute bottom-4 right-4 sm:right-10 z-20 flex gap-2">
                         @foreach ($heroBanners as $index => $banner)
                             <button @click="active = {{ $index }}" class="h-2.5 w-2.5 rounded-full bg-white" :class="active === {{ $index }} ? 'opacity-100' : 'opacity-40'"></button>
                         @endforeach

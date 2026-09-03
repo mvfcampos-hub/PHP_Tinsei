@@ -570,15 +570,11 @@ class DatabaseSeeder extends Seeder
     private function seedBanners(): void
     {
         $this->putSeedFile('banners/databit-minasparts-da-placa-a-peca.png', 'banners/databit-minasparts-da-placa-a-peca.png');
-        $this->putPlaceholderSvg('banners/hero-datamobile.svg', 1200, 500, '#1b2c6e', 'Databit · Conheça o novo DataMobile 2025');
-        $this->putPlaceholderSvg('banners/hero-datacloud.svg', 1200, 500, '#0e1836', 'Databit · DataCloud, infraestrutura sob demanda');
         $this->putPlaceholderSvg('banners/campaign-30-anos.svg', 800, 400, '#2347d6', 'Databit · +30 anos de mercado');
         $this->putPlaceholderSvg('banners/campaign-datasac.svg', 800, 400, '#0891b2', 'Databit · Conheça o DataSAC');
 
         $items = [
             ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 1, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => false],
-            ['title' => 'Conheça o novo DataMobile 2025', 'image' => 'banners/hero-datamobile.svg', 'placement' => 'home_hero', 'sort_order' => 2],
-            ['title' => 'DataCloud: infraestrutura sob demanda para o seu negócio', 'image' => 'banners/hero-datacloud.svg', 'placement' => 'home_hero', 'sort_order' => 3],
             ['title' => 'Databit — mais de 30 anos simplificando a gestão empresarial', 'image' => 'banners/campaign-30-anos.svg', 'placement' => 'home_secondary', 'sort_order' => 1],
             ['title' => 'Centralize o atendimento da sua empresa com o DataSAC', 'image' => 'banners/campaign-datasac.svg', 'placement' => 'home_secondary', 'sort_order' => 2],
         ];
@@ -594,6 +590,43 @@ class DatabaseSeeder extends Seeder
                     'sort_order' => $item['sort_order'],
                     'is_active' => true,
                     'overlay_title' => $item['overlay_title'] ?? true,
+                ]
+            );
+        }
+
+        // Banners de destaque de produto (ERP DataClassic e DataCloud) —
+        // slides desenhados em CSS a partir dos dados reais do produto, sem
+        // depender de peças gráficas prontas. Giram no carrossel principal
+        // junto com o banner "Da placa à peça" acima (troca automática a
+        // cada 6s + navegação manual pelos indicadores).
+        $spotlights = [
+            [
+                'title' => 'Destaque: DataClassic (ERP)',
+                'product_slug' => 'dataclassic',
+                'sort_order' => 2,
+                'highlights' => ['12 módulos integrados', 'Fiscal e financeiro completo', 'Mais de 30 anos de mercado'],
+            ],
+            [
+                'title' => 'Destaque: DataCloud',
+                'product_slug' => 'datacloud',
+                'sort_order' => 3,
+                'highlights' => ['Linux, Windows e SQL Server', 'Escalabilidade sem migração complexa', 'Suporte especializado em português'],
+            ],
+        ];
+
+        foreach ($spotlights as $item) {
+            $product = Product::where('slug', $item['product_slug'])->first();
+
+            Banner::firstOrCreate(
+                ['title' => $item['title']],
+                [
+                    'title' => $item['title'],
+                    'variant' => 'product_spotlight',
+                    'product_id' => $product?->id,
+                    'highlights' => $item['highlights'],
+                    'placement' => 'home_hero',
+                    'sort_order' => $item['sort_order'],
+                    'is_active' => true,
                 ]
             );
         }

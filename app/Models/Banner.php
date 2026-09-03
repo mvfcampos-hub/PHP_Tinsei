@@ -5,14 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Banner extends Model
 {
     use HasFactory;
 
+    public const VARIANTS = [
+        'image' => 'Imagem enviada',
+        'product_spotlight' => 'Destaque de produto (desenhado)',
+    ];
+
     protected $fillable = [
         'title',
+        'variant',
         'image',
+        'product_id',
+        'highlights',
         'link_url',
         'placement',
         'starts_at',
@@ -27,7 +36,13 @@ class Banner extends Model
         'ends_at' => 'datetime',
         'is_active' => 'boolean',
         'overlay_title' => 'boolean',
+        'highlights' => 'array',
     ];
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
 
     public function scopeActive(Builder $query): Builder
     {
