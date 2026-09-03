@@ -11,7 +11,7 @@
                         <a
                             href="{{ $item->resolveUrl() }}"
                             @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif
-                            class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-800 transition"
+                            class="flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-sm font-medium text-slate-700 rounded-lg hover:bg-brand-50 hover:text-brand-800 transition"
                         >
                             {{ $item->label }}
                             @if ($item->children->isNotEmpty())

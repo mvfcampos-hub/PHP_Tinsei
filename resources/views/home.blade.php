@@ -57,7 +57,7 @@
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ([
-                ['label' => 'Produtos', 'route' => 'products.index', 'path' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25-2.25m-2.25 2.25V6.75m-8.25.75h16.5'],
+                ['label' => 'Sistemas', 'route' => 'products.index', 'path' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25-2.25m-2.25 2.25V6.75m-8.25.75h16.5'],
                 ['label' => 'DataCloud', 'route' => 'cloud.show', 'path' => 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z'],
                 ['label' => 'Novidades', 'route' => 'news.index', 'path' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-1.519-2.121L12 13.5m1.481 1.629L15 13.5m-1.519 1.629L12 17.25M8.25 21h7.5a2.25 2.25 0 002.25-2.25V9.75L14.25 3H8.25a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 008.25 21z'],
                 ['label' => 'Agenda', 'route' => 'events.index', 'path' => 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5'],
@@ -77,7 +77,7 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             @foreach ([
                 ['value' => '+30', 'label' => 'anos de mercado'],
-                ['value' => '+9', 'label' => 'produtos integrados'],
+                ['value' => '+12', 'label' => 'sistemas integrados'],
                 ['value' => '99,9%', 'label' => 'uptime no DataCloud'],
                 ['value' => '100%', 'label' => 'suporte em português'],
             ] as $stat)
@@ -172,29 +172,40 @@
         </div>
     </section>
 
-    {{-- Serviços de TI (tratado à parte das soluções de sistemas e do DataCloud) --}}
-    @if ($tiProduct)
-        <section class="bg-white border-t border-slate-200">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-                <div class="flex flex-col sm:flex-row items-center gap-6 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+    {{-- Serviços de TI e Produtos de informática (tratados à parte das soluções de sistemas e do DataCloud) --}}
+    <section class="bg-white border-t border-slate-200">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+            <span class="text-xs font-medium text-accent-600 uppercase tracking-wide">Além dos sistemas e do DataCloud</span>
+            <div class="grid sm:grid-cols-2 gap-6 mt-4">
+                <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                     <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        @if ($tiProduct->icon)
-                            <x-dynamic-component :component="$tiProduct->icon" class="h-7 w-7" />
-                        @endif
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>
                     </span>
-                    <div class="flex-1 text-center sm:text-left">
-                        <span class="text-xs font-medium text-accent-600 uppercase tracking-wide">Além dos sistemas e do DataCloud</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-1">{{ $tiProduct->name }}</h3>
-                        <p class="text-slate-600 text-sm mt-1">{{ $tiProduct->summary }}</p>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-slate-900">Serviços de TI</h3>
+                        <p class="text-slate-600 text-sm mt-1">Do atendimento avulso ao outsourcing completo, uma empresa parceira para a sua operação.</p>
+                        <a href="{{ route('it-services.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
+                            Conhecer os serviços
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
                     </div>
-                    <a href="{{ route('products.show', $tiProduct->slug) }}" class="shrink-0 inline-flex items-center gap-1 rounded-lg bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800 transition">
-                        Conhecer o serviço
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                    </a>
+                </div>
+                <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
+                    </span>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-slate-900">Produtos de informática</h3>
+                        <p class="text-slate-600 text-sm mt-1">Apoiamos a escolha e a compra de notebooks, servidores, periféricos e mais.</p>
+                        <a href="{{ route('hardware.index') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
+                            Ver produtos
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
-    @endif
+        </div>
+    </section>
 
     {{-- Novidades + Agenda --}}
     <section class="bg-white border-t border-slate-200">

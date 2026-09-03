@@ -46,10 +46,17 @@ class DatabaseSeeder extends Seeder
     private function seedPages(): void
     {
         $pages = [
-            ['title' => 'Grupo Databit', 'slug' => 'grupo-databit', 'content' => '<p>Há mais de 30 anos no mercado, a Databit desenvolve tecnologia para simplificar a gestão de atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço em todo o Brasil — com um ecossistema que integra ERP, Cloud, mobilidade, atendimento ao cliente e serviços de TI.</p>'],
+            ['title' => 'Grupo Databit', 'slug' => 'grupo-databit', 'content' => $this->grupoDatabitContent()],
             ['title' => 'Perguntas Frequentes', 'slug' => 'perguntas-frequentes', 'content' => '<p>Conteúdo institucional de perguntas frequentes (FAQ) a ser migrado do site atual (databit.com.br).</p>'],
             ['title' => 'Identidade Visual da Databit', 'slug' => 'identidade-visual-da-databit', 'content' => '<p>Página reservada para o manual de marca da Databit (cores, logotipo e tipografia). Conteúdo a ser recebido do cliente.</p>'],
-            ['title' => 'Fale Conosco', 'slug' => 'fale-conosco', 'content' => '<p>Atendimento: <a href="mailto:atendimento@databit.com.br">atendimento@databit.com.br</a> · WhatsApp: (31) 99727-8589 · Belo Horizonte/MG.</p>'],
+            ['title' => 'Fale Conosco', 'slug' => 'fale-conosco', 'content' => '<p><strong>Endereço:</strong> R. Mário Campos, 197 - Inconfidência, Belo Horizonte - MG, 30820-280</p>'
+                .'<p><strong>Atendimento:</strong> <a href="mailto:atendimento@databit.com.br">atendimento@databit.com.br</a></p>'
+                .'<p><strong>Comercial:</strong> <a href="mailto:comercial@databit.com.br">comercial@databit.com.br</a></p>'
+                .'<p><strong>Telefones:</strong> (31) 3416-8225 · WhatsApp (31) 99727-8589 / (31) 99723-0427</p>'
+                .'<p><strong>Ouvidoria:</strong> <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a></p>'
+                .'<p><strong>Faça parte da equipe Databit:</strong> envie seu currículo para <a href="mailto:rh@databit.com.br">rh@databit.com.br</a></p>'],
+            ['title' => 'Políticas de Privacidade', 'slug' => 'politicas-de-privacidade', 'content' => '<p>Conteúdo da Política de Privacidade a ser fornecido pelo jurídico da Databit, em conformidade com a LGPD.</p>'],
+            ['title' => 'Políticas de Cookies', 'slug' => 'politicas-de-cookies', 'content' => '<p>Conteúdo da Política de Cookies a ser fornecido pelo jurídico da Databit.</p>'],
         ];
 
         foreach ($pages as $page) {
@@ -57,35 +64,107 @@ class DatabaseSeeder extends Seeder
         }
     }
 
+    private function grupoDatabitContent(): string
+    {
+        $timeline = [
+            '1986' => 'Fundação da Databit por Roger Martins e Andreia Formaggini, com foco em manutenção de equipamentos de informática.',
+            '1998' => 'Expansão para a venda de equipamentos de informática e periféricos.',
+            '2001' => 'Marcos Campos assume a direção e amplia a atuação para consultoria de TI e suporte a projetos.',
+            '2005' => 'Sidney Sanches se junta à liderança e inicia o desenvolvimento do ERP próprio da Databit.',
+            '2006' => 'Lançamento da Dinâmica Computer, para produtos de tecnologia e projetos de infraestrutura.',
+            '2008' => 'Lançamento do ERP DataClassic.',
+            '2010' => 'Lançamento do DataService, ferramenta de gestão via navegador.',
+            '2014' => 'Lançamento do DataMobile.',
+            '2018' => 'Bruno Espindola se junta à liderança como diretor especialista em TI.',
+            '2022' => 'Lançamento do DataWhats.',
+            '2023' => 'Lançamento do DataShipping e do DataInvoice.',
+            '2024' => 'Lançamento do DataClient CRM.',
+        ];
+
+        $leadership = [
+            'Roger Martins' => 'CEO',
+            'Marcos Campos' => 'COO',
+            'Sidney Sanches' => 'CTO',
+            'Andreia Formaggini' => 'Diretora Financeira',
+            'Fabiano Oliveira' => 'Gerente de Sistemas',
+            'Fabricio Alcantara' => 'Gerente de Soluções Integradas',
+            'Gisele Fernandes' => 'Relacionamento com o Cliente',
+            'Bruno Espindola' => 'Diretor Especialista em TI',
+        ];
+
+        return '<p>Há mais de 30 anos no mercado, a Databit desenvolve tecnologia para simplificar a gestão de atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço em todo o Brasil — com um ecossistema que integra ERP, Cloud, mobilidade, atendimento ao cliente e serviços de TI.</p>'
+            .'<h3>Missão</h3><p>Entregar soluções de tecnologia de ponta a preços competitivos, com profissionais qualificados e serviços de alta qualidade, garantindo a completa satisfação dos clientes.</p>'
+            .'<h3>Visão</h3><p>Ser referência nacional em consultoria de TI e sistemas de gestão.</p>'
+            .'<h3>Valores</h3><p>Ética, comprometimento, integridade, respeito, profissionalismo, valorização das pessoas, criatividade, proatividade e inovação.</p>'
+            .'<h3>Nossa trajetória</h3><ul>'
+            .collect($timeline)->map(fn ($desc, $year) => "<li><strong>{$year}:</strong> {$desc}</li>")->implode('')
+            .'</ul>'
+            .'<h3>Liderança</h3><ul>'
+            .collect($leadership)->map(fn ($role, $name) => "<li><strong>{$name}</strong> — {$role}</li>")->implode('')
+            .'</ul>';
+    }
+
     private function seedMenu(): void
     {
         $items = [
             ['label' => 'Início', 'url' => '/', 'sort_order' => 1],
-            ['label' => 'Produtos', 'url' => '/produtos', 'sort_order' => 2],
+            ['label' => 'Sistemas', 'url' => '/sistemas', 'sort_order' => 2],
             ['label' => 'DataCloud', 'url' => '/datacloud', 'sort_order' => 3],
-            ['label' => 'Novidades', 'url' => '/novidades', 'sort_order' => 4],
-            ['label' => 'Agenda', 'url' => '/agenda', 'sort_order' => 5],
-            ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 6],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 7],
+            ['label' => 'Serviços TI', 'url' => '/servicos-ti', 'sort_order' => 4],
+            ['label' => 'Produtos', 'url' => '/produtos', 'sort_order' => 5],
+            ['label' => 'Novidades', 'url' => '/novidades', 'sort_order' => 6],
+            ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 7],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 8],
         ];
 
         foreach ($items as $item) {
             MenuItem::firstOrCreate(['label' => $item['label']], $item);
         }
+
+        // Agenda entra como submenu de Novidades para manter o menu principal
+        // enxuto, no mesmo formato de navegação (7-8 itens) do site atual.
+        $novidades = MenuItem::where('label', 'Novidades')->first();
+        MenuItem::firstOrCreate(
+            ['label' => 'Agenda'],
+            ['label' => 'Agenda', 'url' => '/agenda', 'parent_id' => $novidades?->id, 'sort_order' => 1]
+        );
     }
 
     private function seedProducts(): void
     {
+        $dataClassicModules = [
+            'Gestão de Cadastros' => 'Controle de clientes, fornecedores, vendedores, serviços e produtos, com histórico completo de dados.',
+            'Gestão de Compras' => 'Sugestão de compras, fluxo de aprovação, avaliação de fornecedores e auditoria de estoque.',
+            'Gestão de Estoque' => 'Mapeamento de estoque, controle de inventário, organização de dados e ferramentas de análise.',
+            'Gestão de Contratos' => 'Cadastro de contratos, controle de materiais, retiradas de estoque e encerramento de contrato.',
+            'Gestão de Orçamentos' => 'Precificação dinâmica, formatação fiscal interestadual, orçamentos de produtos/serviços e análise de rentabilidade.',
+            'Gestão Fiscal e Integração Contábil' => 'Apuração de impostos, análise de documentos fiscais, Sintegra e Sped (PIS-COFINS, ICMS-IPI).',
+            'Análise Gerencial' => 'Relatórios de vendas, compras, faturamento, financeiro, fluxo de caixa e análise de resultados.',
+            'Gestão de Assistência Técnica' => 'Gestão de ordens de serviço (OS), da abertura ao fechamento detalhado.',
+            'Gestão de Expedição' => 'Expedição de mercadorias, controle de saída e rastreamento de entregas.',
+            'Logística Reversa' => 'Controle de devoluções de peças, insumos e itens substituídos.',
+            'Gestão Financeira' => 'Contas a pagar/receber, emissão de boletos, controle de crédito, fluxo de caixa e previsões.',
+            'Gestão de Faturamento' => 'Emissão de notas fiscais, consulta de IE de fornecedores e ambiente de contingência.',
+        ];
+
+        $dataClassicDescription = '<p>Sistema de gestão empresarial completo, modular e de fácil operação, para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço nos segmentos de comércio, locação, prestação de serviço e outsourcing.</p>'
+            .'<h3>Módulos do DataClassic</h3><ul>'
+            .collect($dataClassicModules)->map(fn ($desc, $name) => "<li><strong>{$name}:</strong> {$desc}</li>")->implode('')
+            .'</ul>'
+            .'<p>O DataClassic também conta com conferência de estoque, gestor de documentos fiscais, coletor de série/lote, integrações de outsourcing (Printwayy, Orbix, Doc Service, IBSTracker), APIs abertas (Tray Commerce, Pluggto), emissão de etiquetas, aplicativo de XML, disparo de e-mails de OS, NFS-e e integrações com transportadoras (Correios, Mercocamp, Leolog).</p>';
+
         $items = [
             [
                 'name' => 'DataClassic',
                 'category' => 'gestao',
                 'tagline' => 'O sistema de gestão do seu negócio',
-                'summary' => 'ERP completo para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço, com módulos para comércio, locação, prestação de serviço e outsourcing.',
+                'summary' => 'ERP completo para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço, com 12 módulos integrados — de cadastros e compras a fiscal, financeiro e faturamento.',
+                'description' => $dataClassicDescription,
                 'icon' => 'heroicon-o-building-storefront',
                 'external_url' => null,
                 'is_featured' => true,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => false,
             ],
             [
                 'name' => 'DataCloud',
@@ -96,6 +175,7 @@ class DatabaseSeeder extends Seeder
                 'external_url' => null,
                 'is_featured' => true,
                 'is_cloud_highlight' => true,
+                'is_ecosystem_node' => false,
             ],
             [
                 'name' => 'DataMobile',
@@ -106,6 +186,7 @@ class DatabaseSeeder extends Seeder
                 'external_url' => 'https://databit.com.br/mobile.html',
                 'is_featured' => true,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
             ],
             [
                 'name' => 'DataSAC',
@@ -116,6 +197,7 @@ class DatabaseSeeder extends Seeder
                 'external_url' => 'https://datasac.com.br',
                 'is_featured' => true,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
             ],
             [
                 'name' => 'DataMDFe',
@@ -126,6 +208,7 @@ class DatabaseSeeder extends Seeder
                 'external_url' => 'https://datamdfe.com.br',
                 'is_featured' => true,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => false,
             ],
             [
                 'name' => 'DataClient CRM',
@@ -136,6 +219,7 @@ class DatabaseSeeder extends Seeder
                 'external_url' => 'https://databit.com.br/DataClient.html',
                 'is_featured' => false,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
             ],
             [
                 'name' => 'DataWhats',
@@ -146,16 +230,62 @@ class DatabaseSeeder extends Seeder
                 'external_url' => null,
                 'is_featured' => false,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
             ],
             [
-                'name' => 'Serviços de TI',
-                'category' => 'ti',
-                'tagline' => 'Infraestrutura e suporte para a sua operação',
-                'summary' => 'Consultoria, suporte técnico, equipamentos e projetos de infraestrutura de TI para manter a operação da sua empresa sempre no ar.',
-                'icon' => 'heroicon-o-wrench-screwdriver',
+                'name' => 'DataService',
+                'category' => 'integracoes',
+                'tagline' => 'O DataClassic no navegador, de qualquer lugar',
+                'summary' => 'Ferramenta de gestão via navegador que leva o acesso ao DataClassic para fora do escritório, sem instalação local.',
+                'icon' => 'heroicon-o-globe-alt',
                 'external_url' => null,
                 'is_featured' => false,
                 'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
+            ],
+            [
+                'name' => 'DataCount',
+                'category' => 'integracoes',
+                'tagline' => 'Contagem de estoque sem parar a operação',
+                'summary' => 'Ferramenta de contagem de inventário por coletor ou aplicativo, integrada ao estoque do DataClassic.',
+                'icon' => 'heroicon-o-clipboard-document-check',
+                'external_url' => null,
+                'is_featured' => false,
+                'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
+            ],
+            [
+                'name' => 'DataInvoice',
+                'category' => 'integracoes',
+                'tagline' => 'Gestão eletrônica de notas fiscais de entrada',
+                'summary' => 'Captura, conferência e lançamento automatizado de notas fiscais de entrada, reduzindo o trabalho manual da equipe fiscal.',
+                'icon' => 'heroicon-o-document-duplicate',
+                'external_url' => null,
+                'is_featured' => false,
+                'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
+            ],
+            [
+                'name' => 'DataShipping',
+                'category' => 'integracoes',
+                'tagline' => 'Expedição e rastreio integrados às transportadoras',
+                'summary' => 'Integração com transportadoras parceiras para cotação, etiquetagem e rastreamento de encomendas direto do DataClassic.',
+                'icon' => 'heroicon-o-truck',
+                'external_url' => null,
+                'is_featured' => false,
+                'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
+            ],
+            [
+                'name' => 'DataDashboard',
+                'category' => 'integracoes',
+                'tagline' => 'Indicadores do seu negócio em tempo real',
+                'summary' => 'Painéis gerenciais com os principais indicadores de vendas, estoque e financeiro do DataClassic, atualizados em tempo real.',
+                'icon' => 'heroicon-o-chart-bar',
+                'external_url' => null,
+                'is_featured' => false,
+                'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
             ],
         ];
 
@@ -167,11 +297,12 @@ class DatabaseSeeder extends Seeder
                     'category' => $item['category'],
                     'tagline' => $item['tagline'],
                     'summary' => $item['summary'],
-                    'description' => '<p>'.$item['summary'].'</p><p>Conteúdo completo do produto a ser migrado do site atual (databit.com.br).</p>',
+                    'description' => $item['description'] ?? '<p>'.$item['summary'].'</p><p>Conteúdo completo do produto a ser migrado do site atual (databit.com.br).</p>',
                     'icon' => $item['icon'],
                     'external_url' => $item['external_url'],
                     'is_featured' => $item['is_featured'],
                     'is_cloud_highlight' => $item['is_cloud_highlight'],
+                    'is_ecosystem_node' => $item['is_ecosystem_node'],
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]
@@ -378,22 +509,22 @@ class DatabaseSeeder extends Seeder
             [
                 'client_name' => 'Diretoria Mapel',
                 'role' => 'Cliente Databit há 6 anos',
-                'company' => 'Mapel',
+                'company' => 'Mapel Soluções em Tecnologia de Impressão',
                 'quote' => 'A Databit está com a gente há 6 anos. O que mais valorizamos é o atendimento próximo e uma solução robusta o suficiente para acompanhar o crescimento da operação.',
                 'rating' => 5,
             ],
             [
                 'client_name' => 'Equipe de Operações',
-                'role' => 'Gerente de TI',
-                'company' => 'Distribuidora parceira',
-                'quote' => 'Migramos para o DataCloud e ganhamos previsibilidade de custo e escalabilidade sem dor de cabeça com migração de servidores.',
+                'role' => 'Cliente Databit',
+                'company' => 'Distrivisa',
+                'quote' => 'Depoimento oficial a ser inserido pela equipe Databit.',
                 'rating' => 5,
             ],
             [
-                'client_name' => 'Coordenação Comercial',
-                'role' => 'Coordenadora Comercial',
-                'company' => 'Locadora parceira',
-                'quote' => 'O DataMobile mudou a forma como nossa equipe de campo trabalha: menos retrabalho, mais visibilidade das ordens de serviço em tempo real.',
+                'client_name' => 'Equipe de Operações',
+                'role' => 'Cliente Databit',
+                'company' => 'Tinsei',
+                'quote' => 'Depoimento oficial a ser inserido pela equipe Databit.',
                 'rating' => 5,
             ],
         ];
@@ -416,8 +547,8 @@ class DatabaseSeeder extends Seeder
 
     private function seedClients(): void
     {
-        $clients = ['Apnet', 'Distrivisa', 'Grupo Positiva', 'Repro MAQ', 'Reprócopia', 'Working Plus'];
-        $partners = ['Microsoft', 'Dell', 'Lenovo', 'Bitdefender', 'Algar'];
+        $clients = ['Apnet', 'Distrivisa', 'Grupo Positiva', 'Repro MAQ', 'Reprócopia', 'Tinsei', 'Working Plus'];
+        $partners = ['Microsoft', 'Dell', 'Lenovo', 'Bitdefender', 'Algar', 'Century'];
 
         foreach ($clients as $index => $name) {
             $path = 'clients/'.Str::slug($name).'.svg';

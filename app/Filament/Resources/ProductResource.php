@@ -79,6 +79,9 @@ class ProductResource extends Resource
                 Forms\Components\Toggle::make('is_cloud_highlight')
                     ->label('Destaque especial de Cloud')
                     ->helperText('Marque para exibir na seção especial de DataCloud da home.'),
+                Forms\Components\Toggle::make('is_ecosystem_node')
+                    ->label('Exibir no diagrama do ecossistema')
+                    ->helperText('Controla se este produto aparece como módulo satélite ao redor do DataClassic no diagrama da home e da página Sistemas.'),
                 Forms\Components\Toggle::make('is_active')
                     ->label('Ativo')
                     ->default(true)
@@ -105,6 +108,9 @@ class ProductResource extends Resource
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_cloud_highlight')
                     ->label('Cloud')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('is_ecosystem_node')
+                    ->label('Ecossistema')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('sort_order')
                     ->label('Ordem')

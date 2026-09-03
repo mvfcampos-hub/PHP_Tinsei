@@ -5,13 +5,15 @@
     // da família azul/ciano da marca (mantendo o azul como cor padrão) para
     // diferenciar cada nó, inspirado no diagrama de referência do cliente.
     $labels = [
-        'datacloud' => ['Data', 'Cloud', 'text-sky-600'],
         'datamobile' => ['Data', 'Mobile', 'text-indigo-600'],
         'datasac' => ['Data', 'SAC', 'text-cyan-600'],
-        'datamdfe' => ['Data', 'MDFe', 'text-blue-700'],
         'dataclient-crm' => ['Data', 'Client', 'text-violet-600'],
         'datawhats' => ['Data', 'Whats', 'text-teal-600'],
-        'servicos-de-ti' => ['Serviços', 'de TI', 'text-slate-500'],
+        'dataservice' => ['Data', 'Service', 'text-sky-600'],
+        'datacount' => ['Data', 'Count', 'text-rose-500'],
+        'datainvoice' => ['Data', 'Invoice', 'text-amber-600'],
+        'datashipping' => ['Data', 'Shipping', 'text-emerald-600'],
+        'datadashboard' => ['Data', 'Dashboard', 'text-blue-700'],
     ];
 
     $radius = 38;

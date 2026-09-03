@@ -3,17 +3,18 @@
         <div class="lg:col-span-2">
             <x-logo variant="white" class="mb-4" />
             <p class="text-sm text-brand-200">
-                Há mais de 30 anos desenvolvendo tecnologia para simplificar a gestão empresarial:
-                ERP, Cloud, mobilidade, atendimento ao cliente e serviços de TI para todo o Brasil.
+                Especialistas em ERP, serviços de TI e produtos de informática — há mais de 30 anos simplificando
+                a gestão empresarial em todo o Brasil.
             </p>
         </div>
 
         <div>
-            <h3 class="text-sm font-semibold text-white uppercase tracking-wide mb-4">Produtos</h3>
+            <h3 class="text-sm font-semibold text-white uppercase tracking-wide mb-4">Sistemas</h3>
             <ul class="space-y-2 text-sm text-brand-200">
-                <li><a href="{{ route('products.index') }}" class="hover:text-white transition">Todos os produtos</a></li>
+                <li><a href="{{ route('products.index') }}" class="hover:text-white transition">Todos os sistemas</a></li>
                 <li><a href="{{ route('cloud.show') }}" class="hover:text-white transition">DataCloud</a></li>
-                <li><a href="https://databit.com.br/mobile.html" target="_blank" rel="noopener" class="hover:text-white transition">DataMobile</a></li>
+                <li><a href="{{ route('it-services.show') }}" class="hover:text-white transition">Serviços de TI</a></li>
+                <li><a href="{{ route('hardware.index') }}" class="hover:text-white transition">Produtos de informática</a></li>
                 <li><a href="https://datasac.com.br" target="_blank" rel="noopener" class="hover:text-white transition">DataSAC</a></li>
                 <li><a href="https://datamdfe.com.br" target="_blank" rel="noopener" class="hover:text-white transition">DataMDFe</a></li>
             </ul>
@@ -26,15 +27,18 @@
                 <li><a href="{{ route('news.index') }}" class="hover:text-white transition">Novidades</a></li>
                 <li><a href="{{ route('events.index') }}" class="hover:text-white transition">Agenda</a></li>
                 <li><a href="{{ route('pages.show', 'perguntas-frequentes') }}" class="hover:text-white transition">Perguntas Frequentes</a></li>
-                <li><a href="{{ route('pages.show', 'fale-conosco') }}" class="hover:text-white transition">Fale Conosco</a></li>
+                <li><a href="{{ route('pages.show', 'politicas-de-privacidade') }}" class="hover:text-white transition">Políticas de Privacidade</a></li>
+                <li><a href="{{ route('pages.show', 'politicas-de-cookies') }}" class="hover:text-white transition">Políticas de Cookies</a></li>
+                <li><a href="mailto:relacionamento@databit.com.br" class="hover:text-white transition">Ouvidoria</a></li>
             </ul>
         </div>
 
         <div>
             <h3 class="text-sm font-semibold text-white uppercase tracking-wide mb-4">Contato</h3>
             <ul class="space-y-2 text-sm text-brand-200">
-                <li>Belo Horizonte/MG</li>
+                <li>R. Mário Campos, 197 - Inconfidência, Belo Horizonte/MG</li>
                 <li><a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="hover:text-white transition">(31) 99727-8589</a></li>
+                <li><a href="tel:+553134168225" class="hover:text-white transition">(31) 3416-8225</a></li>
                 <li><a href="mailto:atendimento@databit.com.br" class="hover:text-white transition">atendimento@databit.com.br</a></li>
             </ul>
             <div class="flex items-center gap-3 mt-4">

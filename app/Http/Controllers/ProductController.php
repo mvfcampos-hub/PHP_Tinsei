@@ -11,21 +11,18 @@ class ProductController extends Controller
         $all = Product::active()->get();
 
         // Soluções de sistemas (ERP, mobilidade, atendimento, fiscal, CRM,
-        // comunicação) são apresentadas separadas de Cloud e Serviços de TI,
-        // que são ofertas de infraestrutura/serviço, não módulos de sistema.
+        // comunicação, integrações) são apresentadas separadas do DataCloud, que
+        // é infraestrutura, não um módulo de sistema. Serviços de TI e Produtos
+        // (hardware) têm páginas próprias fora deste catálogo.
         $systemProducts = $all->filter(fn (Product $product) => $product->isSystem())->groupBy('category');
         $cloudProducts = $all->where('category', 'cloud')->values();
-        $tiProducts = $all->where('category', 'ti')->values();
 
         $ecosystemHub = $all->firstWhere('slug', 'dataclassic');
-        $ecosystemSatellites = $ecosystemHub
-            ? $all->filter(fn (Product $product) => $product->isSystem() && $product->id !== $ecosystemHub->id)->values()
-            : collect();
+        $ecosystemSatellites = $all->where('is_ecosystem_node', true)->values();
 
         return view('products.index', compact(
             'systemProducts',
             'cloudProducts',
-            'tiProducts',
             'ecosystemHub',
             'ecosystemSatellites'
         ));

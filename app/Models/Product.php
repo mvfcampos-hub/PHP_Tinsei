@@ -19,20 +19,20 @@ class Product extends Model
         'fiscal' => 'Documentos Fiscais',
         'crm' => 'Relacionamento & Vendas (CRM)',
         'comunicacao' => 'Comunicação',
-        'ti' => 'Serviços de TI',
+        'integracoes' => 'Integrações do DataClassic',
     ];
 
     // Agrupamento de alto nível usado nas listagens: DataCloud (infraestrutura)
-    // e Serviços de TI são ofertas de natureza diferente dos sistemas/softwares
-    // e por isso são sempre apresentados em seções separadas das "Soluções de
-    // Sistemas" (ERP, mobilidade, atendimento, fiscal, CRM e comunicação).
+    // é uma oferta de natureza diferente dos sistemas/softwares e por isso é
+    // sempre apresentada em seção separada das "Soluções de Sistemas". Serviços
+    // de TI e Produtos de informática (hardware) têm páginas próprias e não são
+    // modelados como Product — ver ItServiceController e HardwareController.
     public const GROUPS = [
         'sistemas' => 'Soluções de Sistemas',
         'cloud' => 'Cloud & Infraestrutura',
-        'ti' => 'Serviços de TI',
     ];
 
-    private const NON_SYSTEM_CATEGORIES = ['cloud', 'ti'];
+    private const NON_SYSTEM_CATEGORIES = ['cloud'];
 
     protected $fillable = [
         'name',
@@ -46,6 +46,7 @@ class Product extends Model
         'external_url',
         'is_featured',
         'is_cloud_highlight',
+        'is_ecosystem_node',
         'sort_order',
         'is_active',
     ];
@@ -53,6 +54,7 @@ class Product extends Model
     protected $casts = [
         'is_featured' => 'boolean',
         'is_cloud_highlight' => 'boolean',
+        'is_ecosystem_node' => 'boolean',
         'is_active' => 'boolean',
     ];
 
@@ -79,6 +81,11 @@ class Product extends Model
     public function scopeSystems(Builder $query): Builder
     {
         return $query->whereNotIn('category', self::NON_SYSTEM_CATEGORIES);
+    }
+
+    public function scopeEcosystemNode(Builder $query): Builder
+    {
+        return $query->where('is_ecosystem_node', true);
     }
 
     public function categoryLabel(): string

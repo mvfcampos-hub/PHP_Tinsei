@@ -16,20 +16,17 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         $ecosystemHub = Product::active()->systems()->where('slug', 'dataclassic')->first();
-        $tiProduct = Product::active()->category('ti')->first();
 
         return view('home', [
             'heroBanners' => Banner::active()->placement('home_hero')->get(),
             'noticeBanners' => Banner::active()->placement('home_notice')->get(),
             'secondaryBanners' => Banner::active()->placement('home_secondary')->get(),
             // Somente soluções de sistemas (ERP, mobilidade, atendimento, fiscal,
-            // CRM, comunicação) — Cloud e Serviços de TI têm destaque próprio.
+            // CRM, comunicação, integrações) — Cloud tem destaque próprio; Serviços
+            // de TI e Produtos (hardware) têm páginas dedicadas fora do catálogo.
             'featuredProducts' => Product::active()->systems()->featured()->get(),
             'ecosystemHub' => $ecosystemHub,
-            'ecosystemSatellites' => $ecosystemHub
-                ? Product::active()->systems()->where('id', '!=', $ecosystemHub->id)->get()
-                : collect(),
-            'tiProduct' => $tiProduct,
+            'ecosystemSatellites' => Product::active()->ecosystemNode()->get(),
             'cloudProduct' => Product::active()->where('is_cloud_highlight', true)->first(),
             'cloudPlans' => CloudPlan::active()->take(3)->get(),
             'featuredNews' => News::published()->where('is_featured', true)->latest('published_at')->take(3)->get(),

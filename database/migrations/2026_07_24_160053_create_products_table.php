@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('external_url')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_cloud_highlight')->default(false);
+            $table->boolean('is_ecosystem_node')->default(false);
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
