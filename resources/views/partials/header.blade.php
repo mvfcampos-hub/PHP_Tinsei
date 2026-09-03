@@ -34,9 +34,6 @@
             </nav>
 
             <div class="flex items-center gap-2">
-                <a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
-                    Fale com um especialista
-                </a>
                 <a href="#" class="hidden md:inline-flex items-center rounded-lg border border-brand-200 px-4 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                     Área do Cliente
                 </a>
@@ -59,9 +56,6 @@
                         </a>
                     @endforeach
                 @endforeach
-                <a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="mt-2 inline-flex items-center justify-center rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 transition">
-                    Fale com um especialista
-                </a>
             </nav>
         </div>
     </div>
