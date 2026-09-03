@@ -6,6 +6,7 @@ use App\Http\Controllers\DataBackupController;
 use App\Http\Controllers\DataClientController;
 use App\Http\Controllers\DataGatewayController;
 use App\Http\Controllers\DataMobileController;
+use App\Http\Controllers\DataStoreController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\HomeController;
@@ -34,6 +35,7 @@ Route::get('/sistemas/{product:slug}', [ProductController::class, 'show'])->name
 Route::get('/datacloud', CloudController::class)->name('cloud.show');
 Route::get('/dataclient', DataClientController::class)->name('dataclient.show');
 Route::get('/datamobile', DataMobileController::class)->name('datamobile.show');
+Route::get('/datastore', DataStoreController::class)->name('datastore.show');
 
 Route::get('/servicos-ti', ItServiceController::class)->name('it-services.show');
 Route::get('/servicos-ti/msp', MspController::class)->name('msp.show');

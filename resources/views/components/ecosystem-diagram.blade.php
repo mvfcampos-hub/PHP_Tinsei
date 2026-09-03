@@ -15,6 +15,7 @@
         'datashipping' => ['Data', 'Shipping', 'text-emerald-600'],
         'datadashboard' => ['Data', 'Dashboard', 'text-blue-700'],
         'datamdfe' => ['Data', 'MDFe', 'text-fuchsia-600'],
+        'datastore' => ['Data', 'Store', 'text-orange-600'],
     ];
 
     $radius = 38;

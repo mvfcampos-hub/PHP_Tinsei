@@ -190,6 +190,8 @@ class DatabaseSeeder extends Seeder
             $this->putSeedFile("products/dataclassic-modules/{$module}.svg", "dataclassic-modules/{$module}.svg");
         }
 
+        $this->putSeedFile('products/dataclassic-modules/store.svg', 'products/datastore.svg');
+
         $dataClassicModules = [
             'Gestão de Cadastros' => 'Controle de clientes, fornecedores, vendedores, serviços e produtos, com histórico completo de dados.',
             'Gestão de Compras' => 'Sugestão de compras, fluxo de aprovação, avaliação de fornecedores e auditoria de estoque.',
@@ -322,6 +324,15 @@ class DatabaseSeeder extends Seeder
             ['icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h5.379c.621 0 1.129.504 1.09 1.124a17.902 17.902 0 01-3.213 9.193 2.056 2.056 0 01-1.58.86H14.25M9 3v11.25M6 6.75H3.75m5.25 0h5.25M6 15h5.25', 'title' => 'Cotação simultânea', 'desc' => 'Cotação online simultânea com múltiplas transportadoras integradas.'],
             ['icon' => 'M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185zM9.75 9h.008v.008H9.75V9zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 4.5h.008v.008h-.008V13.5zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z', 'title' => 'Auditoria', 'desc' => 'Relatório para avaliar o frete cotado, com o frete destacado na nota e o valor do CT-e.'],
             ['icon' => 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Menos erro manual', 'desc' => 'Redução de erros manuais na escolha de transportadora e cálculo de frete.'],
+        ];
+
+        $dataStoreDescription = '<p>Portal de vendas web B2B 100% integrado com o ERP DataClassic. Crie seu portal de vendas totalmente personalizado e transforme ele no seu melhor vendedor.</p>'
+            .'<p>Gerencie produtos que irão para o portal definindo todos os parâmetros necessários dentro do próprio ERP: descrição do produto na loja, categorias, subcategorias, marcas, observação resumida, observação técnica, fotos e arquivos de apoio. Configure tudo no cadastro de produto do ERP e o conteúdo já aparece imediatamente no portal.</p>';
+
+        $dataStoreHighlights = [
+            ['icon' => 'M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21M3 9l9-6 9 6v9.75a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18.75V9z', 'title' => 'Catálogo gerenciado no ERP', 'desc' => 'Descrição, categorias, subcategorias, marcas, observações e fotos configuradas no cadastro de produto do DataClassic aparecem imediatamente no portal.'],
+            ['icon' => 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z', 'title' => 'Tabelas de preço por cliente', 'desc' => 'Defina qual tabela de preço e quais condições de pagamento cada cliente pode usar no portal.'],
+            ['icon' => 'M2.25 3h1.386c.51 0 .955.343 1.087.836l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z', 'title' => 'Carrinho inteligente', 'desc' => 'Carrinho de compras dinâmico já integrado online com o ERP, do pedido à confirmação.'],
         ];
 
         $dataDashboardDescription = '<p>Painéis estratégicos de gestão, totalmente integrados ao DataClassic e configurados de acordo com o perfil do seu negócio — pensados originalmente para operações de locação e outsourcing de impressão.</p>';
@@ -481,6 +492,20 @@ class DatabaseSeeder extends Seeder
                 'video_url' => 'https://www.youtube.com/watch?v=VQ0nBgdQIIQ',
                 'logo_image' => 'products/datashipping.png',
                 'icon' => 'heroicon-o-truck',
+                'external_url' => null,
+                'is_featured' => false,
+                'is_cloud_highlight' => false,
+                'is_ecosystem_node' => true,
+            ],
+            [
+                'name' => 'DataStore',
+                'category' => 'crm',
+                'tagline' => 'Portal de vendas web B2B',
+                'summary' => 'Portal de vendas B2B 100% integrado com o ERP DataClassic. Catálogo, tabelas de preço por cliente e carrinho inteligente para transformar o portal no seu melhor vendedor.',
+                'description' => $dataStoreDescription,
+                'highlights' => $dataStoreHighlights,
+                'logo_image' => 'products/datastore.svg',
+                'icon' => 'heroicon-o-shopping-cart',
                 'external_url' => null,
                 'is_featured' => false,
                 'is_cloud_highlight' => false,

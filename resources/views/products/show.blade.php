@@ -149,21 +149,29 @@
                         ['logo' => 'dataclassic-modules/xml.png', 'name' => 'DataXML', 'desc' => 'Ferramenta de captura de XML de produtos emitidos contra a sua empresa, apoiando o processo de entrada de notas fiscais, com recursos de manifestação e download em massa.'],
                         ['logo' => 'dataclassic-modules/mail.png', 'name' => 'DataMail', 'desc' => 'Aplicação que dispara e-mails de OS (Ordem de Serviço) ou de requisições finalizadas pelo DataService Mobile.'],
                         ['logo' => 'dataclassic-modules/nfs.png', 'name' => 'DataNFSE', 'desc' => 'Sistema integrador do ERP com os WebServices de prefeituras e o ambiente nacional, para emissão de NFS-e pelo sistema DataClassic.'],
-                        ['logo' => 'dataclassic-modules/store.svg', 'name' => 'DataStore', 'desc' => 'Portal de vendas web B2B 100% integrado com o DataClassic. Transforme seu portal no seu melhor vendedor, com tabela de preços por cliente e carrinho inteligente e dinâmico para os pedidos online.'],
+                        ['logo' => 'dataclassic-modules/store.svg', 'name' => 'DataStore', 'desc' => 'Portal de vendas web B2B 100% integrado com o DataClassic. Transforme seu portal no seu melhor vendedor, com tabela de preços por cliente e carrinho inteligente e dinâmico para os pedidos online.', 'url' => route('datastore.show')],
                         ['logo' => 'dataclassic-modules/php.svg', 'name' => 'DataPHP', 'desc' => 'Diversos PHPs de apoio para gestão: indicadores financeiros (fluxo de caixa, DRE, acompanhamento de inadimplência), painel de gestão do parque de equipamentos, painel de gestão de OS preventivas, entre outros.'],
                     ] as $index => $module)
                         <div class="rounded-2xl border border-slate-200 bg-white p-6">
                             <img src="{{ Storage::url($module['logo']) }}" alt="{{ $module['name'] }}" class="h-8 w-auto mb-4">
-                            <button
-                                type="button"
-                                @click="open = open === {{ $index }} ? null : {{ $index }}"
-                                class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
-                                :aria-expanded="open === {{ $index }}"
-                            >
-                                Saiba mais
-                                <svg class="h-3.5 w-3.5 transition" :class="{ 'rotate-180': open === {{ $index }} }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                            </button>
-                            <p x-show="open === {{ $index }}" x-cloak x-transition class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
+                            @if (isset($module['url']))
+                                <a href="{{ $module['url'] }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800">
+                                    Conhecer o {{ $module['name'] }}
+                                    <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                </a>
+                                <p class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
+                            @else
+                                <button
+                                    type="button"
+                                    @click="open = open === {{ $index }} ? null : {{ $index }}"
+                                    class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
+                                    :aria-expanded="open === {{ $index }}"
+                                >
+                                    Saiba mais
+                                    <svg class="h-3.5 w-3.5 transition" :class="{ 'rotate-180': open === {{ $index }} }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                </button>
+                                <p x-show="open === {{ $index }}" x-cloak x-transition class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
+                            @endif
                         </div>
                     @endforeach
                 </div>

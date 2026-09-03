@@ -83,6 +83,10 @@ class Product extends Model
             return route('datamobile.show');
         }
 
+        if ($this->slug === 'datastore') {
+            return route('datastore.show');
+        }
+
         return route('products.show', $this->slug);
     }
 
