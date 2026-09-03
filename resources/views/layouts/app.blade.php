@@ -23,5 +23,7 @@
     </main>
 
     @include('partials.footer')
+
+    <x-whatsapp-float />
 </body>
 </html>
