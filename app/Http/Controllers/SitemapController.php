@@ -21,6 +21,7 @@ class SitemapController extends Controller
             ['route' => 'cloud.show', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['route' => 'it-services.show', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['route' => 'msp.show', 'priority' => '0.9', 'changefreq' => 'weekly'],
+            ['route' => 'databackup.show', 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['route' => 'hardware.index', 'priority' => '0.7', 'changefreq' => 'monthly'],
             ['route' => 'news.index', 'priority' => '0.7', 'changefreq' => 'daily'],
             ['route' => 'events.index', 'priority' => '0.6', 'changefreq' => 'weekly'],

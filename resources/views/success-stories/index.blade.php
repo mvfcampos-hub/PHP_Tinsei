@@ -19,8 +19,8 @@
 
     <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 space-y-10">
         @forelse ($stories as $story)
-            <article class="rounded-2xl border border-slate-200 bg-white overflow-hidden grid md:grid-cols-2">
-                <div class="bg-slate-950 aspect-video md:aspect-auto">
+            <article class="rounded-2xl border border-slate-200 bg-white overflow-hidden grid md:grid-cols-5">
+                <div class="md:col-span-2 bg-slate-950 aspect-video md:self-center md:m-4 md:rounded-xl overflow-hidden">
                     @if ($story->video_url)
                         <video
                             class="w-full h-full object-cover"
@@ -31,16 +31,16 @@
                             <source src="{{ $story->video_url }}" type="video/mp4">
                         </video>
                     @else
-                        <div class="w-full h-full min-h-[220px] flex flex-col items-center justify-center gap-3 text-brand-300 p-8 text-center">
-                            <span class="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-accent-400">
-                                <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" /></svg>
+                        <div class="w-full h-full flex flex-col items-center justify-center gap-2 text-brand-300 p-6 text-center">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-accent-400">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" /></svg>
                             </span>
-                            <p class="text-sm font-semibold text-white">{{ $story->company }}</p>
-                            <p class="text-xs text-brand-300">Depoimento em vídeo em breve</p>
+                            <p class="text-xs font-semibold text-white">{{ $story->company }}</p>
+                            <p class="text-[11px] text-brand-300">Depoimento em vídeo em breve</p>
                         </div>
                     @endif
                 </div>
-                <div class="p-6 sm:p-8 flex flex-col justify-center">
+                <div class="md:col-span-3 p-6 sm:p-8 flex flex-col justify-center">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900">{{ $story->company }}</h2>
                     <p class="text-sm font-semibold text-brand-700 mt-1">
                         {{ $story->location }}

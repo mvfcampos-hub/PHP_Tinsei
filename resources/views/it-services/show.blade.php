@@ -50,10 +50,12 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach ($services as $service)
                 @php
-                    $serviceHref = $service['anchor']
-                        ? route('msp.show').'#'.$service['anchor']
-                        : 'https://wa.me/553134168225?text='.urlencode('Olá! Quero falar sobre '.$service['name'].'.');
-                    $isExternal = ! $service['anchor'];
+                    $serviceHref = match (true) {
+                        isset($service['route']) => route($service['route']),
+                        (bool) ($service['anchor'] ?? null) => route('msp.show').'#'.$service['anchor'],
+                        default => 'https://wa.me/553134168225?text='.urlencode('Olá! Quero falar sobre '.$service['name'].'.'),
+                    };
+                    $isExternal = ! isset($service['route']) && ! ($service['anchor'] ?? null);
                 @endphp
                 <a
                     href="{{ $serviceHref }}"

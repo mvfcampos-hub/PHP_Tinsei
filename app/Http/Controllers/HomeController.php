@@ -20,7 +20,6 @@ class HomeController extends Controller
         return view('home', [
             'heroBanners' => Banner::active()->placement('home_hero')->get(),
             'noticeBanners' => Banner::active()->placement('home_notice')->get(),
-            'secondaryBanners' => Banner::active()->placement('home_secondary')->get(),
             // Somente soluções de sistemas (ERP, mobilidade, atendimento, fiscal,
             // CRM, comunicação, integrações) — Cloud tem destaque próprio; Serviços
             // de TI e Produtos (hardware) têm páginas dedicadas fora do catálogo.

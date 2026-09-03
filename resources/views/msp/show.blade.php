@@ -177,6 +177,12 @@
                     <p class="text-xs text-slate-400 mt-4 pt-4 border-t border-slate-100">
                         {{ $addon['note'] ?? 'Precificação sob consulta — varia conforme número de usuários e ferramentas escolhidas.' }}
                     </p>
+                    @if ($addon['name'] === 'DataBackup+')
+                        <a href="{{ route('databackup.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
+                            Ver planos e preços do DataBackup+
+                            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    @endif
                 </div>
             @endforeach
         </div>

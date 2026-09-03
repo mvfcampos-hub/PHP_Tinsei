@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CloudController;
+use App\Http\Controllers\DataBackupController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,7 @@ Route::get('/datacloud', CloudController::class)->name('cloud.show');
 
 Route::get('/servicos-ti', ItServiceController::class)->name('it-services.show');
 Route::get('/servicos-ti/msp', MspController::class)->name('msp.show');
+Route::get('/servicos-ti/databackup', DataBackupController::class)->name('databackup.show');
 
 Route::get('/produtos', HardwareController::class)->name('hardware.index');
 

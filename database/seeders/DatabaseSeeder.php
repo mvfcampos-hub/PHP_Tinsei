@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Banner;
+use App\Models\BackupPlan;
 use App\Models\Client;
 use App\Models\ClientPresence;
 use App\Models\CloudPlan;
@@ -39,6 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->seedMenu();
         $this->seedProducts();
         $this->seedCloudPlans();
+        $this->seedBackupPlans();
         $this->seedNews($admin);
         $this->seedEvents();
         $this->seedBanners();
@@ -486,6 +488,37 @@ class DatabaseSeeder extends Seeder
         }
     }
 
+    // Planos do DataBackup+, no mesmo padrão de degrau de preço/capacidade
+    // do DataCloud (START/PLUS/PRO/BUSINESS/ENTERPRISE), com preços
+    // competitivos para o mercado brasileiro de backup em nuvem.
+    private function seedBackupPlans(): void
+    {
+        $items = [
+            ['name' => 'START', 'price_monthly' => 89, 'storage_gb' => 50, 'device_limit' => 3, 'retention_days' => 15, 'is_popular' => false],
+            ['name' => 'PLUS', 'price_monthly' => 249, 'storage_gb' => 200, 'device_limit' => 8, 'retention_days' => 30, 'is_popular' => false],
+            ['name' => 'PRO', 'price_monthly' => 449, 'storage_gb' => 500, 'device_limit' => 15, 'retention_days' => 30, 'is_popular' => true],
+            ['name' => 'BUSINESS', 'price_monthly' => 749, 'storage_gb' => 1024, 'device_limit' => 30, 'retention_days' => 45, 'is_popular' => false],
+            ['name' => 'ENTERPRISE', 'price_monthly' => 1290, 'storage_gb' => 2048, 'device_limit' => null, 'retention_days' => 60, 'is_popular' => false],
+        ];
+
+        foreach ($items as $index => $item) {
+            BackupPlan::firstOrCreate(
+                ['name' => $item['name']],
+                [
+                    'name' => $item['name'],
+                    'price_monthly' => $item['price_monthly'],
+                    'storage_gb' => $item['storage_gb'],
+                    'device_limit' => $item['device_limit'],
+                    'retention_days' => $item['retention_days'],
+                    'description' => 'Criptografado · VMs, bancos de dados, M365, servidores e mais',
+                    'is_popular' => $item['is_popular'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+        }
+    }
+
     private function seedNews(User $admin): void
     {
         $items = [
@@ -503,6 +536,25 @@ class DatabaseSeeder extends Seeder
                     .'<p>Durante a feira, a equipe Databit vai apresentar como o DataClassic e o restante do nosso ecossistema — DataCloud, DataSAC e DataClient CRM — se aplicam diretamente à rotina de atacadistas e varejistas de autopeças: gestão de estoque de alta rotatividade, precificação dinâmica, integração fiscal e atendimento multicanal ao cliente final e a lojistas.</p>'
                     .'<p>Se a sua empresa atua no setor de autopeças e quer conhecer de perto uma gestão pensada para a realidade do setor, venha nos visitar na Feira Minas Parts 2026 ou fale com a nossa equipe para agendar uma demonstração.</p>'
                     .'<p>Mais informações sobre o evento em <a href="https://feiraminasparts.com.br/visitantes/" target="_blank" rel="noopener">feiraminasparts.com.br</a>.</p>',
+            ],
+            [
+                'title' => 'Tendência mundial: por que as empresas estão levando tudo para a nuvem',
+                'category' => 'Cloud',
+                'is_featured' => true,
+                'published_at' => now()->subDay(),
+                'cover_image' => 'news/tendencia-mundial-por-que-as-empresas-estao-levando-tudo-para-a-nuvem.svg',
+                'excerpt' => 'Servidor de arquivos, e-mail corporativo, ERP: com o custo da nuvem caindo, cada vez mais empresas de todos os portes deixam de depender de qualquer coisa dentro de casa.',
+                'body' => '<p>Uma mudança silenciosa vem acontecendo na forma como empresas de todos os tamanhos organizam a própria infraestrutura de tecnologia: a tendência mundial é levar tudo para a nuvem e parar de depender de qualquer coisa dentro de casa. Servidor de arquivos, e-mail corporativo, banco de dados, ERP — item por item, o que antes vivia em uma sala com ar-condicionado e nobreak dentro da empresa está migrando para data centers especializados.</p>'
+                    .'<h3>Por que essa mudança está acontecendo agora</h3>'
+                    .'<p>Não é novidade que a nuvem existe — mas o que mudou nos últimos anos foi o custo. Com a concorrência entre provedores e a maturidade da tecnologia, hospedar um servidor na nuvem deixou de ser artigo de luxo reservado a grandes corporações e virou uma conta que fecha para pequenas e médias empresas. O resultado: o que era tendência de multinacional agora é decisão de qualquer negócio que faz as contas com atenção.</p>'
+                    .'<h3>O que as empresas estão tirando de dentro de casa</h3><ul>'
+                    .'<li><strong>Servidor de arquivos:</strong> substituído por armazenamento em nuvem, acessível de qualquer lugar, sem depender de um equipamento físico vulnerável a pane, incêndio ou roubo.</li>'
+                    .'<li><strong>E-mail corporativo:</strong> soluções robustas de e-mail em nuvem (como Microsoft 365) substituem servidores de e-mail locais, com mais segurança e menos manutenção.</li>'
+                    .'<li><strong>ERP e sistemas de gestão:</strong> o próprio sistema que roda a operação da empresa migra para VMs em nuvem, eliminando o servidor local como ponto único de falha.</li>'
+                    .'<li><strong>Backup:</strong> cópias de segurança saem do HD externo ou da fita e vão para a nuvem, com retenção configurável e recuperação testada.</li>'
+                    .'</ul>'
+                    .'<h3>Os ganhos concretos de sair de casa</h3><p>Além da economia direta com hardware, energia e refrigeração, empresas que migram para a nuvem ganham disponibilidade (menos paradas), escalabilidade (aumentar recursos sem comprar equipamento novo), segurança (data centers com infraestrutura muito mais robusta que uma sala de servidor comum) e mobilidade real para o time trabalhar de qualquer lugar.</p>'
+                    .'<h3>Como a Databit ajuda nessa transição</h3><p>O <strong>DataCloud</strong> oferece máquinas virtuais sob demanda — Linux, Windows e SQL Server — dimensionadas para o seu projeto, com migração assistida do seu servidor físico atual. E, para quem quer ir além da infraestrutura e transferir toda a gestão de TI para especialistas, o <strong>Databit MSP</strong> cuida do ambiente de ponta a ponta, incluindo o backup gerenciado do add-on <strong>DataBackup+</strong>. Fale com a gente para entender por onde começar a tirar a sua empresa de dentro de casa.</p>',
             ],
             [
                 'title' => 'DataMobile 2025 chega com assinatura em lote, rota inteligente e novo dashboard',
@@ -703,12 +755,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->putSeedFile('banners/databit-minasparts-da-placa-a-peca.png', 'banners/databit-minasparts-da-placa-a-peca.png');
         $this->putPlaceholderSvg('banners/campaign-30-anos.svg', 800, 400, '#2347d6', 'Databit · +30 anos de mercado');
-        $this->putPlaceholderSvg('banners/campaign-datasac.svg', 800, 400, '#0891b2', 'Databit · Conheça o DataSAC');
 
         $items = [
-            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 3, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => false],
-            ['title' => 'Databit — mais de 30 anos simplificando a gestão empresarial', 'image' => 'banners/campaign-30-anos.svg', 'placement' => 'home_secondary', 'sort_order' => 1],
-            ['title' => 'Centralize o atendimento da sua empresa com o DataSAC', 'image' => 'banners/campaign-datasac.svg', 'placement' => 'home_secondary', 'sort_order' => 2],
+            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 3, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => true],
         ];
 
         foreach ($items as $item) {

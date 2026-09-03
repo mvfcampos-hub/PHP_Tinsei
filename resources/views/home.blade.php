@@ -100,16 +100,18 @@
                     @else
                         <a href="{{ $banner->link_url ?? '#' }}"
                            x-show="active === {{ $index }}" x-transition:enter.duration.700ms
-                           class="absolute inset-0 block">
+                           class="absolute inset-0 block overflow-hidden bg-gradient-to-br from-brand-900 via-brand-950 to-brand-950">
                             @if ($banner->overlay_title)
-                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover opacity-60">
+                                <div class="absolute inset-0 bg-grid-pattern"></div>
+                                <div class="absolute -top-24 -right-10 h-[420px] w-[420px] rounded-full blur-3xl opacity-30 bg-brand-500"></div>
+                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="relative h-full w-full object-cover opacity-70">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
                                 <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
                                     <div class="mx-auto max-w-7xl">
-                                        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/20 text-accent-300 px-3 py-1 text-xs font-semibold mb-3">
-                                            Aviso Databit
+                                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 text-brand-200 px-3 py-1 text-xs font-semibold mb-3">
+                                            {{ $banner->placement === 'home_notice' ? 'Aviso Databit' : 'Destaque Databit' }}
                                         </span>
-                                        <h2 class="text-2xl sm:text-4xl font-bold text-white max-w-2xl">{{ $banner->title }}</h2>
+                                        <h2 class="text-3xl sm:text-5xl font-bold text-white max-w-2xl leading-tight">{{ $banner->title }}</h2>
                                     </div>
                                 </div>
                             @else
@@ -330,28 +332,27 @@
         </section>
     @endif
 
-    {{-- Banners secundários / campanhas --}}
-    @if ($secondaryBanners->isNotEmpty())
-        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid sm:grid-cols-2 gap-6">
-                @foreach ($secondaryBanners as $banner)
-                    <a href="{{ $banner->link_url ?? '#' }}" class="group relative rounded-2xl overflow-hidden h-52 block border border-slate-200">
-                        @if ($banner->overlay_title)
-                            <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 to-transparent"></div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <h3 class="text-white font-semibold text-lg">{{ $banner->title }}</h3>
-                            </div>
-                        @else
-                            <div class="flex h-full w-full items-center justify-center bg-white">
-                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain group-hover:scale-105 transition duration-500">
-                            </div>
-                        @endif
-                    </a>
-                @endforeach
-            </div>
-        </section>
-    @endif
+    {{-- Destaques institucionais --}}
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid sm:grid-cols-3 gap-6">
+            @foreach ([
+                ['label' => 'Casos de Sucesso', 'desc' => 'Empresas que já simplificaram a gestão com a Databit.', 'icon' => 'M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0', 'href' => route('success-stories.index')],
+                ['label' => 'Nossa História', 'desc' => 'Mais de 30 anos de trajetória, missão, visão e liderança.', 'icon' => 'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21', 'href' => route('pages.show', 'grupo-databit')],
+                ['label' => 'Base de Conhecimento', 'desc' => 'Artigos, tutoriais e uma IA que responde suas dúvidas.', 'icon' => 'M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25', 'href' => route('kb.index')],
+            ] as $highlight)
+                <a href="{{ $highlight['href'] }}" class="group flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 hover:border-brand-300 hover:shadow-md transition">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $highlight['icon'] }}" /></svg>
+                    </span>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-slate-900">{{ $highlight['label'] }}</h3>
+                        <p class="text-slate-600 text-sm mt-1">{{ $highlight['desc'] }}</p>
+                    </div>
+                    <svg class="h-4 w-4 shrink-0 text-slate-400 group-hover:text-brand-700 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+            @endforeach
+        </div>
+    </section>
 
     {{-- CTA final --}}
     <section class="bg-brand-700">
