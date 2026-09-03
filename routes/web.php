@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItServiceController;
+use App\Http\Controllers\MspController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -23,6 +24,7 @@ Route::get('/sistemas/{product:slug}', [ProductController::class, 'show'])->name
 Route::get('/datacloud', CloudController::class)->name('cloud.show');
 
 Route::get('/servicos-ti', ItServiceController::class)->name('it-services.show');
+Route::get('/servicos-ti/msp', MspController::class)->name('msp.show');
 
 Route::get('/produtos', HardwareController::class)->name('hardware.index');
 
