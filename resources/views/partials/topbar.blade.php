@@ -12,7 +12,7 @@
         </div>
         <div class="flex items-center gap-4">
             <a href="{{ route('pages.show', 'fale-conosco') }}" class="hover:text-white transition">Fale Conosco</a>
-            <a href="#" class="hidden lg:inline hover:text-white transition">Área do Cliente</a>
+            <a href="https://databitbh.com:8443/newdataservice/" target="_blank" rel="noopener" class="hidden lg:inline hover:text-white transition">Área do Cliente</a>
             <span class="text-brand-700">|</span>
             <a href="https://www.facebook.com" target="_blank" rel="noopener" class="hover:text-white transition" aria-label="Facebook">Facebook</a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener" class="hover:text-white transition" aria-label="Instagram">Instagram</a>

@@ -143,30 +143,26 @@ class DatabaseSeeder extends Seeder
             ['label' => 'Sistemas', 'url' => '/sistemas', 'sort_order' => 1],
             ['label' => 'DataCloud', 'url' => '/datacloud', 'sort_order' => 2],
             ['label' => 'Serviços TI', 'url' => '/servicos-ti', 'sort_order' => 3],
-            ['label' => 'Notícias', 'url' => '/novidades', 'sort_order' => 4],
-            ['label' => 'Institucional', 'url' => '/paginas/grupo-databit', 'sort_order' => 5],
+            ['label' => 'Institucional', 'url' => '/paginas/grupo-databit', 'sort_order' => 4],
         ];
 
         foreach ($items as $item) {
             MenuItem::firstOrCreate(['label' => $item['label']], $item);
         }
 
-        // Agenda entra como submenu de Notícias, e Grupo Databit / Perguntas
-        // Frequentes / Fale Conosco entram sob Institucional — menu principal
-        // enxuto (5 itens) com o restante distribuído em dropdowns.
-        $novidades = MenuItem::where('label', 'Notícias')->first();
-        MenuItem::firstOrCreate(
-            ['label' => 'Agenda'],
-            ['label' => 'Agenda', 'url' => '/agenda', 'parent_id' => $novidades?->id, 'sort_order' => 1]
-        );
-
+        // Notícias e Agenda entram como submenus de Institucional, junto com
+        // Grupo Databit / Casos de Sucesso / Perguntas Frequentes / Fale
+        // Conosco — menu principal enxuto (4 itens), tudo gerenciável pelo
+        // painel administrativo.
         $institucional = MenuItem::where('label', 'Institucional')->first();
         $institucionalChildren = [
             ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 1],
             ['label' => 'Casos de Sucesso', 'url' => '/casos-de-sucesso', 'sort_order' => 2],
-            ['label' => 'Base de Conhecimento', 'url' => '/base-de-conhecimento', 'sort_order' => 3],
-            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 4],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 5],
+            ['label' => 'Notícias', 'url' => '/novidades', 'sort_order' => 3],
+            ['label' => 'Agenda', 'url' => '/agenda', 'sort_order' => 4],
+            ['label' => 'Base de Conhecimento', 'url' => '/base-de-conhecimento', 'sort_order' => 5],
+            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 6],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 7],
         ];
         foreach ($institucionalChildren as $child) {
             MenuItem::firstOrCreate(
@@ -388,39 +384,60 @@ class DatabaseSeeder extends Seeder
     {
         $items = [
             [
+                'title' => 'Databit confirma presença na Feira Minas Parts 2026',
+                'category' => 'Feiras e Eventos',
+                'is_featured' => true,
+                'published_at' => now(),
+                'cover_image' => 'news/databit-confirma-presenca-na-feira-minas-parts-2026.svg',
+                'excerpt' => 'A Databit vai marcar presença na maior feira de autopeças de Minas Gerais, reforçando a entrada forte no segmento de distribuidores, atacadistas e varejistas de peças automotivas.',
+                'body' => '<p>A Databit confirma presença na <strong>Feira Minas Parts 2026</strong>, o principal encontro do setor de autopeças de Minas Gerais, que reúne fabricantes, distribuidores, atacadistas e varejistas de todo o país. O evento é uma nova frente da Databit para reforçar sua entrada no segmento de autopeças — um mercado que já conhece bem através de clientes como a MR Copiadoras e outros distribuidores atendidos pelo ecossistema DataClassic.</p>'
+                    .'<h3>Por que a Databit está de olho no setor de autopeças</h3>'
+                    .'<p>Distribuidores e varejistas de peças automotivas têm desafios muito específicos: catálogos gigantes de itens, aplicação por veículo, giro de estoque acelerado, múltiplos canais de venda (balcão, atacado, e-commerce) e uma operação fiscal complexa. O <strong>DataClassic</strong> — nosso ERP com mais de 30 anos de mercado — já nasceu resolvendo esse tipo de dor para distribuidores e locadoras, e vem sendo cada vez mais adequado às particularidades de quem vive "da placa à peça": do cadastro técnico do item ao faturamento da venda.</p>'
+                    .'<h3>O que esperar do nosso estande</h3>'
+                    .'<p>Durante a feira, a equipe Databit vai apresentar como o DataClassic e o restante do nosso ecossistema — DataCloud, DataSAC e DataClient CRM — se aplicam diretamente à rotina de atacadistas e varejistas de autopeças: gestão de estoque de alta rotatividade, precificação dinâmica, integração fiscal e atendimento multicanal ao cliente final e a lojistas.</p>'
+                    .'<p>Se a sua empresa atua no setor de autopeças e quer conhecer de perto uma gestão pensada para a realidade do setor, venha nos visitar na Feira Minas Parts 2026 ou fale com a nossa equipe para agendar uma demonstração.</p>'
+                    .'<p>Mais informações sobre o evento em <a href="https://feiraminasparts.com.br/visitantes/" target="_blank" rel="noopener">feiraminasparts.com.br</a>.</p>',
+            ],
+            [
                 'title' => 'DataMobile 2025 chega com assinatura em lote, rota inteligente e novo dashboard',
                 'category' => 'Lançamento',
                 'is_featured' => true,
+                'cover_image' => 'news/datamobile-2025-chega-com-assinatura-em-lote-rota-inteligente-e-novo-dashboard.svg',
                 'excerpt' => 'Nova versão do app reforça a produtividade das equipes técnicas em campo com seis novos recursos.',
             ],
             [
                 'title' => 'DataCloud lança plano ENTERPRISE para operações de grande porte',
                 'category' => 'Lançamento',
                 'is_featured' => true,
+                'cover_image' => 'news/datacloud-lanca-plano-enterprise-para-operacoes-de-grande-porte.svg',
                 'excerpt' => 'Novo plano oferece até 12 vCPU, 64 GB de RAM e 400 GB SSD com o mesmo suporte especializado da Databit.',
             ],
             [
                 'title' => 'DataSAC chega para centralizar o atendimento multicanal da sua empresa',
                 'category' => 'Lançamento',
                 'is_featured' => true,
+                'cover_image' => 'news/datasac-chega-para-centralizar-o-atendimento-multicanal-da-sua-empresa.svg',
                 'excerpt' => 'Plataforma unifica WhatsApp, e-mail e chat em uma única caixa de entrada, com automações e IA.',
             ],
             [
                 'title' => 'Databit lança o DataClient CRM integrado ao ecossistema DataSAC e DataClassic',
                 'category' => 'Lançamento',
                 'is_featured' => false,
+                'cover_image' => 'news/databit-lanca-o-dataclient-crm-integrado-ao-ecossistema-datasac-e-dataclassic.svg',
                 'excerpt' => 'Novo CRM 100% web centraliza o pipeline comercial e automatiza follow-ups da equipe de vendas.',
             ],
             [
                 'title' => 'Databit celebra mais de 30 anos de mercado',
                 'category' => 'Institucional',
                 'is_featured' => false,
+                'cover_image' => 'news/databit-celebra-mais-de-30-anos-de-mercado.svg',
                 'excerpt' => 'Trajetória é marcada pela evolução constante do ecossistema de produtos para gestão empresarial.',
             ],
             [
                 'title' => 'DataMDFe simplifica a emissão do Manifesto Eletrônico para transportadoras parceiras',
                 'category' => 'Novidade',
                 'is_featured' => false,
+                'cover_image' => 'news/datamdfe-simplifica-a-emissao-do-manifesto-eletronico-para-transportadoras-parceiras.svg',
                 'excerpt' => 'Solução vincula NF-e e CT-e em um único documento, reduzindo o trabalho manual das equipes fiscais.',
             ],
             [
@@ -428,6 +445,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'Reforma Tributária',
                 'is_featured' => true,
                 'published_at' => now()->subDays(2),
+                'cover_image' => 'news/reforma-tributaria-o-que-muda-para-sua-empresa-e-como-preparar-seus-sistemas.svg',
                 'excerpt' => 'Entenda as principais mudanças da Reforma Tributária (EC 132/2023) e o cronograma de transição até 2033 — e por que a atualização dos seus sistemas não pode esperar.',
                 'body' => '<p>A Reforma Tributária do consumo (Emenda Constitucional nº 132/2023, regulamentada pela Lei Complementar nº 214/2025) representa a maior mudança na tributação brasileira em décadas. Para empresas de todos os portes, entender o que muda — e quando — é essencial para não ser pego de surpresa.</p>'
                     .'<h3>O que muda</h3>'
@@ -453,6 +471,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'Segurança da Informação',
                 'is_featured' => true,
                 'published_at' => now()->subDays(6),
+                'cover_image' => 'news/ataques-de-ransomware-por-que-nenhuma-empresa-esta-imune.svg',
                 'excerpt' => 'Casos de ransomware amplamente noticiados nos últimos anos mostram que o alvo não é mais só a grande corporação — é qualquer empresa com proteção insuficiente.',
                 'body' => '<p>Nos últimos anos, ataques de ransomware saíram das manchetes de tecnologia para o noticiário geral. Hospitais, redes varejistas, empresas de logística e órgãos públicos ao redor do mundo já tiveram sistemas paralisados por dias — às vezes semanas — depois de um ataque bem-sucedido.</p>'
                     .'<h3>Como o ataque acontece</h3>'
@@ -474,6 +493,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'Segurança da Informação',
                 'is_featured' => true,
                 'published_at' => now()->subDays(10),
+                'cover_image' => 'news/backup-e-disponibilidade-o-seguro-que-sua-empresa-nao-pode-deixar-de-ter.svg',
                 'excerpt' => 'Falhas de hardware, erro humano e ataques cibernéticos têm uma coisa em comum: só não viram desastre para quem tem backup testado e um plano de disponibilidade.',
                 'body' => '<p>Toda empresa depende de dados para operar — cadastros de clientes, histórico financeiro, notas fiscais, planilhas de controle. E, mais cedo ou mais tarde, todo ambiente de TI enfrenta um imprevisto: uma falha de disco, um erro humano, uma atualização malsucedida ou um ataque. A diferença entre um susto e uma crise é ter, ou não ter, um backup confiável.</p>'
                     .'<h3>Backup não é só "ter uma cópia"</h3>'
@@ -500,6 +520,7 @@ class DatabaseSeeder extends Seeder
                     'body' => $item['body'] ?? '<p>'.$item['excerpt'].'</p><p>Conteúdo completo da novidade a ser migrado do site atual (databit.com.br).</p>',
                     'category' => $item['category'],
                     'is_featured' => $item['is_featured'],
+                    'cover_image' => $item['cover_image'] ?? null,
                     'published_at' => $item['published_at'] ?? now()->subDays(random_int(1, 60)),
                     'author_id' => $admin->id,
                 ]

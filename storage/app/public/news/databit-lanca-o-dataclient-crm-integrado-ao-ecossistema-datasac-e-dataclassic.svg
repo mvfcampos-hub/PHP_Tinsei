@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1836"/>
+      <stop offset="100%" stop-color="#1c3189"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="220" cy="520" r="360" fill="url(#glow)"/>
+  
+  <g transform="translate(515.0 235.0) scale(8.7500)" opacity="0.92"><path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" fill="none" stroke="#22d3ee" stroke-width="0.13" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="60" y="60" width="185" height="40" rx="20" fill="#06b6d4" fill-opacity="0.16"/>
+  <text x="80" y="86" font-family="Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="0.5" fill="#67e8f9">LANÇAMENTO</text>
+  <text x="60" y="580" font-family="Arial, sans-serif" font-weight="800" font-size="20" letter-spacing="2" fill="#8fb0fc">DATABIT</text>
+</svg>

@@ -21,6 +21,7 @@ class News extends Model
         'Cloud' => 'Cloud',
         'Mobile' => 'Mobile',
         'Parcerias' => 'Parcerias',
+        'Feiras e Eventos' => 'Feiras e Eventos',
         'Reforma Tributária' => 'Reforma Tributária',
         'Segurança da Informação' => 'Segurança da Informação',
         'Mercado de TI' => 'Mercado de TI',
