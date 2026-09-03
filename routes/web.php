@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CloudController;
 use App\Http\Controllers\DataBackupController;
 use App\Http\Controllers\DataClientController;
@@ -47,6 +48,11 @@ Route::get('/agenda', [EventController::class, 'index'])->name('events.index');
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');
 
 Route::get('/casos-de-sucesso', SuccessStoryController::class)->name('success-stories.index');
+
+Route::get('/trabalhe-conosco', [CareerController::class, 'index'])->name('careers.index');
+Route::post('/trabalhe-conosco', [CareerController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('careers.store');
 
 Route::get('/busca', SearchController::class)->name('search');
 

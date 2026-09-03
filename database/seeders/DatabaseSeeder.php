@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
                 .'<p><strong>Comercial:</strong> <a href="mailto:comercial@databit.com.br">comercial@databit.com.br</a></p>'
                 .'<p><strong>Telefone / WhatsApp:</strong> (31) 3416-8225</p>'
                 .'<p><strong>Ouvidoria:</strong> <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a></p>'
-                .'<p><strong>Faça parte da equipe Databit:</strong> envie seu currículo para <a href="mailto:rh@databit.com.br">rh@databit.com.br</a></p>'],
+                .'<p><strong>Faça parte da equipe Databit:</strong> confira nossas <a href="/trabalhe-conosco">oportunidades e envie seu currículo</a>.</p>'],
             ['title' => 'Políticas de Privacidade', 'slug' => 'politicas-de-privacidade', 'content' => $this->privacyPolicyContent()],
             ['title' => 'Políticas de Cookies', 'slug' => 'politicas-de-cookies', 'content' => $this->cookiePolicyContent()],
         ];
@@ -162,7 +162,8 @@ class DatabaseSeeder extends Seeder
             ['label' => 'Agenda', 'url' => '/agenda', 'sort_order' => 4],
             ['label' => 'Base de Conhecimento', 'url' => '/base-de-conhecimento', 'sort_order' => 5],
             ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 6],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 7],
+            ['label' => 'Trabalhe Conosco', 'url' => '/trabalhe-conosco', 'sort_order' => 7],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 8],
         ];
         foreach ($institucionalChildren as $child) {
             MenuItem::firstOrCreate(

@@ -27,6 +27,7 @@ class SitemapController extends Controller
             ['route' => 'events.index', 'priority' => '0.6', 'changefreq' => 'weekly'],
             ['route' => 'kb.index', 'priority' => '0.7', 'changefreq' => 'weekly'],
             ['route' => 'success-stories.index', 'priority' => '0.7', 'changefreq' => 'monthly'],
+            ['route' => 'careers.index', 'priority' => '0.5', 'changefreq' => 'monthly'],
         ];
 
         foreach ($staticRoutes as $item) {
