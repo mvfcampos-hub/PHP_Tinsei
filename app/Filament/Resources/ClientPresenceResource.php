@@ -24,36 +24,27 @@ class ClientPresenceResource extends Resource
 
     protected static ?string $pluralModelLabel = 'presença de clientes';
 
-    public static function brazilStateOptions(): array
-    {
-        return collect(require resource_path('data/brazil-states.php'))['states']
-            ->pluck('name', 'code')
-            ->sortBy(fn ($name) => $name)
-            ->all();
-    }
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Radio::make('region_type')
-                    ->label('Tipo de região')
+                    ->label('Tipo de área')
                     ->options([
-                        ClientPresence::TYPE_STATE => 'Estado (Brasil)',
+                        ClientPresence::TYPE_REGION => 'Região (Brasil)',
                         ClientPresence::TYPE_COUNTRY => 'País (fora do Brasil)',
                     ])
-                    ->default(ClientPresence::TYPE_STATE)
+                    ->default(ClientPresence::TYPE_REGION)
                     ->live()
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('code')
-                    ->label('Estado (UF)')
-                    ->options(fn () => static::brazilStateOptions())
-                    ->searchable()
+                    ->label('Região')
+                    ->options(fn () => ClientPresence::REGIONS)
                     ->required()
-                    ->visible(fn (Forms\Get $get) => $get('region_type') === ClientPresence::TYPE_STATE)
+                    ->visible(fn (Forms\Get $get) => $get('region_type') === ClientPresence::TYPE_REGION)
                     ->afterStateUpdated(function (Forms\Set $set, $state) {
-                        $name = static::brazilStateOptions()[$state] ?? null;
+                        $name = ClientPresence::REGIONS[$state] ?? null;
                         if ($name) {
                             $set('name', $name);
                         }
@@ -93,7 +84,7 @@ class ClientPresenceResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('region_type')
                     ->label('Tipo')
-                    ->formatStateUsing(fn (string $state) => $state === ClientPresence::TYPE_STATE ? 'Estado' : 'País')
+                    ->formatStateUsing(fn (string $state) => $state === ClientPresence::TYPE_REGION ? 'Região' : 'País')
                     ->badge(),
                 Tables\Columns\TextColumn::make('code')
                     ->label('Código'),
@@ -116,7 +107,7 @@ class ClientPresenceResource extends Resource
                 Tables\Filters\SelectFilter::make('region_type')
                     ->label('Tipo')
                     ->options([
-                        ClientPresence::TYPE_STATE => 'Estado',
+                        ClientPresence::TYPE_REGION => 'Região',
                         ClientPresence::TYPE_COUNTRY => 'País',
                     ]),
                 Tables\Filters\TernaryFilter::make('is_active')

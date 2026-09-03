@@ -1061,25 +1061,23 @@ class DatabaseSeeder extends Seeder
     // de Clientes) até que a Databit forneça a contagem real por região.
     private function seedClientPresences(): void
     {
-        $stateDeviceCounts = [
-            'MG' => 1050, 'SP' => 700, 'RJ' => 340, 'PR' => 150, 'BA' => 180,
-            'RS' => 130, 'PE' => 140, 'CE' => 120, 'GO' => 100, 'SC' => 110,
-            'DF' => 90, 'ES' => 80, 'PB' => 95, 'MT' => 70, 'PA' => 60,
-            'RN' => 45, 'MS' => 55, 'AM' => 40, 'MA' => 35, 'PI' => 30,
-            'AL' => 30, 'SE' => 25, 'TO' => 20, 'RO' => 18, 'AC' => 12,
-            'AP' => 10, 'RR' => 8,
+        // Total de dispositivos instalados no Brasil (~4.000), distribuído
+        // proporcionalmente pelas 5 regiões conforme percentuais informados.
+        $totalBrazilDevices = 4000;
+        $regionPercentages = [
+            'SD' => 59, 'S' => 21, 'CO' => 10, 'NE' => 8, 'N' => 2,
         ];
 
-        $states = collect(require resource_path('data/brazil-states.php'))['states'];
+        foreach (array_values(ClientPresence::REGIONS) as $index => $name) {
+            $code = array_search($name, ClientPresence::REGIONS, true);
 
-        foreach ($states as $index => $state) {
             ClientPresence::firstOrCreate(
-                ['region_type' => ClientPresence::TYPE_STATE, 'code' => $state['code']],
+                ['region_type' => ClientPresence::TYPE_REGION, 'code' => $code],
                 [
-                    'region_type' => ClientPresence::TYPE_STATE,
-                    'code' => $state['code'],
-                    'name' => $state['name'],
-                    'device_count' => $stateDeviceCounts[$state['code']] ?? 0,
+                    'region_type' => ClientPresence::TYPE_REGION,
+                    'code' => $code,
+                    'name' => $name,
+                    'device_count' => (int) round($totalBrazilDevices * ($regionPercentages[$code] ?? 0) / 100),
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]

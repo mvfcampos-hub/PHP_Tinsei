@@ -32,7 +32,7 @@ class HomeController extends Controller
             'testimonials' => Testimonial::active()->get(),
             'clients' => Client::active()->type('cliente')->get(),
             'partners' => Client::active()->type('parceiro')->get(),
-            'presenceStates' => ClientPresence::active()->type(ClientPresence::TYPE_STATE)->get(),
+            'presenceRegions' => ClientPresence::active()->type(ClientPresence::TYPE_REGION)->get(),
             'presenceCountries' => ClientPresence::active()->type(ClientPresence::TYPE_COUNTRY)->get(),
         ]);
     }
