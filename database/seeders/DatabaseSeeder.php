@@ -55,8 +55,8 @@ class DatabaseSeeder extends Seeder
                 .'<p><strong>Telefones:</strong> (31) 3416-8225 · WhatsApp (31) 99727-8589 / (31) 99723-0427</p>'
                 .'<p><strong>Ouvidoria:</strong> <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a></p>'
                 .'<p><strong>Faça parte da equipe Databit:</strong> envie seu currículo para <a href="mailto:rh@databit.com.br">rh@databit.com.br</a></p>'],
-            ['title' => 'Políticas de Privacidade', 'slug' => 'politicas-de-privacidade', 'content' => '<p>Conteúdo da Política de Privacidade a ser fornecido pelo jurídico da Databit, em conformidade com a LGPD.</p>'],
-            ['title' => 'Políticas de Cookies', 'slug' => 'politicas-de-cookies', 'content' => '<p>Conteúdo da Política de Cookies a ser fornecido pelo jurídico da Databit.</p>'],
+            ['title' => 'Políticas de Privacidade', 'slug' => 'politicas-de-privacidade', 'content' => $this->privacyPolicyContent()],
+            ['title' => 'Políticas de Cookies', 'slug' => 'politicas-de-cookies', 'content' => $this->cookiePolicyContent()],
         ];
 
         foreach ($pages as $page) {
@@ -73,6 +73,60 @@ class DatabaseSeeder extends Seeder
             .'<h3>Missão</h3><p>Entregar soluções de tecnologia de ponta a preços competitivos, com profissionais qualificados e serviços de alta qualidade, garantindo a completa satisfação dos clientes.</p>'
             .'<h3>Visão</h3><p>Ser referência nacional em consultoria de TI e sistemas de gestão.</p>'
             .'<h3>Valores</h3><p>Ética, comprometimento, integridade, respeito, profissionalismo, valorização das pessoas, criatividade, proatividade e inovação.</p>';
+    }
+
+    private function privacyPolicyContent(): string
+    {
+        // Política de Privacidade própria da Databit, redigida em conformidade
+        // com a LGPD (Lei nº 13.709/2018), refletindo o que este site
+        // efetivamente coleta (formulários de contato e navegação) — em vez
+        // de copiar o texto genérico padrão do WordPress usado no site atual.
+        return '<p>A Databit Tecnologia da Informação ("Databit", "nós") respeita a sua privacidade e trata dados pessoais em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 – LGPD). Esta política explica quais dados coletamos neste site, para que finalidades, com quem podem ser compartilhados e quais são os seus direitos como titular.</p>'
+            .'<h3>1. Quem somos</h3><p>A Databit é a controladora dos dados pessoais tratados por meio deste site. Endereço: R. Mário Campos, 197 - Inconfidência, Belo Horizonte/MG, 30820-280. Contato: <a href="mailto:atendimento@databit.com.br">atendimento@databit.com.br</a>.</p>'
+            .'<h3>2. Quais dados coletamos</h3><ul>'
+            .'<li>Dados informados voluntariamente em formulários do site, como nome, e-mail, telefone, empresa e mensagem, ao solicitar contato com um especialista ou preencher o formulário de "Fale Conosco";</li>'
+            .'<li>Dados de navegação (como páginas visitadas) necessários ao funcionamento do site, conforme descrito em nossa <a href="'.route('pages.show', 'politicas-de-cookies').'">Política de Cookies</a>;</li>'
+            .'<li>Dados fornecidos ao entrar em contato por telefone, e-mail ou WhatsApp.</li>'
+            .'</ul>'
+            .'<h3>3. Para que usamos os seus dados</h3><ul>'
+            .'<li><strong>Atendimento comercial e suporte</strong> — para responder solicitações de contato, orçamento e suporte técnico, com base na execução de procedimentos preliminares relacionados a um possível contrato e no legítimo interesse (art. 7º, IV e IX, da LGPD);</li>'
+            .'<li><strong>Comunicação sobre produtos e novidades</strong> — quando você opta por receber contato comercial, com base no seu consentimento (art. 7º, I), que pode ser revogado a qualquer momento;</li>'
+            .'<li><strong>Cumprimento de obrigação legal ou regulatória</strong>, quando aplicável (art. 7º, II).</li>'
+            .'</ul>'
+            .'<h3>4. Com quem compartilhamos os seus dados</h3><p>Não vendemos dados pessoais a terceiros. Podemos compartilhar dados com prestadores de serviço que atuam em nosso nome (por exemplo, hospedagem, e-mail e atendimento via WhatsApp Business), sempre limitados ao necessário para a prestação do serviço, e com autoridades públicas quando exigido por lei ou ordem judicial.</p>'
+            .'<h3>5. Por quanto tempo mantemos os seus dados</h3><p>Mantemos os dados pessoais pelo tempo necessário para cumprir as finalidades descritas nesta política, observados eventuais prazos legais de guarda de documentos fiscais e contratuais, sendo eliminados ou anonimizados posteriormente, salvo obrigação legal de retenção.</p>'
+            .'<h3>6. Seus direitos como titular de dados</h3><p>Nos termos do art. 18 da LGPD, você pode solicitar a qualquer momento, mediante contato com nossa Ouvidoria:</p><ul>'
+            .'<li>Confirmação da existência de tratamento e acesso aos seus dados;</li>'
+            .'<li>Correção de dados incompletos, inexatos ou desatualizados;</li>'
+            .'<li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a LGPD;</li>'
+            .'<li>Portabilidade dos dados a outro fornecedor de serviço ou produto;</li>'
+            .'<li>Eliminação dos dados pessoais tratados com base no seu consentimento;</li>'
+            .'<li>Informação sobre as entidades públicas e privadas com as quais compartilhamos seus dados;</li>'
+            .'<li>Revogação do consentimento, quando essa for a base legal do tratamento.</li>'
+            .'</ul><p>Para exercer esses direitos, entre em contato com a nossa Ouvidoria pelo e-mail <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a>.</p>'
+            .'<h3>7. Segurança da informação</h3><p>Adotamos medidas técnicas e administrativas razoáveis para proteger os dados pessoais contra acessos não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou difusão.</p>'
+            .'<h3>8. Cookies</h3><p>Este site utiliza cookies e tecnologias semelhantes para funcionar corretamente e melhorar a sua experiência de navegação. Saiba mais na nossa <a href="'.route('pages.show', 'politicas-de-cookies').'">Política de Cookies</a>.</p>'
+            .'<h3>9. Alterações desta política</h3><p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas ou na legislação aplicável.</p>'
+            .'<p><em>Última atualização: setembro de 2026.</em></p>';
+    }
+
+    private function cookiePolicyContent(): string
+    {
+        // Política de Cookies honesta em relação ao que o site realmente faz
+        // hoje (cookie de sessão do Laravel/CSRF + localStorage para lembrar
+        // avisos dispensados) — sem herdar cláusulas de marketing/analytics
+        // de terceiros do texto do plugin usado no site atual, que não se
+        // aplicam a este projeto.
+        return '<p>Esta Política de Cookies explica o que são cookies, quais utilizamos neste site e como você pode gerenciá-los. Para saber como tratamos dados pessoais de forma geral, consulte a nossa <a href="'.route('pages.show', 'politicas-de-privacidade').'">Política de Privacidade</a>.</p>'
+            .'<h3>1. O que são cookies</h3><p>Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site. Eles ajudam o site a funcionar corretamente, lembrar suas preferências e entender como você interage com o conteúdo.</p>'
+            .'<h3>2. Cookies que utilizamos</h3><ul>'
+            .'<li><strong>Cookies necessários</strong> — essenciais para o funcionamento do site, como manter sua sessão de navegação e proteger o envio de formulários contra fraude (CSRF). Não podem ser desativados, pois o site não funciona corretamente sem eles.</li>'
+            .'<li><strong>Preferências salvas localmente</strong> — usamos o armazenamento local do navegador (localStorage) para lembrar, por exemplo, quando você dispensa um aviso exibido no topo do site ou a mensagem sobre cookies, evitando exibi-los novamente.</li>'
+            .'</ul>'
+            .'<p>No momento, este site não utiliza cookies de publicidade nem de rastreamento de terceiros. Caso isso venha a mudar — por exemplo, com a adoção futura de ferramentas de análise de audiência —, esta política será atualizada e, quando exigido pela LGPD, solicitaremos o seu consentimento antes da ativação desses cookies.</p>'
+            .'<h3>3. Como gerenciar cookies</h3><p>Você pode gerenciar, bloquear ou remover cookies a qualquer momento nas configurações do seu navegador. Note que bloquear cookies necessários pode impedir o funcionamento correto de algumas áreas do site.</p>'
+            .'<h3>4. Mais informações</h3><p>Para dúvidas sobre esta política ou sobre o tratamento dos seus dados pessoais, entre em contato pelo e-mail <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a>.</p>'
+            .'<p><em>Última atualização: setembro de 2026.</em></p>';
     }
 
     private function seedMenu(): void

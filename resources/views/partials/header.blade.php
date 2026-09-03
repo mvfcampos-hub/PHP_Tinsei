@@ -1,4 +1,4 @@
-<header x-data="{ mobileOpen: false }" class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
+<header x-data="{ mobileOpen: false, searchOpen: false }" @keydown.escape.window="searchOpen = false" class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between gap-6">
             <a href="{{ route('home') }}" class="shrink-0">
@@ -77,6 +77,36 @@
             </nav>
 
             <div class="flex items-center gap-2">
+                <div class="relative hidden lg:block" @click.outside="searchOpen = false">
+                    <button
+                        @click="searchOpen = !searchOpen; if (searchOpen) $nextTick(() => $refs.searchInput.focus())"
+                        class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-brand-700 transition"
+                        :aria-expanded="searchOpen"
+                        aria-label="Buscar no site"
+                    >
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    </button>
+                    <div
+                        x-show="searchOpen"
+                        x-cloak
+                        x-transition
+                        class="absolute right-0 top-full pt-3 w-80"
+                    >
+                        <form action="{{ route('search') }}" method="GET" class="rounded-2xl border border-slate-200 bg-white shadow-xl p-3">
+                            <div class="relative">
+                                <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                                <input
+                                    x-ref="searchInput"
+                                    type="search"
+                                    name="q"
+                                    placeholder="Buscar sistemas, serviços, novidades..."
+                                    class="w-full rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+                                >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
                 <a href="#" class="hidden md:inline-flex items-center rounded-lg border border-brand-200 px-4 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                     Área do Cliente
                 </a>
@@ -88,6 +118,17 @@
         </div>
 
         <div x-show="mobileOpen" x-cloak x-transition class="lg:hidden pb-4 max-h-[70vh] overflow-y-auto">
+            <form action="{{ route('search') }}" method="GET" class="px-3 pb-3">
+                <div class="relative">
+                    <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    <input
+                        type="search"
+                        name="q"
+                        placeholder="Buscar no site..."
+                        class="w-full rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+                    >
+                </div>
+            </form>
             <nav class="flex flex-col gap-1">
                 @foreach ($mainMenu ?? [] as $item)
                     <a href="{{ $item->resolveUrl() }}" @if ($item->opens_new_tab) target="_blank" rel="noopener" @endif class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:bg-brand-50">

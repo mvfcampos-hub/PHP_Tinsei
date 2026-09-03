@@ -25,5 +25,6 @@
     @include('partials.footer')
 
     <x-whatsapp-float />
+    <x-cookie-consent />
 </body>
 </html>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ItServiceController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -31,3 +32,5 @@ Route::get('/novidades/{news:slug}', [NewsController::class, 'show'])->name('new
 Route::get('/agenda', [EventController::class, 'index'])->name('events.index');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');
+
+Route::get('/busca', SearchController::class)->name('search');
