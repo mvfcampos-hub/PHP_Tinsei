@@ -20,7 +20,7 @@
     <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 space-y-10">
         @forelse ($stories as $story)
             <article class="rounded-2xl border border-slate-200 bg-white overflow-hidden grid md:grid-cols-5">
-                <div class="md:col-span-2 bg-slate-950 aspect-video md:self-center md:m-4 md:rounded-xl overflow-hidden">
+                <div class="md:col-span-3 bg-slate-950 aspect-video overflow-hidden">
                     @if ($story->video_url)
                         <video
                             class="w-full h-full object-cover"
@@ -40,7 +40,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="md:col-span-3 p-6 sm:p-8 flex flex-col justify-center">
+                <div class="md:col-span-2 p-6 sm:p-8 flex flex-col justify-center">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900">{{ $story->company }}</h2>
                     <p class="text-sm font-semibold text-brand-700 mt-1">
                         {{ $story->location }}

@@ -58,6 +58,24 @@
         </div>
     @endif
 
+    @if ($product->logo_image && !$product->youtubeEmbedUrl())
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 text-center">
+            <img src="{{ Storage::url($product->logo_image) }}" alt="{{ $product->name }}" class="mx-auto h-16 sm:h-20 w-auto">
+        </div>
+    @endif
+
+    @if ($ecosystemHub)
+        <section class="bg-white border-y border-slate-200">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-2xl mx-auto mb-4">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">O núcleo do ecossistema Databit</h2>
+                    <p class="text-slate-500 mt-2">O DataClassic conversa nativamente com os módulos abaixo — clique em qualquer um para conhecer os detalhes.</p>
+                </div>
+                <x-ecosystem-diagram :hub="$ecosystemHub" :satellites="$ecosystemSatellites" />
+            </div>
+        </section>
+    @endif
+
     @if ($product->youtubeEmbedUrl())
         <section class="py-16 sm:py-20">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

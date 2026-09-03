@@ -42,6 +42,13 @@ class ProductController extends Controller
             ->take(3)
             ->get();
 
-        return view('products.show', compact('product', 'related'));
+        // O DataClassic é o núcleo do ecossistema — sua página de detalhe
+        // reproduz o mesmo diagrama de satélites já usado na home.
+        $ecosystemHub = $product->slug === 'dataclassic' ? $product : null;
+        $ecosystemSatellites = $ecosystemHub
+            ? Product::active()->ecosystemNode()->get()
+            : collect();
+
+        return view('products.show', compact('product', 'related', 'ecosystemHub', 'ecosystemSatellites'));
     }
 }

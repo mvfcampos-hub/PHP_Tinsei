@@ -178,7 +178,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedProducts(): void
     {
-        foreach (['dataservice', 'datawhats', 'datacount', 'datainvoice', 'datashipping', 'datadashboard'] as $slug) {
+        foreach (['dataclassic', 'dataservice', 'datawhats', 'datacount', 'datainvoice', 'datashipping', 'datadashboard'] as $slug) {
             $this->putSeedFile("products/{$slug}.png", "products/{$slug}.png");
         }
 
@@ -333,6 +333,7 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'ERP completo para atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço, com 12 módulos integrados — de cadastros e compras a fiscal, financeiro e faturamento.',
                 'description' => $dataClassicDescription,
                 'highlights' => $dataClassicHighlights,
+                'logo_image' => 'products/dataclassic.png',
                 'icon' => 'heroicon-o-building-storefront',
                 'external_url' => null,
                 'is_featured' => true,
