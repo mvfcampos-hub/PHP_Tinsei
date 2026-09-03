@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Client;
 use App\Models\CloudPlan;
 use App\Models\EventItem;
+use App\Models\KnowledgeArticle;
 use App\Models\MenuItem;
 use App\Models\News;
 use App\Models\Page;
@@ -41,6 +42,7 @@ class DatabaseSeeder extends Seeder
         $this->seedBanners();
         $this->seedTestimonials();
         $this->seedClients();
+        $this->seedKnowledgeBase();
     }
 
     private function seedPages(): void
@@ -155,8 +157,9 @@ class DatabaseSeeder extends Seeder
         $institucional = MenuItem::where('label', 'Institucional')->first();
         $institucionalChildren = [
             ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 1],
-            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 2],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 3],
+            ['label' => 'Base de Conhecimento', 'url' => '/base-de-conhecimento', 'sort_order' => 2],
+            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 3],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 4],
         ];
         foreach ($institucionalChildren as $child) {
             MenuItem::firstOrCreate(
@@ -636,6 +639,129 @@ class DatabaseSeeder extends Seeder
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]
+            );
+        }
+    }
+
+    private function seedKnowledgeBase(): void
+    {
+        $productId = fn (string $name) => Product::where('name', $name)->value('id');
+
+        $articles = [
+            [
+                'title' => 'Como acessar a Área do Cliente Databit',
+                'solution_type' => 'geral',
+                'product_id' => null,
+                'excerpt' => 'Passo a passo para entrar na Área do Cliente e consultar chamados, contratos e boletos.',
+                'content' => '<p>A Área do Cliente reúne, em um só lugar, os seus chamados de suporte, contratos e informações financeiras.</p>'
+                    .'<ol><li>Acesse o botão <strong>Área do Cliente</strong> no topo do site.</li>'
+                    .'<li>Informe o e-mail cadastrado e a senha de acesso.</li>'
+                    .'<li>Caso seja o seu primeiro acesso, utilize a opção <strong>Esqueci minha senha</strong> para criar uma senha nova.</li></ol>'
+                    .'<p>Se tiver qualquer dificuldade para acessar, fale com o nosso suporte pelo WhatsApp ou e-mail.</p>',
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Como abrir um chamado de suporte',
+                'solution_type' => 'geral',
+                'product_id' => null,
+                'excerpt' => 'Os canais oficiais para abrir chamados e o que informar para agilizar o atendimento.',
+                'content' => '<p>Você pode abrir um chamado de suporte pelos seguintes canais:</p>'
+                    .'<ul><li>WhatsApp: (31) 99727-8589</li><li>E-mail: atendimento@databit.com.br</li><li>Telefone: (31) 3416-8225</li></ul>'
+                    .'<p>Para agilizar o atendimento, informe o nome da empresa, o sistema ou serviço envolvido e uma descrição do problema, incluindo prints de tela quando possível.</p>'
+                    .'<p>Clientes do plano MSP contam com SLA formal por prioridade — consulte os prazos na página do <a href="/servicos-ti/msp">Databit MSP</a>.</p>',
+                'sort_order' => 2,
+            ],
+            [
+                'title' => 'Primeiros passos no DataClassic',
+                'solution_type' => 'sistemas',
+                'product_id' => $productId('DataClassic'),
+                'excerpt' => 'Um guia rápido para se orientar no ERP DataClassic logo no primeiro acesso.',
+                'content' => '<p>Ao acessar o DataClassic pela primeira vez, recomendamos seguir esta ordem:</p>'
+                    .'<ol><li>Confirme os dados cadastrais da sua empresa em <strong>Cadastros &gt; Empresa</strong>.</li>'
+                    .'<li>Revise o cadastro de usuários e permissões de acesso da sua equipe.</li>'
+                    .'<li>Configure os parâmetros fiscais de acordo com o regime tributário da empresa.</li>'
+                    .'<li>Importe ou cadastre o catálogo inicial de produtos/serviços.</li></ol>'
+                    .'<p>Nossa equipe de implantação acompanha essa etapa junto com você — qualquer dúvida, abra um chamado de suporte.</p>',
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Como instalar o DataMobile no seu smartphone',
+                'solution_type' => 'sistemas',
+                'product_id' => $productId('DataMobile'),
+                'excerpt' => 'Onde baixar o aplicativo e como conectá-lo ao seu DataClassic.',
+                'content' => '<p>O DataMobile está disponível para Android e iOS.</p>'
+                    .'<ol><li>Baixe o aplicativo na loja do seu aparelho.</li>'
+                    .'<li>Na tela inicial, informe o código de conexão fornecido pelo administrador do sistema.</li>'
+                    .'<li>Faça login com o seu usuário e senha do DataClassic.</li></ol>'
+                    .'<p>Após conectado, os dados são sincronizados automaticamente com o servidor da sua empresa.</p>',
+                'sort_order' => 2,
+            ],
+            [
+                'title' => 'Como configurar um novo atendente no DataSAC',
+                'solution_type' => 'sistemas',
+                'product_id' => $productId('DataSAC'),
+                'excerpt' => 'Passo a passo para cadastrar atendentes e definir filas de atendimento.',
+                'content' => '<p>Para adicionar um novo atendente ao DataSAC:</p>'
+                    .'<ol><li>Acesse <strong>Configurações &gt; Atendentes</strong>.</li>'
+                    .'<li>Clique em <strong>Novo Atendente</strong> e preencha nome, e-mail e permissões.</li>'
+                    .'<li>Associe o atendente às filas de atendimento correspondentes.</li></ol>'
+                    .'<p>O atendente receberá um convite por e-mail para definir sua senha de acesso.</p>',
+                'sort_order' => 3,
+            ],
+            [
+                'title' => 'Como acessar sua máquina virtual no DataCloud',
+                'solution_type' => 'cloud',
+                'product_id' => null,
+                'excerpt' => 'Formas de conexão (RDP e SSH) às VMs do seu ambiente DataCloud.',
+                'content' => '<p>O acesso à sua máquina virtual DataCloud pode ser feito de duas formas, conforme o sistema operacional:</p>'
+                    .'<ul><li><strong>Windows:</strong> utilize o aplicativo de Área de Trabalho Remota (RDP) com o IP e as credenciais informadas na ativação do plano.</li>'
+                    .'<li><strong>Linux:</strong> conecte via SSH utilizando o IP e a chave/senha fornecidos.</li></ul>'
+                    .'<p>Por segurança, o acesso é liberado apenas para os IPs previamente cadastrados. Para liberar um novo IP, abra um chamado de suporte.</p>',
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Como solicitar upgrade de plano no DataCloud',
+                'solution_type' => 'cloud',
+                'product_id' => null,
+                'excerpt' => 'Como aumentar vCPU, RAM ou disco da sua VM sem perder dados.',
+                'content' => '<p>Se o seu ambiente DataCloud precisa de mais capacidade, o upgrade é feito sem perda de dados:</p>'
+                    .'<ol><li>Abra um chamado informando o novo plano desejado (vCPU, RAM e disco).</li>'
+                    .'<li>Nossa equipe agenda uma janela de manutenção com você.</li>'
+                    .'<li>O upgrade é aplicado e a VM é reiniciada apenas uma vez, na janela combinada.</li></ol>'
+                    .'<p>Consulte os planos disponíveis na página do <a href="/datacloud">DataCloud</a>.</p>',
+                'sort_order' => 2,
+            ],
+            [
+                'title' => 'Como funciona o suporte do Databit MSP',
+                'solution_type' => 'servicos-ti',
+                'product_id' => null,
+                'excerpt' => 'Canais de abertura de chamado, horário de cobertura e como funciona o SLA por prioridade.',
+                'content' => '<p>Clientes do plano Databit MSP contam com service desk ilimitado em horário comercial (segunda a sexta, 8h às 17h).</p>'
+                    .'<ul><li>Abertura de chamados via WhatsApp ou e-mail;</li>'
+                    .'<li>Classificação automática por prioridade (crítica, alta, média ou baixa);</li>'
+                    .'<li>Atendimento emergencial fora do horário, cobrado como hora extra.</li></ul>'
+                    .'<p>Veja os tempos de resposta e resolução de cada prioridade na página do <a href="/servicos-ti/msp">Databit MSP</a>.</p>',
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Como escolher o notebook ideal para a sua equipe',
+                'solution_type' => 'hardware',
+                'product_id' => null,
+                'excerpt' => 'O que considerar antes de comprar notebooks para uso corporativo.',
+                'content' => '<p>Antes de comprar notebooks para a sua empresa, considere:</p>'
+                    .'<ul><li><strong>Perfil de uso:</strong> tarefas de escritório exigem menos do que uso com sistemas de gestão, planilhas pesadas ou design.</li>'
+                    .'<li><strong>Memória RAM:</strong> recomendamos ao menos 8 GB para uso corporativo com múltiplos sistemas abertos.</li>'
+                    .'<li><strong>Armazenamento:</strong> priorize SSD, que é significativamente mais rápido que HD tradicional.</li>'
+                    .'<li><strong>Garantia e suporte:</strong> equipamentos corporativos com garantia on-site reduzem o tempo de parada.</li></ul>'
+                    .'<p>Nossa equipe ajuda a dimensionar o equipamento certo para cada perfil — fale com um especialista na página de <a href="/produtos">Produtos de informática</a>.</p>',
+                'sort_order' => 2,
+            ],
+        ];
+
+        foreach ($articles as $article) {
+            KnowledgeArticle::firstOrCreate(
+                ['slug' => Str::slug($article['title'])],
+                [...$article, 'slug' => Str::slug($article['title']), 'is_published' => true]
             );
         }
     }

@@ -25,6 +25,7 @@
                 <li><a href="{{ route('pages.show', 'grupo-databit') }}" class="hover:text-white transition">Grupo Databit</a></li>
                 <li><a href="{{ route('news.index') }}" class="hover:text-white transition">Novidades</a></li>
                 <li><a href="{{ route('events.index') }}" class="hover:text-white transition">Agenda</a></li>
+                <li><a href="{{ route('kb.index') }}" class="hover:text-white transition">Base de Conhecimento</a></li>
                 <li><a href="{{ route('pages.show', 'perguntas-frequentes') }}" class="hover:text-white transition">Perguntas Frequentes</a></li>
                 <li><a href="{{ route('pages.show', 'politicas-de-privacidade') }}" class="hover:text-white transition">Políticas de Privacidade</a></li>
                 <li><a href="{{ route('pages.show', 'politicas-de-cookies') }}" class="hover:text-white transition">Políticas de Cookies</a></li>

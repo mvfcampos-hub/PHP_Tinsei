@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItServiceController;
+use App\Http\Controllers\KnowledgeBaseController;
 use App\Http\Controllers\MspController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -36,3 +37,6 @@ Route::get('/agenda', [EventController::class, 'index'])->name('events.index');
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');
 
 Route::get('/busca', SearchController::class)->name('search');
+
+Route::get('/base-de-conhecimento', [KnowledgeBaseController::class, 'index'])->name('kb.index');
+Route::get('/base-de-conhecimento/{article:slug}', [KnowledgeBaseController::class, 'show'])->name('kb.show');

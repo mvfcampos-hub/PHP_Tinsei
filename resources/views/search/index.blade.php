@@ -67,6 +67,17 @@
                 </div>
             @endif
 
+            @if ($articles->isNotEmpty())
+                <div>
+                    <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-4">Base de Conhecimento ({{ $articles->count() }})</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @foreach ($articles as $article)
+                            <x-kb-article-card :article="$article" />
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
             @if ($events->isNotEmpty())
                 <div>
                     <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-4">Agenda ({{ $events->count() }})</h2>
