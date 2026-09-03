@@ -76,6 +76,10 @@
         </div>
     </section>
 
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12">
+        <x-kb-ask-ai :solution-type="$solutionType" />
+    </section>
+
     <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         @if ($term !== '' || $solutionType || $moduleId)
             {{-- Resultado filtrado: lista simples --}}

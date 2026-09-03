@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItServiceController;
+use App\Http\Controllers\KnowledgeAssistantController;
 use App\Http\Controllers\KnowledgeBaseController;
 use App\Http\Controllers\MspController;
 use App\Http\Controllers\NewsController;
@@ -40,3 +41,6 @@ Route::get('/busca', SearchController::class)->name('search');
 
 Route::get('/base-de-conhecimento', [KnowledgeBaseController::class, 'index'])->name('kb.index');
 Route::get('/base-de-conhecimento/{article:slug}', [KnowledgeBaseController::class, 'show'])->name('kb.show');
+Route::post('/base-de-conhecimento/perguntar', [KnowledgeAssistantController::class, 'ask'])
+    ->middleware('throttle:10,1')
+    ->name('kb.ask');

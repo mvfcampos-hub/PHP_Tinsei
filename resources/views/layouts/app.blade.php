@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Início') · Databit · Tecnologia para Gestão Empresarial</title>
     <meta name="description" content="@yield('description', 'Databit: sistemas de gestão empresarial (ERP), Cloud, mobilidade, atendimento ao cliente e serviços de TI. Mais de 30 anos transformando a gestão de empresas em todo o Brasil.')">
     <link rel="icon" href="data:,">

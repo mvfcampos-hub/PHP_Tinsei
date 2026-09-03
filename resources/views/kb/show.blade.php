@@ -44,6 +44,10 @@
         <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-brand-700 mt-8">
             {!! $article->content !!}
         </div>
+
+        <div class="mt-10">
+            <x-kb-ask-ai :solution-type="$article->solution_type" />
+        </div>
     </article>
 
     @if ($related->isNotEmpty())
