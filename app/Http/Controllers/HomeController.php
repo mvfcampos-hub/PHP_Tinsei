@@ -26,7 +26,7 @@ class HomeController extends Controller
             'featuredProducts' => Product::active()->systems()->featured()->get(),
             'ecosystemHub' => $ecosystemHub,
             'ecosystemSatellites' => Product::active()->ecosystemNode()->get(),
-            'featuredNews' => News::published()->where('is_featured', true)->latest('published_at')->take(3)->get(),
+            'featuredNews' => News::published()->where('is_featured', true)->latest('published_at')->take(4)->get(),
             'latestNews' => News::published()->latest('published_at')->take(4)->get(),
             'upcomingEvents' => EventItem::upcoming()->take(4)->get(),
             'testimonials' => Testimonial::active()->get(),

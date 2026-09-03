@@ -174,6 +174,10 @@ class DatabaseSeeder extends Seeder
 
     private function seedProducts(): void
     {
+        foreach (['dataservice', 'datawhats', 'datacount', 'datainvoice', 'datashipping', 'datadashboard'] as $slug) {
+            $this->putSeedFile("products/{$slug}.png", "products/{$slug}.png");
+        }
+
         $dataClassicModules = [
             'Gestão de Cadastros' => 'Controle de clientes, fornecedores, vendedores, serviços e produtos, com histórico completo de dados.',
             'Gestão de Compras' => 'Sugestão de compras, fluxo de aprovação, avaliação de fornecedores e auditoria de estoque.',
@@ -260,12 +264,12 @@ class DatabaseSeeder extends Seeder
             .'<li><strong>Gestão de documentos e motivos de perda:</strong> histórico completo, rastreabilidade e análise de padrões para melhorar a abordagem comercial.</li>'
             .'</ul>';
 
-        $dataServiceDescription = '<p>O DataService é a ferramenta web para gestão de ordens de serviço e requisições de suprimentos, com consulta em tempo real e integração direta ao DataClassic — automatizando a comunicação com o cliente e dando agilidade e precisão ao processo. Os técnicos acessam os chamados e atendem diretamente no local, enquanto os gestores acompanham tudo em tempo real pelo monitor de SLA do DataClassic. Confira as facilidades que sua empresa terá.</p>';
+        $dataServiceDescription = '<p>O DataService é a ferramenta web para gestão de ordens de serviço e requisições de suprimentos de forma fácil e eficiente. Com módulos de consulta em tempo real e integração direta ao DataClassic, automatizamos a comunicação com o cliente, garantindo agilidade e precisão no processo. Os técnicos têm acesso fácil aos chamados e podem realizar atendimentos diretamente no local, enquanto os gestores acompanham as atividades em tempo real através do monitor de SLA no DataClassic, proporcionando uma gestão mais eficiente e assertiva. Confira algumas das facilidades que sua empresa terá.</p>';
 
         $dataServiceHighlights = [
-            ['icon' => 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6 21v-3.375c0-.621.504-1.125 1.125-1.125h1.5c.621 0 1.125.504 1.125 1.125V21', 'title' => 'Portal de Serviços', 'desc' => 'Gestão completa de equipamentos locados: solicitação de suprimentos, abertura de chamados técnicos, informações contratuais, relatórios de atendimento e suporte financeiro, tudo em um único lugar.'],
-            ['icon' => 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085', 'title' => 'Portal do Técnico', 'desc' => 'O técnico abre o chamado na web, que é registrado imediatamente no DataClassic e notifica o gestor. Assim que o gestor define o técnico e encaminha a solicitação, a funcionalidade web do técnico é liberada, permitindo uma intervenção rápida e integrada.'],
-            ['icon' => 'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z', 'title' => 'Portal do Cliente', 'desc' => 'Central de controle completa: abertura de chamados técnicos, geração de QR code e requisição direta de suprimentos, consulta de contrato e equipamentos, informações financeiras (com reimpressão de boletos e notas fiscais) e gráficos para análise visual de chamados, requisições e compras.'],
+            ['icon' => 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6 21v-3.375c0-.621.504-1.125 1.125-1.125h1.5c.621 0 1.125.504 1.125 1.125V21', 'title' => 'Portal de Serviços', 'desc' => 'Oferece soluções completas para a gestão de equipamentos locados. Desde a solicitação de suprimentos até a assistência técnica, nossa plataforma simplifica todo o processo. Com facilidade, você pode solicitar suprimentos, abrir chamados técnicos, obter informações contratuais, relatórios de atendimentos e suporte financeiro.'],
+            ['icon' => 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085', 'title' => 'Portal do Técnico', 'desc' => 'Na nossa plataforma, o técnico abre um chamado na web, que é imediatamente registrado no DataClassic, notificando o gestor. Este define o técnico, identifica o defeito e encaminha a solicitação. Assim que o gestor envia o chamado para o técnico pelo DataClassic, começa a funcionalidade web do técnico, permitindo uma intervenção rápida e integrada. Essa abordagem garante uma resposta eficiente às necessidades do cliente.'],
+            ['icon' => 'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z', 'title' => 'Portal do Cliente', 'desc' => 'Tenha uma central de controle completa para gerenciamento de serviços técnicos e suprimentos. Os clientes podem abrir chamados técnicos, gerar QR codes para solicitar suprimentos, requisitar suprimentos diretamente, visualizar detalhes do contrato e equipamentos, acessar informações financeiras (incluindo reimpressão de boletos) e analisar o histórico de compras, inclusive reimprimir notas fiscais. Também fornecemos gráficos para uma análise visual de chamados, requisições e compras.'],
         ];
 
         $dataWhatsDescription = '<p>O DataWhats é a ferramenta de comunicação da Databit integrada ao WhatsApp, que cria diversos canais de comunicação entre os usuários do DataClassic e seus clientes. Confira algumas facilidades na comunicação que sua empresa terá.</p>';
@@ -312,8 +316,9 @@ class DatabaseSeeder extends Seeder
             ['icon' => 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z', 'title' => 'Acompanhamento de Faturamento', 'desc' => 'Contratos faturados e pendentes de faturamento, com quantidade, valor e destaque para contratos com faturamento atrasado.'],
             ['icon' => 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z', 'title' => 'Produção x Vida Útil de Suprimentos', 'desc' => 'Análise da produção de cada contrato em relação à quantidade de suprimentos enviados e à vida útil de cada um, identificando desvios em relação ao que deveria ser impresso.'],
             ['icon' => 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085', 'title' => 'Assistência Técnica', 'desc' => 'Ranking de produtividade da equipe técnica: quantidade de OS por técnico, média mensal, tempo de deslocamento, rechamados e tempo médio de solução — por cliente, defeito, cidade e técnico.'],
-            ['icon' => 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99', 'title' => 'Fluxo de Caixa e Resumo Financeiro', 'desc' => 'Visão dinâmica e completa do fluxo de caixa, com detalhamento de inadimplência e análise de contas a receber versus contas a pagar por centro e subcentro de custo.'],
-            ['icon' => 'M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z', 'title' => 'DRE Personalizada', 'desc' => 'Demonstrativo de resultados construído sob medida, de acordo com a forma de análise e os rateios da sua empresa.'],
+            ['icon' => 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99', 'title' => 'Fluxo de Caixa', 'desc' => 'Tela dinâmica para visão completa do fluxo de caixa, com detalhamento de inadimplência e dos dias.'],
+            ['icon' => 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z', 'title' => 'Resumo Financeiro', 'desc' => 'Analise resultados (contas a receber versus contas a pagar) por centro e subcentro de custos, com visão de caixa e competência.'],
+            ['icon' => 'M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z', 'title' => 'DRE Personalizada', 'desc' => 'Construímos sua DRE com personalização do seu demonstrativo de resultados de acordo com a sua forma de análise e rateios.'],
         ];
 
         $items = [
@@ -396,6 +401,8 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Integração oficial do WhatsApp aos sistemas Databit para comunicação com clientes direto do ERP e do atendimento.',
                 'description' => $dataWhatsDescription,
                 'highlights' => $dataWhatsHighlights,
+                'video_url' => 'https://youtu.be/JV-BMY0sJ9k',
+                'logo_image' => 'products/datawhats.png',
                 'icon' => 'heroicon-o-chat-bubble-oval-left-ellipsis',
                 'external_url' => null,
                 'is_featured' => false,
@@ -409,6 +416,8 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Ferramenta de gestão via navegador que leva o acesso ao DataClassic para fora do escritório, sem instalação local.',
                 'description' => $dataServiceDescription,
                 'highlights' => $dataServiceHighlights,
+                'video_url' => 'https://youtu.be/S26jpSToYBM',
+                'logo_image' => 'products/dataservice.png',
                 'icon' => 'heroicon-o-globe-alt',
                 'external_url' => null,
                 'is_featured' => false,
@@ -422,6 +431,8 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Ferramenta de contagem de inventário por coletor ou aplicativo, integrada ao estoque do DataClassic.',
                 'description' => $dataCountDescription,
                 'highlights' => $dataCountHighlights,
+                'video_url' => 'https://www.youtube.com/watch?v=i4bKn9Fmlqk',
+                'logo_image' => 'products/datacount.png',
                 'icon' => 'heroicon-o-clipboard-document-check',
                 'external_url' => null,
                 'is_featured' => false,
@@ -435,6 +446,8 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Captura, conferência e lançamento automatizado de notas fiscais de entrada, reduzindo o trabalho manual da equipe fiscal.',
                 'description' => $dataInvoiceDescription,
                 'highlights' => $dataInvoiceHighlights,
+                'video_url' => 'https://www.youtube.com/watch?v=1GWx8Rp2iOk',
+                'logo_image' => 'products/datainvoice.png',
                 'icon' => 'heroicon-o-document-duplicate',
                 'external_url' => null,
                 'is_featured' => false,
@@ -448,6 +461,8 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Integração com transportadoras parceiras para cotação, etiquetagem e rastreamento de encomendas direto do DataClassic.',
                 'description' => $dataShippingDescription,
                 'highlights' => $dataShippingHighlights,
+                'video_url' => 'https://www.youtube.com/watch?v=VQ0nBgdQIIQ',
+                'logo_image' => 'products/datashipping.png',
                 'icon' => 'heroicon-o-truck',
                 'external_url' => null,
                 'is_featured' => false,
@@ -461,6 +476,8 @@ class DatabaseSeeder extends Seeder
                 'summary' => 'Painéis gerenciais com os principais indicadores de vendas, estoque e financeiro do DataClassic, atualizados em tempo real.',
                 'description' => $dataDashboardDescription,
                 'highlights' => $dataDashboardHighlights,
+                'video_url' => 'https://www.youtube.com/watch?v=Y6wCeV8Rxh0',
+                'logo_image' => 'products/datadashboard.png',
                 'icon' => 'heroicon-o-chart-bar',
                 'external_url' => null,
                 'is_featured' => false,
@@ -479,6 +496,8 @@ class DatabaseSeeder extends Seeder
                     'summary' => $item['summary'],
                     'description' => $item['description'] ?? '<p>'.$item['summary'].'</p><p>Conteúdo completo do produto a ser migrado do site atual (databit.com.br).</p>',
                     'highlights' => $item['highlights'] ?? null,
+                    'video_url' => $item['video_url'] ?? null,
+                    'logo_image' => $item['logo_image'] ?? null,
                     'icon' => $item['icon'],
                     'external_url' => $item['external_url'],
                     'opens_externally' => $item['opens_externally'] ?? false,

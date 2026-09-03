@@ -58,6 +58,35 @@
         </div>
     @endif
 
+    @if ($product->youtubeEmbedUrl())
+        <section class="py-16 sm:py-20">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        @if ($product->logo_image)
+                            <img src="{{ Storage::url($product->logo_image) }}" alt="{{ $product->name }}" class="h-10 sm:h-12 w-auto mb-6">
+                        @endif
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">{{ $product->tagline ?: $product->name }}</h2>
+                        <p class="text-slate-600 mt-4 text-base sm:text-lg leading-relaxed">{{ $product->summary }}</p>
+                        <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Tenho interesse no produto ' . $product->name . '.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-800 transition mt-6">
+                            Falar com um especialista
+                        </a>
+                    </div>
+                    <div class="relative aspect-video rounded-2xl overflow-hidden shadow-xl bg-slate-950">
+                        <iframe
+                            src="{{ $product->youtubeEmbedUrl() }}"
+                            title="Vídeo demonstrativo — {{ $product->name }}"
+                            class="absolute inset-0 h-full w-full"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
     @if (!empty($product->highlights))
         <section class="py-16 sm:py-20">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

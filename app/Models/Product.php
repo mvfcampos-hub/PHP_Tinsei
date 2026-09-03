@@ -44,6 +44,8 @@ class Product extends Model
         'highlights',
         'icon',
         'cover_image',
+        'video_url',
+        'logo_image',
         'external_url',
         'opens_externally',
         'is_featured',
@@ -82,6 +84,19 @@ class Product extends Model
         }
 
         return route('products.show', $this->slug);
+    }
+
+    public function youtubeEmbedUrl(): ?string
+    {
+        if (! $this->video_url) {
+            return null;
+        }
+
+        if (! preg_match('/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/', $this->video_url, $matches)) {
+            return null;
+        }
+
+        return 'https://www.youtube.com/embed/'.$matches[1];
     }
 
     public function events(): HasMany
