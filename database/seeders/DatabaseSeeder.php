@@ -11,6 +11,7 @@ use App\Models\MenuItem;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\SuccessStory;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -41,6 +42,7 @@ class DatabaseSeeder extends Seeder
         $this->seedEvents();
         $this->seedBanners();
         $this->seedTestimonials();
+        $this->seedSuccessStories();
         $this->seedClients();
         $this->seedKnowledgeBase();
     }
@@ -159,9 +161,10 @@ class DatabaseSeeder extends Seeder
         $institucional = MenuItem::where('label', 'Institucional')->first();
         $institucionalChildren = [
             ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 1],
-            ['label' => 'Base de Conhecimento', 'url' => '/base-de-conhecimento', 'sort_order' => 2],
-            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 3],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 4],
+            ['label' => 'Casos de Sucesso', 'url' => '/casos-de-sucesso', 'sort_order' => 2],
+            ['label' => 'Base de Conhecimento', 'url' => '/base-de-conhecimento', 'sort_order' => 3],
+            ['label' => 'Perguntas Frequentes', 'url' => '/paginas/perguntas-frequentes', 'sort_order' => 4],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 5],
         ];
         foreach ($institucionalChildren as $child) {
             MenuItem::firstOrCreate(
@@ -678,6 +681,72 @@ class DatabaseSeeder extends Seeder
                     'company' => $item['company'],
                     'quote' => $item['quote'],
                     'rating' => $item['rating'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+        }
+    }
+
+    // Casos de sucesso reais (databit.com.br/grupo-databit/, seção "Confira
+    // quem já simplificou a sua Gestão"). Os vídeos hospedados no domínio da
+    // Databit são reaproveitados diretamente para os clientes em que existem;
+    // Maqlarem e Apnet ainda não têm vídeo publicado na página de origem.
+    private function seedSuccessStories(): void
+    {
+        $items = [
+            [
+                'company' => 'MR Copiadoras',
+                'location' => 'Belo Horizonte',
+                'client_since' => 2011,
+                'highlight' => 'Destaque por ser onde nasceu o projeto de desenvolvimento de um software ERP, foi vivenciando as dores da MR, que pegamos o nosso software e adequamos com as particularidades de distribuição, outsourcing de impressão e locação de equipamentos.',
+                'video_url' => 'https://databit.com.br/wp-content/uploads/2024/12/Caue2.mp4',
+                'video_person' => 'Cauê',
+                'video_role' => 'Diretor',
+            ],
+            [
+                'company' => 'Mapel',
+                'location' => 'Belo Horizonte/MG',
+                'client_since' => 2014,
+                'highlight' => 'Destaque por contribuir muito na qualidade e eficiência das nossas soluções. Cliente passou por SAP e TOTVS. Tem um alto nível de exigência, com foco em otimização de processos e confiabilidade nos dados. A vivência e experiência com as grandes de mercado nos ajudou muito na evolução com qualidade.',
+                'video_url' => 'https://databit.com.br/wp-content/uploads/2024/12/Depoimento-Giovani-Mapel.mp4',
+                'video_person' => 'Giovanni Pimenta',
+                'video_role' => 'CEO',
+            ],
+            [
+                'company' => 'Maqlarem',
+                'location' => 'João Pessoa',
+                'client_since' => 2017,
+                'highlight' => 'Destaque pela cultura de investimento em evolução tecnológica e de processos. Usam praticamente todas as soluções que lançamos. Com o tempo, a parceria foi se consolidando e, com as dores deles, foi onde se materializou o projeto DataClient.',
+                'video_url' => null,
+                'video_person' => null,
+                'video_role' => null,
+            ],
+            [
+                'company' => 'Apnet',
+                'location' => 'Rio de Janeiro',
+                'client_since' => 2019,
+                'highlight' => 'Destaque pelo uso eficiente da ferramenta. Alcançou um alto nível de maturidade com nossas soluções em pouco tempo. Passou por SAP. E com menos de 1 ano com a nossa ferramenta, ultrapassou em muito o nível de gestão que tinha com o SAP.',
+                'video_url' => null,
+                'video_person' => null,
+                'video_role' => null,
+            ],
+            [
+                'company' => 'Tinsei',
+                'location' => 'Belo Horizonte',
+                'client_since' => 2022,
+                'highlight' => 'Destaque pela velocidade da implantação, maturidade com o ERP e crescimento contínuo de gestão, com os dados do ERP. Cliente com foco em importação e distribuição. Saiu do TOTVS e está em amplo crescimento com nossa ferramenta.',
+                'video_url' => 'https://databit.com.br/wp-content/uploads/2024/12/Depoimento-Tinsei-Bragi.mp4',
+                'video_person' => 'Marcela Tavares',
+                'video_role' => 'Marketing',
+            ],
+        ];
+
+        foreach ($items as $index => $item) {
+            SuccessStory::firstOrCreate(
+                ['company' => $item['company']],
+                [
+                    ...$item,
                     'sort_order' => $index + 1,
                     'is_active' => true,
                 ]

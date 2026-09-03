@@ -23,6 +23,7 @@
             <h3 class="text-sm font-semibold text-white uppercase tracking-wide mb-4">Institucional</h3>
             <ul class="space-y-2 text-sm text-brand-200">
                 <li><a href="{{ route('pages.show', 'grupo-databit') }}" class="hover:text-white transition">Grupo Databit</a></li>
+                <li><a href="{{ route('success-stories.index') }}" class="hover:text-white transition">Casos de Sucesso</a></li>
                 <li><a href="{{ route('news.index') }}" class="hover:text-white transition">Notícias</a></li>
                 <li><a href="{{ route('events.index') }}" class="hover:text-white transition">Agenda</a></li>
                 <li><a href="{{ route('kb.index') }}" class="hover:text-white transition">Base de Conhecimento</a></li>

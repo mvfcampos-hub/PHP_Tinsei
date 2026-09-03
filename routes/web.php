@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\SuccessStoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -38,6 +39,8 @@ Route::get('/novidades/{news:slug}', [NewsController::class, 'show'])->name('new
 Route::get('/agenda', [EventController::class, 'index'])->name('events.index');
 
 Route::get('/paginas/{page:slug}', [PageController::class, 'show'])->name('pages.show');
+
+Route::get('/casos-de-sucesso', SuccessStoryController::class)->name('success-stories.index');
 
 Route::get('/busca', SearchController::class)->name('search');
 
