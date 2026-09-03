@@ -37,7 +37,7 @@
             <h3 class="text-sm font-semibold text-white uppercase tracking-wide mb-4">Contato</h3>
             <ul class="space-y-2 text-sm text-brand-200">
                 <li>R. Mário Campos, 197 - Inconfidência, Belo Horizonte/MG</li>
-                <li><a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="hover:text-white transition">(31) 99727-8589</a></li>
+                <li><a href="https://wa.me/553134168225" target="_blank" rel="noopener" class="hover:text-white transition">(31) 3416-8225</a></li>
                 <li><a href="tel:+553134168225" class="hover:text-white transition">(31) 3416-8225</a></li>
                 <li><a href="mailto:atendimento@databit.com.br" class="hover:text-white transition">atendimento@databit.com.br</a></li>
             </ul>

@@ -14,7 +14,7 @@
                 Apoiamos nossos clientes na escolha e na compra de produtos de informática — do notebook da equipe
                 ao servidor que roda o seu sistema. Vamos juntos simplificar a sua gestão?
             </p>
-            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Preciso de ajuda para escolher produtos de informática.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition mt-8">
+            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Preciso de ajuda para escolher produtos de informática.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition mt-8">
                 Falar com um especialista
             </a>
         </div>
@@ -40,7 +40,7 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">Não sabe qual equipamento escolher?</h2>
                 <p class="text-brand-100 mt-2">Conte com a Databit para indicar a solução certa para o seu orçamento e o seu projeto.</p>
             </div>
-            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Preciso de ajuda para escolher produtos de informática.') }}" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Preciso de ajuda para escolher produtos de informática.') }}" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                 Falar com um especialista
             </a>
         </div>

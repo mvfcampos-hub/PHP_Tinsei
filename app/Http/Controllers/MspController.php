@@ -50,7 +50,7 @@ class MspController extends Controller
                 'Hardening de estações — políticas de segurança, restrição de instalações não autorizadas',
                 'Gestão de acessos — políticas de senha e recomendação de boas práticas de autenticação',
             ],
-            'note' => 'Proteções avançadas de segurança (EDR, proteção de e-mail, MFA gerenciado, treinamento de conscientização) estão disponíveis como add-ons no pacote Databit Security+.',
+            'note' => 'Proteções avançadas de segurança (EDR, proteção de e-mail, MFA gerenciado, treinamento de conscientização) estão disponíveis como add-ons no pacote DataSecurity+.',
         ],
         [
             'title' => '4. Gestão de Rede',
@@ -142,7 +142,7 @@ class MspController extends Controller
 
     public const ADDONS = [
         [
-            'name' => 'Databit Security+',
+            'name' => 'DataSecurity+',
             'tagline' => 'Camada avançada de segurança, cobrada por usuário/mês',
             'icon' => 'heroicon-o-shield-check',
             'items' => [
@@ -154,7 +154,7 @@ class MspController extends Controller
             ],
         ],
         [
-            'name' => 'Databit Gateway+',
+            'name' => 'DataGateway+',
             'tagline' => 'Gestão avançada de rede e segurança de perímetro',
             'icon' => 'heroicon-o-globe-alt',
             'items' => [
@@ -167,7 +167,7 @@ class MspController extends Controller
             'note' => 'Precificação sob consulta — varia conforme complexidade do ambiente, número de sites e equipamento utilizado. Premissa: cliente possui o equipamento (Mikrotik, Fortigate ou similar).',
         ],
         [
-            'name' => 'Databit Backup+',
+            'name' => 'DataBackup+',
             'tagline' => 'Gestão completa de backup, cobrada por servidor/volume + consumo de nuvem',
             'icon' => 'heroicon-o-cloud-arrow-up',
             'items' => [

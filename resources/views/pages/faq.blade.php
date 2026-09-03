@@ -72,7 +72,7 @@
                 <a href="{{ route('kb.index') }}" class="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition">
                     Base de Conhecimento
                 </a>
-                <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Tenho uma dúvida sobre a Databit.') }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+                <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Tenho uma dúvida sobre a Databit.') }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                     Falar com a gente
                 </a>
             </div>

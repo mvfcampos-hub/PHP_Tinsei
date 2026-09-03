@@ -69,7 +69,7 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">Ainda com dúvidas?</h2>
                 <p class="text-brand-100 mt-2">Fale diretamente com a nossa equipe de suporte.</p>
             </div>
-            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Estou com uma dúvida sobre: '.$article->title) }}" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Estou com uma dúvida sobre: '.$article->title) }}" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                 Falar com o suporte
             </a>
         </div>

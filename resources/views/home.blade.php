@@ -11,7 +11,7 @@
         @if ($heroBanners->isNotEmpty())
             <div x-data="{ active: 0, total: {{ $heroBanners->count() }} }"
                  x-init="setInterval(() => active = (active + 1) % total, 6000)"
-                 class="relative h-[420px] sm:h-[500px] overflow-hidden">
+                 class="relative h-[380px] sm:h-[440px] overflow-hidden">
                 @foreach ($heroBanners as $index => $banner)
                     @if ($banner->variant === 'product_spotlight' && $banner->product)
                         @php
@@ -142,17 +142,17 @@
     </section>
 
     {{-- Acesso rápido --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8 relative z-10">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ([
-                ['label' => 'Sistemas', 'route' => 'products.index', 'path' => 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25-2.25m-2.25 2.25V6.75m-8.25.75h16.5'],
-                ['label' => 'DataCloud', 'route' => 'cloud.show', 'path' => 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z'],
-                ['label' => 'Notícias', 'route' => 'news.index', 'path' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-1.519-2.121L12 13.5m1.481 1.629L15 13.5m-1.519 1.629L12 17.25M8.25 21h7.5a2.25 2.25 0 002.25-2.25V9.75L14.25 3H8.25a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 008.25 21z'],
-                ['label' => 'Agenda', 'route' => 'events.index', 'path' => 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5'],
+                ['label' => 'DataClassic ERP', 'href' => route('products.show', 'dataclassic'), 'icon' => 'heroicon-o-building-storefront'],
+                ['label' => 'DataClient CRM', 'href' => route('products.show', 'dataclient-crm'), 'icon' => 'heroicon-o-users'],
+                ['label' => 'DataSAC', 'href' => route('products.show', 'datasac'), 'icon' => 'heroicon-o-chat-bubble-left-right'],
+                ['label' => 'DataCloud', 'href' => route('cloud.show'), 'icon' => 'heroicon-o-cloud'],
             ] as $quick)
-                <a href="{{ route($quick['route']) }}" class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center">
+                <a href="{{ $quick['href'] }}" class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center">
                     <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $quick['path'] }}" /></svg>
+                        <x-dynamic-component :component="$quick['icon']" class="h-6 w-6" />
                     </span>
                     <span class="text-sm font-medium text-slate-700">{{ $quick['label'] }}</span>
                 </a>
@@ -165,9 +165,9 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             @foreach ([
                 ['value' => '+30', 'label' => 'anos de mercado'],
-                ['value' => '+12', 'label' => 'sistemas integrados'],
-                ['value' => '99,9%', 'label' => 'uptime no DataCloud'],
-                ['value' => '100%', 'label' => 'suporte em português'],
+                ['value' => '+500', 'label' => 'clientes ativos'],
+                ['value' => '+4.000', 'label' => 'dispositivos usando nossas soluções'],
+                ['value' => '100%', 'label' => 'presente em todas as regiões do país'],
             ] as $stat)
                 <div>
                     <p class="text-3xl sm:text-4xl font-extrabold text-brand-700">{{ $stat['value'] }}</p>
@@ -197,7 +197,7 @@
                                 Ver planos DataCloud
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                             </a>
-                            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Quero falar sobre o DataCloud.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
+                            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero falar sobre o DataCloud.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
                                 Falar com um especialista
                             </a>
                         </div>
@@ -392,7 +392,7 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">Pronto para modernizar a gestão da sua empresa?</h2>
                 <p class="text-brand-100 mt-2">Fale com um especialista Databit e descubra a solução ideal para o seu negócio.</p>
             </div>
-            <a href="https://wa.me/5531997278589" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+            <a href="https://wa.me/553134168225" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                 Falar com um especialista
             </a>
         </div>

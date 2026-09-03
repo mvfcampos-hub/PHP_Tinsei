@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             ['title' => 'Fale Conosco', 'slug' => 'fale-conosco', 'content' => '<p><strong>Endereço:</strong> R. Mário Campos, 197 - Inconfidência, Belo Horizonte - MG, 30820-280</p>'
                 .'<p><strong>Atendimento:</strong> <a href="mailto:atendimento@databit.com.br">atendimento@databit.com.br</a></p>'
                 .'<p><strong>Comercial:</strong> <a href="mailto:comercial@databit.com.br">comercial@databit.com.br</a></p>'
-                .'<p><strong>Telefones:</strong> (31) 3416-8225 · WhatsApp (31) 99727-8589 / (31) 99723-0427</p>'
+                .'<p><strong>Telefone / WhatsApp:</strong> (31) 3416-8225</p>'
                 .'<p><strong>Ouvidoria:</strong> <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a></p>'
                 .'<p><strong>Faça parte da equipe Databit:</strong> envie seu currículo para <a href="mailto:rh@databit.com.br">rh@databit.com.br</a></p>'],
             ['title' => 'Políticas de Privacidade', 'slug' => 'politicas-de-privacidade', 'content' => $this->privacyPolicyContent()],
@@ -482,7 +482,7 @@ class DatabaseSeeder extends Seeder
                     .'<p>Backup protege os dados; disponibilidade protege a operação. Ambientes bem projetados combinam backup com monitoramento 24/7, redundância de componentes críticos e um plano de recuperação de desastres (DR) documentado — para que uma falha vire minutos de indisponibilidade, não dias.</p>'
                     .'<h3>O custo de não ter um plano</h3>'
                     .'<p>O cálculo é simples: o custo de manter backup e monitoramento é previsível e recorrente; o custo de uma parada não planejada é, quase sempre, muito maior — em produtividade perdida, em reputação e, em casos de ataque, no próprio resgate exigido.</p>'
-                    .'<p>O add-on <strong>Databit Backup+</strong> oferece backup diário automatizado, testes de restauração periódicos e plano de recuperação de desastres documentado. Conheça o modelo completo de gestão de TI no <a href="/servicos-ti/msp">Databit MSP</a>.</p>',
+                    .'<p>O add-on <strong>DataBackup+</strong> oferece backup diário automatizado, testes de restauração periódicos e plano de recuperação de desastres documentado. Conheça o modelo completo de gestão de TI no <a href="/servicos-ti/msp">Databit MSP</a>.</p>',
             ],
         ];
 
@@ -574,7 +574,7 @@ class DatabaseSeeder extends Seeder
         $this->putPlaceholderSvg('banners/campaign-datasac.svg', 800, 400, '#0891b2', 'Databit · Conheça o DataSAC');
 
         $items = [
-            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 1, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => false],
+            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 3, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => false],
             ['title' => 'Databit — mais de 30 anos simplificando a gestão empresarial', 'image' => 'banners/campaign-30-anos.svg', 'placement' => 'home_secondary', 'sort_order' => 1],
             ['title' => 'Centralize o atendimento da sua empresa com o DataSAC', 'image' => 'banners/campaign-datasac.svg', 'placement' => 'home_secondary', 'sort_order' => 2],
         ];
@@ -603,13 +603,13 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Destaque: DataClassic (ERP)',
                 'product_slug' => 'dataclassic',
-                'sort_order' => 2,
+                'sort_order' => 1,
                 'highlights' => ['12 módulos integrados', 'Fiscal e financeiro completo', 'Mais de 30 anos de mercado'],
             ],
             [
                 'title' => 'Destaque: DataCloud',
                 'product_slug' => 'datacloud',
-                'sort_order' => 3,
+                'sort_order' => 2,
                 'highlights' => ['Linux, Windows e SQL Server', 'Escalabilidade sem migração complexa', 'Suporte especializado em português'],
             ],
         ];
@@ -767,7 +767,7 @@ class DatabaseSeeder extends Seeder
                 'product_id' => null,
                 'excerpt' => 'Os canais oficiais para abrir chamados e o que informar para agilizar o atendimento.',
                 'content' => '<p>Você pode abrir um chamado de suporte pelos seguintes canais:</p>'
-                    .'<ul><li>WhatsApp: (31) 99727-8589</li><li>E-mail: atendimento@databit.com.br</li><li>Telefone: (31) 3416-8225</li></ul>'
+                    .'<ul><li>WhatsApp: (31) 3416-8225</li><li>E-mail: atendimento@databit.com.br</li><li>Telefone: (31) 3416-8225</li></ul>'
                     .'<p>Para agilizar o atendimento, informe o nome da empresa, o sistema ou serviço envolvido e uma descrição do problema, incluindo prints de tela quando possível.</p>'
                     .'<p>Clientes do plano MSP contam com SLA formal por prioridade — consulte os prazos na página do <a href="/servicos-ti/msp">Databit MSP</a>.</p>',
                 'sort_order' => 2,

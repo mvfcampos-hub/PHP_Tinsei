@@ -43,7 +43,7 @@
     </ul>
 
     <a
-        href="https://wa.me/5531997278589?text={{ urlencode('Olá! Tenho interesse no plano DataCloud ' . $plan->name . '.') }}"
+        href="https://wa.me/553134168225?text={{ urlencode('Olá! Tenho interesse no plano DataCloud ' . $plan->name . '.') }}"
         target="_blank" rel="noopener"
         @class([
             'mt-auto inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition',

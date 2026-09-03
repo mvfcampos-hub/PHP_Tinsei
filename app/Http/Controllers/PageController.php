@@ -72,7 +72,7 @@ class PageController extends Controller
         [
             'title' => 'Suporte',
             'items' => [
-                ['q' => 'Como abro um chamado de suporte?', 'a' => 'Você pode abrir um chamado pelo WhatsApp (31) 99727-8589, por e-mail (atendimento@databit.com.br) ou pela Área do Cliente. Veja o passo a passo completo na Base de Conhecimento.'],
+                ['q' => 'Como abro um chamado de suporte?', 'a' => 'Você pode abrir um chamado pelo WhatsApp (31) 3416-8225, por e-mail (atendimento@databit.com.br) ou pela Área do Cliente. Veja o passo a passo completo na Base de Conhecimento.'],
                 ['q' => 'A Databit tem uma Base de Conhecimento com tutoriais?', 'a' => 'Sim — reunimos artigos, tutoriais e vídeos de apoio organizados por tipo de solução e módulo, incluindo uma IA que responde dúvidas com base nesse conteúdo.'],
             ],
         ],

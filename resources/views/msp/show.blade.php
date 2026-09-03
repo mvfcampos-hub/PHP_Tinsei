@@ -15,7 +15,7 @@
                 monitoramos, protegemos, mantemos e evoluímos todo o seu ambiente tecnológico por uma
                 mensalidade fixa, sem surpresas.
             </p>
-            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Quero conhecer o modelo de Serviços Gerenciados (MSP) da Databit.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition mt-8">
+            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero conhecer o modelo de Serviços Gerenciados (MSP) da Databit.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition mt-8">
                 Falar com um especialista
             </a>
         </div>
@@ -160,7 +160,7 @@
 
         <div class="grid lg:grid-cols-3 gap-6">
             @foreach ($addons as $addon)
-                <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col">
+                <div id="addon-{{ \Illuminate\Support\Str::slug(str_replace('+', '', $addon['name'])) }}" class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col scroll-mt-28">
                     <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-950 text-accent-400 mb-4">
                         <x-dynamic-component :component="$addon['icon']" class="h-6 w-6" />
                     </span>
@@ -283,7 +283,7 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">Pronto para ter um departamento de TI completo?</h2>
                 <p class="text-brand-100 mt-2">Fale com a gente e receba uma proposta dimensionada para o seu ambiente.</p>
             </div>
-            <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Quero uma proposta do Databit MSP para a minha empresa.') }}" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
+            <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero uma proposta do Databit MSP para a minha empresa.') }}" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
                 Falar com um especialista
             </a>
         </div>

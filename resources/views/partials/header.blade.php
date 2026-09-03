@@ -7,7 +7,10 @@
 
             <nav class="hidden lg:flex items-center gap-8 xl:gap-10">
                 @foreach ($mainMenu ?? [] as $item)
-                    @php $isSystems = $item->url === '/sistemas'; @endphp
+                    @php
+                        $isSystems = $item->url === '/sistemas';
+                        $isItServices = $item->url === '/servicos-ti';
+                    @endphp
                     <div class="relative group py-7 -my-7">
                         <a
                             href="{{ $item->resolveUrl() }}"
@@ -15,7 +18,7 @@
                             class="relative flex items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-slate-700 transition group-hover:text-brand-700"
                         >
                             {{ $item->label }}
-                            @if ($item->children->isNotEmpty() || $isSystems)
+                            @if ($item->children->isNotEmpty() || $isSystems || $isItServices)
                                 <svg class="h-3.5 w-3.5 text-slate-400 transition group-hover:rotate-180 group-hover:text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                             @endif
                             <span class="absolute -bottom-2 left-0 h-0.5 w-0 bg-accent-500 transition-all duration-200 group-hover:w-full"></span>
@@ -56,6 +59,44 @@
                                         </a>
                                         <a href="{{ route('products.index') }}" class="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-accent-300 hover:text-accent-200">
                                             Ver todos os sistemas
+                                            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @elseif ($isItServices)
+                            {{-- Mega menu: Serviços TI --}}
+                            <div class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[720px] max-w-[90vw]">
+                                <div class="rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden grid grid-cols-3">
+                                    <div class="col-span-2 p-5 grid grid-cols-2 gap-1">
+                                        @foreach ([
+                                            ['name' => 'Databit MSP', 'category' => 'Serviços Gerenciados', 'icon' => 'heroicon-o-document-text', 'url' => route('msp.show')],
+                                            ['name' => 'DataGateway+', 'category' => 'Rede e segurança de perímetro', 'icon' => 'heroicon-o-globe-alt', 'url' => route('msp.show').'#addon-datagateway'],
+                                            ['name' => 'DataBackup+', 'category' => 'Backup e recuperação', 'icon' => 'heroicon-o-cloud-arrow-up', 'url' => route('msp.show').'#addon-databackup'],
+                                            ['name' => 'DataSecurity+', 'category' => 'Segurança avançada', 'icon' => 'heroicon-o-shield-check', 'url' => route('msp.show').'#addon-datasecurity'],
+                                        ] as $service)
+                                            <a href="{{ $service['url'] }}" class="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-brand-50 transition">
+                                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                                                    <x-dynamic-component :component="$service['icon']" class="h-5 w-5" />
+                                                </span>
+                                                <span class="min-w-0">
+                                                    <span class="block text-sm font-semibold text-slate-800 truncate">{{ $service['name'] }}</span>
+                                                    <span class="block text-xs text-slate-400 truncate">{{ $service['category'] }}</span>
+                                                </span>
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                    <div class="bg-brand-950 bg-grid-pattern p-5 flex flex-col gap-3">
+                                        <span class="text-[11px] font-semibold text-accent-400 uppercase tracking-wide">Fora do catálogo de serviços TI</span>
+                                        <a href="{{ route('cloud.show') }}" class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 hover:border-accent-500 transition">
+                                            <svg class="h-5 w-5 text-accent-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg>
+                                            <span class="min-w-0">
+                                                <span class="block text-sm font-semibold text-white truncate">DataCloud</span>
+                                                <span class="block text-xs text-brand-300 truncate">Serviços de Cloud e Colocation</span>
+                                            </span>
+                                        </a>
+                                        <a href="{{ route('it-services.show') }}" class="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-accent-300 hover:text-accent-200">
+                                            Ver todos os serviços de TI
                                             <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                         </a>
                                     </div>
@@ -140,6 +181,13 @@
                                 {{ $product->name }}
                             </a>
                         @endforeach
+                    @endif
+                    @if ($item->url === '/servicos-ti')
+                        <a href="{{ route('msp.show') }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">Databit MSP</a>
+                        <a href="{{ route('msp.show') }}#addon-datagateway" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataGateway+</a>
+                        <a href="{{ route('msp.show') }}#addon-databackup" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataBackup+</a>
+                        <a href="{{ route('msp.show') }}#addon-datasecurity" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataSecurity+</a>
+                        <a href="{{ route('cloud.show') }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataCloud</a>
                     @endif
                     @foreach ($item->children as $child)
                         <a href="{{ $child->resolveUrl() }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">

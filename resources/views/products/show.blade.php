@@ -39,7 +39,7 @@
             @endif
 
             <div class="flex flex-wrap gap-3 mt-8">
-                <a href="https://wa.me/5531997278589?text={{ urlencode('Olá! Tenho interesse no produto ' . $product->name . '.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition">
+                <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Tenho interesse no produto ' . $product->name . '.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition">
                     Falar com um especialista
                 </a>
                 @if ($product->external_url)
