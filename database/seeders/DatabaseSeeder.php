@@ -66,42 +66,13 @@ class DatabaseSeeder extends Seeder
 
     private function grupoDatabitContent(): string
     {
-        $timeline = [
-            '1986' => 'Fundação da Databit por Roger Martins e Andreia Formaggini, com foco em manutenção de equipamentos de informática.',
-            '1998' => 'Expansão para a venda de equipamentos de informática e periféricos.',
-            '2001' => 'Marcos Campos assume a direção e amplia a atuação para consultoria de TI e suporte a projetos.',
-            '2005' => 'Sidney Sanches se junta à liderança e inicia o desenvolvimento do ERP próprio da Databit.',
-            '2006' => 'Lançamento da Dinâmica Computer, para produtos de tecnologia e projetos de infraestrutura.',
-            '2008' => 'Lançamento do ERP DataClassic.',
-            '2010' => 'Lançamento do DataService, ferramenta de gestão via navegador.',
-            '2014' => 'Lançamento do DataMobile.',
-            '2018' => 'Bruno Espindola se junta à liderança como diretor especialista em TI.',
-            '2022' => 'Lançamento do DataWhats.',
-            '2023' => 'Lançamento do DataShipping e do DataInvoice.',
-            '2024' => 'Lançamento do DataClient CRM.',
-        ];
-
-        $leadership = [
-            'Roger Martins' => 'CEO',
-            'Marcos Campos' => 'COO',
-            'Sidney Sanches' => 'CTO',
-            'Andreia Formaggini' => 'Diretora Financeira',
-            'Fabiano Oliveira' => 'Gerente de Sistemas',
-            'Fabricio Alcantara' => 'Gerente de Soluções Integradas',
-            'Gisele Fernandes' => 'Relacionamento com o Cliente',
-            'Bruno Espindola' => 'Diretor Especialista em TI',
-        ];
-
+        // Linha do tempo e liderança (com fotos reais) são renderizadas à parte
+        // por PageController/pages/grupo-databit.blade.php; este texto cobre
+        // apenas a introdução e missão/visão/valores.
         return '<p>Há mais de 30 anos no mercado, a Databit desenvolve tecnologia para simplificar a gestão de atacadistas, distribuidores, varejistas, locadoras e prestadores de serviço em todo o Brasil — com um ecossistema que integra ERP, Cloud, mobilidade, atendimento ao cliente e serviços de TI.</p>'
             .'<h3>Missão</h3><p>Entregar soluções de tecnologia de ponta a preços competitivos, com profissionais qualificados e serviços de alta qualidade, garantindo a completa satisfação dos clientes.</p>'
             .'<h3>Visão</h3><p>Ser referência nacional em consultoria de TI e sistemas de gestão.</p>'
-            .'<h3>Valores</h3><p>Ética, comprometimento, integridade, respeito, profissionalismo, valorização das pessoas, criatividade, proatividade e inovação.</p>'
-            .'<h3>Nossa trajetória</h3><ul>'
-            .collect($timeline)->map(fn ($desc, $year) => "<li><strong>{$year}:</strong> {$desc}</li>")->implode('')
-            .'</ul>'
-            .'<h3>Liderança</h3><ul>'
-            .collect($leadership)->map(fn ($role, $name) => "<li><strong>{$name}</strong> — {$role}</li>")->implode('')
-            .'</ul>';
+            .'<h3>Valores</h3><p>Ética, comprometimento, integridade, respeito, profissionalismo, valorização das pessoas, criatividade, proatividade e inovação.</p>';
     }
 
     private function seedMenu(): void
@@ -550,9 +521,29 @@ class DatabaseSeeder extends Seeder
         $clients = ['Apnet', 'Distrivisa', 'Grupo Positiva', 'Repro MAQ', 'Reprócopia', 'Tinsei', 'Working Plus'];
         $partners = ['Microsoft', 'Dell', 'Lenovo', 'Bitdefender', 'Algar', 'Century'];
 
+        // Logomarcas reais extraídas de databit.com.br (ver database/seeders/assets).
+        $clientFiles = [
+            'Apnet' => 'apnet.png',
+            'Distrivisa' => 'distrivisa.jpg',
+            'Grupo Positiva' => 'grupo-positiva.jpg',
+            'Repro MAQ' => 'repro-maq.jpg',
+            'Reprócopia' => 'reprocopia.jpg',
+            'Tinsei' => 'tinsei.jpg',
+            'Working Plus' => 'working-plus.jpg',
+        ];
+        $partnerFiles = [
+            'Microsoft' => 'microsoft.webp',
+            'Dell' => 'dell.jpg',
+            'Lenovo' => 'lenovo.png',
+            'Bitdefender' => 'bitdefender.webp',
+            'Algar' => 'algar.webp',
+            'Century' => 'century.jpg',
+        ];
+
         foreach ($clients as $index => $name) {
-            $path = 'clients/'.Str::slug($name).'.svg';
-            $this->putPlaceholderSvg($path, 240, 100, '#eef4ff', $name, '#1d38ab');
+            $file = $clientFiles[$name];
+            $path = 'clients/'.$file;
+            $this->putSeedFile('clients/'.$file, $path);
 
             Client::firstOrCreate(
                 ['name' => $name, 'type' => 'cliente'],
@@ -567,8 +558,9 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($partners as $index => $name) {
-            $path = 'clients/'.Str::slug($name).'-parceiro.svg';
-            $this->putPlaceholderSvg($path, 240, 100, '#eef4ff', $name, '#0891b2');
+            $file = $partnerFiles[$name];
+            $path = 'clients/parceiro-'.$file;
+            $this->putSeedFile('partners/'.$file, $path);
 
             Client::firstOrCreate(
                 ['name' => $name, 'type' => 'parceiro'],
