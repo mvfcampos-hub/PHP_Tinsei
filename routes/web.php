@@ -4,6 +4,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CloudController;
 use App\Http\Controllers\DataBackupController;
 use App\Http\Controllers\DataClientController;
+use App\Http\Controllers\DataGatewayController;
 use App\Http\Controllers\DataMobileController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HardwareController;
@@ -37,6 +38,7 @@ Route::get('/datamobile', DataMobileController::class)->name('datamobile.show');
 Route::get('/servicos-ti', ItServiceController::class)->name('it-services.show');
 Route::get('/servicos-ti/msp', MspController::class)->name('msp.show');
 Route::get('/servicos-ti/databackup', DataBackupController::class)->name('databackup.show');
+Route::get('/servicos-ti/datagateway', DataGatewayController::class)->name('datagateway.show');
 
 Route::get('/produtos', HardwareController::class)->name('hardware.index');
 

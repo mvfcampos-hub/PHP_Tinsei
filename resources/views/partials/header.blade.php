@@ -75,7 +75,7 @@
                                     <div class="col-span-2 p-5 grid grid-cols-2 gap-1">
                                         @foreach ([
                                             ['name' => 'Databit MSP', 'category' => 'Serviços Gerenciados', 'icon' => 'heroicon-o-document-text', 'url' => route('msp.show')],
-                                            ['name' => 'DataGateway+', 'category' => 'Rede e segurança de perímetro', 'icon' => 'heroicon-o-globe-alt', 'url' => route('msp.show').'#addon-datagateway'],
+                                            ['name' => 'DataGateway+', 'category' => 'Rede e segurança de perímetro', 'icon' => 'heroicon-o-globe-alt', 'url' => route('datagateway.show')],
                                             ['name' => 'DataBackup+', 'category' => 'Backup e recuperação', 'icon' => 'heroicon-o-cloud-arrow-up', 'url' => route('databackup.show')],
                                             ['name' => 'DataSecurity+', 'category' => 'Segurança avançada', 'icon' => 'heroicon-o-shield-check', 'url' => route('msp.show').'#addon-datasecurity'],
                                         ] as $service)
@@ -192,7 +192,7 @@
                     @endif
                     @if ($item->url === '/servicos-ti')
                         <a href="{{ route('msp.show') }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">Databit MSP</a>
-                        <a href="{{ route('msp.show') }}#addon-datagateway" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataGateway+</a>
+                        <a href="{{ route('datagateway.show') }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataGateway+</a>
                         <a href="{{ route('databackup.show') }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataBackup+</a>
                         <a href="{{ route('msp.show') }}#addon-datasecurity" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataSecurity+</a>
                         <a href="{{ route('cloud.show') }}" class="px-6 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50">DataCloud</a>
