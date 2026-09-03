@@ -22,24 +22,85 @@
 @section('content')
     <section class="bg-brand-950 bg-grid-pattern relative overflow-hidden">
         <x-brand-mark class="hidden lg:block absolute -right-8 -top-10 h-36 w-auto opacity-[0.08] pointer-events-none select-none" aria-hidden="true" />
-        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center relative">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 text-accent-300 px-3 py-1 text-xs font-semibold mb-5 tracking-wide uppercase">
-                Nova versão disponível
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight">
-                Gestão de técnicos de campo <span class="text-accent-400">com o DataMobile</span>
-            </h1>
-            <p class="text-brand-200 mt-5 max-w-2xl mx-auto text-lg">
-                O aplicativo que sua equipe técnica sempre precisou — reinventado. Mais rápido, mais seguro, com
-                interface moderna e novos recursos para quem trabalha em campo.
-            </p>
-            <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
-                <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero uma demonstração do DataMobile.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition">
-                    Solicitar demonstração
-                </a>
-                <a href="#novidades" class="inline-flex items-center gap-2 rounded-lg border border-white/25 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
-                    Ver novidades
-                </a>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-500/15 text-accent-300 px-3 py-1 text-xs font-semibold mb-5 tracking-wide uppercase">
+                        Nova versão disponível
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight">
+                        Gestão de técnicos de campo <span class="text-accent-400">com o DataMobile</span>
+                    </h1>
+                    <p class="text-brand-200 mt-5 max-w-2xl mx-auto lg:mx-0 text-lg">
+                        O aplicativo que sua equipe técnica sempre precisou — reinventado. Mais rápido, mais seguro, com
+                        interface moderna e novos recursos para quem trabalha em campo.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8">
+                        <a href="https://wa.me/553134168225?text={{ urlencode('Olá! Quero uma demonstração do DataMobile.') }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white hover:bg-accent-600 transition">
+                            Solicitar demonstração
+                        </a>
+                        <a href="#novidades" class="inline-flex items-center gap-2 rounded-lg border border-white/25 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
+                            Ver novidades
+                        </a>
+                    </div>
+                </div>
+
+                {{-- Mockup do app, reproduzindo a tela "Visão Geral do Dia" do DataMobile --}}
+                <div class="hidden lg:flex justify-center">
+                    <div class="relative w-[300px] rounded-[2.5rem] border-4 border-white/10 bg-gradient-to-b from-brand-600 to-brand-800 shadow-2xl p-2.5">
+                        <div class="absolute left-1/2 top-2.5 -translate-x-1/2 h-5 w-24 rounded-full bg-brand-950/60 z-10"></div>
+                        <div class="rounded-[2rem] overflow-hidden bg-brand-800">
+                            <div class="flex items-center justify-between px-5 pt-4 pb-2 text-white text-[11px] font-semibold">
+                                <span>9:41</span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path d="M2 15h2v3H2v-3zm4-4h2v7H6v-7zm4-4h2v11h-2V7zm4-4h2v15h-2V3z"/></svg>
+                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15a2 2 0 100 4 2 2 0 000-4zm0-9C5.5 6 1.7 8.1 0 11.2l1.8 1.4C3.2 10.1 6.3 8.5 10 8.5s6.8 1.6 8.2 4.1L20 11.2C18.3 8.1 14.5 6 10 6z"/></svg>
+                                </span>
+                            </div>
+                            <div class="mx-3 mt-2 rounded-2xl bg-white/10 backdrop-blur px-4 py-3 flex items-center gap-3">
+                                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-accent-500 text-white text-xs font-bold shrink-0">DA</span>
+                                <div class="min-w-0">
+                                    <p class="text-white text-xs font-semibold truncate">Olá, DATABIT</p>
+                                    <p class="text-brand-200 text-[10px] truncate">databit@databit.com.br</p>
+                                </div>
+                            </div>
+                            <div class="px-3 mt-3">
+                                <p class="text-brand-200 text-[10px] font-semibold uppercase tracking-wide mb-2">Visão geral do dia</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    @foreach ([
+                                        ['value' => '6', 'label' => 'OS Listadas'],
+                                        ['value' => '1', 'label' => 'Aferição'],
+                                        ['value' => '10', 'label' => 'Entregas'],
+                                    ] as $stat)
+                                        <div class="rounded-xl bg-white/10 py-2.5 text-center">
+                                            <p class="text-white text-base font-bold">{{ $stat['value'] }}</p>
+                                            <p class="text-brand-200 text-[9px] mt-0.5 leading-tight">{{ $stat['label'] }}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="px-3 mt-3 pb-5">
+                                <p class="text-brand-200 text-[10px] font-semibold uppercase tracking-wide mb-2">Acesso rápido</p>
+                                <div class="grid grid-cols-4 gap-2">
+                                    @foreach ([
+                                        'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+                                        'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z',
+                                        'M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                                        'M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z',
+                                        'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+                                        'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z',
+                                        'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99',
+                                        'M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z',
+                                    ] as $icon)
+                                        <span class="flex h-10 items-center justify-center rounded-lg bg-white/10 text-brand-100">
+                                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $icon }}" /></svg>
+                                        </span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
