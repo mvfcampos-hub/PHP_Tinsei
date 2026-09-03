@@ -172,7 +172,7 @@
                 <div class="text-center max-w-2xl mx-auto mb-12">
                     <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Confira outros módulos e funcionalidades</h2>
                 </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" x-data="{ open: null }">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ([
                         ['logo' => 'dataclassic-modules/confere.png', 'name' => 'DataConfere', 'desc' => 'Conferência dos itens por leitor ou coletor de dados. Nos processos de recebimento de mercadoria e separação de mercadorias é fundamental o processo de bipagem para conferência — importante para garantir que os produtos informados no ERP são os produtos que estão sendo movimentados.'],
                         ['logo' => 'dataclassic-modules/doc.png', 'name' => 'DataDoc', 'desc' => 'Extrator de todos os documentos fiscais emitidos no ERP. Ferramenta que traz facilidade para exportar o movimento fiscal de saída, para envio para a contabilidade.'],
@@ -193,16 +193,18 @@
                                 </a>
                                 <p class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
                             @else
-                                <button
-                                    type="button"
-                                    @click="open = open === {{ $index }} ? null : {{ $index }}"
-                                    class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
-                                    :aria-expanded="open === {{ $index }}"
-                                >
-                                    Saiba mais
-                                    <svg class="h-3.5 w-3.5 transition" :class="{ 'rotate-180': open === {{ $index }} }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                <p x-show="open === {{ $index }}" x-cloak x-transition class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
+                                <div x-data="{ open: true }">
+                                    <button
+                                        type="button"
+                                        @click="open = !open"
+                                        class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
+                                        :aria-expanded="open"
+                                    >
+                                        Saiba mais
+                                        <svg class="h-3.5 w-3.5 transition" :class="{ 'rotate-180': open }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </button>
+                                    <p x-show="open" x-transition class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
+                                </div>
                             @endif
                         </div>
                     @endforeach
