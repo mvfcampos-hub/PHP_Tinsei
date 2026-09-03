@@ -31,8 +31,6 @@ class PageController extends Controller
         ['name' => 'Andreia Formaggini', 'role' => 'Diretora Financeira', 'photo' => 'andreia-formaggini.jpg'],
         ['name' => 'Fabiano Oliveira', 'role' => 'Gerente de Sistemas', 'photo' => 'fabiano-oliveira.jpg'],
         ['name' => 'Fabricio Alcantara', 'role' => 'Gerente de Soluções Integradas', 'photo' => 'fabricio-alcantara.jpg'],
-        ['name' => 'Gisele Fernandes', 'role' => 'Relacionamento com o Cliente', 'photo' => 'gisele-fernandes.jpg'],
-        ['name' => 'Bruno Espindola', 'role' => 'Diretor Especialista em TI', 'photo' => null],
     ];
 
     public function show(Page $page)
