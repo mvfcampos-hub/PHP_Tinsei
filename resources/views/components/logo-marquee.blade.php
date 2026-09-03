@@ -20,11 +20,11 @@
                         href="{{ $item->url ?? '#' }}"
                         @if ($item->url) target="_blank" rel="noopener" @endif
                         @class([
-                            'flex h-20 w-44 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md',
+                            'flex h-28 w-60 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-8 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md',
                             'pointer-events-none' => ! $item->url,
                         ])
                     >
-                        <img src="{{ Storage::url($item->logo) }}" alt="{{ $item->name }}" class="max-h-10 max-w-full object-contain" loading="lazy">
+                        <img src="{{ Storage::url($item->logo) }}" alt="{{ $item->name }}" class="max-h-16 max-w-full object-contain" loading="lazy">
                     </a>
                 @endforeach
             @endfor

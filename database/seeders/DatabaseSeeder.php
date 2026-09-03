@@ -182,8 +182,12 @@ class DatabaseSeeder extends Seeder
             $this->putSeedFile("products/{$slug}.png", "products/{$slug}.png");
         }
 
-        foreach (['confere', 'doc', 'coletor', 'integra', 'apis', 'label', 'xml', 'mail', 'nfs', 'delivery'] as $module) {
+        foreach (['confere', 'doc', 'coletor', 'integra', 'label', 'xml', 'mail', 'nfs'] as $module) {
             $this->putSeedFile("products/dataclassic-modules/{$module}.png", "dataclassic-modules/{$module}.png");
+        }
+
+        foreach (['store', 'php'] as $module) {
+            $this->putSeedFile("products/dataclassic-modules/{$module}.svg", "dataclassic-modules/{$module}.svg");
         }
 
         $dataClassicModules = [
@@ -301,22 +305,23 @@ class DatabaseSeeder extends Seeder
             ['icon' => 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244', 'title' => 'Integração nativa com o DataClassic', 'desc' => 'Importação automática dos contadores de faturamento e geração de requisição de suprimentos com base no nível monitorado.'],
         ];
 
-        $dataInvoiceDescription = '<p>O DataInvoice simplifica as operações de emissão de NF-e, automatizando o envio de notas fiscais e boletos com apenas um clique — economizando tempo e reduzindo erros manuais da equipe fiscal.</p>';
+        $dataInvoiceDescription = '<p>O DataInvoice simplifica as operações de emissão de NF-e, automatizando o envio de notas fiscais e boletos sem interação humana.</p>'
+            .'<p>Configure o status do processo que o robô precisa rodar, para que o sistema emita a NF-e, gere os boletos e envie o e-mail para o cliente de forma automatizada.</p>'
+            .'<p>Um grande ganho operacional para empresas com alto volume de emissão de NF-e.</p>';
 
         $dataInvoiceHighlights = [
-            ['icon' => 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z', 'title' => 'Captura e conferência', 'desc' => 'Notas fiscais de entrada capturadas e conferidas, com lançamento automatizado no DataClassic.'],
             ['icon' => 'M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5', 'title' => 'Envio automático', 'desc' => 'Envio automático de NF-e, XML e boletos ao cliente logo após o faturamento.'],
             ['icon' => 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Menos trabalho manual', 'desc' => 'Redução do trabalho manual da equipe fiscal e menor risco de erro de digitação.'],
             ['icon' => 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244', 'title' => 'Integração nativa', 'desc' => 'Integração nativa com o módulo fiscal do DataClassic, sem retrabalho entre sistemas.'],
         ];
 
-        $dataShippingDescription = '<p>O DataShipping automatiza a cotação online de frete com diversas transportadoras parceiras, direto do ERP — impulsionando a eficiência e a produtividade da expedição.</p>';
+        $dataShippingDescription = '<p>Ferramenta para cotação de frete online. O DataShipping automatiza a cotação online de frete com diversas transportadoras parceiras, direto do ERP.</p>'
+            .'<p>Leve para a operação a facilidade de cotação múltipla de frete na mesma plataforma.</p>';
 
         $dataShippingHighlights = [
-            ['icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h5.379c.621 0 1.129.504 1.09 1.124a17.902 17.902 0 01-3.213 9.193 2.056 2.056 0 01-1.58.86H14.25M9 3v11.25M6 6.75H3.75m5.25 0h5.25M6 15h5.25', 'title' => 'Cotação simultânea', 'desc' => 'Cotação online simultânea com múltiplas transportadoras integradas (Correios, Mercocamp, Leolog e outras).'],
-            ['icon' => 'M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z', 'title' => 'Etiquetas automáticas', 'desc' => 'Emissão de etiquetas e envio de dados do pedido direto do DataClassic.'],
-            ['icon' => 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z', 'title' => 'Rastreamento integrado', 'desc' => 'Rastreamento de encomendas integrado à gestão de expedição do ERP.'],
-            ['icon' => 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', 'title' => 'Menos erro manual', 'desc' => 'Redução de erros manuais na escolha de transportadora e cálculo de frete.'],
+            ['icon' => 'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h5.379c.621 0 1.129.504 1.09 1.124a17.902 17.902 0 01-3.213 9.193 2.056 2.056 0 01-1.58.86H14.25M9 3v11.25M6 6.75H3.75m5.25 0h5.25M6 15h5.25', 'title' => 'Cotação simultânea', 'desc' => 'Cotação online simultânea com múltiplas transportadoras integradas.'],
+            ['icon' => 'M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185zM9.75 9h.008v.008H9.75V9zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 4.5h.008v.008h-.008V13.5zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z', 'title' => 'Auditoria', 'desc' => 'Relatório para avaliar o frete cotado, com o frete destacado na nota e o valor do CT-e.'],
+            ['icon' => 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Menos erro manual', 'desc' => 'Redução de erros manuais na escolha de transportadora e cálculo de frete.'],
         ];
 
         $dataDashboardDescription = '<p>Painéis estratégicos de gestão, totalmente integrados ao DataClassic e configurados de acordo com o perfil do seu negócio — pensados originalmente para operações de locação e outsourcing de impressão.</p>';
@@ -454,8 +459,8 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'DataInvoice',
                 'category' => 'integracoes',
-                'tagline' => 'Gestão eletrônica de notas fiscais de entrada',
-                'summary' => 'Captura, conferência e lançamento automatizado de notas fiscais de entrada, reduzindo o trabalho manual da equipe fiscal.',
+                'tagline' => 'Robô para emissão automatizada de NF-e',
+                'summary' => 'Otimização de recursos no processo de faturamento.',
                 'description' => $dataInvoiceDescription,
                 'highlights' => $dataInvoiceHighlights,
                 'video_url' => 'https://www.youtube.com/watch?v=1GWx8Rp2iOk',
@@ -469,8 +474,8 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'DataShipping',
                 'category' => 'integracoes',
-                'tagline' => 'Expedição e rastreio integrados às transportadoras',
-                'summary' => 'Integração com transportadoras parceiras para cotação, etiquetagem e rastreamento de encomendas direto do DataClassic.',
+                'tagline' => 'Hub de cotação online de frete',
+                'summary' => 'Já integrado com Correios, Jamef, Total Express, TNT, Translovato, Braspress, Movvi, Rodonaves, Pajuçara e outros.',
                 'description' => $dataShippingDescription,
                 'highlights' => $dataShippingHighlights,
                 'video_url' => 'https://www.youtube.com/watch?v=VQ0nBgdQIIQ',
@@ -920,24 +925,24 @@ class DatabaseSeeder extends Seeder
     {
         $items = [
             [
-                'client_name' => 'Diretoria Mapel',
-                'role' => 'Cliente Databit há 6 anos',
+                'client_name' => 'Giovanni Pimenta',
+                'role' => 'CEO',
                 'company' => 'Mapel Soluções em Tecnologia de Impressão',
                 'quote' => 'A Databit está com a gente há 6 anos. O que mais valorizamos é o atendimento próximo e uma solução robusta o suficiente para acompanhar o crescimento da operação.',
                 'rating' => 5,
             ],
             [
-                'client_name' => 'Equipe de Operações',
-                'role' => 'Cliente Databit',
-                'company' => 'Distrivisa',
-                'quote' => 'Depoimento oficial a ser inserido pela equipe Databit.',
+                'client_name' => 'Cauê',
+                'role' => 'Diretor',
+                'company' => 'MR Copiadoras',
+                'quote' => 'Felizes por saber que fomos o primeiro cliente do ERP DataClassic e contribuímos fortemente com o potencial que a ferramenta entrega.',
                 'rating' => 5,
             ],
             [
-                'client_name' => 'Equipe de Operações',
-                'role' => 'Cliente Databit',
+                'client_name' => 'Bernard Martins',
+                'role' => 'CEO',
                 'company' => 'Tinsei',
-                'quote' => 'Depoimento oficial a ser inserido pela equipe Databit.',
+                'quote' => 'O ERP DataClassic da Databit deu sustentação para o nosso crescimento. A proximidade da parceria e a abertura para evoluções permitiram um crescimento e controle da operação de forma inteligente.',
                 'rating' => 5,
             ],
         ];
@@ -1078,7 +1083,7 @@ class DatabaseSeeder extends Seeder
     private function seedClients(): void
     {
         $clients = ['Apnet', 'Distrivisa', 'Grupo Positiva', 'Repro MAQ', 'Reprócopia', 'Tinsei', 'Working Plus'];
-        $partners = ['Microsoft', 'Dell', 'Lenovo', 'Bitdefender', 'Algar', 'Century'];
+        $partners = ['Microsoft', 'Dell', 'Lenovo', 'Bitdefender', 'Algar', 'Century', 'Comet Backup'];
 
         // Logomarcas reais extraídas de databit.com.br (ver database/seeders/assets).
         $clientFiles = [
@@ -1097,6 +1102,7 @@ class DatabaseSeeder extends Seeder
             'Bitdefender' => 'bitdefender.webp',
             'Algar' => 'algar.webp',
             'Century' => 'century.jpg',
+            'Comet Backup' => 'comet.svg',
         ];
 
         foreach ($clients as $index => $name) {
