@@ -10,6 +10,8 @@ use App\Models\CloudPlan;
 use App\Models\EventItem;
 use App\Models\KnowledgeArticle;
 use App\Models\MenuItem;
+use App\Models\MspSetting;
+use App\Models\MspWorkstationTier;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\Product;
@@ -41,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->seedProducts();
         $this->seedCloudPlans();
         $this->seedBackupPlans();
+        $this->seedMspPricing();
         $this->seedNews($admin);
         $this->seedEvents();
         $this->seedBanners();
@@ -569,6 +572,35 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+    }
+
+    // Valores do Databit MSP (faixas de preço por workstation, preço fixo
+    // do servidor e contrato mínimo) — editáveis via
+    // MspWorkstationTierResource e a página MspSettings no painel.
+    private function seedMspPricing(): void
+    {
+        $tiers = [
+            ['range' => '4 a 10', 'price' => 119.00],
+            ['range' => '11 a 20', 'price' => 109.00],
+            ['range' => '21 a 30', 'price' => 98.00],
+            ['range' => 'Acima de 30', 'price' => 89.00],
+        ];
+
+        foreach ($tiers as $index => $tier) {
+            MspWorkstationTier::firstOrCreate(
+                ['range' => $tier['range']],
+                [
+                    'price' => $tier['price'],
+                    'sort_order' => $index + 1,
+                    'is_active' => true,
+                ]
+            );
+        }
+
+        MspSetting::firstOrCreate(['id' => 1], [
+            'server_price' => 250.00,
+            'minimum_contract' => 1390.00,
+        ]);
     }
 
     private function seedNews(User $admin): void

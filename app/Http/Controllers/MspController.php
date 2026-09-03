@@ -2,23 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MspSetting;
+use App\Models\MspWorkstationTier;
+
 class MspController extends Controller
 {
     // Modelo de Serviços Gerenciados (MSP) da Databit — o principal modelo de
     // contratação de TI da empresa (mensalidade fixa, gestão completa do
-    // ambiente). Conteúdo consultivo, sem cadastro individual no painel,
-    // seguindo o mesmo padrão de HardwareController/ItServiceController.
-    public const WORKSTATION_PRICING = [
-        ['range' => '4 a 10', 'price' => 119.00],
-        ['range' => '11 a 20', 'price' => 109.00],
-        ['range' => '21 a 30', 'price' => 98.00],
-        ['range' => 'Acima de 30', 'price' => 89.00],
-    ];
-
-    public const SERVER_PRICE = 250.00;
-
-    public const MINIMUM_CONTRACT = 1390.00;
-
+    // ambiente). Conteúdo consultivo, sem cadastro individual no painel — com
+    // exceção dos valores (faixas de preço de workstation, preço de servidor
+    // e contrato mínimo), que são editáveis via MspWorkstationTierResource e
+    // MspSettings no painel administrativo.
     public const INCLUDED = [
         [
             'title' => '1. Service Desk (Suporte ao Usuário)',
@@ -218,10 +212,12 @@ class MspController extends Controller
 
     public function __invoke()
     {
+        $settings = MspSetting::current();
+
         return view('msp.show', [
-            'workstationPricing' => self::WORKSTATION_PRICING,
-            'serverPrice' => self::SERVER_PRICE,
-            'minimumContract' => self::MINIMUM_CONTRACT,
+            'workstationPricing' => MspWorkstationTier::active()->get(),
+            'serverPrice' => $settings->server_price,
+            'minimumContract' => $settings->minimum_contract,
             'included' => self::INCLUDED,
             'sla' => self::SLA,
             'notIncluded' => self::NOT_INCLUDED,
