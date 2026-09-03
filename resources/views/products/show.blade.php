@@ -2,6 +2,26 @@
 
 @section('title', $product->name)
 @section('description', $product->summary ?? '')
+@section('canonical', route('products.show', $product->slug))
+@if ($product->cover_image)
+    @section('og_image', Storage::url($product->cover_image))
+@endif
+
+@push('schema')
+    <script type="application/ld+json">
+        {!! json_encode(array_filter([
+            '@context' => 'https://schema.org',
+            '@type' => 'SoftwareApplication',
+            'name' => $product->name,
+            'description' => $product->summary,
+            'applicationCategory' => 'BusinessApplication',
+            'operatingSystem' => 'Web',
+            'brand' => ['@type' => 'Brand', 'name' => 'Databit'],
+            'url' => route('products.show', $product->slug),
+            'image' => $product->cover_image ? Storage::url($product->cover_image) : null,
+        ]), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+@endpush
 
 @section('content')
     <section class="bg-brand-950 bg-grid-pattern">

@@ -2,6 +2,8 @@
 
 @section('title', $term !== '' ? 'Busca: '.$term : 'Buscar')
 @section('description', 'Busque sistemas, serviços, novidades e páginas institucionais da Databit.')
+@section('canonical', route('search'))
+@section('robots', 'noindex, follow')
 
 @section('content')
     <section class="bg-white border-b border-slate-200">

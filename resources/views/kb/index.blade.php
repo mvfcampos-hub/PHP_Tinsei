@@ -2,6 +2,7 @@
 
 @section('title', 'Base de Conhecimento')
 @section('description', 'Base de Conhecimento Databit: artigos, tutoriais e vídeos de apoio para os sistemas, DataCloud, Serviços de TI e produtos de informática.')
+@section('canonical', route('kb.index'))
 
 @section('content')
     <section class="bg-brand-950 bg-grid-pattern">

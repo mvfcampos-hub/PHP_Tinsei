@@ -2,6 +2,32 @@
 
 @section('title', $news->title)
 @section('description', $news->excerpt ?? '')
+@section('canonical', route('news.show', $news->slug))
+@section('og_type', 'article')
+@if ($news->cover_image)
+    @section('og_image', Storage::url($news->cover_image))
+@endif
+
+@push('schema')
+    <script type="application/ld+json">
+        {!! json_encode(array_filter([
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            'headline' => $news->title,
+            'description' => $news->excerpt,
+            'image' => $news->cover_image ? Storage::url($news->cover_image) : null,
+            'datePublished' => optional($news->published_at)->toIso8601String(),
+            'dateModified' => $news->updated_at->toIso8601String(),
+            'author' => ['@type' => 'Organization', 'name' => 'Databit'],
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => 'Databit',
+                'logo' => ['@type' => 'ImageObject', 'url' => asset('images/brand/logo-color.png')],
+            ],
+            'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => route('news.show', $news->slug)],
+        ]), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+@endpush
 
 @section('content')
     <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">

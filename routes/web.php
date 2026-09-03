@@ -11,7 +11,9 @@ use App\Http\Controllers\MspController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -44,3 +46,6 @@ Route::get('/base-de-conhecimento/{article:slug}', [KnowledgeBaseController::cla
 Route::post('/base-de-conhecimento/perguntar', [KnowledgeAssistantController::class, 'ask'])
     ->middleware('throttle:10,1')
     ->name('kb.ask');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+Route::get('/robots.txt', RobotsController::class)->name('robots');

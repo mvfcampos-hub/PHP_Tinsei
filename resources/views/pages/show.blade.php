@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', $page->title)
+@section('description', \Illuminate\Support\Str::limit(strip_tags($page->content), 155))
+@section('canonical', route('pages.show', $page->slug))
 
 @section('content')
     <section class="bg-white border-b border-slate-200">

@@ -2,6 +2,7 @@
 
 @section('title', $page->title)
 @section('description', 'Conheça a história, a missão, a visão, os valores e a liderança da Databit — mais de 30 anos de tecnologia para simplificar a gestão empresarial.')
+@section('canonical', route('pages.show', 'grupo-databit'))
 
 @section('content')
     <section class="bg-white border-b border-slate-200">

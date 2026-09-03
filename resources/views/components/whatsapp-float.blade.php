@@ -5,6 +5,7 @@
     target="_blank"
     rel="noopener"
     aria-label="Fale com a Databit pelo WhatsApp"
+    onclick="window.trackEvent && window.trackEvent('whatsapp_click', { page_path: window.location.pathname })"
     class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center"
 >
     <span class="absolute inset-0 rounded-full bg-[#25D366] opacity-75 animate-ping"></span>

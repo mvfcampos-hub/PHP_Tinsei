@@ -16,6 +16,7 @@
             this.answer = '';
             this.sources = [];
             this.errored = false;
+            window.trackEvent && window.trackEvent('kb_ai_question_asked', { page_path: window.location.pathname });
             try {
                 const res = await fetch('{{ route('kb.ask') }}', {
                     method: 'POST',

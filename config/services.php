@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    // SEO / Analytics — todos opcionais. Sem GA_MEASUREMENT_ID definido, o
+    // Google Analytics simplesmente não é carregado (nenhum script, nenhum
+    // cookie de terceiros) em vez de quebrar a página.
+    'google' => [
+        'analytics_id' => env('GA_MEASUREMENT_ID'),
+        'site_verification' => env('GOOGLE_SITE_VERIFICATION'),
+    ],
+
 ];

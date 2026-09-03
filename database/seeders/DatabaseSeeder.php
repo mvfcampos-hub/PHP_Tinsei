@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
     {
         $pages = [
             ['title' => 'Grupo Databit', 'slug' => 'grupo-databit', 'content' => $this->grupoDatabitContent()],
-            ['title' => 'Perguntas Frequentes', 'slug' => 'perguntas-frequentes', 'content' => '<p>Conteúdo institucional de perguntas frequentes (FAQ) a ser migrado do site atual (databit.com.br).</p>'],
+            ['title' => 'Perguntas Frequentes', 'slug' => 'perguntas-frequentes', 'content' => '<p>Reunimos aqui as dúvidas mais comuns sobre a Databit, nossos sistemas, o DataCloud, o modelo de Serviços Gerenciados (MSP) e o nosso suporte. Não encontrou o que procurava? Fale com a gente.</p>'],
             ['title' => 'Identidade Visual da Databit', 'slug' => 'identidade-visual-da-databit', 'content' => '<p>Página reservada para o manual de marca da Databit (cores, logotipo e tipografia). Conteúdo a ser recebido do cliente.</p>'],
             ['title' => 'Fale Conosco', 'slug' => 'fale-conosco', 'content' => '<p><strong>Endereço:</strong> R. Mário Campos, 197 - Inconfidência, Belo Horizonte - MG, 30820-280</p>'
                 .'<p><strong>Atendimento:</strong> <a href="mailto:atendimento@databit.com.br">atendimento@databit.com.br</a></p>'
@@ -93,6 +93,7 @@ class DatabaseSeeder extends Seeder
             .'<h3>3. Para que usamos os seus dados</h3><ul>'
             .'<li><strong>Atendimento comercial e suporte</strong> — para responder solicitações de contato, orçamento e suporte técnico, com base na execução de procedimentos preliminares relacionados a um possível contrato e no legítimo interesse (art. 7º, IV e IX, da LGPD);</li>'
             .'<li><strong>Comunicação sobre produtos e novidades</strong> — quando você opta por receber contato comercial, com base no seu consentimento (art. 7º, I), que pode ser revogado a qualquer momento;</li>'
+            .'<li><strong>Análise de audiência do site (Google Analytics)</strong> — apenas quando você aceita o aviso de cookies, com base no seu consentimento (art. 7º, I), para entender como as páginas são utilizadas e melhorar o conteúdo;</li>'
             .'<li><strong>Cumprimento de obrigação legal ou regulatória</strong>, quando aplicável (art. 7º, II).</li>'
             .'</ul>'
             .'<h3>4. Com quem compartilhamos os seus dados</h3><p>Não vendemos dados pessoais a terceiros. Podemos compartilhar dados com prestadores de serviço que atuam em nosso nome (por exemplo, hospedagem, e-mail e atendimento via WhatsApp Business), sempre limitados ao necessário para a prestação do serviço, e com autoridades públicas quando exigido por lei ou ordem judicial.</p>'
@@ -114,19 +115,20 @@ class DatabaseSeeder extends Seeder
 
     private function cookiePolicyContent(): string
     {
-        // Política de Cookies honesta em relação ao que o site realmente faz
-        // hoje (cookie de sessão do Laravel/CSRF + localStorage para lembrar
-        // avisos dispensados) — sem herdar cláusulas de marketing/analytics
-        // de terceiros do texto do plugin usado no site atual, que não se
-        // aplicam a este projeto.
+        // Política de Cookies honesta em relação ao que o site realmente faz:
+        // cookie de sessão do Laravel/CSRF, localStorage para lembrar avisos
+        // dispensados e, apenas mediante consentimento, Google Analytics —
+        // que só é carregado depois que o visitante aceita o aviso de
+        // cookies (ver componente <x-cookie-consent>), nunca antes.
         return '<p>Esta Política de Cookies explica o que são cookies, quais utilizamos neste site e como você pode gerenciá-los. Para saber como tratamos dados pessoais de forma geral, consulte a nossa <a href="'.route('pages.show', 'politicas-de-privacidade').'">Política de Privacidade</a>.</p>'
             .'<h3>1. O que são cookies</h3><p>Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site. Eles ajudam o site a funcionar corretamente, lembrar suas preferências e entender como você interage com o conteúdo.</p>'
             .'<h3>2. Cookies que utilizamos</h3><ul>'
             .'<li><strong>Cookies necessários</strong> — essenciais para o funcionamento do site, como manter sua sessão de navegação e proteger o envio de formulários contra fraude (CSRF). Não podem ser desativados, pois o site não funciona corretamente sem eles.</li>'
-            .'<li><strong>Preferências salvas localmente</strong> — usamos o armazenamento local do navegador (localStorage) para lembrar, por exemplo, quando você dispensa um aviso exibido no topo do site ou a mensagem sobre cookies, evitando exibi-los novamente.</li>'
+            .'<li><strong>Preferências salvas localmente</strong> — usamos o armazenamento local do navegador (localStorage) para lembrar, por exemplo, quando você dispensa um aviso exibido no topo do site ou a sua escolha sobre cookies, evitando exibi-los novamente.</li>'
+            .'<li><strong>Cookies de análise de audiência (Google Analytics)</strong> — usados para entender quantas pessoas visitam o site, quais páginas são mais acessadas e de onde vem o tráfego, o que nos ajuda a melhorar o conteúdo. Esses cookies só são carregados depois que você clica em "Aceitar" no aviso de cookies exibido no site; se você clicar em "Recusar", eles não são carregados. O tratamento realizado pelo Google está descrito na <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidade do Google</a>.</li>'
             .'</ul>'
-            .'<p>No momento, este site não utiliza cookies de publicidade nem de rastreamento de terceiros. Caso isso venha a mudar — por exemplo, com a adoção futura de ferramentas de análise de audiência —, esta política será atualizada e, quando exigido pela LGPD, solicitaremos o seu consentimento antes da ativação desses cookies.</p>'
-            .'<h3>3. Como gerenciar cookies</h3><p>Você pode gerenciar, bloquear ou remover cookies a qualquer momento nas configurações do seu navegador. Note que bloquear cookies necessários pode impedir o funcionamento correto de algumas áreas do site.</p>'
+            .'<p>Não utilizamos cookies de publicidade ou de retargeting neste site.</p>'
+            .'<h3>3. Como gerenciar cookies</h3><p>Você pode alterar sua escolha sobre os cookies de análise de audiência a qualquer momento limpando os dados de navegação deste site nas configurações do seu navegador, o que faz o aviso de cookies ser exibido novamente. Também é possível gerenciar, bloquear ou remover qualquer cookie diretamente nas configurações do navegador. Note que bloquear cookies necessários pode impedir o funcionamento correto de algumas áreas do site.</p>'
             .'<h3>4. Mais informações</h3><p>Para dúvidas sobre esta política ou sobre o tratamento dos seus dados pessoais, entre em contato pelo e-mail <a href="mailto:relacionamento@databit.com.br">relacionamento@databit.com.br</a>.</p>'
             .'<p><em>Última atualização: setembro de 2026.</em></p>';
     }

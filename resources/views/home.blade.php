@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Início')
+@section('description', 'Databit: mais de 30 anos em sistemas de gestão empresarial (ERP), DataCloud, Serviços de TI gerenciados (MSP) e produtos de informática. Conheça nosso ecossistema completo.')
+@section('canonical', route('home'))
 
 @section('content')
 
