@@ -58,6 +58,16 @@
         </div>
     @endif
 
+    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pt-16 {{ empty($product->highlights) ? 'pb-16' : '' }}">
+        @if ($product->description)
+            <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-brand-700">
+                {!! $product->description !!}
+            </div>
+        @else
+            <p class="text-slate-500">Conteúdo detalhado deste produto em atualização.</p>
+        @endif
+    </article>
+
     @if ($product->logo_image && !$product->youtubeEmbedUrl())
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 text-center">
             <img src="{{ Storage::url($product->logo_image) }}" alt="{{ $product->name }}" class="mx-auto h-16 sm:h-20 w-auto">
@@ -123,15 +133,43 @@
         </section>
     @endif
 
-    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-16 {{ empty($product->highlights) ? 'pt-16' : '' }}">
-        @if ($product->description)
-            <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-brand-700">
-                {!! $product->description !!}
+    @if ($product->slug === 'dataclassic')
+        <section class="bg-slate-50 border-t border-slate-200">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Confira outros módulos e funcionalidades</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" x-data="{ open: null }">
+                    @foreach ([
+                        ['logo' => 'dataclassic-modules/confere.png', 'name' => 'DataConfere', 'desc' => 'Realiza a contagem de conferência dos itens que chegam e que saem no estoque num determinado centro de logística, com base nos movimentos de compras e vendas.'],
+                        ['logo' => 'dataclassic-modules/doc.png', 'name' => 'DataDoc', 'desc' => 'Gestão de documentos fiscais da empresa: organiza os XMLs das notas geradas em pastas, conforme a necessidade do usuário (mês, CNPJ, tipo etc.).'],
+                        ['logo' => 'dataclassic-modules/coletor.png', 'name' => 'DataColetor', 'desc' => 'Faz a captura do número de série/lote dos produtos para posterior carregamento no ERP — ótimo para inventários.'],
+                        ['logo' => 'dataclassic-modules/integra.png', 'name' => 'DataIntegra', 'desc' => 'Interface de integração com sistemas de gerenciamento de outsourcing (hoje: Printwayy, Orbix, Doc Service e IBSTracker).'],
+                        ['logo' => 'dataclassic-modules/apis.png', 'name' => "API's Classic", 'desc' => 'Funcionalidade aberta que possibilita a integração com ferramentas de terceiros, como Tray Commerce e Pluggto.'],
+                        ['logo' => 'dataclassic-modules/label.png', 'name' => 'DataLabel', 'desc' => 'Programa de emissão de etiquetas para código de barras, com parametrização em vários módulos do sistema.'],
+                        ['logo' => 'dataclassic-modules/xml.png', 'name' => 'DataXML', 'desc' => 'Aplicativo que auxilia o usuário na baixa dos arquivos XML, para nota fiscal eletrônica de entrada.'],
+                        ['logo' => 'dataclassic-modules/mail.png', 'name' => 'DataMail', 'desc' => 'Aplicação que dispara e-mails de OS (Ordem de Serviço) ou de requisições finalizadas pelo DataService Mobile.'],
+                        ['logo' => 'dataclassic-modules/nfs.png', 'name' => 'DataNFS-e', 'desc' => 'Ferramenta para emissão de notas fiscais de serviço integrada ao DataClassic, com diversas prefeituras homologadas.'],
+                        ['logo' => 'dataclassic-modules/delivery.png', 'name' => 'DataDelivery', 'desc' => 'Diversos aplicativos que enviam informações de pedidos de venda para os sistemas de centro de logística (Correios, Mercocamp e Leolog).'],
+                    ] as $index => $module)
+                        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+                            <img src="{{ Storage::url($module['logo']) }}" alt="{{ $module['name'] }}" class="h-8 w-auto mb-4">
+                            <button
+                                type="button"
+                                @click="open = open === {{ $index }} ? null : {{ $index }}"
+                                class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800"
+                                :aria-expanded="open === {{ $index }}"
+                            >
+                                Saiba mais
+                                <svg class="h-3.5 w-3.5 transition" :class="{ 'rotate-180': open === {{ $index }} }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                            <p x-show="open === {{ $index }}" x-cloak x-transition class="text-sm text-slate-500 mt-3">{{ $module['desc'] }}</p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        @else
-            <p class="text-slate-500">Conteúdo detalhado deste produto em atualização.</p>
-        @endif
-    </article>
+        </section>
+    @endif
 
     @if ($related->isNotEmpty())
         <section class="bg-white border-t border-slate-200">

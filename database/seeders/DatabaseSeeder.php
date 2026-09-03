@@ -182,6 +182,10 @@ class DatabaseSeeder extends Seeder
             $this->putSeedFile("products/{$slug}.png", "products/{$slug}.png");
         }
 
+        foreach (['confere', 'doc', 'coletor', 'integra', 'apis', 'label', 'xml', 'mail', 'nfs', 'delivery'] as $module) {
+            $this->putSeedFile("products/dataclassic-modules/{$module}.png", "dataclassic-modules/{$module}.png");
+        }
+
         $dataClassicModules = [
             'Gestão de Cadastros' => 'Controle de clientes, fornecedores, vendedores, serviços e produtos, com histórico completo de dados.',
             'Gestão de Compras' => 'Sugestão de compras, fluxo de aprovação, avaliação de fornecedores e auditoria de estoque.',
