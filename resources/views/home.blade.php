@@ -115,8 +115,13 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="flex h-full w-full items-center justify-center bg-white">
-                                    <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain">
+                                <div class="absolute inset-0 bg-grid-pattern"></div>
+                                <div class="absolute -top-24 -right-10 h-[420px] w-[420px] rounded-full blur-3xl opacity-30 bg-brand-500"></div>
+                                <div class="relative h-full w-full p-4 sm:p-8">
+                                    <span class="absolute top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-1.5 rounded-full bg-white/10 text-brand-200 px-3 py-1 text-xs font-semibold z-10">
+                                        Destaque Databit
+                                    </span>
+                                    <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain rounded-xl shadow-2xl">
                                 </div>
                             @endif
                         </a>

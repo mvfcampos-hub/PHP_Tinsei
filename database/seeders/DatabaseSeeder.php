@@ -789,7 +789,7 @@ class DatabaseSeeder extends Seeder
         $this->putPlaceholderSvg('banners/campaign-30-anos.svg', 800, 400, '#2347d6', 'Databit · +30 anos de mercado');
 
         $items = [
-            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 3, 'link_url' => route('products.show', 'dataclassic'), 'overlay_title' => true],
+            ['title' => 'Da placa à peça: DataClassic integrado à Minas Parts', 'image' => 'banners/databit-minasparts-da-placa-a-peca.png', 'placement' => 'home_hero', 'sort_order' => 3, 'link_url' => route('news.show', 'databit-confirma-presenca-na-feira-minas-parts-2026'), 'overlay_title' => false],
         ];
 
         foreach ($items as $item) {
