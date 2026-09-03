@@ -78,14 +78,12 @@ class DatabaseSeeder extends Seeder
     private function seedMenu(): void
     {
         $items = [
-            ['label' => 'Início', 'url' => '/', 'sort_order' => 1],
-            ['label' => 'Sistemas', 'url' => '/sistemas', 'sort_order' => 2],
-            ['label' => 'DataCloud', 'url' => '/datacloud', 'sort_order' => 3],
-            ['label' => 'Serviços TI', 'url' => '/servicos-ti', 'sort_order' => 4],
-            ['label' => 'Produtos', 'url' => '/produtos', 'sort_order' => 5],
-            ['label' => 'Novidades', 'url' => '/novidades', 'sort_order' => 6],
-            ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 7],
-            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 8],
+            ['label' => 'Sistemas', 'url' => '/sistemas', 'sort_order' => 1],
+            ['label' => 'DataCloud', 'url' => '/datacloud', 'sort_order' => 2],
+            ['label' => 'Serviços TI', 'url' => '/servicos-ti', 'sort_order' => 3],
+            ['label' => 'Novidades', 'url' => '/novidades', 'sort_order' => 4],
+            ['label' => 'Grupo Databit', 'url' => '/paginas/grupo-databit', 'sort_order' => 5],
+            ['label' => 'Fale Conosco', 'url' => '/paginas/fale-conosco', 'sort_order' => 6],
         ];
 
         foreach ($items as $item) {
