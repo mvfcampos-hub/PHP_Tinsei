@@ -18,10 +18,13 @@ class PageController extends Controller
         ['year' => '2008', 'text' => 'Lançamento do ERP DataClassic.'],
         ['year' => '2010', 'text' => 'Lançamento do DataService, ferramenta de gestão via navegador.'],
         ['year' => '2014', 'text' => 'Lançamento do DataMobile.'],
-        ['year' => '2018', 'text' => 'Bruno Espindola se junta à liderança como diretor especialista em TI.'],
+        ['year' => '2018', 'text' => 'Lançamento do DataNFS-e, do DataXML e do DataDoc, com foco em recursos fiscais nativos. Também consolidamos a parceria com a NDD Tech, importante parceiro que nos fortalece no mercado de Outsourcing de Impressão.'],
+        ['year' => '2021', 'text' => 'Databit projeta o ecossistema completo para ser o melhor sistema do Brasil, com foco em empresas de Outsourcing de Impressão.'],
         ['year' => '2022', 'text' => 'Lançamento do DataWhats.'],
         ['year' => '2023', 'text' => 'Lançamento do DataShipping e do DataInvoice.'],
         ['year' => '2024', 'text' => 'Lançamento do DataClient CRM.'],
+        ['year' => '2025', 'text' => 'Databit lança o DataCloud, em datacenter certificado Tier III, e fornece VMs para dar sustentação aos clientes da base.'],
+        ['year' => '2026', 'text' => 'Lançamento dos produtos DataSAC e DataMDFe, e lançamento da modernização do DataMobile. Databit também projeta o mercado de autopeças, direcionando investimentos para fortalecer a ferramenta nesse segmento.'],
     ];
 
     public const LEADERSHIP = [
