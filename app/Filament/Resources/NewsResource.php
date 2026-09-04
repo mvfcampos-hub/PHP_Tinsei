@@ -44,13 +44,7 @@ class NewsResource extends Resource
                     ->unique(ignoreRecord: true),
                 Forms\Components\Select::make('category')
                     ->label('Categoria')
-                    ->options([
-                        'Institucional' => 'Institucional',
-                        'Fiscalização' => 'Fiscalização',
-                        'Eventos' => 'Eventos',
-                        'Nutrição' => 'Nutrição',
-                        'Comunicados' => 'Comunicados',
-                    ])
+                    ->options(News::CATEGORIES)
                     ->native(false),
                 Forms\Components\Textarea::make('excerpt')
                     ->label('Resumo')
@@ -115,13 +109,7 @@ class NewsResource extends Resource
                     ->label('Destaque'),
                 Tables\Filters\SelectFilter::make('category')
                     ->label('Categoria')
-                    ->options([
-                        'Institucional' => 'Institucional',
-                        'Fiscalização' => 'Fiscalização',
-                        'Eventos' => 'Eventos',
-                        'Nutrição' => 'Nutrição',
-                        'Comunicados' => 'Comunicados',
-                    ]),
+                    ->options(News::CATEGORIES),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

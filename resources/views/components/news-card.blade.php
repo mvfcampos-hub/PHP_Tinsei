@@ -6,7 +6,7 @@
             <img src="{{ Storage::url($news->cover_image) }}" alt="{{ $news->title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
         @else
             <div class="h-full w-full flex items-center justify-center bg-gradient-to-br from-brand-100 to-brand-200 text-brand-700 font-semibold">
-                CRN-9
+                Databit
             </div>
         @endif
     </a>

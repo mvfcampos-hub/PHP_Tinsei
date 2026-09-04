@@ -10,6 +10,23 @@ class News extends Model
 {
     use HasFactory;
 
+    // "Notícias" cobre tanto novidades/lançamentos da Databit quanto artigos
+    // de interesse selecionados para divulgação (mercado de TI, segurança,
+    // reforma tributária) — por isso as categorias vão além de conteúdo
+    // institucional.
+    public const CATEGORIES = [
+        'Lançamento' => 'Lançamento de produto',
+        'Novidade' => 'Novidade',
+        'Institucional' => 'Institucional',
+        'Cloud' => 'Cloud',
+        'Mobile' => 'Mobile',
+        'Parcerias' => 'Parcerias',
+        'Feiras e Eventos' => 'Feiras e Eventos',
+        'Reforma Tributária' => 'Reforma Tributária',
+        'Segurança da Informação' => 'Segurança da Informação',
+        'Mercado de TI' => 'Mercado de TI',
+    ];
+
     protected $fillable = [
         'title',
         'slug',

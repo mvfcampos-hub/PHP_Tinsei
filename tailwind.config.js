@@ -16,21 +16,41 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                // Paleta placeholder (verde institucional de conselho de saúde).
-                // Substituir pelos tons oficiais assim que a identidade visual do CRN-9 for recebida.
+                // Azul institucional da Databit. Ajustar os tons caso a Databit
+                // forneça o manual de marca oficial com valores hexadecimais exatos.
                 brand: {
-                    50: '#ecfdf5',
-                    100: '#d1fae5',
-                    200: '#a7f3d0',
-                    300: '#6ee7b7',
-                    400: '#34d399',
-                    500: '#10b981',
-                    600: '#059669',
-                    700: '#047857',
-                    800: '#065f46',
-                    900: '#064e3b',
-                    950: '#022c22',
+                    50: '#eef4ff',
+                    100: '#dbe6fe',
+                    200: '#bcd0fd',
+                    300: '#8fb0fc',
+                    400: '#5b87f8',
+                    500: '#3363f0',
+                    600: '#2347d6',
+                    700: '#1d38ab',
+                    800: '#1c3189',
+                    900: '#1b2c6e',
+                    950: '#0e1836',
                 },
+                // Acento ciano usado com moderação para reforçar a identidade
+                // tecnológica (cloud, dados) sem sobrepor o azul institucional.
+                // Escala completa (não só os tons usados inicialmente) para que
+                // qualquer variação de opacidade/hover use uma cor definida.
+                accent: {
+                    50: '#ecfeff',
+                    100: '#cffafe',
+                    200: '#a5f3fc',
+                    300: '#67e8f9',
+                    400: '#22d3ee',
+                    500: '#06b6d4',
+                    600: '#0891b2',
+                    700: '#0e7490',
+                    800: '#155e75',
+                    900: '#164e63',
+                    950: '#083344',
+                },
+            },
+            backgroundImage: {
+                'grid-pattern': "linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)",
             },
         },
     },
