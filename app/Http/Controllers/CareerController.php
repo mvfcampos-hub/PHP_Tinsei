@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Mail\CareerApplicationMail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Throwable;
 
 class CareerController extends Controller
 {
@@ -43,15 +45,23 @@ class CareerController extends Controller
             $resumeName = $request->file('resume')->getClientOriginalName();
         }
 
-        Mail::to('rh@databit.com.br')->send(new CareerApplicationMail([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'area' => self::AREAS[$data['area']],
-            'linkedin' => $data['linkedin'] ?? null,
-            'message' => $data['message'],
-            'resume_name' => $resumeName,
-        ], $resumePath));
+        try {
+            Mail::to('rh@databit.com.br')->send(new CareerApplicationMail([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'area' => self::AREAS[$data['area']],
+                'linkedin' => $data['linkedin'] ?? null,
+                'message' => $data['message'],
+                'resume_name' => $resumeName,
+            ], $resumePath));
+        } catch (Throwable $e) {
+            Log::error('Falha ao enviar e-mail de candidatura (Trabalhe Conosco): '.$e->getMessage(), ['exception' => $e]);
+
+            return redirect()->route('careers.index')
+                ->withInput()
+                ->with('career_error', true);
+        }
 
         return redirect()->route('careers.index')->with('career_success', true);
     }

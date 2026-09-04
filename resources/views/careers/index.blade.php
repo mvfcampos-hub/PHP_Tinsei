@@ -34,6 +34,16 @@
                 </div>
             @endif
 
+            @if (session('career_error'))
+                <div class="rounded-2xl bg-red-50 border border-red-200 text-red-800 px-5 py-4 mb-8 flex items-start gap-3">
+                    <svg class="h-5 w-5 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+                    <div>
+                        <p class="font-semibold">Não foi possível enviar sua candidatura.</p>
+                        <p class="text-sm mt-0.5">Ocorreu um erro ao enviar sua mensagem. Tente novamente em instantes ou entre em contato pelo WhatsApp / e-mail informados no rodapé do site.</p>
+                    </div>
+                </div>
+            @endif
+
             <form action="{{ route('careers.store') }}" method="POST" enctype="multipart/form-data" class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5">
                 @csrf
 
