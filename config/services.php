@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    // Hub de atendimento (chat online) — https://datasac.com.br. Deixado
+    // vazio por padrão para não abrir conversas de teste/desenvolvimento
+    // na caixa de entrada real de produção; só carrega no front-end
+    // quando um token estiver configurado no .env.
+    'datasac' => [
+        'website_token' => env('DATASAC_WEBSITE_TOKEN'),
+    ],
+
 ];

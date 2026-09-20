@@ -551,15 +551,16 @@ class DatabaseSeeder extends Seeder
 <p>Cookies são pequenos arquivos de texto armazenados pelo seu navegador que permitem que um site reconheça seu dispositivo e mantenha informações entre diferentes acessos.</p>
 
 <h3>Quais cookies este site utiliza</h3>
-<p>O site do CRN-9 utiliza <strong>exclusivamente cookies estritamente necessários ao seu funcionamento</strong>, todos de primeira parte (definidos pelo próprio domínio crn9.org.br):</p>
+<p>O site do CRN-9 utiliza <strong>cookies estritamente necessários ao seu funcionamento</strong>, de primeira parte (definidos pelo próprio domínio crn9.org.br):</p>
 <ul>
 <li><strong>Cookie de sessão</strong> — mantém você conectado durante a navegação e, no caso de profissionais e da equipe do CRN-9, durante o uso de áreas autenticadas do site;</li>
 <li><strong>Cookie de proteção contra CSRF</strong> — protege os formulários do site (como denúncias, Portal de Adequação e Banco de Oportunidades) contra envios fraudulentos.</li>
 </ul>
 <p>Estes cookies são indispensáveis para o funcionamento do site e <strong>não exigem consentimento prévio</strong>, pois se enquadram na exceção de cookies estritamente necessários. Eles não são utilizados para rastreamento, publicidade ou perfilamento de usuários.</p>
 
-<h3>Cookies de terceiros e ferramentas de análise</h3>
-<p>Atualmente, o site do CRN-9 <strong>não utiliza</strong> cookies de terceiros, ferramentas de análise de tráfego (como Google Analytics) ou pixels de redes sociais. Caso isso venha a mudar, esta política será atualizada e, quando exigido por lei, será solicitado o consentimento prévio do usuário para cookies não essenciais.</p>
+<h3>Cookies de terceiros</h3>
+<p>Quando o chat de atendimento está disponível no site, ele é fornecido pelo nosso parceiro <strong>DataSac</strong> (hub de atendimento — <a href="https://datasac.com.br" target="_blank" rel="noopener">datasac.com.br</a>). Ao carregar a página, o widget de chat da DataSac pode definir cookies próprios para manter o histórico e a continuidade da sua conversa entre visitas. Esses cookies são usados exclusivamente para viabilizar o atendimento solicitado por você, não para publicidade.</p>
+<p>O site do CRN-9 <strong>não utiliza</strong> ferramentas de análise de tráfego (como Google Analytics) ou pixels de redes sociais. Caso isso venha a mudar, esta política será atualizada e, quando exigido por lei, será solicitado o consentimento prévio do usuário para cookies não essenciais.</p>
 
 <h3>Como gerenciar cookies</h3>
 <p>Você pode configurar seu navegador para bloquear ou apagar cookies a qualquer momento. Como os cookies deste site são estritamente necessários, desativá-los pode impedir o funcionamento de formulários e áreas que exigem login (como o Painel Administrativo).</p>

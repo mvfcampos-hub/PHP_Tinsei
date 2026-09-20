@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased" data-datasac-token="{{ config('services.datasac.website_token') }}">
 
     <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-white">
         Pular para o conteúdo
