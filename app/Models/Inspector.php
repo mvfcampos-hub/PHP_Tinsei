@@ -18,6 +18,7 @@ class Inspector extends Model
         'registration_number',
         'email',
         'phone',
+        'duty_notes',
         'sort_order',
         'is_active',
     ];

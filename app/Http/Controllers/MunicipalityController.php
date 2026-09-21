@@ -12,10 +12,13 @@ class MunicipalityController extends Controller
         $counts = MunicipalityProfessionalCount::query()
             ->when($request->filled('municipio'), fn ($query) => $query->where('municipality', 'like', '%'.$request->string('municipio').'%'))
             ->orderBy('municipality')
-            ->get();
+            ->paginate(60)
+            ->withQueryString();
 
-        $totalProfessionals = $counts->sum('professionals_count');
+        $totalProfessionals = MunicipalityProfessionalCount::sum('total_count');
+        $totalMunicipalities = MunicipalityProfessionalCount::count();
+        $referenceDate = MunicipalityProfessionalCount::max('reference_date');
 
-        return view('municipalities.index', compact('counts', 'totalProfessionals'));
+        return view('municipalities.index', compact('counts', 'totalProfessionals', 'totalMunicipalities', 'referenceDate'));
     }
 }

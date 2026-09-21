@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: crn9-preview
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: APP_URL
+        sync: false

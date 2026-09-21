@@ -1,0 +1,6183 @@
+[
+ {
+  "municipality": "ABADIA DOS DOURADOS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "ABAETE",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 3,
+  "total": 11
+ },
+ {
+  "municipality": "ABRE CAMPO",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "ACAIACA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "ACUCENA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "AGUA BOA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "AGUA BRANCA DE MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "AGUA COMPRIDA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "AGUANIL",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "AGUAS FORMOSAS",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "AGUAS VERMELHAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "AIMORES",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 3,
+  "total": 5
+ },
+ {
+  "municipality": "AIURUOCA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "ALAGOA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "ALBERTINA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ALEM PARAIBA",
+  "nutricionistas": 42,
+  "tnd": 0,
+  "pj": 8,
+  "total": 50
+ },
+ {
+  "municipality": "ALFENAS",
+  "nutricionistas": 139,
+  "tnd": 3,
+  "pj": 29,
+  "total": 171
+ },
+ {
+  "municipality": "ALFREDO VASCONCELOS",
+  "nutricionistas": 9,
+  "tnd": 3,
+  "pj": 1,
+  "total": 13
+ },
+ {
+  "municipality": "ALMENARA",
+  "nutricionistas": 21,
+  "tnd": 0,
+  "pj": 6,
+  "total": 27
+ },
+ {
+  "municipality": "ALPERCATA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "ALPINOPOLIS",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 3,
+  "total": 19
+ },
+ {
+  "municipality": "ALTEROSA",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 4,
+  "total": 15
+ },
+ {
+  "municipality": "ALTO CAPARAO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "ALTO JEQUITIBA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "ALTO RIO DOCE",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "ALVARENGA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ALVINOPOLIS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "ALVORADA DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "AMPARO DO SERRA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "ANCHIETA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "ANDRADAS",
+  "nutricionistas": 21,
+  "tnd": 0,
+  "pj": 5,
+  "total": 26
+ },
+ {
+  "municipality": "ANDRELANDIA",
+  "nutricionistas": 8,
+  "tnd": 1,
+  "pj": 3,
+  "total": 12
+ },
+ {
+  "municipality": "ANGELANDIA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "ANTONIO CARLOS",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 1,
+  "total": 17
+ },
+ {
+  "municipality": "ANTONIO DIAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "ANTONIO PRADO DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "APARECIDA DE MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "ARACAI",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "ARACITABA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ARACUAI",
+  "nutricionistas": 23,
+  "tnd": 0,
+  "pj": 5,
+  "total": 28
+ },
+ {
+  "municipality": "ARAGUARI",
+  "nutricionistas": 166,
+  "tnd": 3,
+  "pj": 104,
+  "total": 273
+ },
+ {
+  "municipality": "ARANTINA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "ARAPONGA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "ARAPORA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "ARAPUA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ARAUJOS",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "ARAXA",
+  "nutricionistas": 78,
+  "tnd": 34,
+  "pj": 21,
+  "total": 133
+ },
+ {
+  "municipality": "ARCEBURGO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "ARCOS",
+  "nutricionistas": 36,
+  "tnd": 1,
+  "pj": 7,
+  "total": 44
+ },
+ {
+  "municipality": "AREADO",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 2,
+  "total": 19
+ },
+ {
+  "municipality": "ARGIRITA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ARICANDUVA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "ARINOS",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 5,
+  "total": 13
+ },
+ {
+  "municipality": "ASTOLFO DUTRA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 1,
+  "total": 9
+ },
+ {
+  "municipality": "ATALEIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "AUGUSTO DE LIMA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BAEPENDI",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "BALDIM",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "BAMBUI",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 4,
+  "total": 21
+ },
+ {
+  "municipality": "BANDEIRA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "BANDEIRA DO SUL",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "BARAO DE COCAIS",
+  "nutricionistas": 24,
+  "tnd": 3,
+  "pj": 6,
+  "total": 33
+ },
+ {
+  "municipality": "BARAO DE MONTE ALTO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BARBACENA",
+  "nutricionistas": 227,
+  "tnd": 53,
+  "pj": 26,
+  "total": 306
+ },
+ {
+  "municipality": "BARRA LONGA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BARROSO",
+  "nutricionistas": 23,
+  "tnd": 1,
+  "pj": 2,
+  "total": 26
+ },
+ {
+  "municipality": "BELA VISTA DE MINAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "BELMIRO BRAGA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "BELO HORIZONTE",
+  "nutricionistas": 3614,
+  "tnd": 326,
+  "pj": 529,
+  "total": 4454
+ },
+ {
+  "municipality": "BELO ORIENTE",
+  "nutricionistas": 12,
+  "tnd": 1,
+  "pj": 6,
+  "total": 19
+ },
+ {
+  "municipality": "BELO VALE",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "BERILO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "BERIZAL",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "BERTOPOLIS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "BETIM",
+  "nutricionistas": 222,
+  "tnd": 45,
+  "pj": 49,
+  "total": 316
+ },
+ {
+  "municipality": "BIAS FORTES",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "BICAS",
+  "nutricionistas": 12,
+  "tnd": 1,
+  "pj": 3,
+  "total": 16
+ },
+ {
+  "municipality": "BIQUINHAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "BOA ESPERANCA",
+  "nutricionistas": 37,
+  "tnd": 0,
+  "pj": 3,
+  "total": 40
+ },
+ {
+  "municipality": "BOCAINA DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BOCAIUVA",
+  "nutricionistas": 24,
+  "tnd": 0,
+  "pj": 5,
+  "total": 29
+ },
+ {
+  "municipality": "BOM DESPACHO",
+  "nutricionistas": 70,
+  "tnd": 2,
+  "pj": 6,
+  "total": 78
+ },
+ {
+  "municipality": "BOM JARDIM DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "BOM JESUS DA CACHOEIRA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "BOM JESUS DA PENHA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "BOM JESUS DO AMPARO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "BOM JESUS DO GALHO",
+  "nutricionistas": 5,
+  "tnd": 1,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "BOM REPOUSO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "BOM SUCESSO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "BONFIM",
+  "nutricionistas": 5,
+  "tnd": 1,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "BONFINOPOLIS DE MINAS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "BONITO DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "BORDA DA MATA",
+  "nutricionistas": 23,
+  "tnd": 0,
+  "pj": 2,
+  "total": 25
+ },
+ {
+  "municipality": "BOTELHOS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "BOTUMIRIM",
+  "nutricionistas": 1,
+  "tnd": 1,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BRAS PIRES",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BRASILANDIA DE MINAS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "BRASILIA DE MINAS",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 3,
+  "total": 18
+ },
+ {
+  "municipality": "BRASOPOLIS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "BRAUNAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "BRAZOPOLIS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "BREJO BONITO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "BRUMADINHO",
+  "nutricionistas": 31,
+  "tnd": 5,
+  "pj": 17,
+  "total": 53
+ },
+ {
+  "municipality": "BUENO BRANDAO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "BUENOPOLIS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "BUGRE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "BURITIS",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "BURITIZEIRO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "CABECEIRA GRANDE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CABO VERDE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 4,
+  "total": 7
+ },
+ {
+  "municipality": "CACHOEIRA DA PRATA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CACHOEIRA DE MINAS",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "CACHOEIRA DE PAJEU",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CACHOEIRA DO CAMPO",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 0,
+  "total": 8
+ },
+ {
+  "municipality": "CACHOEIRA DOURADA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "CAETANOPOLIS",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "CAETE",
+  "nutricionistas": 29,
+  "tnd": 4,
+  "pj": 7,
+  "total": 40
+ },
+ {
+  "municipality": "CAIANA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "CAJURI",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "CALDAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 6,
+  "total": 9
+ },
+ {
+  "municipality": "CAMACHO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CAMANDUCAIA",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 4,
+  "total": 20
+ },
+ {
+  "municipality": "CAMBUI",
+  "nutricionistas": 36,
+  "tnd": 1,
+  "pj": 5,
+  "total": 42
+ },
+ {
+  "municipality": "CAMBUQUIRA",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 1,
+  "total": 12
+ },
+ {
+  "municipality": "CAMPANARIO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CAMPANHA",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 2,
+  "total": 16
+ },
+ {
+  "municipality": "CAMPESTRE",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 4,
+  "total": 19
+ },
+ {
+  "municipality": "CAMPINA VERDE",
+  "nutricionistas": 14,
+  "tnd": 1,
+  "pj": 3,
+  "total": 18
+ },
+ {
+  "municipality": "CAMPO AZUL",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "CAMPO BELO",
+  "nutricionistas": 35,
+  "tnd": 1,
+  "pj": 8,
+  "total": 44
+ },
+ {
+  "municipality": "CAMPO DO MEIO",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 1,
+  "total": 9
+ },
+ {
+  "municipality": "CAMPO FLORIDO",
+  "nutricionistas": 1,
+  "tnd": 2,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "CAMPOS ALTOS",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "CAMPOS GERAIS",
+  "nutricionistas": 22,
+  "tnd": 0,
+  "pj": 3,
+  "total": 25
+ },
+ {
+  "municipality": "CANA VERDE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CANAA",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "CANAPOLIS",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 5,
+  "total": 16
+ },
+ {
+  "municipality": "CANDEIAS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "CANTAGALO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "CAPARAO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CAPELA NOVA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "CAPELINHA",
+  "nutricionistas": 22,
+  "tnd": 1,
+  "pj": 6,
+  "total": 29
+ },
+ {
+  "municipality": "CAPETINGA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "CAPIM BRANCO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "CAPINOPOLIS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "CAPITAO ANDRADE",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "CAPITAO ENEAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CAPITOLIO",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "CAPUTIRA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "CARAI",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CARANAIBA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CARANDAI",
+  "nutricionistas": 27,
+  "tnd": 4,
+  "pj": 3,
+  "total": 34
+ },
+ {
+  "municipality": "CARANGOLA",
+  "nutricionistas": 27,
+  "tnd": 0,
+  "pj": 5,
+  "total": 32
+ },
+ {
+  "municipality": "CARATINGA",
+  "nutricionistas": 86,
+  "tnd": 1,
+  "pj": 12,
+  "total": 99
+ },
+ {
+  "municipality": "CARBONITA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "CAREACU",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "CARLOS CHAGAS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "CARMESIA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CARMO DA CACHOEIRA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "CARMO DA MATA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "CARMO DE MINAS",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 2,
+  "total": 12
+ },
+ {
+  "municipality": "CARMO DO CAJURU",
+  "nutricionistas": 15,
+  "tnd": 1,
+  "pj": 1,
+  "total": 17
+ },
+ {
+  "municipality": "CARMO DO PARANAIBA",
+  "nutricionistas": 14,
+  "tnd": 1,
+  "pj": 3,
+  "total": 18
+ },
+ {
+  "municipality": "CARMO DO RIO CLARO",
+  "nutricionistas": 26,
+  "tnd": 1,
+  "pj": 2,
+  "total": 29
+ },
+ {
+  "municipality": "CARMOPOLIS DE MINAS",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "CARNEIRINHO",
+  "nutricionistas": 5,
+  "tnd": 1,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "CARRANCAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CARVALHOPOLIS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CARVALHOS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CASA GRANDE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CASCALHO RICO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CASSIA",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 3,
+  "total": 15
+ },
+ {
+  "municipality": "CATAGUASES",
+  "nutricionistas": 50,
+  "tnd": 0,
+  "pj": 8,
+  "total": 58
+ },
+ {
+  "municipality": "CATAJAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "CATAS ALTAS",
+  "nutricionistas": 4,
+  "tnd": 1,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "CATAS ALTAS DA NORUEGA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CATUJI",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CATUTI",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "CAXAMBU",
+  "nutricionistas": 22,
+  "tnd": 0,
+  "pj": 3,
+  "total": 25
+ },
+ {
+  "municipality": "CEDRO DO ABAETE",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "CENTRAL DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "CENTRALINA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "CHACARA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CHALE",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "CHAPADA DO NORTE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "CHAPADA GAUCHA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "CHIADOR",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CIPOTANEA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "CISNEIROS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "CLARAVAL",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CLARO DOS POCOES",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "CLAUDIO",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 20,
+  "total": 36
+ },
+ {
+  "municipality": "COIMBRA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "COLATINA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "COLUNA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "COMENDADOR GOMES",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "COMERCINHO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CONCEICAO DA APARECIDA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "CONCEICAO DA BARRA DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CONCEICAO DAS ALAGOAS",
+  "nutricionistas": 4,
+  "tnd": 3,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "CONCEICAO DAS PEDRAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CONCEICAO DE IPANEMA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "CONCEICAO DO MATO DENTRO",
+  "nutricionistas": 15,
+  "tnd": 2,
+  "pj": 3,
+  "total": 20
+ },
+ {
+  "municipality": "CONCEICAO DO PARA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "CONCEICAO DO RIO VERDE",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "CONCEICAO DOS OUROS",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 1,
+  "total": 12
+ },
+ {
+  "municipality": "CONEGO MARINHO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "CONFINS",
+  "nutricionistas": 3,
+  "tnd": 2,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "CONGONHAL",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 4,
+  "total": 21
+ },
+ {
+  "municipality": "CONGONHAS",
+  "nutricionistas": 65,
+  "tnd": 4,
+  "pj": 13,
+  "total": 82
+ },
+ {
+  "municipality": "CONGONHAS DO NORTE",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CONQUISTA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 3,
+  "total": 6
+ },
+ {
+  "municipality": "CONSELHEIRO LAFAIETE",
+  "nutricionistas": 184,
+  "tnd": 14,
+  "pj": 12,
+  "total": 210
+ },
+ {
+  "municipality": "CONSELHEIRO PENA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 3,
+  "total": 13
+ },
+ {
+  "municipality": "CONSOLACAO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "CONTAGEM",
+  "nutricionistas": 636,
+  "tnd": 83,
+  "pj": 141,
+  "total": 860
+ },
+ {
+  "municipality": "COQUEIRAL",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CORACAO DE JESUS",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 3,
+  "total": 12
+ },
+ {
+  "municipality": "CORDISBURGO",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CORDISLANDIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CORINTO",
+  "nutricionistas": 12,
+  "tnd": 1,
+  "pj": 1,
+  "total": 14
+ },
+ {
+  "municipality": "COROACI",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "COROMANDEL",
+  "nutricionistas": 20,
+  "tnd": 0,
+  "pj": 3,
+  "total": 23
+ },
+ {
+  "municipality": "CORONEL FABRICIANO",
+  "nutricionistas": 90,
+  "tnd": 7,
+  "pj": 12,
+  "total": 109
+ },
+ {
+  "municipality": "CORONEL MURTA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "CORONEL PACHECO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CORONEL XAVIER CHAVES",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CORREGO DANTA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CORREGO DO OURO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "CORREGO FUNDO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 2,
+  "total": 2
+ },
+ {
+  "municipality": "CORREGO NOVO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "COUTO DE MAGALHAES DE MINAS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "CRISOLITA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "CRISTAIS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "CRISTALIA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CRISTIANO OTONI",
+  "nutricionistas": 7,
+  "tnd": 1,
+  "pj": 1,
+  "total": 9
+ },
+ {
+  "municipality": "CRISTINA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "CRUCILANDIA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "CRUZEIRO DA FORTALEZA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CRUZILIA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 3,
+  "total": 13
+ },
+ {
+  "municipality": "CUPARAQUE",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "CURRAL DE DENTRO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "CURVELO",
+  "nutricionistas": 67,
+  "tnd": 3,
+  "pj": 17,
+  "total": 87
+ },
+ {
+  "municipality": "DATAS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "DELFIM MOREIRA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "DELFINOPOLIS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "DELTA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "DESCOBERTO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "DESTERRO DE ENTRE RIOS",
+  "nutricionistas": 4,
+  "tnd": 1,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "DESTERRO DO MELO",
+  "nutricionistas": 4,
+  "tnd": 2,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "DIAMANTINA",
+  "nutricionistas": 92,
+  "tnd": 0,
+  "pj": 10,
+  "total": 102
+ },
+ {
+  "municipality": "DIOGO DE VASCONCELOS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "DIONISIO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "DIVINESIA",
+  "nutricionistas": 4,
+  "tnd": 1,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "DIVINO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "DIVINO DAS LARANJEIRAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "DIVINOLANDIA DE MINAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 0,
+  "total": 4
+ },
+ {
+  "municipality": "DIVINOPOLIS",
+  "nutricionistas": 230,
+  "tnd": 0,
+  "pj": 65,
+  "total": 295
+ },
+ {
+  "municipality": "DIVISA ALEGRE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 0,
+  "total": 4
+ },
+ {
+  "municipality": "DIVISA NOVA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "DIVISOPOLIS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "DOM BOSCO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "DOM CAVATI",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "DOM JOAQUIM",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "DOM SILVERIO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "DOM VICOSO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "DONA EUZEBIA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "DORES DE CAMPOS",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 0,
+  "total": 7
+ },
+ {
+  "municipality": "DORES DE GUANHAES",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "DORES DO INDAIA",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 4,
+  "total": 13
+ },
+ {
+  "municipality": "DORES DO TURVO",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "DOURADOQUARA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "DURANDE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ELOI MENDES",
+  "nutricionistas": 20,
+  "tnd": 0,
+  "pj": 2,
+  "total": 22
+ },
+ {
+  "municipality": "ENGENHEIRO CALDAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "ENGENHEIRO NAVARRO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "ENGENHO DO RIBEIRO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "ENTRE FOLHAS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "ENTRE RIOS DE MINAS",
+  "nutricionistas": 7,
+  "tnd": 1,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "ERVALIA",
+  "nutricionistas": 19,
+  "tnd": 0,
+  "pj": 5,
+  "total": 24
+ },
+ {
+  "municipality": "ESMERALDAS",
+  "nutricionistas": 23,
+  "tnd": 5,
+  "pj": 3,
+  "total": 31
+ },
+ {
+  "municipality": "ESPERA FELIZ",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 3,
+  "total": 17
+ },
+ {
+  "municipality": "ESPINOSA",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 2,
+  "total": 13
+ },
+ {
+  "municipality": "ESPIRITO SANTO DO DOURADO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "ESTIVA",
+  "nutricionistas": 8,
+  "tnd": 1,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "ESTRELA DALVA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ESTRELA DO INDAIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "ESTRELA DO SUL",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "EUGENOPOLIS",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 4,
+  "total": 12
+ },
+ {
+  "municipality": "EWBANK DA CAMARA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "EXTREMA",
+  "nutricionistas": 32,
+  "tnd": 10,
+  "pj": 15,
+  "total": 57
+ },
+ {
+  "municipality": "FAMA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "FARIA LEMOS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "FELICIO DOS SANTOS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "FELISBURGO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "FELIXLANDIA",
+  "nutricionistas": 5,
+  "tnd": 1,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "FERNANDES TOURINHO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "FERROS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "FERVEDOURO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "FLORESTAL",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 3,
+  "total": 13
+ },
+ {
+  "municipality": "FORMIGA",
+  "nutricionistas": 53,
+  "tnd": 2,
+  "pj": 11,
+  "total": 66
+ },
+ {
+  "municipality": "FORMOSO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "FORTALEZA DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "FORTUNA DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 1,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "FRANCISCO BADARO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 0,
+  "total": 6
+ },
+ {
+  "municipality": "FRANCISCO DUMONT",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "FRANCISCO SA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "FRANCISCOPOLIS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "FREI INOCENCIO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "FREI LAGONEGRO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "FRONTEIRA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "FRONTEIRA DOS VALES",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "FRUTA DE LEITE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "FRUTAL",
+  "nutricionistas": 66,
+  "tnd": 0,
+  "pj": 20,
+  "total": 86
+ },
+ {
+  "municipality": "FUNILANDIA",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "GALILEIA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "GAMELEIRAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "GLAUCILANDIA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "GOIABEIRA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "GOIANA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "GONCALVES",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "GONZAGA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "GOUVEIA",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "GOVERNADOR VALADARES",
+  "nutricionistas": 286,
+  "tnd": 6,
+  "pj": 31,
+  "total": 323
+ },
+ {
+  "municipality": "GRAO MOGOL",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "GRUPIARA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "GUANHAES",
+  "nutricionistas": 15,
+  "tnd": 1,
+  "pj": 3,
+  "total": 19
+ },
+ {
+  "municipality": "GUAPE",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "GUARACIABA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 3,
+  "total": 11
+ },
+ {
+  "municipality": "GUARACIAMA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "GUARANESIA",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 2,
+  "total": 14
+ },
+ {
+  "municipality": "GUARANI",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "GUARARA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "GUARDA-MOR",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "GUAXUPE",
+  "nutricionistas": 30,
+  "tnd": 2,
+  "pj": 16,
+  "total": 48
+ },
+ {
+  "municipality": "GUIDOVAL",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "GUIMARANIA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "GUIRICEMA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "GURINHATA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "HELIODORA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "IAPU",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "IBERTIOGA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "IBIA",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "IBIAI",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "IBIRACATU",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "IBIRACI",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "IBIRITE",
+  "nutricionistas": 73,
+  "tnd": 18,
+  "pj": 13,
+  "total": 104
+ },
+ {
+  "municipality": "Ibirité",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "IBITIURA DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "IBITURUNA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "ICARAI DE MINAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "IGARAPE",
+  "nutricionistas": 33,
+  "tnd": 2,
+  "pj": 12,
+  "total": 47
+ },
+ {
+  "municipality": "IGARATINGA",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "IGUATAMA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "IJACI",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "ILICINEA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "IMBE DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "INCONFIDENTES",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "INDAIABIRA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "INDIANOPOLIS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "INGAI",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "INHAPIM",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 2,
+  "total": 17
+ },
+ {
+  "municipality": "INHAUMA",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "INIMUTABA",
+  "nutricionistas": 3,
+  "tnd": 1,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "IPABA",
+  "nutricionistas": 8,
+  "tnd": 3,
+  "pj": 1,
+  "total": 12
+ },
+ {
+  "municipality": "IPANEMA",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 2,
+  "total": 19
+ },
+ {
+  "municipality": "IPATINGA",
+  "nutricionistas": 278,
+  "tnd": 18,
+  "pj": 46,
+  "total": 342
+ },
+ {
+  "municipality": "IPIACU",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "IPUIUNA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "IRAI DE MINAS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "ITABIRA",
+  "nutricionistas": 84,
+  "tnd": 21,
+  "pj": 14,
+  "total": 119
+ },
+ {
+  "municipality": "ITABIRINHA DE MANTENA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "ITABIRITO",
+  "nutricionistas": 61,
+  "tnd": 3,
+  "pj": 12,
+  "total": 76
+ },
+ {
+  "municipality": "ITACAMBIRA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ITACARAMBI",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "ITAGUARA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 5,
+  "total": 15
+ },
+ {
+  "municipality": "ITAIPE",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "ITAJUBA",
+  "nutricionistas": 98,
+  "tnd": 3,
+  "pj": 25,
+  "total": 126
+ },
+ {
+  "municipality": "ITAMARADIBA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "ITAMARANDIBA",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 3,
+  "total": 18
+ },
+ {
+  "municipality": "ITAMARATI DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "ITAMBACURI",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 2,
+  "total": 16
+ },
+ {
+  "municipality": "ITAMBE DO MATO DENTRO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "ITAMOGI",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 1,
+  "total": 11
+ },
+ {
+  "municipality": "ITAMONTE",
+  "nutricionistas": 18,
+  "tnd": 0,
+  "pj": 3,
+  "total": 21
+ },
+ {
+  "municipality": "ITANHANDU",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 2,
+  "total": 16
+ },
+ {
+  "municipality": "ITANHOMI",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "ITAOBIM",
+  "nutricionistas": 13,
+  "tnd": 0,
+  "pj": 2,
+  "total": 15
+ },
+ {
+  "municipality": "ITAPAGIPE",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 3,
+  "total": 12
+ },
+ {
+  "municipality": "ITAPECERICA",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 4,
+  "total": 21
+ },
+ {
+  "municipality": "ITAPEVA",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "ITATIAIUCU",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 2,
+  "total": 17
+ },
+ {
+  "municipality": "ITAU DE MINAS",
+  "nutricionistas": 14,
+  "tnd": 1,
+  "pj": 3,
+  "total": 18
+ },
+ {
+  "municipality": "ITAUNA",
+  "nutricionistas": 109,
+  "tnd": 0,
+  "pj": 22,
+  "total": 131
+ },
+ {
+  "municipality": "ITAVERAVA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ITINGA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "ITUETA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ITUIUTABA",
+  "nutricionistas": 48,
+  "tnd": 1,
+  "pj": 16,
+  "total": 65
+ },
+ {
+  "municipality": "ITUMIRIM",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 0,
+  "total": 4
+ },
+ {
+  "municipality": "ITURAMA",
+  "nutricionistas": 20,
+  "tnd": 1,
+  "pj": 11,
+  "total": 32
+ },
+ {
+  "municipality": "ITUTINGA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "JABOTICATUBAS",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 5,
+  "total": 16
+ },
+ {
+  "municipality": "JACINTO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "JACUI",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "JACUTINGA",
+  "nutricionistas": 19,
+  "tnd": 0,
+  "pj": 6,
+  "total": 25
+ },
+ {
+  "municipality": "JAGUARACU",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "JAIBA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 4,
+  "total": 14
+ },
+ {
+  "municipality": "JAMPRUCA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "JANAUBA",
+  "nutricionistas": 48,
+  "tnd": 0,
+  "pj": 8,
+  "total": 56
+ },
+ {
+  "municipality": "JANUARIA",
+  "nutricionistas": 23,
+  "tnd": 0,
+  "pj": 2,
+  "total": 25
+ },
+ {
+  "municipality": "JAPARAIBA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "JAPONVAR",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "JECEABA",
+  "nutricionistas": 8,
+  "tnd": 1,
+  "pj": 0,
+  "total": 9
+ },
+ {
+  "municipality": "JENIPAPO DE MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "JEQUERI",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "JEQUITAI",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "JEQUITIBA",
+  "nutricionistas": 0,
+  "tnd": 2,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "JEQUITINHONHA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "JESUANIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "JOAIMA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "JOANESIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "JOAO MONLEVADE",
+  "nutricionistas": 67,
+  "tnd": 4,
+  "pj": 16,
+  "total": 87
+ },
+ {
+  "municipality": "JOAO PINHEIRO",
+  "nutricionistas": 43,
+  "tnd": 1,
+  "pj": 8,
+  "total": 52
+ },
+ {
+  "municipality": "JOAQUIM FELICIO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "JORDANIA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "JOSE GONCALVES DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "JOSE RAYDAN",
+  "nutricionistas": 0,
+  "tnd": 1,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "JOSENOPOLIS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "JUATUBA",
+  "nutricionistas": 13,
+  "tnd": 0,
+  "pj": 6,
+  "total": 19
+ },
+ {
+  "municipality": "JUIZ DE FORA",
+  "nutricionistas": 853,
+  "tnd": 63,
+  "pj": 153,
+  "total": 1069
+ },
+ {
+  "municipality": "JURAMENTO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "JURUAIA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "JUVENILIA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "LADAINHA",
+  "nutricionistas": 4,
+  "tnd": 1,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "LAGAMAR",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "LAGOA DA PRATA",
+  "nutricionistas": 20,
+  "tnd": 3,
+  "pj": 6,
+  "total": 29
+ },
+ {
+  "municipality": "LAGOA DOS PATOS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "LAGOA DOURADA",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 2,
+  "total": 14
+ },
+ {
+  "municipality": "LAGOA FORMOSA",
+  "nutricionistas": 13,
+  "tnd": 0,
+  "pj": 3,
+  "total": 16
+ },
+ {
+  "municipality": "LAGOA GRANDE",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "LAGOA SANTA",
+  "nutricionistas": 64,
+  "tnd": 2,
+  "pj": 22,
+  "total": 88
+ },
+ {
+  "municipality": "LAJINHA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 4,
+  "total": 10
+ },
+ {
+  "municipality": "LAMBARI",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 2,
+  "total": 17
+ },
+ {
+  "municipality": "LAMIM",
+  "nutricionistas": 6,
+  "tnd": 1,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "LARANJAL",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "LASSANCE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "LAVRAS",
+  "nutricionistas": 193,
+  "tnd": 0,
+  "pj": 26,
+  "total": 219
+ },
+ {
+  "municipality": "LEANDRO FERREIRA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "LEME DO PRADO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "LEOPOLDINA",
+  "nutricionistas": 44,
+  "tnd": 0,
+  "pj": 3,
+  "total": 47
+ },
+ {
+  "municipality": "LIBERDADE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "LIMA DUARTE",
+  "nutricionistas": 13,
+  "tnd": 1,
+  "pj": 4,
+  "total": 18
+ },
+ {
+  "municipality": "LIMEIRA DO OESTE",
+  "nutricionistas": 6,
+  "tnd": 2,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "LONTRA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "LUISBURGO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "LUISLANDIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "LUMINARIAS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "LUZ",
+  "nutricionistas": 15,
+  "tnd": 0,
+  "pj": 4,
+  "total": 19
+ },
+ {
+  "municipality": "MACHACALIS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "MACHADO",
+  "nutricionistas": 40,
+  "tnd": 0,
+  "pj": 4,
+  "total": 44
+ },
+ {
+  "municipality": "MACHADO MINEIRO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "MADRE DE DEUS DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "MALACACHETA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "MAMONAS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "MANGA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "MANHUACU",
+  "nutricionistas": 60,
+  "tnd": 1,
+  "pj": 9,
+  "total": 70
+ },
+ {
+  "municipality": "Manhuaçu",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "MANHUMIRIM",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 1,
+  "total": 18
+ },
+ {
+  "municipality": "MANTENA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 5,
+  "total": 13
+ },
+ {
+  "municipality": "MAR DE ESPANHA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 2,
+  "total": 12
+ },
+ {
+  "municipality": "MARAVILHAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "MARIA DA FE",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "MARIANA",
+  "nutricionistas": 86,
+  "tnd": 5,
+  "pj": 10,
+  "total": 101
+ },
+ {
+  "municipality": "MARILAC",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "MARINOPOLIS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "MARIO CAMPOS",
+  "nutricionistas": 4,
+  "tnd": 2,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "MARIPA DE MINAS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "MARLIERIA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "MARMELOPOLIS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "MARTINHO CAMPOS",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 5,
+  "total": 13
+ },
+ {
+  "municipality": "MATA VERDE",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "MATERLANDIA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "MATEUS LEME",
+  "nutricionistas": 22,
+  "tnd": 4,
+  "pj": 11,
+  "total": 37
+ },
+ {
+  "municipality": "MATHIAS LOBATO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "MATIAS BARBOSA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 2,
+  "total": 12
+ },
+ {
+  "municipality": "MATIAS CARDOSO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "MATIPO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 4,
+  "total": 8
+ },
+ {
+  "municipality": "MATO VERDE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "MATOZINHOS",
+  "nutricionistas": 38,
+  "tnd": 3,
+  "pj": 3,
+  "total": 44
+ },
+ {
+  "municipality": "MATUTINA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "ME DEUS MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "MEDEIROS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "MEDINA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "MENDES PIMENTEL",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "MERCES",
+  "nutricionistas": 10,
+  "tnd": 1,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "MESQUITA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "MINAS NOVAS",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 4,
+  "total": 15
+ },
+ {
+  "municipality": "MINDURI",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 3,
+  "total": 5
+ },
+ {
+  "municipality": "MIRABELA",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "MIRADOURO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "MIRAI",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 2,
+  "total": 18
+ },
+ {
+  "municipality": "MIRAVANIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "MOEDA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "MOEMA",
+  "nutricionistas": 3,
+  "tnd": 1,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "MONJOLOS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 0,
+  "total": 4
+ },
+ {
+  "municipality": "MONSENHOR PAULO",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 3,
+  "total": 11
+ },
+ {
+  "municipality": "MONTALVANIA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 3,
+  "total": 8
+ },
+ {
+  "municipality": "MONTE ALEGRE DE MINAS",
+  "nutricionistas": 13,
+  "tnd": 0,
+  "pj": 4,
+  "total": 17
+ },
+ {
+  "municipality": "MONTE AZUL",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 2,
+  "total": 14
+ },
+ {
+  "municipality": "MONTE BELO",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "MONTE CARMELO",
+  "nutricionistas": 26,
+  "tnd": 2,
+  "pj": 9,
+  "total": 37
+ },
+ {
+  "municipality": "MONTE SANTO DE MINAS",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 4,
+  "total": 15
+ },
+ {
+  "municipality": "MONTE SIAO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 4,
+  "total": 15
+ },
+ {
+  "municipality": "MONTE VERDE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "MONTES CLAROS",
+  "nutricionistas": 413,
+  "tnd": 18,
+  "pj": 51,
+  "total": 482
+ },
+ {
+  "municipality": "MONTEZUMA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "MORADA NOVA DE MINAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "MORRO DA GARCA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "MUCURI",
+  "nutricionistas": 0,
+  "tnd": 1,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "MUNHOZ",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "MURIAE",
+  "nutricionistas": 138,
+  "tnd": 0,
+  "pj": 29,
+  "total": 167
+ },
+ {
+  "municipality": "MUTUM",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "MUZAMBINHO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "NANUQUE",
+  "nutricionistas": 11,
+  "tnd": 1,
+  "pj": 1,
+  "total": 13
+ },
+ {
+  "municipality": "NAQUE",
+  "nutricionistas": 2,
+  "tnd": 2,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "NATALANDIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "NATERCIA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "NAZARENO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "NEPOMUCENO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 2,
+  "total": 13
+ },
+ {
+  "municipality": "NINHEIRA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "NOVA BELEM",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "NOVA ERA",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 3,
+  "total": 17
+ },
+ {
+  "municipality": "NOVA LIMA",
+  "nutricionistas": 158,
+  "tnd": 8,
+  "pj": 26,
+  "total": 192
+ },
+ {
+  "municipality": "NOVA MODICA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "NOVA PONTE",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "NOVA PORTEIRINHA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "NOVA RESENDE",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "NOVA SERRANA",
+  "nutricionistas": 60,
+  "tnd": 0,
+  "pj": 11,
+  "total": 71
+ },
+ {
+  "municipality": "NOVA UNIAO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 2,
+  "total": 2
+ },
+ {
+  "municipality": "NOVO CRUZEIRO",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "NOVO ORIENTE DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "NOVORIZONTE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "OLARIA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "OLHOS-D'AGUA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "OLIMPIO NORONHA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "OLIVEIRA",
+  "nutricionistas": 29,
+  "tnd": 0,
+  "pj": 8,
+  "total": 37
+ },
+ {
+  "municipality": "OLIVEIRA FORTES",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "ONCA DE PITANGUI",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "ORATORIOS",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "ORIZANIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "OURO BRANCO",
+  "nutricionistas": 57,
+  "tnd": 2,
+  "pj": 10,
+  "total": 69
+ },
+ {
+  "municipality": "OURO FINO",
+  "nutricionistas": 42,
+  "tnd": 0,
+  "pj": 9,
+  "total": 51
+ },
+ {
+  "municipality": "OURO PRETO",
+  "nutricionistas": 133,
+  "tnd": 9,
+  "pj": 12,
+  "total": 154
+ },
+ {
+  "municipality": "OURO VERDE DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PADRE CARVALHO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "PADRE PARAISO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "PAI PEDRO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "PAINEIRAS",
+  "nutricionistas": 3,
+  "tnd": 1,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "PAINS",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 6,
+  "total": 13
+ },
+ {
+  "municipality": "PAIVA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "PALMA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PALMOPOLIS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PAPAGAIOS",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 2,
+  "total": 14
+ },
+ {
+  "municipality": "PARA DE MINAS",
+  "nutricionistas": 83,
+  "tnd": 1,
+  "pj": 15,
+  "total": 99
+ },
+ {
+  "municipality": "PARACATU",
+  "nutricionistas": 113,
+  "tnd": 1,
+  "pj": 11,
+  "total": 125
+ },
+ {
+  "municipality": "PARAGUACU",
+  "nutricionistas": 26,
+  "tnd": 0,
+  "pj": 5,
+  "total": 31
+ },
+ {
+  "municipality": "PARAISOPOLIS",
+  "nutricionistas": 18,
+  "tnd": 0,
+  "pj": 2,
+  "total": 20
+ },
+ {
+  "municipality": "PARAOPEBA",
+  "nutricionistas": 22,
+  "tnd": 0,
+  "pj": 3,
+  "total": 25
+ },
+ {
+  "municipality": "PASSA QUATRO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "PASSA TEMPO",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 4,
+  "total": 12
+ },
+ {
+  "municipality": "PASSA VINTE",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "PASSABEM",
+  "nutricionistas": 1,
+  "tnd": 1,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "PASSOS",
+  "nutricionistas": 162,
+  "tnd": 3,
+  "pj": 12,
+  "total": 177
+ },
+ {
+  "municipality": "PATIS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "PATOS DE MINAS",
+  "nutricionistas": 162,
+  "tnd": 3,
+  "pj": 33,
+  "total": 198
+ },
+ {
+  "municipality": "PATRIMONIO BOA VISTA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "PATROCINIO",
+  "nutricionistas": 82,
+  "tnd": 0,
+  "pj": 7,
+  "total": 89
+ },
+ {
+  "municipality": "PATROCINIO DO MURIAE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 3,
+  "total": 7
+ },
+ {
+  "municipality": "PAULA CANDIDO",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "PAULISTAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "PAVAO",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PECANHA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "PEDRA AZUL",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 4,
+  "total": 9
+ },
+ {
+  "municipality": "PEDRA BONITA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "PEDRA DO ANTA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "PEDRA DO INDAIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "PEDRA DOURADA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PEDRALVA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 1,
+  "total": 11
+ },
+ {
+  "municipality": "PEDRAS DE MARIA DA CRUZ",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PEDRINOPOLIS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "PEDRO LEOPOLDO",
+  "nutricionistas": 54,
+  "tnd": 3,
+  "pj": 6,
+  "total": 63
+ },
+ {
+  "municipality": "PEDRO TEIXEIRA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PEQUERI",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "PEQUI",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PERDIGAO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 1,
+  "total": 12
+ },
+ {
+  "municipality": "PERDIZES",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 9,
+  "total": 25
+ },
+ {
+  "municipality": "PERDOES",
+  "nutricionistas": 19,
+  "tnd": 0,
+  "pj": 2,
+  "total": 21
+ },
+ {
+  "municipality": "PERIQUITO",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "PESCADOR",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PIAU",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PIEDADE DE CARATINGA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PIEDADE DE PONTE NOVA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PIEDADE DO RIO GRANDE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "PIEDADE DOS GERAIS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "PIMENTA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 2,
+  "total": 9
+ },
+ {
+  "municipality": "PINGO D'AGUA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PINTOPOLIS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PIRACEMA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "PIRAJUBA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "PIRANGA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 1,
+  "total": 11
+ },
+ {
+  "municipality": "PIRANGUCU",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PIRANGUINHO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "PIRAPETINGA",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 2,
+  "total": 16
+ },
+ {
+  "municipality": "PIRAPORA",
+  "nutricionistas": 31,
+  "tnd": 0,
+  "pj": 7,
+  "total": 38
+ },
+ {
+  "municipality": "PIRAUBA",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 2,
+  "total": 12
+ },
+ {
+  "municipality": "PITANGUI",
+  "nutricionistas": 22,
+  "tnd": 0,
+  "pj": 4,
+  "total": 26
+ },
+ {
+  "municipality": "PIUMHI",
+  "nutricionistas": 27,
+  "tnd": 0,
+  "pj": 8,
+  "total": 35
+ },
+ {
+  "municipality": "PLANURA",
+  "nutricionistas": 1,
+  "tnd": 1,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "POCO FUNDO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 4,
+  "total": 10
+ },
+ {
+  "municipality": "POCOS DE CALDAS",
+  "nutricionistas": 178,
+  "tnd": 14,
+  "pj": 51,
+  "total": 243
+ },
+ {
+  "municipality": "POCRANE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "POMPEU",
+  "nutricionistas": 18,
+  "tnd": 0,
+  "pj": 4,
+  "total": 22
+ },
+ {
+  "municipality": "PONTE NOVA",
+  "nutricionistas": 88,
+  "tnd": 0,
+  "pj": 8,
+  "total": 96
+ },
+ {
+  "municipality": "PONTO CHIQUE",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PONTO DOS VOLANTES",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "PORTEIRINHA",
+  "nutricionistas": 13,
+  "tnd": 0,
+  "pj": 3,
+  "total": 16
+ },
+ {
+  "municipality": "PORTO FIRME",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "POTE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "POUSO ALEGRE",
+  "nutricionistas": 278,
+  "tnd": 2,
+  "pj": 68,
+  "total": 348
+ },
+ {
+  "municipality": "POUSO ALTO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "PRADOS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "PRATA",
+  "nutricionistas": 20,
+  "tnd": 0,
+  "pj": 12,
+  "total": 32
+ },
+ {
+  "municipality": "PRATA DE LAJINHA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "PRATAPOLIS",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "PRATINHA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "PRESIDENTE BERNARDES",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "PRESIDENTE JUSCELINO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "PRESIDENTE KUBITSCHEK",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "PRESIDENTE OLEGARIO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "PRUDENTE DE MORAIS",
+  "nutricionistas": 6,
+  "tnd": 3,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "PUSO ALEGRE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "QUARTEL GERAL",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "RAPOSOS",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "RAUL SOARES",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "REALEZA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "RECREIO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "REDUTO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "RESENDE COSTA",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 2,
+  "total": 14
+ },
+ {
+  "municipality": "RESPLENDOR",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "RESSAQUINHA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "RIACHINHO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "RIACHO DOS MACHADOS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "RIBEIRAO DAS NEVES",
+  "nutricionistas": 145,
+  "tnd": 44,
+  "pj": 18,
+  "total": 207
+ },
+ {
+  "municipality": "RIBEIRAO VERMELHO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 0,
+  "total": 4
+ },
+ {
+  "municipality": "RIO ACIMA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "RIO CASCA",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 3,
+  "total": 10
+ },
+ {
+  "municipality": "RIO DO PRADO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "RIO DOCE",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "RIO ESPERA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "RIO MANSO",
+  "nutricionistas": 3,
+  "tnd": 1,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "RIO NOVO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "RIO PARANAIBA",
+  "nutricionistas": 27,
+  "tnd": 0,
+  "pj": 2,
+  "total": 29
+ },
+ {
+  "municipality": "RIO PARDO DE MINAS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "RIO PIRACICABA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "RIO POMBA",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 3,
+  "total": 17
+ },
+ {
+  "municipality": "RIO PRETO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "RIO VERMELHO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 3,
+  "total": 6
+ },
+ {
+  "municipality": "RITAPOLIS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "ROCHEDO DE MINAS",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "RODEIRO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "ROMARIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "ROSARIO DA LIMEIRA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "RUBELITA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "RUBIM",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "S JOSE MANTIMENTO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SABARA",
+  "nutricionistas": 96,
+  "tnd": 32,
+  "pj": 7,
+  "total": 135
+ },
+ {
+  "municipality": "SABINOPOLIS",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 4,
+  "total": 12
+ },
+ {
+  "municipality": "SACRAMENTO",
+  "nutricionistas": 18,
+  "tnd": 1,
+  "pj": 7,
+  "total": 26
+ },
+ {
+  "municipality": "SALINAS",
+  "nutricionistas": 23,
+  "tnd": 0,
+  "pj": 3,
+  "total": 26
+ },
+ {
+  "municipality": "SALTO DA DIVISA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTA BARBARA",
+  "nutricionistas": 23,
+  "tnd": 5,
+  "pj": 7,
+  "total": 35
+ },
+ {
+  "municipality": "SANTA BARBARA DO LESTE",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 0,
+  "total": 6
+ },
+ {
+  "municipality": "SANTA BARBARA DO MONTE VERDE",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SANTA BARBARA DO TUGURIO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SANTA CRUZ DE MINAS",
+  "nutricionistas": 9,
+  "tnd": 1,
+  "pj": 2,
+  "total": 12
+ },
+ {
+  "municipality": "SANTA CRUZ DE SALINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTA CRUZ DO ESCALVADO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "SANTA EFIGENIA DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SANTA FE DE MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SANTA HELENA DE MINAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "Santa Helena De Minas,",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTA JULIANA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "SANTA LUZIA",
+  "nutricionistas": 137,
+  "tnd": 38,
+  "pj": 15,
+  "total": 190
+ },
+ {
+  "municipality": "SANTA MARGARIDA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SANTA MARIA DE ITABIRA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "SANTA MARIA DO SALTO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SANTA MARIA DO SUACUI",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "SANTA RITA DE CALDAS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 3,
+  "total": 6
+ },
+ {
+  "municipality": "SANTA RITA DE IBITIPOCA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "SANTA RITA DE JACUTINGA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SANTA RITA DE MINAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "SANTA RITA DE OURO PRETO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTA RITA DO ITUETO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTA RITA DO SAPUCAI",
+  "nutricionistas": 47,
+  "tnd": 1,
+  "pj": 7,
+  "total": 55
+ },
+ {
+  "municipality": "SANTA ROSA DA SERRA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SANTA VITORIA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 5,
+  "total": 13
+ },
+ {
+  "municipality": "SANTANA DA VARGEM",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 1,
+  "total": 10
+ },
+ {
+  "municipality": "SANTANA DE CATAGUASES",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SANTANA DE PIRAPAMA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SANTANA DO DESERTO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SANTANA DO GARAMBEU",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "SANTANA DO JACARE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "SANTANA DO MANHUACU",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SANTANA DO PARAISO",
+  "nutricionistas": 28,
+  "tnd": 3,
+  "pj": 7,
+  "total": 38
+ },
+ {
+  "municipality": "SANTANA DO RIACHO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SANTANA DOS MONTES",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 1,
+  "total": 9
+ },
+ {
+  "municipality": "SANTO ANTONIO DO AMPARO",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "SANTO ANTONIO DO AVENTUREIRO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "SANTO ANTONIO DO GRAMA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SANTO ANTONIO DO ITAMBE",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SANTO ANTONIO DO JACINTO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SANTO ANTONIO DO MONTE",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 4,
+  "total": 20
+ },
+ {
+  "municipality": "SANTO ANTONIO DO RET",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SANTO ANTONIO DO RETIRO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "SANTO ANTONIO DO RIO ABAIXO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTO ANTONIO DOS CAMPOS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SANTO HIPOLITO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SANTOS DUMONT",
+  "nutricionistas": 38,
+  "tnd": 0,
+  "pj": 4,
+  "total": 42
+ },
+ {
+  "municipality": "SAO BENTO ABADE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SAO BRAS DO SUACUI",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "SAO DOMINGOS DAS DORES",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "SAO DOMINGOS DO PRATA",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 4,
+  "total": 18
+ },
+ {
+  "municipality": "SAO FELIX DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SAO FRANCISCO",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 1,
+  "total": 12
+ },
+ {
+  "municipality": "SAO FRANCISCO DE PAULA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 3,
+  "total": 5
+ },
+ {
+  "municipality": "SAO FRANCISCO DE SALES",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 3,
+  "total": 5
+ },
+ {
+  "municipality": "SAO FRANCISCO DO GLORIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "SAO GERALDO",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 1,
+  "total": 15
+ },
+ {
+  "municipality": "SAO GERALDO DA PIEDADE",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SAO GERALDO DO BAIXIO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SAO GONCALO DO ABAETE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "SAO GONCALO DO PARA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 4,
+  "total": 8
+ },
+ {
+  "municipality": "SAO GONCALO DO RIO ABAIXO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "SAO GONCALO DO RIO PRETO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SAO GONCALO DO SAPUCAI",
+  "nutricionistas": 28,
+  "tnd": 0,
+  "pj": 4,
+  "total": 32
+ },
+ {
+  "municipality": "SAO GOTARDO",
+  "nutricionistas": 29,
+  "tnd": 0,
+  "pj": 5,
+  "total": 34
+ },
+ {
+  "municipality": "SAO JOAO BATISTA DO GLORIA",
+  "nutricionistas": 8,
+  "tnd": 1,
+  "pj": 2,
+  "total": 11
+ },
+ {
+  "municipality": "SAO JOAO DA LAGOA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SAO JOAO DA MATA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SAO JOAO DA PONTE",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "SAO JOAO DAS MISSOES",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SAO JOAO DEL REI",
+  "nutricionistas": 124,
+  "tnd": 4,
+  "pj": 11,
+  "total": 139
+ },
+ {
+  "municipality": "SAO JOAO DO MANHUACU",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "SAO JOAO DO MANTENINHA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SAO JOAO DO ORIENTE",
+  "nutricionistas": 7,
+  "tnd": 0,
+  "pj": 1,
+  "total": 8
+ },
+ {
+  "municipality": "SAO JOAO DO PACUI",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SAO JOAO DO PARAISO",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "SAO JOAO EVANGELISTA",
+  "nutricionistas": 14,
+  "tnd": 3,
+  "pj": 3,
+  "total": 20
+ },
+ {
+  "municipality": "SAO JOAO NEPOMUCENO",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 3,
+  "total": 20
+ },
+ {
+  "municipality": "SAO JOAQUIM DE BICAS",
+  "nutricionistas": 19,
+  "tnd": 0,
+  "pj": 3,
+  "total": 22
+ },
+ {
+  "municipality": "SAO JOSE DA BARRA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "SAO JOSE DA LAPA",
+  "nutricionistas": 13,
+  "tnd": 2,
+  "pj": 4,
+  "total": 19
+ },
+ {
+  "municipality": "SAO JOSE DA SAFIRA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SAO JOSE DA VARGINHA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "SAO JOSE DO ALEGRE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "SAO JOSE DO GOIABAL",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "SAO JOSE DO JACURI",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SAO JOSE DO MANTIMENTO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SAO LOURENCO",
+  "nutricionistas": 74,
+  "tnd": 0,
+  "pj": 6,
+  "total": 80
+ },
+ {
+  "municipality": "SAO MIGUEL DO ANTA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "SAO PEDRO DA UNIAO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 3,
+  "total": 4
+ },
+ {
+  "municipality": "SAO PEDRO DO JEQUITINHONHA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SAO PEDRO DO SUACUI",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "SAO PEDRO DOS FERROS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 0,
+  "total": 6
+ },
+ {
+  "municipality": "SAO ROMAO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SAO ROQUE DE MINAS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "SAO SEBASTIAO DA BELA VISTA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 0,
+  "total": 4
+ },
+ {
+  "municipality": "SAO SEBASTIAO DA VARGEM ALEGRE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO ANTA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO MARANHAO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO OESTE",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO PARAISO",
+  "nutricionistas": 63,
+  "tnd": 0,
+  "pj": 9,
+  "total": 72
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO PONTAL",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO RIO PRETO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SAO SEBASTIAO DO RIO VERDE",
+  "nutricionistas": 2,
+  "tnd": 1,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "SAO TIAGO",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 2,
+  "total": 10
+ },
+ {
+  "municipality": "SAO TOMAS DE AQUINO",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 3,
+  "total": 9
+ },
+ {
+  "municipality": "SAO TOME DAS LETRAS",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "SAO VICENTE DE MINAS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "SAPUCAI MIRIM",
+  "nutricionistas": 0,
+  "tnd": 2,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "SAPUCAI-MIRIM",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "SARDOA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SARZEDO",
+  "nutricionistas": 26,
+  "tnd": 1,
+  "pj": 7,
+  "total": 34
+ },
+ {
+  "municipality": "SEM-PEIXE",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "SEN MODESTINO GONCAL",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SENADOR AMARAL",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SENADOR CORTES",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SENADOR FIRMINO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 2,
+  "total": 7
+ },
+ {
+  "municipality": "SENADOR JOSE BENTO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SENADOR MODESTINO GONCALVES",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SENHORA DE OLIVEIRA",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 1,
+  "total": 9
+ },
+ {
+  "municipality": "SENHORA DO PORTO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 2,
+  "total": 3
+ },
+ {
+  "municipality": "SENHORA DOS REMEDIOS",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "SERICITA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "SERITINGA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SERRA AZUL DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SERRA DA SAUDADE",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "SERRA DO SALITRE",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 1,
+  "total": 7
+ },
+ {
+  "municipality": "SERRA DOS AIMORES",
+  "nutricionistas": 2,
+  "tnd": 2,
+  "pj": 2,
+  "total": 6
+ },
+ {
+  "municipality": "SERRANIA",
+  "nutricionistas": 6,
+  "tnd": 0,
+  "pj": 0,
+  "total": 6
+ },
+ {
+  "municipality": "SERRANOPOLIS DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SERRANOS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SERRO",
+  "nutricionistas": 12,
+  "tnd": 0,
+  "pj": 2,
+  "total": 14
+ },
+ {
+  "municipality": "SERRO-MG",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SETE LAGOAS",
+  "nutricionistas": 260,
+  "tnd": 33,
+  "pj": 18,
+  "total": 311
+ },
+ {
+  "municipality": "SETUBINHA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "SILVEIRA CARVALHO",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "SILVEIRANIA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SILVIANOPOLIS",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "SIMAO PEREIRA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "SIMONESIA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "SOBRALIA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "SOLEDADE DE MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "STO ANTONIO R ABAIXO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "TABULEIRO",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "TAIOBEIRAS",
+  "nutricionistas": 24,
+  "tnd": 0,
+  "pj": 2,
+  "total": 26
+ },
+ {
+  "municipality": "TAPARUBA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "TAPIRA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "TAQUARACU DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 2,
+  "total": 4
+ },
+ {
+  "municipality": "TARUMIRIM",
+  "nutricionistas": 10,
+  "tnd": 0,
+  "pj": 2,
+  "total": 12
+ },
+ {
+  "municipality": "TEIXEIRAS",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 4,
+  "total": 18
+ },
+ {
+  "municipality": "TEOFILO OTONI",
+  "nutricionistas": 96,
+  "tnd": 1,
+  "pj": 16,
+  "total": 113
+ },
+ {
+  "municipality": "TIMOTEO",
+  "nutricionistas": 74,
+  "tnd": 6,
+  "pj": 21,
+  "total": 101
+ },
+ {
+  "municipality": "TIRADENTES",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 3,
+  "total": 14
+ },
+ {
+  "municipality": "TIROS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "TOCANTINS",
+  "nutricionistas": 18,
+  "tnd": 0,
+  "pj": 3,
+  "total": 21
+ },
+ {
+  "municipality": "TOCOS DO MOJI",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "TOLEDO",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "TOMBOS",
+  "nutricionistas": 8,
+  "tnd": 0,
+  "pj": 3,
+  "total": 11
+ },
+ {
+  "municipality": "TRES CORACOES",
+  "nutricionistas": 96,
+  "tnd": 3,
+  "pj": 14,
+  "total": 113
+ },
+ {
+  "municipality": "TRES MARIAS",
+  "nutricionistas": 16,
+  "tnd": 0,
+  "pj": 8,
+  "total": 24
+ },
+ {
+  "municipality": "TRES PONTAS",
+  "nutricionistas": 45,
+  "tnd": 0,
+  "pj": 11,
+  "total": 56
+ },
+ {
+  "municipality": "TUMIRITINGA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "TUPACIGUARA",
+  "nutricionistas": 17,
+  "tnd": 0,
+  "pj": 5,
+  "total": 22
+ },
+ {
+  "municipality": "TURMALINA",
+  "nutricionistas": 13,
+  "tnd": 0,
+  "pj": 4,
+  "total": 17
+ },
+ {
+  "municipality": "TURVOLANDIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "UBA",
+  "nutricionistas": 102,
+  "tnd": 0,
+  "pj": 16,
+  "total": 118
+ },
+ {
+  "municipality": "UBAI",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 0,
+  "total": 2
+ },
+ {
+  "municipality": "UBAPORANGA",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 1,
+  "total": 12
+ },
+ {
+  "municipality": "UBARI",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "UBERABA",
+  "nutricionistas": 339,
+  "tnd": 52,
+  "pj": 70,
+  "total": 461
+ },
+ {
+  "municipality": "UBERLANDIA",
+  "nutricionistas": 1074,
+  "tnd": 67,
+  "pj": 664,
+  "total": 1805
+ },
+ {
+  "municipality": "UMBURATIBA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "UNAI",
+  "nutricionistas": 59,
+  "tnd": 0,
+  "pj": 6,
+  "total": 65
+ },
+ {
+  "municipality": "UNIAO DE MINAS",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 3,
+  "total": 5
+ },
+ {
+  "municipality": "URUANA DE MINAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "URUCANIA",
+  "nutricionistas": 9,
+  "tnd": 0,
+  "pj": 3,
+  "total": 12
+ },
+ {
+  "municipality": "URUCUIA",
+  "nutricionistas": 2,
+  "tnd": 0,
+  "pj": 1,
+  "total": 3
+ },
+ {
+  "municipality": "VARGEM ALEGRE",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "VARGEM BONITA",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ },
+ {
+  "municipality": "VARGEM GRANDE DO RIO PARDO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 0,
+  "total": 3
+ },
+ {
+  "municipality": "VARGINHA",
+  "nutricionistas": 151,
+  "tnd": 12,
+  "pj": 27,
+  "total": 190
+ },
+ {
+  "municipality": "VARJAO DE MINAS",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "VARZEA DA PALMA",
+  "nutricionistas": 18,
+  "tnd": 1,
+  "pj": 7,
+  "total": 26
+ },
+ {
+  "municipality": "VARZELANDIA",
+  "nutricionistas": 4,
+  "tnd": 0,
+  "pj": 1,
+  "total": 5
+ },
+ {
+  "municipality": "VAZANTE",
+  "nutricionistas": 14,
+  "tnd": 0,
+  "pj": 6,
+  "total": 20
+ },
+ {
+  "municipality": "VENDA NOVA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 0,
+  "total": 1
+ },
+ {
+  "municipality": "VERDELANDIA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "VEREDINHA",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "VERISSIMO",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 2,
+  "total": 2
+ },
+ {
+  "municipality": "VERMELHO NOVO",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "VESPASIANO",
+  "nutricionistas": 73,
+  "tnd": 15,
+  "pj": 11,
+  "total": 99
+ },
+ {
+  "municipality": "VICOCA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 0,
+  "total": 5
+ },
+ {
+  "municipality": "VICOSA",
+  "nutricionistas": 261,
+  "tnd": 0,
+  "pj": 18,
+  "total": 279
+ },
+ {
+  "municipality": "Viçosa",
+  "nutricionistas": 11,
+  "tnd": 0,
+  "pj": 0,
+  "total": 11
+ },
+ {
+  "municipality": "VIEIRAS",
+  "nutricionistas": 1,
+  "tnd": 0,
+  "pj": 1,
+  "total": 2
+ },
+ {
+  "municipality": "VIRGEM DA LAPA",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "VIRGINIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 2,
+  "total": 5
+ },
+ {
+  "municipality": "VIRGINOPOLIS",
+  "nutricionistas": 5,
+  "tnd": 1,
+  "pj": 2,
+  "total": 8
+ },
+ {
+  "municipality": "VIRGOLANDIA",
+  "nutricionistas": 3,
+  "tnd": 0,
+  "pj": 1,
+  "total": 4
+ },
+ {
+  "municipality": "VISCONDE DO RIO BRANCO",
+  "nutricionistas": 50,
+  "tnd": 0,
+  "pj": 8,
+  "total": 58
+ },
+ {
+  "municipality": "VOLTA GRANDE",
+  "nutricionistas": 5,
+  "tnd": 0,
+  "pj": 1,
+  "total": 6
+ },
+ {
+  "municipality": "WENCESLAU BRAZ",
+  "nutricionistas": 0,
+  "tnd": 0,
+  "pj": 1,
+  "total": 1
+ }
+]

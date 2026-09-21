@@ -54,6 +54,10 @@ class InspectorResource extends Resource
                 Forms\Components\TextInput::make('phone')
                     ->label('Telefone')
                     ->tel(),
+                Forms\Components\TextInput::make('duty_notes')
+                    ->label('Plantão')
+                    ->placeholder('Ex: Plantão às segundas-feiras.')
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('sort_order')
                     ->label('Ordem de exibição')
                     ->required()
@@ -84,6 +88,9 @@ class InspectorResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('registration_number')
                     ->label('Registro'),
+                Tables\Columns\TextColumn::make('duty_notes')
+                    ->label('Plantão')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('sort_order')
                     ->label('Ordem')
                     ->numeric()

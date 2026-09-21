@@ -13,24 +13,29 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
+                heading: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                // Paleta placeholder (verde institucional de conselho de saúde).
-                // Substituir pelos tons oficiais assim que a identidade visual do CRN-9 for recebida.
+                // Identidade visual oficial do CRN-9 (verde sóbrio como cor
+                // primária), extraída de https://crn9.org.br/identidade-visual-do-crn-9/
                 brand: {
-                    50: '#ecfdf5',
-                    100: '#d1fae5',
-                    200: '#a7f3d0',
-                    300: '#6ee7b7',
-                    400: '#34d399',
-                    500: '#10b981',
-                    600: '#059669',
-                    700: '#047857',
-                    800: '#065f46',
-                    900: '#064e3b',
-                    950: '#022c22',
+                    50: '#f4f4f0',
+                    100: '#deded4',
+                    200: '#c8c9b8',
+                    300: '#b3b49c',
+                    400: '#9d9e7f',
+                    500: '#878963',
+                    600: '#727347',
+                    700: '#5c5e2b',
+                    800: '#474921',
+                    900: '#313318',
+                    950: '#1c1e0e',
                 },
+                // Cores de apoio da identidade visual do CRN-9.
+                'brand-leaf': '#a3a64a', // verde jovial
+                'brand-orange': '#f58c4a', // laranja — proximidade com o público
+                'brand-blue': '#85b0ff', // azul luminoso — seriedade e credibilidade
             },
         },
     },

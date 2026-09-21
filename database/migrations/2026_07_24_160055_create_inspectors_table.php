@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('registration_number')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('duty_notes')->nullable();
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

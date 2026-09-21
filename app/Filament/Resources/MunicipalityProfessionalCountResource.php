@@ -39,11 +39,23 @@ class MunicipalityProfessionalCountResource extends Resource
                     ->maxLength(2)
                     ->required()
                     ->default('MG'),
-                Forms\Components\TextInput::make('category')
-                    ->label('Categoria profissional')
-                    ->placeholder('Nutricionista, Técnico em Nutrição e Dietética...'),
-                Forms\Components\TextInput::make('professionals_count')
-                    ->label('Quantidade de profissionais')
+                Forms\Components\TextInput::make('nutritionists_count')
+                    ->label('Nutricionistas')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('technicians_count')
+                    ->label('TND (Téc. em Nutrição e Dietética)')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('legal_entities_count')
+                    ->label('Pessoas Jurídicas')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('total_count')
+                    ->label('Total')
                     ->required()
                     ->numeric()
                     ->default(0),
@@ -63,11 +75,20 @@ class MunicipalityProfessionalCountResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('state')
                     ->label('UF'),
-                Tables\Columns\TextColumn::make('category')
-                    ->label('Categoria')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('professionals_count')
-                    ->label('Qtd. profissionais')
+                Tables\Columns\TextColumn::make('nutritionists_count')
+                    ->label('Nutricionistas')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('technicians_count')
+                    ->label('TND')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('legal_entities_count')
+                    ->label('Pessoas Jurídicas')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('total_count')
+                    ->label('Total')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('reference_date')
@@ -76,11 +97,6 @@ class MunicipalityProfessionalCountResource extends Resource
                     ->sortable(),
             ])
             ->defaultSort('municipality')
-            ->filters([
-                Tables\Filters\SelectFilter::make('category')
-                    ->label('Categoria')
-                    ->options(fn () => \App\Models\MunicipalityProfessionalCount::query()->whereNotNull('category')->distinct()->pluck('category', 'category')->all()),
-            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),

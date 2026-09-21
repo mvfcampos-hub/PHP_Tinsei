@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('municipality');
             $table->string('state', 2)->default('MG');
-            $table->string('category')->nullable();
-            $table->unsignedInteger('professionals_count')->default(0);
+            $table->unsignedInteger('nutritionists_count')->default(0);
+            $table->unsignedInteger('technicians_count')->default(0);
+            $table->unsignedInteger('legal_entities_count')->default(0);
+            $table->unsignedInteger('total_count')->default(0);
             $table->date('reference_date')->nullable();
             $table->timestamps();
 
-            $table->unique(['municipality', 'state', 'category']);
+            $table->unique(['municipality', 'state']);
         });
     }
 

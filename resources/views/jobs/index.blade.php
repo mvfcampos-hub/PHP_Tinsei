@@ -5,8 +5,15 @@
 @section('content')
     <section class="bg-white border-b border-slate-200">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Banco de Oportunidades</h1>
-            <p class="text-slate-500 mt-2">Vagas de emprego e oportunidades para nutricionistas</p>
+            <div class="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Banco de Oportunidades</h1>
+                    <p class="text-slate-500 mt-2">Vagas de emprego e oportunidades para nutricionistas</p>
+                </div>
+                <a href="{{ route('jobs.submit') }}" class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 transition">
+                    Cadastrar oportunidade
+                </a>
+            </div>
         </div>
     </section>
 

@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\JobListingResource\Pages;
-use App\Filament\Resources\JobListingResource\RelationManagers;
 use App\Models\JobListing;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class JobListingResource extends Resource
@@ -28,6 +25,18 @@ class JobListingResource extends Resource
 
     protected static ?string $pluralModelLabel = 'vagas';
 
+    public static function getNavigationBadge(): ?string
+    {
+        $count = JobListing::pending()->count();
+
+        return $count > 0 ? (string) $count : null;
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'warning';
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -42,6 +51,15 @@ class JobListingResource extends Resource
                     ->label('Slug (URL)')
                     ->required()
                     ->unique(ignoreRecord: true),
+                Forms\Components\Select::make('status')
+                    ->label('Situação')
+                    ->options([
+                        'pending' => 'Aguardando aprovação',
+                        'approved' => 'Aprovada',
+                        'rejected' => 'Recusada',
+                    ])
+                    ->default('approved')
+                    ->required(),
                 Forms\Components\TextInput::make('company')
                     ->label('Empresa/Instituição'),
                 Forms\Components\TextInput::make('location')
@@ -74,6 +92,25 @@ class JobListingResource extends Resource
                     ->label('Ativa')
                     ->default(true)
                     ->required(),
+                Forms\Components\Section::make('Dados de quem cadastrou a vaga')
+                    ->description('Preenchido automaticamente quando a vaga é enviada pelo formulário público. Não aparece no site.')
+                    ->schema([
+                        Forms\Components\TextInput::make('submitter_name')
+                            ->label('Nome')
+                            ->disabled(),
+                        Forms\Components\TextInput::make('submitter_email')
+                            ->label('E-mail')
+                            ->disabled(),
+                        Forms\Components\TextInput::make('submitter_phone')
+                            ->label('Telefone')
+                            ->disabled(),
+                        Forms\Components\DateTimePicker::make('removal_requested_at')
+                            ->label('Remoção solicitada em')
+                            ->disabled(),
+                    ])
+                    ->columns(2)
+                    ->collapsed()
+                    ->visible(fn (?JobListing $record) => filled($record?->submitter_email)),
             ])->columns(2);
     }
 
@@ -84,20 +121,33 @@ class JobListingResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->label('Título')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Situação')
+                    ->badge()
+                    ->formatStateUsing(fn (string $state) => match ($state) {
+                        'pending' => 'Aguardando aprovação',
+                        'approved' => 'Aprovada',
+                        'rejected' => 'Recusada',
+                        default => $state,
+                    })
+                    ->color(fn (string $state) => match ($state) {
+                        'pending' => 'warning',
+                        'approved' => 'success',
+                        'rejected' => 'danger',
+                        default => 'gray',
+                    }),
                 Tables\Columns\TextColumn::make('company')
                     ->label('Empresa')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('submitter_name')
+                    ->label('Cadastrada por')
+                    ->description(fn (?JobListing $record) => $record?->submitter_email)
+                    ->placeholder('Admin'),
                 Tables\Columns\TextColumn::make('location')
                     ->label('Local')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('contract_type')
-                    ->label('Contrato'),
                 Tables\Columns\TextColumn::make('published_at')
                     ->label('Publicada em')
-                    ->dateTime('d/m/Y')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('expires_at')
-                    ->label('Expira em')
                     ->dateTime('d/m/Y')
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_active')
@@ -106,10 +156,38 @@ class JobListingResource extends Resource
             ])
             ->defaultSort('published_at', 'desc')
             ->filters([
+                Tables\Filters\SelectFilter::make('status')
+                    ->label('Situação')
+                    ->options([
+                        'pending' => 'Aguardando aprovação',
+                        'approved' => 'Aprovada',
+                        'rejected' => 'Recusada',
+                    ]),
                 Tables\Filters\TernaryFilter::make('is_active')
                     ->label('Ativa'),
             ])
             ->actions([
+                Tables\Actions\Action::make('approve')
+                    ->label('Aprovar')
+                    ->icon('heroicon-o-check')
+                    ->color('success')
+                    ->visible(fn (JobListing $record) => $record->status === 'pending')
+                    ->requiresConfirmation()
+                    ->action(fn (JobListing $record) => $record->update([
+                        'status' => 'approved',
+                        'is_active' => true,
+                        'published_at' => $record->published_at ?? now(),
+                    ])),
+                Tables\Actions\Action::make('reject')
+                    ->label('Recusar')
+                    ->icon('heroicon-o-x-mark')
+                    ->color('danger')
+                    ->visible(fn (JobListing $record) => $record->status === 'pending')
+                    ->requiresConfirmation()
+                    ->action(fn (JobListing $record) => $record->update([
+                        'status' => 'rejected',
+                        'is_active' => false,
+                    ])),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
