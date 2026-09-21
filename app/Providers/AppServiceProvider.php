@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Announcement;
 use App\Models\Campaign;
 use App\Models\MenuItem;
 use App\Observers\CampaignObserver;
@@ -36,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
                 'mainMenu',
                 MenuItem::whereNull('parent_id')->with('children.children')->orderBy('sort_order')->get()
             );
+            $view->with('announcement', Announcement::active()->first());
         });
     }
 }

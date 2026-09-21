@@ -20,6 +20,7 @@
 
     @include('partials.topbar')
     @include('partials.header')
+    @include('partials.announcement-bar')
 
     <main id="conteudo" class="flex-1">
         @yield('content')

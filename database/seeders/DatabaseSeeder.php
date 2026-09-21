@@ -1053,53 +1053,12 @@ class DatabaseSeeder extends Seeder
      */
     private function linkIndexPages(): void
     {
+        // Os grupos "servicos-nutricionistas", "servicos-tnd" e
+        // "servicos-pessoa-juridica" NÃO entram mais aqui: essas 3 páginas
+        // agora renderizam seus itens relacionados como uma grade de caixas
+        // (ver PageController::SERVICE_GROUPS e a view pages.service-index),
+        // não mais como uma lista de texto injetada no conteúdo.
         $groups = [
-            'servicos-nutricionistas' => [
-                ['title' => 'Anuidade 2026 Nutricionistas', 'slug' => 'servico-anuidade-2026-nutricionista'],
-                ['title' => 'Inscrição Provisória – Nutricionista', 'slug' => 'servico-inscricao-provisoria-pf-nutri'],
-                ['title' => 'Inscrição de provisória para definitiva – Nutricionista', 'slug' => 'servico-inscricao-de-provisoria-para-definitiva-nutri'],
-                ['title' => 'Inscrição Definitiva – Nutricionista', 'slug' => 'servico-inscricao-definitiva-pf-nutri'],
-                ['title' => 'Transferência – Nutricionista', 'slug' => 'servico-transferencia-pf-nutri'],
-                ['title' => 'Inscrição secundária – Nutricionista', 'slug' => 'servico-inscricao-secundaria-pf-nutri'],
-                ['title' => 'Prorrogação de inscrição provisória – Nutricionista', 'slug' => 'servico-prorrogacao-de-inscricao-provisoria'],
-                ['title' => 'Baixa Temporária – Nutricionista', 'slug' => 'servico-baixa-temporaria'],
-                ['title' => 'Cancelamento de Inscrição – Nutricionista', 'slug' => 'servico-cancelamento-de-inscricao'],
-                ['title' => 'Reativação de Inscrição – Nutricionista', 'slug' => 'servico-reativacao-de-inscricao'],
-                ['title' => 'Solicitação de Certidão de Regularidade – Nutricionista', 'slug' => 'servico-solicitacao-certidao-regularidade-nutri'],
-                ['title' => 'Solicitação de segunda via de carteira profissional – Nutricionista', 'slug' => 'servico-solicitacao-de-segunda-via-de-carteira-profissional'],
-            ],
-            'servicos-tnd' => [
-                ['title' => 'Solicitação de segunda via de carteira profissional – TND', 'slug' => 'servico-solicitacao-de-segunda-via-de-carteira-profissional-2'],
-                ['title' => 'Anuidade 2026 – TND', 'slug' => 'servico-anuidade-2026-tnd'],
-                ['title' => 'Inscrição Provisória – TND', 'slug' => 'servico-inscricao-provisoria-pf-tnd'],
-                ['title' => 'Inscrição de provisória para definitiva – TND', 'slug' => 'servico-inscricao-de-provisoria-para-definitiva-tnd'],
-                ['title' => 'Inscrição Definitiva – TND', 'slug' => 'servico-inscricao-definitiva-pf-tnd'],
-                ['title' => 'Transferência – TND', 'slug' => 'servico-transferencia-pf-tnd'],
-                ['title' => 'Inscrição secundária – TND', 'slug' => 'servico-inscricao-secundaria-pf-tnd'],
-                ['title' => 'Prorrogação de inscrição provisória – TND', 'slug' => 'servico-prorrogacao-de-inscricao-provisoria-2'],
-                ['title' => 'Baixa Temporária – TND', 'slug' => 'servico-baixa-temporaria-2'],
-                ['title' => 'Cancelamento de Inscrição – TND', 'slug' => 'servico-cancelamento-de-inscricao-2'],
-                ['title' => 'Reativação de Inscrição – TND', 'slug' => 'servico-reativacao-de-inscricao-2'],
-                ['title' => 'Prorrogação de Baixa Temporária – TND', 'slug' => 'servico-prorrogacao-de-baixa-temporaria-tnd'],
-                ['title' => 'Solicitação de Certidão de Regularidade – TND', 'slug' => 'servico-solicitacao-certidao-regularidade-tnd'],
-            ],
-            'servicos-pessoa-juridica' => [
-                ['title' => 'Anuidade 2026 – Pessoa Jurídica', 'slug' => 'servico-anuidade-2026-pj'],
-                ['title' => 'Anuidade 2024 – Pessoa Jurídica', 'slug' => 'servico-anuidade-2023-pj'],
-                ['title' => 'Atualização de Dados', 'slug' => 'servico-atualizacao-de-dados'],
-                ['title' => 'Certidão de Registro de Atestado de Capacidade Técnica de Pessoa Jurídica', 'slug' => 'servico-certidao-de-registro-de-atestado-de-capacidade-tecnica-de-pessoa-juridica'],
-                ['title' => 'Registro de Documentação Fitoterapia/PICS', 'slug' => 'servico-registro-de-documentacao-fitoterapia-pics'],
-                ['title' => 'Registro do Título de Especialista', 'slug' => 'servico-especialidades'],
-                ['title' => 'Anotação de Responsabilidade Técnica', 'slug' => 'servico-responsabilidade-tecnica'],
-                ['title' => 'Cadastro da atuação como autônomo', 'slug' => 'servico-cadastro-da-atuacao-como-autonomo'],
-                ['title' => 'Documentos para atuação no PNAE', 'slug' => 'servico-documentos-para-atuacao-no-pnae'],
-                ['title' => 'Comunicado de Afastamento', 'slug' => 'servico-https-crn9-org-br-servico-comunicado-de-afastamento'],
-                ['title' => 'Inscrição no CRN-9 (Registro e Cadastro)', 'slug' => 'servico-inscricao-no-crn-9-registro-e-cadastro'],
-                ['title' => 'Solicitação de Certidão', 'slug' => 'servico-solicitacao-de-certidao'],
-                ['title' => 'Emissão de Atestado de Responsabilidade Técnica e Acervo Técnico', 'slug' => 'servico-emissao-de-atestado-de-responsabilidade-tecnica-e-acervo-tecnico'],
-                ['title' => 'Cancelamento/Baixa Temporária de Inscrição', 'slug' => 'servico-cancelamento-baixa-temporaria-de-inscricao'],
-                ['title' => 'Prorrogação de Baixa Temporária', 'slug' => 'servico-prorrogacao-de-baixa-temporaria'],
-            ],
             'atividades-da-fiscalizacao' => [
                 ['title' => 'Visitas Técnicas e Fiscais', 'slug' => 'fiscalizacao-atividade-visitas-tecnicas'],
                 ['title' => 'Projeto Interiorização', 'slug' => 'fiscalizacao-atividade-projeto-interiorizacao'],

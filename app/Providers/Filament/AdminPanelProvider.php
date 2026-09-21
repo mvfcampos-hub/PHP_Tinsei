@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('images/brand/logo-crn9.png'))
             ->favicon(asset('images/brand/favicon-32x32.png'))
             ->login()
+            ->profile()
             ->colors([
                 'primary' => Color::hex('#5C5E2B'),
                 'warning' => Color::hex('#F58C4A'),
