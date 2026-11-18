@@ -2,41 +2,30 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class News extends Model
 {
     use HasFactory;
 
-    // "Notícias" cobre tanto novidades/lançamentos da Databit quanto artigos
-    // de interesse selecionados para divulgação (mercado de TI, segurança,
-    // reforma tributária) — por isso as categorias vão além de conteúdo
-    // institucional.
     public const CATEGORIES = [
-        'Lançamento' => 'Lançamento de produto',
-        'Novidade' => 'Novidade',
         'Institucional' => 'Institucional',
-        'Cloud' => 'Cloud',
-        'Mobile' => 'Mobile',
-        'Parcerias' => 'Parcerias',
+        'Lançamentos' => 'Lançamentos',
+        'Equipamentos' => 'Equipamentos',
+        'Suprimentos e Peças' => 'Suprimentos e Peças',
+        'Sustentabilidade' => 'Sustentabilidade',
+        'Na Mídia' => 'Na Mídia',
+        'Vídeos' => 'Vídeos',
         'Feiras e Eventos' => 'Feiras e Eventos',
-        'Reforma Tributária' => 'Reforma Tributária',
-        'Segurança da Informação' => 'Segurança da Informação',
-        'Mercado de TI' => 'Mercado de TI',
+        'Mercado' => 'Mercado',
     ];
 
     protected $fillable = [
-        'title',
-        'slug',
-        'excerpt',
-        'body',
-        'cover_image',
-        'category',
-        'is_featured',
-        'published_at',
-        'author_id',
+        'title', 'slug', 'excerpt', 'body', 'cover_image', 'video_url', 'source_name',
+        'source_url', 'category', 'is_featured', 'published_at', 'author_id',
     ];
 
     protected $casts = [
@@ -44,7 +33,7 @@ class News extends Model
         'published_at' => 'datetime',
     ];
 
-    public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
     }
@@ -52,5 +41,20 @@ class News extends Model
     public function scopePublished(Builder $query): Builder
     {
         return $query->whereNotNull('published_at')->where('published_at', '<=', now());
+    }
+
+    public function youtubeId(): ?string
+    {
+        return youtube_id($this->video_url);
+    }
+
+    // Capa enviada no painel; sem capa, usa a miniatura do vídeo do YouTube.
+    public function coverUrl(): ?string
+    {
+        if ($this->cover_image) {
+            return media_url($this->cover_image);
+        }
+
+        return ($id = $this->youtubeId()) ? "https://i.ytimg.com/vi/{$id}/hqdefault.jpg" : null;
     }
 }

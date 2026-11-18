@@ -1,375 +1,424 @@
 @extends('layouts.app')
 
-@section('title', 'ERP para Distribuidoras, Atacadistas, Locadoras e Autopeças')
-@section('description', 'Databit: ERP para distribuidoras, empresas atacadistas, locadoras de equipamentos, outsourcing de impressão e lojas de autopeças. CRM completo, atendimento omnichannel, app mobile para técnicos de campo, bot para WhatsApp, emissor de MDF-e, serviços cloud (VPS), backup em nuvem e serviços de TI (MSP). Mais de 30 anos de mercado.')
-@section('canonical', route('home'))
+@section('description', 'Tinsei: maior importadora e distribuidora de equipamentos A3 a laser do Brasil. Equipamentos novos e recondicionados, suprimentos e peças para revendas de impressão em todo o país, com sustentabilidade no DNA.')
+
+@php
+    $storeUrl = setting('store_url');
+    $years = now()->year - (int) setting('founded_year', 2011);
+    $ewaste = (int) preg_replace('/\D/', '', (string) setting('ewaste_kg'));
+    $items = (int) preg_replace('/\D/', '', (string) setting('portfolio_items'));
+    // Prévia da linha do tempo: os dois primeiros marcos e os três mais recentes.
+    $timelinePreview = $timeline->count() > 5 ? $timeline->take(2)->concat($timeline->slice(-3))->values() : $timeline;
+@endphp
 
 @section('content')
 
-    {{-- Hero / banners de avisos gerais --}}
-    <section class="relative bg-brand-950 bg-grid-pattern">
-        @if ($heroBanners->isNotEmpty())
-            <div x-data="{ active: 0, total: {{ $heroBanners->count() }} }"
-                 x-init="setInterval(() => active = (active + 1) % total, 6000)"
-                 class="relative h-[380px] sm:h-[440px] overflow-hidden">
-                @foreach ($heroBanners as $index => $banner)
-                    @if ($banner->variant === 'product_spotlight' && $banner->product)
-                        @php
-                            $product = $banner->product;
-                            $isCloud = $product->category === 'cloud';
-                            $spotlightHref = $banner->link_url ?: ($isCloud ? route('cloud.show') : $product->resolveUrl());
-                        @endphp
-                        <a href="{{ $spotlightHref }}"
-                           x-show="active === {{ $index }}" x-transition:enter.duration.700ms
-                           @class([
-                               'absolute inset-0 block overflow-hidden bg-brand-950',
-                               'bg-gradient-to-br from-accent-950 via-brand-950 to-brand-950' => $isCloud,
-                               'bg-gradient-to-br from-brand-900 via-brand-950 to-brand-950' => ! $isCloud,
-                           ])
-                        >
-                            <div class="absolute inset-0 bg-grid-pattern"></div>
-                            <div @class([
-                                'absolute -top-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-30',
-                                'right-0 bg-accent-500' => $isCloud,
-                                '-right-10 bg-brand-500' => ! $isCloud,
-                            ])></div>
-
-                            <div class="relative h-full mx-auto max-w-7xl px-6 sm:px-10 flex items-center">
-                                <div class="grid lg:grid-cols-2 gap-10 items-center w-full">
-                                    <div>
-                                        <span @class([
-                                            'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold mb-4',
-                                            'bg-accent-500/15 text-accent-300' => $isCloud,
-                                            'bg-white/10 text-brand-200' => ! $isCloud,
-                                        ])>
-                                            {{ $product->categoryLabel() }}
-                                        </span>
-                                        <h2 class="text-3xl sm:text-5xl font-bold text-white leading-tight">{{ $product->tagline ?: $product->name }}</h2>
-                                        <p class="text-brand-200 mt-4 max-w-lg text-base sm:text-lg">{{ $product->summary }}</p>
-
-                                        @if (!empty($banner->highlights))
-                                            <div class="flex flex-wrap gap-2 mt-6">
-                                                @foreach ($banner->highlights as $highlight)
-                                                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-medium text-white">
-                                                        <svg class="h-3.5 w-3.5 {{ $isCloud ? 'text-accent-400' : 'text-accent-400' }}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                                                        {{ $highlight }}
-                                                    </span>
-                                                @endforeach
-                                            </div>
-                                        @endif
-
-                                        <span @class([
-                                            'inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold mt-8 transition',
-                                            'bg-accent-500 text-white hover:bg-accent-600' => $isCloud,
-                                            'bg-white text-brand-900 hover:bg-brand-50' => ! $isCloud,
-                                        ])>
-                                            Conhecer o {{ $product->name }}
-                                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                        </span>
-                                    </div>
-
-                                    <div class="hidden lg:flex items-center justify-center relative h-72">
-                                        <div @class([
-                                            'flex h-56 w-56 items-center justify-center rounded-[2.5rem] border backdrop-blur-sm',
-                                            'bg-accent-500/10 border-accent-400/30' => $isCloud,
-                                            'bg-white/5 border-white/10' => ! $isCloud,
-                                        ])>
-                                            @if ($product->icon)
-                                                <x-dynamic-component :component="$product->icon" @class([
-                                                    'h-24 w-24',
-                                                    'text-accent-300' => $isCloud,
-                                                    'text-white' => ! $isCloud,
-                                                ]) />
-                                            @endif
-                                        </div>
-
-                                        @if (!empty($banner->highlights[0]))
-                                            <div class="absolute -top-2 -left-6 rounded-xl bg-white shadow-xl px-4 py-2.5 text-xs font-semibold text-slate-800">
-                                                {{ $banner->highlights[0] }}
-                                            </div>
-                                        @endif
-                                        @if (!empty($banner->highlights[1]))
-                                            <div class="absolute bottom-4 -right-4 rounded-xl bg-white shadow-xl px-4 py-2.5 text-xs font-semibold text-slate-800">
-                                                {{ $banner->highlights[1] }}
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    @else
-                        <a href="{{ $banner->link_url ?? '#' }}"
-                           x-show="active === {{ $index }}" x-transition:enter.duration.700ms
-                           class="absolute inset-0 block overflow-hidden bg-gradient-to-br from-brand-900 via-brand-950 to-brand-950">
-                            @if ($banner->overlay_title)
-                                <div class="absolute inset-0 bg-grid-pattern"></div>
-                                <div class="absolute -top-24 -right-10 h-[420px] w-[420px] rounded-full blur-3xl opacity-30 bg-brand-500"></div>
-                                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="relative h-full w-full object-cover opacity-70">
-                                <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/60 to-brand-950/10"></div>
-                                <div class="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-                                    <div class="mx-auto max-w-7xl">
-                                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 text-brand-200 px-3 py-1 text-xs font-semibold mb-3">
-                                            {{ $banner->placement === 'home_notice' ? 'Aviso Databit' : 'Destaque Databit' }}
-                                        </span>
-                                        <h2 class="text-3xl sm:text-5xl font-bold text-white max-w-2xl leading-tight">{{ $banner->title }}</h2>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="absolute inset-0 bg-grid-pattern"></div>
-                                <div class="absolute -top-24 -right-10 h-[420px] w-[420px] rounded-full blur-3xl opacity-30 bg-brand-500"></div>
-                                <div class="relative h-full w-full p-4 sm:p-8">
-                                    <span class="absolute top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-1.5 rounded-full bg-white/10 text-brand-200 px-3 py-1 text-xs font-semibold z-10">
-                                        Destaque Databit
-                                    </span>
-                                    <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->title }}" class="h-full w-full object-contain rounded-xl shadow-2xl">
-                                </div>
-                            @endif
-                        </a>
-                    @endif
-                @endforeach
-
-                @if ($heroBanners->count() > 1)
-                    <div class="absolute bottom-4 right-4 sm:right-10 z-20 flex gap-2">
-                        @foreach ($heroBanners as $index => $banner)
-                            <button @click="active = {{ $index }}" class="h-2.5 w-2.5 rounded-full bg-white" :class="active === {{ $index }} ? 'opacity-100' : 'opacity-40'"></button>
-                        @endforeach
-                    </div>
+{{-- ============ HERO ============ --}}
+@if ($heroBanners->isNotEmpty())
+    <section x-data="{ i: 0, n: {{ $heroBanners->count() }} }" x-init="n > 1 && setInterval(() => i = (i + 1) % n, 7000)" class="relative overflow-hidden bg-brand-950">
+        @foreach ($heroBanners as $banner)
+            <div x-show="i === {{ $loop->index }}" x-transition.opacity.duration.700ms @if (! $loop->first) x-cloak @endif class="relative min-h-[560px]">
+                @if ($banner->imageUrl())
+                    <img src="{{ $banner->imageUrl() }}" alt="{{ $banner->overlay_title ? '' : $banner->title }}" class="absolute inset-0 h-full w-full object-cover">
                 @endif
+                @if ($banner->overlay_title)
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-transparent"></div>
+                    <div class="container-site relative flex min-h-[560px] flex-col justify-center py-20">
+                        @if ($banner->eyebrow)<span class="eyebrow eyebrow-light">{{ $banner->eyebrow }}</span>@endif
+                        <h1 class="mt-4 max-w-2xl text-4xl font-bold text-white sm:text-5xl lg:text-6xl">{{ $banner->title }}</h1>
+                        @if ($banner->subtitle)<p class="mt-5 max-w-xl text-lg text-brand-100">{{ $banner->subtitle }}</p>@endif
+                        @if ($banner->link_url)
+                            <div class="mt-8"><a href="{{ $banner->link_url }}" class="btn-gold !px-7 !py-4 text-base">{{ $banner->link_label ?: 'Saiba mais' }} <x-ico name="arrow-right" class="h-4 w-4" /></a></div>
+                        @endif
+                    </div>
+                @elseif ($banner->link_url)
+                    <a href="{{ $banner->link_url }}" class="absolute inset-0" aria-label="{{ $banner->title }}"></a>
+                @endif
+            </div>
+        @endforeach
+        @if ($heroBanners->count() > 1)
+            <div class="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+                @foreach ($heroBanners as $banner)
+                    <button type="button" @click="i = {{ $loop->index }}" :class="i === {{ $loop->index }} ? 'w-8 bg-gold-400' : 'w-2.5 bg-white/40'" class="h-2.5 rounded-full transition-all" aria-label="Ir para o destaque {{ $loop->iteration }}"></button>
+                @endforeach
+            </div>
+        @endif
+    </section>
+@else
+    <section class="relative overflow-hidden bg-brand-950">
+        <div class="absolute inset-0 bg-grid-pattern bg-grid"></div>
+        <div class="absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-brand-600/30 blur-3xl"></div>
+        <div class="absolute -right-24 bottom-0 h-[420px] w-[420px] rounded-full bg-gold-500/15 blur-3xl"></div>
+
+        <div class="container-site relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-12 lg:py-28">
+            <div class="lg:col-span-7">
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-brand-100">
+                    <img src="{{ asset('images/brand/tinsei-mark.png') }}" alt="" class="h-3.5"> Belo Horizonte para todo o Brasil · desde {{ setting('founded_year') }}
+                </span>
+                <h1 class="mt-6 text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl lg:text-[3.6rem]">
+                    Tecnologia de impressão de ponta, com <span class="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">segurança</span> em cada entrega.
+                </h1>
+                <p class="mt-6 max-w-xl text-lg leading-relaxed text-brand-100/90">
+                    A maior importadora e distribuidora de equipamentos A3 a laser do Brasil. Equipamentos novos e recondicionados, suprimentos e peças para revendas que querem crescer com qualidade, preço competitivo e sustentabilidade.
+                </p>
+                <div class="mt-9 flex flex-wrap gap-3">
+                    <a href="{{ $storeUrl }}" target="_blank" rel="noopener" class="btn-gold !px-7 !py-4 text-base" onclick="window.trackEvent && window.trackEvent('store_click', { location: 'hero' })">
+                        <x-ico name="grid" class="h-5 w-5" /> Ver portfólio de produtos
+                    </a>
+                    <a href="{{ route('about') }}" class="btn-ghost-light !px-7 !py-4 text-base">Conheça a Tinsei</a>
+                </div>
+                <dl class="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-white/10 pt-8">
+                    <div>
+                        <dt class="text-xs text-brand-300">Clientes ativos</dt>
+                        <dd class="mt-1 font-display text-3xl font-bold text-white" x-data="counter({{ $map['total'] }})" x-text="formatted">{{ br_number($map['total']) }}</dd>
+                    </div>
+                    <div>
+                        <dt class="text-xs text-brand-300">Itens no portfólio</dt>
+                        <dd class="mt-1 font-display text-3xl font-bold text-white">{{ setting('portfolio_items') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="text-xs text-brand-300">Estados atendidos</dt>
+                        <dd class="mt-1 font-display text-3xl font-bold text-white">{{ $map['states_served'] }}</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="relative lg:col-span-5">
+                <div class="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl shadow-black/40">
+                    <img src="{{ asset('images/site/sede-tinsei.jpg') }}" alt="Sede da Tinsei em Belo Horizonte" class="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-transparent"></div>
+                    <p class="absolute bottom-5 left-5 right-5 text-sm text-white/90"><strong class="text-white">Nossa sede</strong> · Olhos D'Água, Belo Horizonte/MG</p>
+                </div>
+                <div class="animate-float absolute -left-6 top-10 hidden max-w-[230px] rounded-2xl border border-white/10 bg-white/95 p-4 shadow-xl backdrop-blur sm:block">
+                    <div class="flex items-center gap-3">
+                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-gold-300"><x-ico name="badge" class="h-5 w-5" /></span>
+                        <p class="text-xs leading-snug text-slate-600"><strong class="block text-sm text-brand-900">Recondicionamento autorizado Xerox</strong>no Brasil e no México</p>
+                    </div>
+                </div>
+                <div class="animate-float absolute -right-4 bottom-20 hidden rounded-2xl border border-white/10 bg-leaf-700/95 p-4 text-white shadow-xl backdrop-blur sm:block" style="animation-delay: -3s">
+                    <p class="flex items-center gap-2 text-xs font-semibold text-leaf-100"><x-ico name="leaf" class="h-4 w-4" /> Lixo eletrônico recuperado</p>
+                    <p class="mt-1 font-display text-2xl font-bold">+{{ setting('ewaste_kg') }} kg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+@endif
+
+{{-- ============ PILARES ============ --}}
+<section class="relative border-b border-slate-100 bg-white">
+    <div class="container-site grid divide-y divide-slate-100 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+        @foreach ([
+            ['shield', 'Segurança', 'Procedência, testes e garantia em cada equipamento e suprimento.'],
+            ['badge', 'Qualidade', 'Padrões de fábrica no recondicionamento e na montagem de suprimentos.'],
+            ['tag', 'Preço competitivo', 'Importação direta e escala para a sua revenda ganhar margem.'],
+            ['leaf', 'Sustentabilidade', 'Economia circular: cada máquina recondicionada é menos lixo eletrônico.'],
+        ] as [$icon, $title, $text])
+            <div class="reveal flex gap-4 px-2 py-7 sm:px-6">
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700"><x-ico :name="$icon" class="h-5 w-5" /></span>
+                <div>
+                    <p class="font-display font-semibold text-brand-900">{{ $title }}</p>
+                    <p class="mt-1 text-sm leading-relaxed text-slate-500">{{ $text }}</p>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</section>
+
+{{-- ============ ATUAÇÃO ============ --}}
+<section id="atuacao" class="bg-slate-50 py-20 sm:py-24">
+    <div class="container-site">
+        <x-section-heading eyebrow="Atuação" title="Três frentes, um só compromisso: <span class='text-brand-600'>impressão de alto nível</span>." subtitle="Da importação ao pós-venda, a Tinsei domina toda a cadeia — e entrega ao revendedor equipamento pronto para trabalhar." />
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+            @foreach ([
+                ['atuacao-1.png', 'Recondicionamento e distribuição', 'Equipamentos de impressão de médio e grande porte, recondicionados e distribuídos com padrão de alta qualidade. No Brasil, a Tinsei é a maior importadora e distribuidora de equipamentos A3 a laser — à frente dos fabricantes tradicionais do segmento.', 'printer'],
+                ['atuacao-2.png', 'Indústria montadora de suprimentos', 'Desenvolvimento de cartuchos, suprimentos e peças de alta qualidade para ambientes exigentes: exames médicos de imagem, materiais publicitários e indústria gráfica.', 'droplet'],
+                ['atuacao-3.png', 'Recondicionamento autorizado Xerox', 'Apoiada em padrões ESG, a Xerox escolheu a Tinsei como indústria de recondicionamento dos seus equipamentos no Brasil e no México.', 'badge'],
+            ] as [$img, $title, $text, $icon])
+                <article class="reveal group card overflow-hidden transition hover:-translate-y-1 hover:shadow-soft" style="transition-delay: {{ $loop->index * 80 }}ms">
+                    <div class="relative flex h-56 items-center justify-center overflow-hidden bg-white">
+                        <img src="{{ asset('images/site/'.$img) }}" alt="" loading="lazy" class="relative max-h-48 w-auto object-contain mix-blend-multiply transition duration-500 group-hover:scale-105">
+                        <span class="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-brand-800 text-gold-300"><x-ico :name="$icon" class="h-5 w-5" /></span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-900">{{ $title }}</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-500">{{ $text }}</p>
+                    </div>
+                </article>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- ============ PORTFÓLIO ============ --}}
+<section id="portfolio" class="bg-white py-20 sm:py-24">
+    <div class="container-site">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <x-section-heading eyebrow="Portfólio" title="{{ setting('portfolio_items') }} itens para manter a sua operação imprimindo." subtitle="Equipamentos novos e recondicionados, suprimentos e peças das principais marcas — com busca por código, referência, fabricante e modelo." />
+            <a href="{{ $storeUrl }}" target="_blank" rel="noopener" class="btn-primary shrink-0">Abrir a loja <x-ico name="arrow-up-right" class="h-4 w-4" /></a>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            @foreach ($categories as $category)
+                <a href="{{ $category->storeUrl() }}" target="_blank" rel="noopener" class="reveal group relative flex flex-col overflow-hidden rounded-2xl bg-brand-900 p-6 text-white transition hover:-translate-y-1 hover:shadow-soft" style="transition-delay: {{ $loop->index * 70 }}ms" onclick="window.trackEvent && window.trackEvent('store_click', { location: 'home_category', category: @js($category->slug) })">
+                    <div class="absolute inset-0 bg-grid-pattern bg-grid opacity-50"></div>
+                    <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gold-400/10 transition group-hover:bg-gold-400/20"></div>
+                    <span class="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gold-400 text-brand-950"><x-ico :name="$category->icon ?: 'box'" class="h-6 w-6" /></span>
+                    <h3 class="relative mt-6 text-xl font-bold">{{ $category->name }}</h3>
+                    <p class="relative mt-2 flex-1 text-sm leading-relaxed text-brand-100/80">{{ $category->tagline }}</p>
+                    <span class="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-300 group-hover:gap-2.5 transition-all">
+                        {{ $category->item_count_label ?: 'Ver na loja' }} <x-ico name="arrow-right" class="h-4 w-4" />
+                    </span>
+                </a>
+            @endforeach
+        </div>
+
+        {{-- Chamada de destaque para a loja, inspirada na própria loja B2B --}}
+        <div class="reveal relative mt-10 overflow-hidden rounded-3xl bg-gradient-to-br from-gold-800 via-gold-700 to-gold-600 p-8 sm:p-10">
+            <div class="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-gold-400/30 blur-2xl"></div>
+            <div class="relative grid items-center gap-8 lg:grid-cols-2">
+                <div class="min-w-0">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white"><x-ico name="sparkles" class="h-3.5 w-3.5" /> E-Commerce Tinsei ES®</span>
+                    <h3 class="mt-4 text-2xl font-bold text-white sm:text-3xl">Encontre o produto certo para o seu equipamento.</h3>
+                    <p class="mt-3 text-gold-50/90">Busque por código, referência ou nome — ou filtre por fabricante, modelo, categoria e subcategoria. Revendas cadastradas veem preços e compram on-line.</p>
+                    <form x-data="{ q: '' }" action="{{ rtrim($storeUrl, '/') }}/filter/" method="GET" target="_blank" class="mt-6 flex max-w-lg overflow-hidden rounded-2xl bg-white p-1.5 shadow-xl">
+                        <label for="store-search" class="sr-only">Buscar na loja</label>
+                        <input type="hidden" name="type" value="0">
+                        <input type="hidden" name="name" :value="q">
+                        <input id="store-search" x-model="q" required type="search" name="term" placeholder="Ex.: toner Altalink C8030, 006R01702..." class="min-w-0 flex-1 border-0 bg-transparent px-3 text-sm text-slate-700 focus:outline-none focus:ring-0">
+                        <button type="submit" class="btn-gold !rounded-xl !py-2.5"><x-ico name="search" class="h-4 w-4" /> Pesquisar</button>
+                    </form>
+                    <p class="mt-2 text-[11px] text-gold-100/70">A busca abre na loja em uma nova aba.</p>
+                </div>
+                <div class="grid min-w-0 grid-cols-2 gap-3 sm:grid-cols-3">
+                    @foreach ([['07011', 'Toner Ricoh MP C2003'], ['04255', 'Toner Xerox AltaLink C8030'], ['03767', 'Toner Konica Minolta C1100'], ['05576', 'Toner Canon iR ADV 6055'], ['21850', 'Toner Samsung M4070']] as [$ref, $label])
+                        <a href="{{ rtrim($storeUrl, '/') }}/produto/?produto={{ $ref }}" target="_blank" rel="noopener" @class(['group rounded-2xl bg-white p-2 shadow-lg transition hover:-translate-y-1', 'hidden sm:block' => $loop->index >= 3])>
+                            <div class="aspect-square overflow-hidden rounded-xl bg-slate-50">
+                                <img src="{{ asset('images/site/produto-'.$ref.'.jpg') }}" alt="{{ $label }}" loading="lazy" class="h-full w-full object-contain transition group-hover:scale-105">
+                            </div>
+                            <p class="mt-2 px-1 text-[11px] font-semibold leading-tight text-brand-900">{{ $label }}</p>
+                        </a>
+                    @endforeach
+                    <a href="{{ $storeUrl }}" target="_blank" rel="noopener" class="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-white/40 p-2 text-center text-white transition hover:bg-white/10">
+                        <span class="font-display text-2xl font-bold">{{ setting('portfolio_items') }}</span>
+                        <span class="text-[11px]">itens na loja</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- ============ NÚMEROS ============ --}}
+<section class="bg-brand-800">
+    <div class="container-site grid grid-cols-2 gap-px overflow-hidden lg:grid-cols-5">
+        @foreach ([
+            [$map['total'], '', 'clientes ativos'],
+            [$items, '+', 'itens no portfólio'],
+            [$map['states_served'], '', 'estados + DF com clientes'],
+            [$ewaste, ' kg', 'de lixo eletrônico recuperado'],
+            [$years, ' anos', 'de história'],
+        ] as [$value, $suffix, $label])
+            <div @class(['px-4 py-9 text-center', 'col-span-2 lg:col-span-1' => $loop->last])>
+                <p class="font-display text-2xl font-bold text-white sm:text-4xl"><span x-data="counter({{ (int) $value }})" x-text="formatted">{{ br_number($value) }}</span><span class="text-gold-400">{{ $suffix }}</span></p>
+                <p class="mt-1 text-sm text-brand-200">{{ $label }}</p>
+            </div>
+        @endforeach
+    </div>
+</section>
+
+{{-- ============ MAPA DE CLIENTES ============ --}}
+<section id="onde-estamos" class="relative overflow-hidden bg-brand-950 py-20 sm:py-24">
+    <div class="absolute inset-0 bg-grid-pattern bg-grid"></div>
+    <div class="container-site relative">
+        <x-section-heading :dark="true" align="center" eyebrow="Presença nacional" title="De Belo Horizonte para todas as regiões do Brasil." subtitle="{{ br_number($map['total']) }} clientes ativos em {{ $map['states_served'] }} unidades da federação — e também no exterior." />
+        <x-brazil-map :map="$map" class="mt-14" />
+    </div>
+</section>
+
+{{-- ============ SUSTENTABILIDADE ============ --}}
+<section class="relative overflow-hidden bg-white py-20 sm:py-24">
+    <div class="container-site grid items-center gap-14 lg:grid-cols-2">
+        <div class="reveal relative order-2 lg:order-1">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-3xl bg-leaf-700 p-7 text-white">
+                    <x-ico name="recycle" class="h-8 w-8 text-leaf-300" />
+                    <p class="mt-6 font-display text-3xl font-bold">+{{ setting('ewaste_kg') }}</p>
+                    <p class="mt-1 text-sm text-leaf-100">quilos de lixo eletrônico recuperados</p>
+                </div>
+                <div class="rounded-3xl bg-brand-50 p-7">
+                    <x-ico name="globe" class="h-8 w-8 text-brand-600" />
+                    <p class="mt-6 font-display text-3xl font-bold text-brand-900">BR + MX</p>
+                    <p class="mt-1 text-sm text-slate-500">recondicionamento autorizado Xerox</p>
+                </div>
+                <div class="col-span-2 flex items-center gap-5 rounded-3xl border border-slate-200 p-6">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gold-100 text-gold-700"><x-ico name="shield" class="h-7 w-7" /></span>
+                    <p class="text-sm leading-relaxed text-slate-600"><strong class="text-brand-900">ESG na prática:</strong> estender a vida útil de um equipamento de alto padrão economiza matéria-prima, energia e reduz o descarte — sem abrir mão de desempenho.</p>
+                </div>
+            </div>
+        </div>
+        <div class="order-1 lg:order-2">
+            <x-section-heading eyebrow="Sustentabilidade" title="Economia circular é o nosso jeito de fazer negócio." subtitle="A Tinsei nasceu recondicionando. Cada equipamento que volta ao mercado com qualidade de fábrica é um passo a mais por um futuro sustentável — para o planeta e para a rentabilidade da sua revenda." />
+            <a href="{{ route('sustainability') }}" class="btn-outline mt-8">Conheça nosso compromisso <x-ico name="arrow-right" class="h-4 w-4" /></a>
+        </div>
+    </div>
+</section>
+
+{{-- ============ HISTÓRIA E SÓCIOS ============ --}}
+@if ($timeline->isNotEmpty() || $partners->isNotEmpty())
+    <section class="bg-slate-50 py-20 sm:py-24">
+        <div class="container-site">
+            <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+                <x-section-heading eyebrow="Nossa história" title="Uma empresa jovem, com visão de futuro e os pés no chão." subtitle="Fundada em Belo Horizonte, a Tinsei cresceu com sócios engajados no dia a dia e preparados para um mercado em transformação." />
+                <a href="{{ route('about') }}#historia" class="btn-outline shrink-0">Ver a história completa <x-ico name="arrow-right" class="h-4 w-4" /></a>
+            </div>
+
+            @if ($timeline->isNotEmpty())
+                <div class="relative mt-14">
+                    <div class="absolute left-0 right-0 top-[27px] hidden h-px bg-gradient-to-r from-transparent via-brand-200 to-transparent md:block"></div>
+                    <ol @class(['grid gap-8', 'md:grid-cols-5' => $timelinePreview->count() >= 5, 'md:grid-cols-4' => $timelinePreview->count() === 4, 'md:grid-cols-3' => $timelinePreview->count() <= 3])>
+                        @foreach ($timelinePreview as $item)
+                            <li class="reveal relative" style="transition-delay: {{ $loop->index * 80 }}ms">
+                                <span class="relative z-10 inline-flex h-14 min-w-[3.5rem] items-center justify-center rounded-2xl bg-brand-800 px-3 font-display text-sm font-bold text-gold-300 shadow-lg">{{ $item->year_label }}</span>
+                                <h3 class="mt-5 font-semibold text-brand-900">{{ $item->title }}</h3>
+                                <p class="mt-2 line-clamp-4 text-sm leading-relaxed text-slate-500">{{ $item->description }}</p>
+                            </li>
+                        @endforeach
+                    </ol>
+                </div>
+            @endif
+
+            @if ($partners->isNotEmpty())
+                <div id="socios" class="mt-16 grid gap-6 lg:grid-cols-2">
+                    @foreach ($partners as $partner)
+                        <div class="reveal"><x-partner-card :partner="$partner" :compact="true" /></div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </section>
+@endif
+
+{{-- ============ VÍDEOS ============ --}}
+<section class="bg-white py-20 sm:py-24">
+    <div class="container-site grid items-center gap-12 lg:grid-cols-2">
+        <div>
+            <x-section-heading eyebrow="Por dentro da Tinsei" title="Veja de perto quem cuida do seu equipamento." subtitle="Estrutura, processos e pessoas: conheça a operação que faz da Tinsei referência em equipamentos de impressão no Brasil." />
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="{{ setting('youtube_url') }}" target="_blank" rel="noopener" class="btn-primary">Canal no YouTube <x-ico name="arrow-up-right" class="h-4 w-4" /></a>
+                <a href="{{ setting('instagram_url') }}" target="_blank" rel="noopener" class="btn-outline">@tinseioficial</a>
+            </div>
+        </div>
+        <div class="grid gap-4">
+            <x-youtube :url="setting('institutional_video_url')" title="Conheça a Tinsei — líder em recondicionamento de equipamentos de impressão" />
+        </div>
+    </div>
+</section>
+
+{{-- ============ DEPOIMENTOS ============ --}}
+<section class="bg-gradient-to-b from-brand-50/60 to-white py-20 sm:py-24">
+    <div class="container-site">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <x-section-heading eyebrow="Depoimentos" title="Quem revende Tinsei, recomenda." />
+            <a href="{{ route('testimonials') }}" class="btn-outline shrink-0">Todos os depoimentos <x-ico name="arrow-right" class="h-4 w-4" /></a>
+        </div>
+        @if ($testimonials->isNotEmpty())
+            <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                @foreach ($testimonials as $testimonial)
+                    <div class="reveal"><x-testimonial-card :testimonial="$testimonial" /></div>
+                @endforeach
             </div>
         @else
-            <div class="h-[380px] flex flex-col items-center justify-center text-center px-4">
-                <h1 class="text-3xl sm:text-5xl font-bold text-white max-w-3xl">
-                    Tecnologia que simplifica a gestão do seu negócio
-                </h1>
-                <p class="text-brand-200 mt-4 max-w-xl">
-                    ERP, Cloud, mobilidade e atendimento ao cliente em um único ecossistema. Mais de 30 anos de experiência.
-                </p>
-            </div>
-        @endif
-    </section>
-
-    {{-- Acesso rápido --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8 relative z-10">
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            @foreach ([
-                ['label' => 'DataClassic ERP', 'href' => route('products.show', 'dataclassic'), 'icon' => 'heroicon-o-building-storefront', 'external' => false],
-                ['label' => 'DataClient CRM', 'href' => route('dataclient.show'), 'icon' => 'heroicon-o-users', 'external' => false],
-                ['label' => 'DataSAC', 'href' => 'https://datasac.com.br', 'icon' => 'heroicon-o-chat-bubble-left-right', 'external' => true],
-                ['label' => 'DataCloud', 'href' => route('cloud.show'), 'icon' => 'heroicon-o-cloud', 'external' => false],
-            ] as $quick)
-                <a
-                    href="{{ $quick['href'] }}"
-                    @if ($quick['external']) target="_blank" rel="noopener" @endif
-                    class="flex flex-col items-center gap-2 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition p-5 text-center"
-                >
-                    <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <x-dynamic-component :component="$quick['icon']" class="h-6 w-6" />
-                    </span>
-                    <span class="text-sm font-medium text-slate-700">{{ $quick['label'] }}</span>
-                </a>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- Estatísticas --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-            @foreach ([
-                ['value' => '+30', 'label' => 'anos de mercado'],
-                ['value' => '+500', 'label' => 'clientes ativos'],
-                ['value' => '+4.000', 'label' => 'dispositivos usando nossas soluções'],
-                ['value' => '100%', 'label' => 'presente em todas as regiões do país'],
-            ] as $stat)
-                <div>
-                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-700">{{ $stat['value'] }}</p>
-                    <p class="text-sm text-slate-500 mt-1">{{ $stat['label'] }}</p>
-                </div>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- Presença Databit: mapa de clientes por estado/país --}}
-    @include('partials.presence-map')
-
-    {{-- Soluções de sistemas em destaque --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div class="flex items-end justify-between mb-8">
-            <div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Soluções de sistemas integradas</h2>
-                <p class="text-slate-500 mt-1">ERP, mobilidade, atendimento, fiscal, CRM e comunicação — tudo conectado ao DataClassic</p>
-            </div>
-            <a href="{{ route('products.index') }}" class="hidden sm:inline-flex items-center gap-1 text-brand-700 font-medium hover:text-brand-800">
-                Ver todos os produtos
-                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
-        </div>
-
-        @if ($ecosystemHub)
-            <p class="hidden lg:block text-center text-sm text-slate-500 mb-8">
-                Clique em qualquer módulo para conhecer os detalhes
-            </p>
-            <div class="mb-12">
-                <x-ecosystem-diagram :hub="$ecosystemHub" :satellites="$ecosystemSatellites" />
-            </div>
-        @endif
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @forelse ($featuredProducts as $product)
-                <x-product-card :product="$product" />
-            @empty
-                <p class="text-slate-500 col-span-full">Nenhum produto em destaque no momento.</p>
-            @endforelse
-        </div>
-    </section>
-
-    {{-- Databit MSP, DataCloud e Produtos de informática (tratados à parte das soluções de sistemas) --}}
-    <section class="bg-white border-t border-slate-200">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <span class="text-xs font-medium text-accent-600 uppercase tracking-wide">Além dos sistemas</span>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-                <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-                    </span>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900">Databit MSP</h3>
-                        <p class="text-slate-600 text-sm mt-1">Mensalidade fixa para a administração completa do seu ambiente de TI, com SLA e suporte ilimitado.</p>
-                        <a href="{{ route('msp.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
-                            Conhecer o MSP
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg>
-                    </span>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900">DataCloud</h3>
-                        <p class="text-slate-600 text-sm mt-1">Máquinas virtuais sob demanda, com Linux, Windows e SQL Server, escaláveis conforme o seu projeto.</p>
-                        <a href="{{ route('cloud.show') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
-                            Ver planos DataCloud
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
-                    </span>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900">Produtos de informática</h3>
-                        <p class="text-slate-600 text-sm mt-1">Apoiamos a escolha e a compra de notebooks, servidores, periféricos e mais.</p>
-                        <a href="{{ route('hardware.index') }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800 mt-3">
-                            Ver produtos
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Notícias + Agenda --}}
-    <section class="bg-white border-t border-slate-200">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div class="lg:col-span-2">
-                <div class="flex items-end justify-between mb-8">
+            <div class="mt-12 flex flex-col items-center justify-between gap-6 rounded-3xl border border-dashed border-brand-200 bg-white p-8 text-center md:flex-row md:text-left">
+                <div class="flex items-center gap-5">
+                    <span class="hidden h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gold-100 text-gold-700 md:flex"><x-ico name="quote" class="h-7 w-7" /></span>
                     <div>
-                        <h2 class="text-2xl font-bold text-slate-900">Notícias e novidades</h2>
-                        <p class="text-slate-500 mt-1 text-sm">Lançamentos da Databit e artigos de interesse sobre tecnologia e gestão</p>
+                        <p class="font-display text-lg font-semibold text-brand-900">Sua revenda cresce com a Tinsei?</p>
+                        <p class="text-sm text-slate-500">Conte sua experiência — os depoimentos de clientes aparecem aqui.</p>
                     </div>
-                    <a href="{{ route('news.index') }}" class="text-brand-700 font-medium hover:text-brand-800 text-sm">Ver todas</a>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    @forelse ($featuredNews->isNotEmpty() ? $featuredNews : $latestNews as $news)
-                        <x-news-card :news="$news" />
-                    @empty
-                        <p class="text-slate-500">Nenhuma novidade publicada no momento.</p>
-                    @endforelse
-                </div>
+                <a href="{{ route('contact.index', ['assunto' => 'contato']) }}" class="btn-primary shrink-0">Enviar meu depoimento</a>
             </div>
+        @endif
+    </div>
+</section>
 
-            <div>
-                <div class="flex items-end justify-between mb-8">
-                    <h2 class="text-2xl font-bold text-slate-900">Agenda</h2>
-                    <a href="{{ route('events.index') }}" class="text-brand-700 font-medium hover:text-brand-800 text-sm">Ver tudo</a>
-                </div>
-                <p class="text-slate-500 mt-1 text-sm mb-4 -mt-4">Eventos, webinars e lançamentos de produtos</p>
-                <div class="space-y-4">
-                    @forelse ($upcomingEvents as $event)
-                        <x-event-card :event="$event" />
-                    @empty
-                        <p class="text-slate-500">Nenhum evento agendado no momento.</p>
-                    @endforelse
-                </div>
+{{-- ============ NOTÍCIAS E AGENDA ============ --}}
+<section class="bg-white py-20 sm:py-24">
+    <div class="container-site grid gap-12 lg:grid-cols-3">
+        <div class="lg:col-span-2">
+            <div class="flex items-end justify-between gap-4">
+                <x-section-heading eyebrow="Notícias" title="Novidades da Tinsei" />
+                <a href="{{ route('news.index') }}" class="hidden text-sm font-semibold text-brand-700 hover:underline sm:inline">Ver todas →</a>
+            </div>
+            <div class="mt-10 grid gap-6 sm:grid-cols-2">
+                @forelse ($latestNews->take(2) as $item)
+                    <x-news-card :news="$item" />
+                @empty
+                    <p class="text-slate-500">Em breve, novidades por aqui.</p>
+                @endforelse
             </div>
         </div>
-    </section>
-
-    {{-- Depoimentos --}}
-    @if ($testimonials->isNotEmpty())
-        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="mb-8 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Quem confia na Databit</h2>
-                <p class="text-slate-500 mt-1">Depoimentos de quem já transformou a gestão do negócio com a gente</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach ($testimonials as $testimonial)
-                    <x-testimonial-card :testimonial="$testimonial" />
-                @endforeach
-            </div>
-        </section>
-    @endif
-
-    {{-- Clientes e parceiros --}}
-    @if ($clients->isNotEmpty() || $partners->isNotEmpty())
-        <section class="bg-white border-t border-slate-200">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-12">
-                @if ($clients->isNotEmpty())
-                    <x-logo-marquee :items="$clients" label="Empresas que confiam na Databit" />
-                @endif
-
-                @if ($partners->isNotEmpty())
-                    <x-logo-marquee :items="$partners" label="Parceiros de tecnologia" :reverse="true" />
-                @endif
-            </div>
-        </section>
-    @endif
-
-    {{-- Destaques institucionais --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid sm:grid-cols-3 gap-6">
-            @foreach ([
-                ['label' => 'Casos de Sucesso', 'desc' => 'Empresas que já simplificaram a gestão com a Databit.', 'icon' => 'M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0', 'href' => route('success-stories.index')],
-                ['label' => 'Nossa História', 'desc' => 'Mais de 30 anos de trajetória, missão, visão e liderança.', 'icon' => 'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21', 'href' => route('pages.show', 'grupo-databit')],
-                ['label' => 'Base de Conhecimento', 'desc' => 'Artigos, tutoriais e uma IA que responde suas dúvidas.', 'icon' => 'M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25', 'href' => route('kb.index')],
-            ] as $highlight)
-                <a href="{{ $highlight['href'] }}" class="group flex items-center gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 hover:border-brand-300 hover:shadow-md transition">
-                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $highlight['icon'] }}" /></svg>
-                    </span>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900">{{ $highlight['label'] }}</h3>
-                        <p class="text-slate-600 text-sm mt-1">{{ $highlight['desc'] }}</p>
+        <div>
+            <x-section-heading eyebrow="Agenda" title="Próximos eventos" />
+            <div class="mt-10 space-y-4">
+                @forelse ($upcomingEvents as $event)
+                    <x-event-card :event="$event" :compact="true" />
+                @empty
+                    <div class="card p-6">
+                        <x-ico name="calendar" class="h-8 w-8 text-brand-300" />
+                        <p class="mt-3 font-semibold text-brand-900">Novas datas em breve</p>
+                        <p class="mt-1 text-sm text-slate-500">Feiras, treinamentos para revendas e lançamentos são publicados aqui e no nosso Instagram.</p>
+                        <a href="{{ setting('instagram_url') }}" target="_blank" rel="noopener" class="mt-4 inline-flex text-sm font-semibold text-brand-700 hover:underline">Seguir @tinseioficial ↗</a>
                     </div>
-                    <svg class="h-4 w-4 shrink-0 text-slate-400 group-hover:text-brand-700 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-            @endforeach
-        </div>
-    </section>
-
-    {{-- CTA final --}}
-    <section class="bg-brand-700">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-            <div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-white">Pronto para modernizar a gestão da sua empresa?</h2>
-                <p class="text-brand-100 mt-2">Fale com um especialista Databit e descubra a solução ideal para o seu negócio.</p>
+                @endforelse
+                <a href="{{ route('events.index') }}" class="inline-flex text-sm font-semibold text-brand-700 hover:underline">Ver a agenda completa →</a>
             </div>
-            <a href="https://wa.me/553134168225" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">
-                Falar com um especialista
-            </a>
+        </div>
+    </div>
+</section>
+
+{{-- ============ MARCAS ============ --}}
+@if ($brands->isNotEmpty())
+    <section class="border-y border-slate-100 bg-slate-50 py-10">
+        <div class="container-site">
+            <p class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Equipamentos, suprimentos e peças para as principais marcas</p>
+            <div class="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                <div class="animate-marquee flex w-max gap-14">
+                    @foreach ([1, 2] as $pass)
+                        @foreach ($brands as $brand)
+                            <span class="flex h-12 items-center" @if ($pass === 2) aria-hidden="true" @endif>
+                                @if ($brand->logo)
+                                    <img src="{{ media_url($brand->logo) }}" alt="{{ $brand->name }}" class="h-8 w-auto opacity-60 grayscale">
+                                @else
+                                    <span class="font-display text-xl font-bold uppercase tracking-wider text-slate-400">{{ $brand->name }}</span>
+                                @endif
+                            </span>
+                        @endforeach
+                    @endforeach
+                </div>
+            </div>
         </div>
     </section>
+@endif
 
+{{-- ============ CTA REVENDA ============ --}}
+<section class="bg-white py-20">
+    <div class="container-site">
+        <div class="relative overflow-hidden rounded-[2rem] bg-brand-900 px-8 py-14 sm:px-14">
+            <div class="absolute inset-0 bg-grid-pattern bg-grid"></div>
+            <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-gold-400/20 blur-3xl"></div>
+            <img src="{{ asset('images/brand/tinsei-mark.png') }}" alt="" class="absolute bottom-6 right-10 hidden h-40 opacity-10 lg:block">
+            <div class="relative max-w-2xl">
+                <span class="eyebrow eyebrow-light">Para revendas e locadoras</span>
+                <h2 class="mt-3 text-3xl font-bold text-white sm:text-4xl">Acelere seu negócio de maneira econômica e sustentável.</h2>
+                <p class="mt-4 text-lg text-brand-100/80">Cadastre sua empresa, acesse preços exclusivos e conte com uma equipe que entende de impressão.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="{{ setting('store_reseller_url') }}" target="_blank" rel="noopener" class="btn-gold !px-7 !py-4">Cadastrar minha revenda</a>
+                    <a href="{{ whatsapp_url('Olá! Quero ser uma revenda Tinsei.', setting('whatsapp_sales')) }}" target="_blank" rel="noopener" class="btn-ghost-light !px-7 !py-4">Falar no WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

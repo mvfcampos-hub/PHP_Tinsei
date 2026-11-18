@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -12,9 +13,7 @@ class CareerApplicationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public array $application, public ?string $resumePath = null)
-    {
-    }
+    public function __construct(public array $application, public ?string $resumePath = null) {}
 
     public function envelope(): Envelope
     {
@@ -36,7 +35,7 @@ class CareerApplicationMail extends Mailable
         }
 
         return [
-            \Illuminate\Mail\Mailables\Attachment::fromPath($this->resumePath)
+            Attachment::fromPath($this->resumePath)
                 ->as($this->application['resume_name'] ?? 'curriculo'),
         ];
     }

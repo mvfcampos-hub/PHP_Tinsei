@@ -1,16 +1,19 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "tinsei/site",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Site institucional da Tinsei (Laravel + Filament).",
+    "keywords": [
+        "tinsei",
+        "laravel",
+        "filament"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "filament/filament": "^3.3",
         "laravel/framework": "^11.31",
-        "laravel/tinker": "^2.9",
-        "smalot/pdfparser": "^2.9"
+        "laravel/tinker": "^2.9"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -26,7 +29,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -68,6 +74,9 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+        "platform": {
+            "php": "8.2.0"
         }
     },
     "minimum-stability": "stable",

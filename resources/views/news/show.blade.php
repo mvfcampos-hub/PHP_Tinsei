@@ -1,72 +1,76 @@
 @extends('layouts.app')
 
 @section('title', $news->title)
-@section('description', $news->excerpt ?? '')
-@section('canonical', route('news.show', $news->slug))
+@section('description', $news->excerpt ?: \Illuminate\Support\Str::limit(strip_tags($news->body), 155))
 @section('og_type', 'article')
-@if ($news->cover_image)
-    @section('og_image', Storage::url($news->cover_image))
+@if ($news->coverUrl())
+    @section('og_image', $news->coverUrl())
 @endif
 
 @push('schema')
-    <script type="application/ld+json">
-        {!! json_encode(array_filter([
-            '@context' => 'https://schema.org',
-            '@type' => 'Article',
-            'headline' => $news->title,
-            'description' => $news->excerpt,
-            'image' => $news->cover_image ? Storage::url($news->cover_image) : null,
-            'datePublished' => optional($news->published_at)->toIso8601String(),
-            'dateModified' => $news->updated_at->toIso8601String(),
-            'author' => ['@type' => 'Organization', 'name' => 'Databit'],
-            'publisher' => [
-                '@type' => 'Organization',
-                'name' => 'Databit',
-                'logo' => ['@type' => 'ImageObject', 'url' => asset('images/brand/logo-color.png')],
-            ],
-            'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => route('news.show', $news->slug)],
-        ]), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-    </script>
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'NewsArticle',
+    'headline' => $news->title,
+    'datePublished' => $news->published_at?->toAtomString(),
+    'dateModified' => $news->updated_at?->toAtomString(),
+    'image' => $news->coverUrl(),
+    'publisher' => ['@type' => 'Organization', 'name' => 'Tinsei', 'logo' => ['@type' => 'ImageObject', 'url' => asset('images/brand/logo-tinsei-color.png')]],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+</script>
 @endpush
 
 @section('content')
-    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
-        <a href="{{ route('news.index') }}" class="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-800 mb-6">
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" /></svg>
-            Voltar para notícias
-        </a>
+<article>
+    <header class="relative overflow-hidden bg-brand-950 bg-grid-pattern bg-grid">
+        <div class="container-site relative max-w-4xl py-16">
+            <nav class="mb-6 text-xs text-brand-300"><a href="{{ route('home') }}" class="hover:text-white">Início</a> <span class="mx-1">/</span> <a href="{{ route('news.index') }}" class="hover:text-white">Notícias</a></nav>
+            @if ($news->category)<span class="rounded-full bg-gold-400 px-3 py-1 text-xs font-bold text-brand-950">{{ $news->category }}</span>@endif
+            <h1 class="mt-5 text-3xl font-bold leading-tight text-white sm:text-5xl">{{ $news->title }}</h1>
+            @if ($news->excerpt)<p class="mt-5 text-lg text-brand-100/90">{{ $news->excerpt }}</p>@endif
+            <p class="mt-6 text-sm text-brand-300">
+                <time datetime="{{ $news->published_at->toDateString() }}">{{ $news->published_at->translatedFormat('d \d\e F \d\e Y') }}</time>
+                @if ($news->source_name) · Fonte: {{ $news->source_name }} @endif
+            </p>
+        </div>
+    </header>
 
-        @if ($news->category)
-            <span class="inline-flex items-center rounded-full bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-700 mb-4">
-                {{ $news->category }}
-            </span>
+    <div class="container-site max-w-4xl py-14">
+        @if ($news->youtubeId())
+            <x-youtube :url="$news->video_url" :title="$news->title" class="mb-10" />
+        @elseif ($news->cover_image)
+            <img src="{{ $news->coverUrl() }}" alt="" class="mb-10 w-full rounded-3xl object-cover shadow-soft">
         @endif
 
-        <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">{{ $news->title }}</h1>
-        <p class="text-slate-400 text-sm mt-3">
-            Publicado em {{ optional($news->published_at)->translatedFormat('d \d\e F \d\e Y') }}
-            @if ($news->author) &middot; por {{ $news->author->name }} @endif
-        </p>
-
-        @if ($news->cover_image)
-            <img src="{{ Storage::url($news->cover_image) }}" alt="{{ $news->title }}" class="w-full rounded-2xl mt-8 mb-8 object-cover max-h-[420px]">
-        @endif
-
-        <div class="prose prose-slate max-w-none prose-headings:font-semibold prose-a:text-brand-700">
+        <div class="prose prose-lg prose-slate max-w-none prose-headings:font-display prose-headings:text-brand-900 prose-a:text-brand-700">
             {!! $news->body !!}
         </div>
-    </article>
 
-    @if ($related->isNotEmpty())
-        <section class="bg-white border-t border-slate-200">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-                <h2 class="text-xl font-bold text-slate-900 mb-6">Notícias relacionadas</h2>
-                <div class="grid sm:grid-cols-3 gap-6">
-                    @foreach ($related as $item)
-                        <x-news-card :news="$item" />
-                    @endforeach
-                </div>
+        @if ($news->source_url)
+            <a href="{{ $news->source_url }}" target="_blank" rel="noopener" class="mt-10 flex items-center justify-between gap-4 rounded-2xl border border-slate-200 p-5 transition hover:border-brand-300 hover:shadow-soft">
+                <span><span class="block text-xs text-slate-500">Leia a matéria completa</span><span class="font-semibold text-brand-900">{{ $news->source_name ?: parse_url($news->source_url, PHP_URL_HOST) }}</span></span>
+                <x-ico name="arrow-up-right" class="h-5 w-5 text-brand-600" />
+            </a>
+        @endif
+
+        <div class="mt-12 flex flex-wrap items-center gap-3 border-t border-slate-200 pt-8 text-sm">
+            <span class="font-semibold text-slate-500">Compartilhar:</span>
+            <a href="https://wa.me/?text={{ urlencode($news->title.' '.url()->current()) }}" target="_blank" rel="noopener" class="rounded-full bg-slate-100 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-200">WhatsApp</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}" target="_blank" rel="noopener" class="rounded-full bg-slate-100 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-200">LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" rel="noopener" class="rounded-full bg-slate-100 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-200">Facebook</a>
+        </div>
+    </div>
+</article>
+
+@if ($related->isNotEmpty())
+    <section class="bg-slate-50 py-16">
+        <div class="container-site">
+            <h2 class="text-2xl font-bold text-brand-900">Leia também</h2>
+            <div class="mt-8 grid gap-6 md:grid-cols-3">
+                @foreach ($related as $item)<x-news-card :news="$item" />@endforeach
             </div>
-        </section>
-    @endif
+        </div>
+    </section>
+@endif
 @endsection

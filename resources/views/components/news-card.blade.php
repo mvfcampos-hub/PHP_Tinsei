@@ -1,31 +1,32 @@
 @props(['news'])
-
-<article class="group flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition">
-    <a href="{{ route('news.show', $news->slug) }}" class="block aspect-[16/9] bg-slate-100 overflow-hidden">
-        @if ($news->cover_image)
-            <img src="{{ Storage::url($news->cover_image) }}" alt="{{ $news->title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+<article class="group card flex flex-col overflow-hidden transition hover:-translate-y-1 hover:shadow-soft">
+    <a href="{{ route('news.show', $news->slug) }}" class="relative block aspect-[16/9] overflow-hidden bg-brand-100">
+        @if ($cover = $news->coverUrl())
+            <img src="{{ $cover }}" alt="" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
         @else
-            <div class="h-full w-full flex items-center justify-center bg-gradient-to-br from-brand-100 to-brand-200 text-brand-700 font-semibold">
-                Databit
+            <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-800 to-brand-600">
+                <img src="{{ asset('images/brand/tinsei-mark.png') }}" alt="" class="h-14 opacity-80">
             </div>
         @endif
-    </a>
-    <div class="flex flex-col flex-1 p-5">
-        @if ($news->category)
-            <span class="inline-flex w-fit items-center rounded-full bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-700 mb-3">
-                {{ $news->category }}
+        @if ($news->youtubeId())
+            <span class="absolute inset-0 flex items-center justify-center">
+                <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-brand-800 shadow-lg"><x-ico name="play" class="h-5 w-5 translate-x-0.5" /></span>
             </span>
         @endif
-        <h3 class="font-semibold text-slate-900 leading-snug mb-2">
-            <a href="{{ route('news.show', $news->slug) }}" class="hover:text-brand-700 transition">
-                {{ $news->title }}
-            </a>
+        @if ($news->category)
+            <span class="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-brand-800">{{ $news->category }}</span>
+        @endif
+    </a>
+    <div class="flex flex-1 flex-col p-5">
+        <time datetime="{{ $news->published_at?->toDateString() }}" class="text-xs font-medium text-slate-400">{{ $news->published_at?->translatedFormat('d \d\e F \d\e Y') }}</time>
+        <h3 class="mt-2 text-lg font-semibold leading-snug text-brand-900 group-hover:text-brand-600">
+            <a href="{{ route('news.show', $news->slug) }}">{{ $news->title }}</a>
         </h3>
         @if ($news->excerpt)
-            <p class="text-sm text-slate-600 line-clamp-2 mb-4">{{ $news->excerpt }}</p>
+            <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-500">{{ $news->excerpt }}</p>
         @endif
-        <p class="mt-auto text-xs text-slate-400">
-            {{ optional($news->published_at)->translatedFormat('d \d\e F \d\e Y') }}
-        </p>
+        <a href="{{ route('news.show', $news->slug) }}" class="mt-auto pt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-700 group-hover:gap-2 transition-all">
+            Ler mais <x-ico name="arrow-right" class="h-4 w-4" />
+        </a>
     </div>
 </article>

@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BannerResource\Pages;
-use App\Filament\Resources\BannerResource\RelationManagers;
 use App\Models\Banner;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BannerResource extends Resource
 {
@@ -27,146 +24,94 @@ class BannerResource extends Resource
 
     protected static ?string $pluralModelLabel = 'banners';
 
-    public const PLACEMENTS = [
-        'home_hero' => 'Destaque principal (topo da home)',
-        'home_notice' => 'Aviso geral (faixa de avisos da home)',
-        'home_secondary' => 'Home - seção secundária',
-        'campaign' => 'Campanha / data especial',
-    ];
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->label('Título')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Select::make('variant')
-                    ->label('Tipo de banner')
-                    ->options(Banner::VARIANTS)
-                    ->native(false)
-                    ->live()
-                    ->default('image')
-                    ->required()
-                    ->columnSpanFull()
-                    ->helperText('"Destaque de produto" gera um slide desenhado automaticamente a partir dos dados do produto escolhido — não precisa de uma imagem pronta.'),
-                Forms\Components\FileUpload::make('image')
-                    ->label('Imagem')
-                    ->image()
-                    ->directory('banners')
-                    ->imageEditor()
-                    ->required(fn (Forms\Get $get) => $get('variant') === 'image')
-                    ->visible(fn (Forms\Get $get) => $get('variant') === 'image')
-                    ->columnSpanFull(),
-                Forms\Components\Select::make('product_id')
-                    ->label('Produto em destaque')
-                    ->relationship('product', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required(fn (Forms\Get $get) => $get('variant') === 'product_spotlight')
-                    ->visible(fn (Forms\Get $get) => $get('variant') === 'product_spotlight')
-                    ->columnSpanFull(),
-                Forms\Components\TagsInput::make('highlights')
-                    ->label('Destaques (frases curtas)')
-                    ->helperText('Ex.: "12 módulos integrados" — recomendado usar de 2 a 3 frases curtas.')
-                    ->visible(fn (Forms\Get $get) => $get('variant') === 'product_spotlight')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('link_url')
-                    ->label('Link de destino')
-                    ->url()
-                    ->helperText('Deixe em branco em um banner de "Destaque de produto" para usar automaticamente a página do produto.'),
-                Forms\Components\Select::make('placement')
-                    ->label('Posição')
-                    ->options(self::PLACEMENTS)
-                    ->native(false)
-                    ->required(),
-                Forms\Components\DateTimePicker::make('starts_at')
-                    ->label('Exibir a partir de')
-                    ->native(false),
-                Forms\Components\DateTimePicker::make('ends_at')
-                    ->label('Exibir até')
-                    ->native(false),
-                Forms\Components\TextInput::make('sort_order')
-                    ->label('Ordem de exibição')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
-                Forms\Components\Toggle::make('is_active')
-                    ->label('Ativo')
-                    ->default(true)
-                    ->required(),
-                Forms\Components\Toggle::make('overlay_title')
-                    ->label('Sobrepor título e gradiente na imagem')
-                    ->helperText('Desative quando a imagem já for uma peça pronta (com texto e logomarca), para exibi-la sem sobreposição.')
-                    ->visible(fn (Forms\Get $get) => $get('variant') === 'image')
-                    ->default(true)
-                    ->required(),
-            ])->columns(2);
+                Forms\Components\Section::make('Conteúdo')->schema([
+                    Forms\Components\TextInput::make('eyebrow')
+                        ->label('Chamada curta (acima do título)')
+                        ->placeholder('Ex.: Lançamento, Sustentabilidade...'),
+                    Forms\Components\TextInput::make('title')
+                        ->label('Título')
+                        ->required(),
+                    Forms\Components\Textarea::make('subtitle')
+                        ->label('Texto de apoio')
+                        ->rows(2)
+                        ->columnSpanFull(),
+                    Forms\Components\FileUpload::make('image')
+                        ->label('Imagem de fundo')
+                        ->helperText('Recomendado 1920×900 px. Na faixa de aviso a imagem é ignorada.')
+                        ->image()
+                        ->directory('banners')
+                        ->imageEditor()
+                        ->columnSpanFull(),
+                    Forms\Components\TextInput::make('link_url')
+                        ->label('Link do botão')
+                        ->placeholder('https://loja.tinsei.com.br/ ou /contato'),
+                    Forms\Components\TextInput::make('link_label')
+                        ->label('Texto do botão')
+                        ->placeholder('Ver portfólio'),
+                ])->columns(2),
+                Forms\Components\Section::make('Exibição')->schema([
+                    Forms\Components\Select::make('placement')
+                        ->label('Posição')
+                        ->options(Banner::PLACEMENTS)
+                        ->default('home_hero')
+                        ->native(false)
+                        ->required(),
+                    Forms\Components\TextInput::make('sort_order')
+                        ->label('Ordem')
+                        ->numeric()
+                        ->default(0)
+                        ->required(),
+                    Forms\Components\DateTimePicker::make('starts_at')
+                        ->label('Exibir a partir de')
+                        ->native(false),
+                    Forms\Components\DateTimePicker::make('ends_at')
+                        ->label('Exibir até')
+                        ->native(false),
+                    Forms\Components\Toggle::make('is_active')
+                        ->label('Ativo')
+                        ->default(true),
+                    Forms\Components\Toggle::make('overlay_title')
+                        ->label('Sobrepor título e degradê na imagem')
+                        ->helperText('Desative quando a imagem já for uma arte pronta, com texto.')
+                        ->default(true),
+                ])->columns(2),
+            ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')
-                    ->label('')
-                    ->defaultImageUrl(asset('images/brand/logo-color.png')),
-                Tables\Columns\TextColumn::make('title')
-                    ->label('Título')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('variant')
-                    ->label('Tipo')
-                    ->badge()
-                    ->formatStateUsing(fn (string $state) => Banner::VARIANTS[$state] ?? $state),
+                Tables\Columns\ImageColumn::make('image')->label(''),
+                Tables\Columns\TextColumn::make('title')->label('Título')->searchable()->limit(50),
                 Tables\Columns\TextColumn::make('placement')
                     ->label('Posição')
                     ->badge()
-                    ->formatStateUsing(fn (string $state) => self::PLACEMENTS[$state] ?? $state),
-                Tables\Columns\TextColumn::make('starts_at')
-                    ->label('De')
-                    ->dateTime('d/m/Y H:i')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('ends_at')
-                    ->label('Até')
-                    ->dateTime('d/m/Y H:i')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('sort_order')
-                    ->label('Ordem')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->label('Ativo')
-                    ->boolean(),
-                Tables\Columns\IconColumn::make('overlay_title')
-                    ->label('Título sobreposto')
-                    ->boolean()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->formatStateUsing(fn (string $state) => Banner::PLACEMENTS[$state] ?? $state),
+                Tables\Columns\TextColumn::make('starts_at')->label('De')->dateTime('d/m/Y H:i')->sortable()->toggleable(),
+                Tables\Columns\TextColumn::make('ends_at')->label('Até')->dateTime('d/m/Y H:i')->sortable()->toggleable(),
+                Tables\Columns\TextColumn::make('sort_order')->label('Ordem')->sortable(),
+                Tables\Columns\ToggleColumn::make('is_active')->label('Ativo'),
             ])
             ->defaultSort('sort_order')
+            ->reorderable('sort_order')
             ->filters([
-                Tables\Filters\SelectFilter::make('placement')
-                    ->label('Posição')
-                    ->options(self::PLACEMENTS),
-                Tables\Filters\TernaryFilter::make('is_active')
-                    ->label('Ativo'),
+                Tables\Filters\SelectFilter::make('placement')->label('Posição')->options(Banner::PLACEMENTS),
+                Tables\Filters\TernaryFilter::make('is_active')->label('Ativo'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

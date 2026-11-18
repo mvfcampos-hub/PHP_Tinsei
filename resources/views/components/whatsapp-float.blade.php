@@ -1,10 +1,10 @@
-@props(['number' => '553134168225', 'message' => 'Olá! Vim pelo site da Databit e gostaria de mais informações.'])
+@props(['message' => 'Olá! Vim pelo site da Tinsei e gostaria de mais informações.'])
 
 <a
-    href="https://wa.me/{{ $number }}?text={{ urlencode($message) }}"
+    href="{{ whatsapp_url($message) }}"
     target="_blank"
     rel="noopener"
-    aria-label="Fale com a Databit pelo WhatsApp"
+    aria-label="Fale com a Tinsei pelo WhatsApp"
     onclick="window.trackEvent && window.trackEvent('whatsapp_click', { page_path: window.location.pathname })"
     class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex h-14 w-14 items-center justify-center"
 >

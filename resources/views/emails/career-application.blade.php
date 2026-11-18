@@ -5,8 +5,8 @@
     <title>Nova candidatura — Trabalhe Conosco</title>
 </head>
 <body style="font-family: Arial, sans-serif; color: #1e293b; line-height: 1.6;">
-    <h2 style="color: #1447e6;">Nova candidatura recebida pelo site</h2>
-    <p>Uma nova candidatura foi enviada pelo formulário "Trabalhe Conosco" do site da Databit.</p>
+    <h2 style="color: #003B5A;">Nova candidatura recebida pelo site</h2>
+    <p>Uma nova candidatura foi enviada pelo formulário "Trabalhe Conosco" do site da Tinsei.</p>
     <table cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 560px;">
         <tr><td style="font-weight: bold; width: 160px;">Nome</td><td>{{ $application['name'] }}</td></tr>
         <tr><td style="font-weight: bold;">E-mail</td><td>{{ $application['email'] }}</td></tr>

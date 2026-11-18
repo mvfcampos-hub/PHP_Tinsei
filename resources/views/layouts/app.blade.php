@@ -1,77 +1,60 @@
+@php
+    $siteName = setting('company_name', 'Tinsei');
+    $defaultDescription = 'Tinsei: importação, recondicionamento e distribuição de equipamentos de impressão, suprimentos e peças. Maior importadora de equipamentos A3 a laser do Brasil, com sede em Belo Horizonte e clientes em todo o país.';
+    $gaId = setting('google_analytics_id');
+@endphp
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Início') · Databit · Tecnologia para Gestão Empresarial</title>
-    <meta name="description" content="@yield('description', 'Databit: sistemas de gestão empresarial (ERP), Cloud, mobilidade, atendimento ao cliente e serviços de TI. Mais de 30 anos transformando a gestão de empresas em todo o Brasil.')">
+    <script>document.documentElement.classList.add('js')</script>
+    <title>@hasSection('title')@yield('title') · {{ $siteName }}@else{{ $siteName }} · {{ setting('tagline') }}@endif</title>
+    <meta name="description" content="@yield('description', $defaultDescription)">
     <link rel="canonical" href="@yield('canonical', url()->current())">
     <meta name="robots" content="@yield('robots', 'index, follow')">
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
-    <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
+    <meta name="theme-color" content="#003b5a">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
 
     <meta property="og:type" content="@yield('og_type', 'website')">
-    <meta property="og:site_name" content="Databit">
+    <meta property="og:site_name" content="{{ $siteName }}">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:title" content="@yield('title', 'Início') · Databit">
-    <meta property="og:description" content="@yield('description', 'Databit: sistemas de gestão empresarial (ERP), Cloud, mobilidade, atendimento ao cliente e serviços de TI. Mais de 30 anos transformando a gestão de empresas em todo o Brasil.')">
+    <meta property="og:title" content="@yield('title', $siteName)">
+    <meta property="og:description" content="@yield('description', $defaultDescription)">
     <meta property="og:url" content="@yield('canonical', url()->current())">
-    <meta property="og:image" content="@yield('og_image', asset('images/brand/logo-color.png'))">
-
+    <meta property="og:image" content="@yield('og_image', asset('images/site/sede-tinsei.jpg'))">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'Início') · Databit">
-    <meta name="twitter:description" content="@yield('description', 'Databit: sistemas de gestão empresarial (ERP), Cloud, mobilidade, atendimento ao cliente e serviços de TI. Mais de 30 anos transformando a gestão de empresas em todo o Brasil.')">
-    <meta name="twitter:image" content="@yield('og_image', asset('images/brand/logo-color.png'))">
 
-    @if (config('services.google.site_verification'))
-        <meta name="google-site-verification" content="{{ config('services.google.site_verification') }}">
-    @endif
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|sora:500,600,700,800&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
         {!! json_encode([
             '@context' => 'https://schema.org',
             '@type' => 'Organization',
-            'name' => 'Databit Tecnologia da Informação',
+            'name' => $siteName,
+            'legalName' => setting('legal_name'),
             'url' => url('/'),
-            'logo' => asset('images/brand/logo-color.png'),
-            'sameAs' => [
-                'https://www.facebook.com',
-                'https://www.instagram.com',
-                'https://www.linkedin.com',
-                'https://www.youtube.com',
-            ],
+            'logo' => asset('images/brand/logo-tinsei-color.png'),
+            'foundingDate' => setting('founded_year'),
+            'sameAs' => array_values(array_filter([setting('instagram_url'), setting('youtube_url'), setting('linkedin_url'), setting('facebook_url')])),
             'address' => [
                 '@type' => 'PostalAddress',
-                'streetAddress' => 'R. Mário Campos, 197 - Inconfidência',
+                'streetAddress' => 'Anel Rodoviário Celso Mello Azevedo, 1206 - Olhos D\'Água',
                 'addressLocality' => 'Belo Horizonte',
                 'addressRegion' => 'MG',
-                'postalCode' => '30820-280',
+                'postalCode' => '30390-085',
                 'addressCountry' => 'BR',
             ],
             'contactPoint' => [
                 '@type' => 'ContactPoint',
-                'telephone' => '+55-31-3416-8225',
+                'telephone' => '+55 '.setting('phone'),
+                'email' => setting('email'),
                 'contactType' => 'customer service',
-                'email' => 'atendimento@databit.com.br',
                 'areaServed' => 'BR',
                 'availableLanguage' => 'Portuguese',
-            ],
-        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-    </script>
-    <script type="application/ld+json">
-        {!! json_encode([
-            '@context' => 'https://schema.org',
-            '@type' => 'WebSite',
-            'name' => 'Databit',
-            'url' => url('/'),
-            'potentialAction' => [
-                '@type' => 'SearchAction',
-                'target' => [
-                    '@type' => 'EntryPoint',
-                    'urlTemplate' => url('/busca').'?q={search_term_string}',
-                ],
-                'query-input' => 'required name=search_term_string',
             ],
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
     </script>
@@ -79,45 +62,32 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    @if (config('services.google.analytics_id'))
+    @if ($gaId)
         <script>
-            window.databitAnalyticsId = @js(config('services.google.analytics_id'));
             window.dataLayer = window.dataLayer || [];
             function gtag(){ dataLayer.push(arguments); }
             window.gtag = gtag;
-
-            // Só carrega o gtag.js (e só então começa a gravar cookies de
-            // análise de audiência) depois que o visitante aceita o aviso
-            // de cookies — antes disso, nada de Google Analytics é
-            // carregado nesta página.
+            // O Google Analytics só é carregado depois que o visitante aceita os cookies.
             window.loadGoogleAnalytics = function () {
                 if (window.googleAnalyticsLoaded) return;
                 window.googleAnalyticsLoaded = true;
                 gtag('js', new Date());
-                gtag('config', window.databitAnalyticsId, { anonymize_ip: true });
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.databitAnalyticsId;
-                document.head.appendChild(script);
+                gtag('config', @js($gaId), { anonymize_ip: true });
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=' + @js($gaId);
+                document.head.appendChild(s);
             };
-
-            try {
-                if (localStorage.getItem('databit-cookie-consent') === 'accepted') {
-                    window.loadGoogleAnalytics();
-                }
-            } catch (e) {}
+            try { if (localStorage.getItem('tinsei-cookie-consent') === 'accepted') window.loadGoogleAnalytics(); } catch (e) {}
         </script>
     @endif
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+<body class="min-h-screen flex flex-col bg-white text-slate-700 antialiased overflow-x-hidden">
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-brand-800 focus:px-4 focus:py-2 focus:text-white">Pular para o conteúdo</a>
 
-    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-white">
-        Pular para o conteúdo
-    </a>
-
+    @include('partials.notice-banner')
     @include('partials.topbar')
     @include('partials.header')
-    @include('partials.notice-banner')
 
     <main id="conteudo" class="flex-1">
         @yield('content')

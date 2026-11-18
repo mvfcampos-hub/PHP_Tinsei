@@ -19,11 +19,13 @@ class MenuItem extends Model
         'sort_order',
         'is_external',
         'opens_new_tab',
+        'is_highlighted',
     ];
 
     protected $casts = [
         'is_external' => 'boolean',
         'opens_new_tab' => 'boolean',
+        'is_highlighted' => 'boolean',
     ];
 
     public function page(): BelongsTo
@@ -47,6 +49,8 @@ class MenuItem extends Model
             return route('pages.show', $this->page->slug);
         }
 
-        return $this->url ?? '#';
+        $url = $this->url ?? '#';
+
+        return str_starts_with($url, '/') ? url($url) : $url;
     }
 }

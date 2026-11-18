@@ -8,49 +8,68 @@ export default {
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
-        './resources/**/*.vue',
     ],
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                display: ['Sora', 'Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                // Azul institucional da Databit. Ajustar os tons caso a Databit
-                // forneça o manual de marca oficial com valores hexadecimais exatos.
+                // Azul-petróleo da Tinsei (o mesmo da loja B2B: #003B5A no 800).
                 brand: {
-                    50: '#eef4ff',
-                    100: '#dbe6fe',
-                    200: '#bcd0fd',
-                    300: '#8fb0fc',
-                    400: '#5b87f8',
-                    500: '#3363f0',
-                    600: '#2347d6',
-                    700: '#1d38ab',
-                    800: '#1c3189',
-                    900: '#1b2c6e',
-                    950: '#0e1836',
+                    50: '#f1f7fb',
+                    100: '#e1eef6',
+                    200: '#c0dcec',
+                    300: '#8cbedb',
+                    400: '#4f98c3',
+                    500: '#2277a6',
+                    600: '#0b5a85',
+                    700: '#0a4b6f',
+                    800: '#003b5a',
+                    900: '#012c44',
+                    950: '#001a29',
                 },
-                // Acento ciano usado com moderação para reforçar a identidade
-                // tecnológica (cloud, dados) sem sobrepor o azul institucional.
-                // Escala completa (não só os tons usados inicialmente) para que
-                // qualquer variação de opacidade/hover use uma cor definida.
-                accent: {
-                    50: '#ecfeff',
-                    100: '#cffafe',
-                    200: '#a5f3fc',
-                    300: '#67e8f9',
-                    400: '#22d3ee',
-                    500: '#06b6d4',
-                    600: '#0891b2',
-                    700: '#0e7490',
-                    800: '#155e75',
-                    900: '#164e63',
-                    950: '#083344',
+                // Dourado de destaque da loja (#E8B042) — CTAs e números.
+                gold: {
+                    50: '#fdf8ec',
+                    100: '#faedcc',
+                    200: '#f5db99',
+                    300: '#efc766',
+                    400: '#e8b042',
+                    500: '#d4992a',
+                    600: '#a8781c',
+                    700: '#866019',
+                    800: '#5e4415',
+                    900: '#3f2e10',
+                },
+                // Verde e laranja do símbolo da Tinsei — sustentabilidade.
+                leaf: {
+                    50: '#f2f8ec',
+                    100: '#e1efd3',
+                    300: '#9fcb6f',
+                    400: '#6fa83a',
+                    500: '#57961f',
+                    600: '#3c7720',
+                    700: '#2f5f1a',
+                    800: '#164c1e',
+                },
+                ember: {
+                    400: '#fe8c1a',
+                    500: '#fe7e17',
+                    600: '#e5590e',
                 },
             },
             backgroundImage: {
-                'grid-pattern': "linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)",
+                'grid-pattern': 'linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px)',
+                'dot-pattern': 'radial-gradient(rgba(0,59,90,.12) 1px, transparent 1px)',
+            },
+            backgroundSize: {
+                grid: '44px 44px',
+                dot: '18px 18px',
+            },
+            boxShadow: {
+                soft: '0 10px 40px -12px rgba(0, 42, 64, 0.18)',
             },
         },
     },

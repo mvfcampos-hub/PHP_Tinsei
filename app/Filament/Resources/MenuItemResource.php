@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MenuItemResource\Pages;
-use App\Filament\Resources\MenuItemResource\RelationManagers;
 use App\Models\MenuItem;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class MenuItemResource extends Resource
 {
@@ -55,6 +52,8 @@ class MenuItemResource extends Resource
                     ->default(0),
                 Forms\Components\Toggle::make('is_external')
                     ->label('Link externo'),
+                Forms\Components\Toggle::make('is_highlighted')
+                    ->label('Destacar como botão (ex.: Portfólio)'),
                 Forms\Components\Toggle::make('opens_new_tab')
                     ->label('Abrir em nova aba'),
             ])->columns(2);

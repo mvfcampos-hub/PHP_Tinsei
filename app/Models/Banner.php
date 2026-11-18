@@ -5,30 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Banner extends Model
 {
     use HasFactory;
 
-    public const VARIANTS = [
-        'image' => 'Imagem enviada',
-        'product_spotlight' => 'Destaque de produto (desenhado)',
+    public const PLACEMENTS = [
+        'home_hero' => 'Destaque principal (topo da home)',
+        'home_notice' => 'Faixa de aviso (topo de todas as páginas)',
+        'home_campaign' => 'Campanha (meio da home)',
     ];
 
     protected $fillable = [
-        'title',
-        'variant',
-        'image',
-        'product_id',
-        'highlights',
-        'link_url',
-        'placement',
-        'starts_at',
-        'ends_at',
-        'sort_order',
-        'is_active',
-        'overlay_title',
+        'title', 'subtitle', 'eyebrow', 'image', 'link_url', 'link_label', 'placement',
+        'starts_at', 'ends_at', 'sort_order', 'is_active', 'overlay_title',
     ];
 
     protected $casts = [
@@ -36,13 +26,7 @@ class Banner extends Model
         'ends_at' => 'datetime',
         'is_active' => 'boolean',
         'overlay_title' => 'boolean',
-        'highlights' => 'array',
     ];
-
-    public function product(): BelongsTo
-    {
-        return $this->belongsTo(Product::class);
-    }
 
     public function scopeActive(Builder $query): Builder
     {
@@ -55,5 +39,10 @@ class Banner extends Model
     public function scopePlacement(Builder $query, string $placement): Builder
     {
         return $query->where('placement', $placement);
+    }
+
+    public function imageUrl(): ?string
+    {
+        return media_url($this->image);
     }
 }

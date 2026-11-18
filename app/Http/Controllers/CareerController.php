@@ -13,9 +13,10 @@ class CareerController extends Controller
 {
     public const AREAS = [
         'comercial' => 'Comercial e Vendas',
-        'suporte' => 'Suporte Técnico',
-        'desenvolvimento' => 'Desenvolvimento de Software',
-        'implantacao' => 'Implantação e Consultoria',
+        'tecnica' => 'Assistência Técnica e Recondicionamento',
+        'producao' => 'Produção / Montagem de Suprimentos',
+        'logistica' => 'Logística, Estoque e Expedição',
+        'comex' => 'Comércio Exterior e Importação',
         'administrativo' => 'Administrativo e Financeiro',
         'outra' => 'Outra área / Cadastro geral',
     ];
@@ -46,7 +47,7 @@ class CareerController extends Controller
         }
 
         try {
-            Mail::to('rh@databit.com.br')->send(new CareerApplicationMail([
+            Mail::to(setting('careers_email'))->send(new CareerApplicationMail([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'phone' => $data['phone'],

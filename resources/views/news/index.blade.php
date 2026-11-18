@@ -1,27 +1,31 @@
 @extends('layouts.app')
 
 @section('title', 'Notícias')
-@section('description', 'Notícias da Databit e do mercado de tecnologia: lançamentos de produtos, reforma tributária, segurança da informação e mais.')
+@section('description', 'Novidades, lançamentos, vídeos e a Tinsei na mídia.')
 
 @section('content')
-    <section class="bg-white border-b border-slate-200">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Notícias</h1>
-            <p class="text-slate-500 mt-2">Lançamentos, atualizações e artigos de interesse sobre tecnologia, segurança e gestão empresarial</p>
-        </div>
-    </section>
+<x-page-hero eyebrow="Notícias" title="Notícias e novidades" subtitle="Lançamentos, conteúdos técnicos, sustentabilidade e a Tinsei na mídia." />
 
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<section class="bg-slate-50 py-16 sm:py-20">
+    <div class="container-site">
+        @if ($categories->isNotEmpty())
+            <nav class="mb-10 flex flex-wrap gap-2" aria-label="Filtrar por categoria">
+                <a href="{{ route('news.index') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-brand-800 text-white' => ! $category, 'bg-white text-slate-600 hover:bg-brand-50 border border-slate-200' => $category])>Todas</a>
+                @foreach ($categories as $cat)
+                    <a href="{{ route('news.index', ['categoria' => $cat]) }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-brand-800 text-white' => $category === $cat, 'bg-white text-slate-600 hover:bg-brand-50 border border-slate-200' => $category !== $cat])>{{ $cat }}</a>
+                @endforeach
+            </nav>
+        @endif
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @forelse ($news as $item)
                 <x-news-card :news="$item" />
             @empty
-                <p class="text-slate-500 col-span-full">Nenhuma novidade publicada no momento.</p>
+                <p class="text-slate-500">Nenhuma notícia publicada ainda.</p>
             @endforelse
         </div>
 
-        <div class="mt-10">
-            {{ $news->links() }}
-        </div>
-    </section>
+        <div class="mt-12">{{ $news->links() }}</div>
+    </div>
+</section>
 @endsection
