@@ -40,7 +40,9 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            // Em hospedagem compartilhada (cPanel) sem symlink, os uploads
+            // podem ficar direto em public/storage (PUBLIC_STORAGE_IN_WEBROOT=true).
+            'root' => env('PUBLIC_STORAGE_IN_WEBROOT', false) ? public_path('storage') : storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,

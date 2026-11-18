@@ -8,6 +8,10 @@ class RobotsController extends Controller
 {
     public function __invoke(): Response
     {
+        if (config('app.noindex')) {
+            return response("User-agent: *\nDisallow: /", 200)->header('Content-Type', 'text/plain');
+        }
+
         $lines = [
             'User-agent: *',
             'Disallow: /admin',

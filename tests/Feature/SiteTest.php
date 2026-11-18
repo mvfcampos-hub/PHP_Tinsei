@@ -76,6 +76,14 @@ class SiteTest extends TestCase
         }
     }
 
+    public function test_noindex_mode_blocks_search_engines(): void
+    {
+        config(['app.noindex' => true]);
+
+        $this->get('/robots.txt')->assertSee('Disallow: /');
+        $this->get('/')->assertSee('noindex, nofollow', false);
+    }
+
     public function test_admin_requires_admin_flag(): void
     {
         $user = User::factory()->create(['is_admin' => false]);

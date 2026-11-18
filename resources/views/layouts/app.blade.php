@@ -13,7 +13,11 @@
     <title>@hasSection('title')@yield('title') · {{ $siteName }}@else{{ $siteName }} · {{ setting('tagline') }}@endif</title>
     <meta name="description" content="@yield('description', $defaultDescription)">
     <link rel="canonical" href="@yield('canonical', url()->current())">
-    <meta name="robots" content="@yield('robots', 'index, follow')">
+    @if (config('app.noindex'))
+        <meta name="robots" content="noindex, nofollow">
+    @else
+        <meta name="robots" content="@yield('robots', 'index, follow')">
+    @endif
     <meta name="theme-color" content="#003b5a">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
