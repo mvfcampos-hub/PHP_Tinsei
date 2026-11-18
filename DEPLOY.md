@@ -18,8 +18,8 @@ Roteiro para publicar o site em **homologação** (`novo.tinsei.com.br`) e, depo
 
 ## 3. Configuração (`.env`)
 
-1. Em `tinsei_site`, copie `.env.cpanel.example` para `.env`.
-2. Preencha banco, e-mail e senha do administrador. O pacote já vem com um `APP_KEY` gerado.
+1. No pacote, o arquivo `tinsei_site/.env` já existe. Sem o pacote, copie `.env.cpanel.example` para `.env`.
+2. Preencha as linhas marcadas com `PREENCHER` (banco, e-mail e senha do administrador). No pacote, o `.env` já vem pronto com o `APP_KEY`.
 3. Ative o SSL no **SSL/TLS Status** (AutoSSL) para `novo.tinsei.com.br`.
 
 ## 4. Criar as tabelas e o conteúdo
