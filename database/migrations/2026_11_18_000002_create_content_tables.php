@@ -12,7 +12,7 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title', 500);
             $table->string('slug')->unique();
             $table->string('excerpt')->nullable();
             $table->longText('content')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
             $table->string('label');
-            $table->string('url')->nullable();
+            $table->string('url', 500)->nullable();
             $table->foreignId('page_id')->nullable()->constrained('pages')->nullOnDelete();
             $table->foreignId('parent_id')->nullable()->constrained('menu_items')->cascadeOnDelete();
             $table->unsignedInteger('sort_order')->default(0);
@@ -35,12 +35,12 @@ return new class extends Migration
 
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title', 500);
             $table->string('subtitle', 500)->nullable();
             $table->string('eyebrow')->nullable();
-            $table->string('image')->nullable();
-            $table->string('link_url')->nullable();
-            $table->string('link_label')->nullable();
+            $table->string('image', 500)->nullable();
+            $table->string('link_url', 500)->nullable();
+            $table->string('link_label', 500)->nullable();
             $table->string('placement')->default('home_hero');
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
@@ -52,14 +52,14 @@ return new class extends Migration
 
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title', 500);
             $table->string('slug')->unique();
             $table->string('excerpt', 500)->nullable();
             $table->longText('body')->nullable();
-            $table->string('cover_image')->nullable();
-            $table->string('video_url')->nullable();
+            $table->string('cover_image', 500)->nullable();
+            $table->string('video_url', 500)->nullable();
             $table->string('source_name')->nullable();
-            $table->string('source_url')->nullable();
+            $table->string('source_url', 500)->nullable();
             $table->string('category')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->timestamp('published_at')->nullable();
@@ -71,15 +71,15 @@ return new class extends Migration
 
         Schema::create('event_items', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title', 500);
             $table->string('slug')->unique();
             $table->string('type')->default('evento');
             $table->text('description')->nullable();
             $table->string('location')->nullable();
             $table->timestamp('starts_at');
             $table->timestamp('ends_at')->nullable();
-            $table->string('cover_image')->nullable();
-            $table->string('external_url')->nullable();
+            $table->string('cover_image', 500)->nullable();
+            $table->string('external_url', 500)->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_published')->default(true);
             $table->timestamps();
@@ -94,9 +94,9 @@ return new class extends Migration
             $table->string('company')->nullable();
             $table->string('city')->nullable();
             $table->string('state', 2)->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo', 500)->nullable();
             $table->text('quote');
-            $table->string('video_url')->nullable();
+            $table->string('video_url', 500)->nullable();
             $table->unsignedTinyInteger('rating')->default(5);
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_active')->default(true);
@@ -107,9 +107,9 @@ return new class extends Migration
         Schema::create('timeline_events', function (Blueprint $table) {
             $table->id();
             $table->string('year_label', 40);
-            $table->string('title');
+            $table->string('title', 500);
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image', 500)->nullable();
             $table->string('highlight')->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedInteger('sort_order')->default(0);
@@ -121,13 +121,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('role')->nullable();
             $table->string('since_label')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo', 500)->nullable();
             $table->text('summary')->nullable();
             $table->longText('bio')->nullable();
             $table->string('quote', 500)->nullable();
             $table->text('highlights')->nullable();
-            $table->string('linkedin_url')->nullable();
-            $table->string('instagram_url')->nullable();
+            $table->string('linkedin_url', 500)->nullable();
+            $table->string('instagram_url', 500)->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
@@ -140,10 +140,10 @@ return new class extends Migration
             $table->string('tagline')->nullable();
             $table->text('description')->nullable();
             $table->string('icon')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image', 500)->nullable();
             $table->text('highlights')->nullable();
             $table->string('item_count_label')->nullable();
-            $table->string('store_url')->nullable();
+            $table->string('store_url', 500)->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
@@ -152,8 +152,8 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo')->nullable();
-            $table->string('url')->nullable();
+            $table->string('logo', 500)->nullable();
+            $table->string('url', 500)->nullable();
             $table->string('note')->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedInteger('sort_order')->default(0);
