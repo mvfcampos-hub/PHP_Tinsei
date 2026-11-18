@@ -10,21 +10,22 @@ class Banner extends Model
 {
     use HasFactory;
 
+    public const PLACEMENTS = [
+        'home_hero' => 'Destaque principal (topo da home)',
+        'home_notice' => 'Faixa de aviso (topo de todas as páginas)',
+        'home_campaign' => 'Campanha (meio da home)',
+    ];
+
     protected $fillable = [
-        'title',
-        'image',
-        'link_url',
-        'placement',
-        'starts_at',
-        'ends_at',
-        'sort_order',
-        'is_active',
+        'title', 'subtitle', 'eyebrow', 'image', 'link_url', 'link_label', 'placement',
+        'starts_at', 'ends_at', 'sort_order', 'is_active', 'overlay_title',
     ];
 
     protected $casts = [
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
         'is_active' => 'boolean',
+        'overlay_title' => 'boolean',
     ];
 
     public function scopeActive(Builder $query): Builder
@@ -38,5 +39,10 @@ class Banner extends Model
     public function scopePlacement(Builder $query, string $placement): Builder
     {
         return $query->where('placement', $placement);
+    }
+
+    public function imageUrl(): ?string
+    {
+        return media_url($this->image);
     }
 }

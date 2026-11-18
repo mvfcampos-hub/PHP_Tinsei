@@ -10,16 +10,9 @@ class Page extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'content',
-        'is_published',
-    ];
+    protected $fillable = ['title', 'slug', 'excerpt', 'content', 'is_published'];
 
-    protected $casts = [
-        'is_published' => 'boolean',
-    ];
+    protected $casts = ['is_published' => 'boolean'];
 
     public function scopePublished(Builder $query): Builder
     {

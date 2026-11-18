@@ -3,20 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Brand;
 use App\Models\EventItem;
 use App\Models\News;
-use Illuminate\Http\Request;
+use App\Models\Partner;
+use App\Models\PortfolioCategory;
+use App\Models\Testimonial;
+use App\Models\TimelineEvent;
+use App\Support\ClientMap;
 
 class HomeController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         return view('home', [
             'heroBanners' => Banner::active()->placement('home_hero')->get(),
-            'secondaryBanners' => Banner::active()->placement('home_secondary')->get(),
-            'featuredNews' => News::published()->where('is_featured', true)->latest('published_at')->take(3)->get(),
-            'latestNews' => News::published()->latest('published_at')->take(6)->get(),
-            'upcomingEvents' => EventItem::upcoming()->take(4)->get(),
+            'campaignBanners' => Banner::active()->placement('home_campaign')->get(),
+            'categories' => PortfolioCategory::active()->get(),
+            'brands' => Brand::active()->get(),
+            'map' => ClientMap::build(),
+            'timeline' => TimelineEvent::active()->get(),
+            'partners' => Partner::active()->get(),
+            'testimonials' => Testimonial::active()->take(6)->get(),
+            'latestNews' => News::published()->orderByDesc('is_featured')->latest('published_at')->take(3)->get(),
+            'upcomingEvents' => EventItem::upcoming()->take(3)->get(),
         ]);
     }
 }

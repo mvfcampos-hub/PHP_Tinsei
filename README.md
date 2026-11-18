@@ -1,66 +1,48 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Site Tinsei
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Site institucional da Tinsei (tinsei.com.br), em **Laravel 11 + Filament 3**, no mesmo modelo de painel do site da Databit.
 
-## About Laravel
+## Páginas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Rota | Conteúdo |
+| --- | --- |
+| `/` | Home: destaque, pilares, atuação, portfólio (com busca na loja), números, mapa de clientes, sustentabilidade, história e sócios, vídeo, depoimentos, notícias, agenda, marcas |
+| `/sobre` | Quem somos, valores, linha do tempo, sócios, vídeo institucional |
+| `/portfolio` | Linhas do portfólio com link para a loja B2B (loja.tinsei.com.br) |
+| `/sustentabilidade` | ESG e economia circular |
+| `/onde-estamos` | Mapa do Brasil interativo + tabela de clientes por UF |
+| `/noticias`, `/agenda`, `/depoimentos` | Áreas de conteúdo |
+| `/contato` | Formulário (salvo no painel + aviso por e-mail) |
+| `/trabalhe-conosco` | Envio de currículo |
+| `/loja` | Atalho que redireciona para a loja |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Painel (`/admin`)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Conteúdo:** menu, páginas, banners/avisos, notícias (com vídeo do YouTube), agenda
+- **Institucional:** linha do tempo, sócios, depoimentos
+- **Comercial:** mensagens do site, linhas do portfólio, marcas, **mapa de clientes por estado** (quantidade editável direto na lista)
+- **Configurações:** contatos, redes, link da loja, números da home, Google Analytics e usuários do painel
 
-## Learning Laravel
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+composer install
+npm install && npm run build
+cp .env.example .env && php artisan key:generate
+php artisan migrate --seed
+php artisan storage:link
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+O seeder cria o usuário definido em `ADMIN_EMAIL`/`ADMIN_PASSWORD` (padrão `admin@tinsei.com.br` / `troque-esta-senha`) e carrega o conteúdo inicial. Ele pode ser rodado de novo sem duplicar registros. Troque a senha no primeiro acesso.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Testes: `php artisan test`.
 
-## Laravel Sponsors
+## Pendências de conteúdo (confirmar com a Tinsei)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Fotos dos sócios.** Por enquanto aparecem as iniciais. Envie as fotos em *Institucional › Sócios*.
+- **Anos da linha do tempo.** Três marcos estão sem ano: liderança em A3, indústria de suprimentos e parceria Xerox.
+- **Depoimentos e agenda.** Não há conteúdo real, apenas exemplos não publicados.
+- **Total de clientes.** A soma por estado dá 3.229 e o total informado é 3.230. O site mostra 3.230, definido em *Configurações › Números*. Deixe esse campo vazio para usar a soma.
+- **Horário de atendimento.** Não informado; preencha em *Configurações*.
+- **Política de Privacidade e Termos de Uso.** São textos-base que precisam de revisão jurídica.
+- **Logos de marcas.** Só envie logos com autorização de uso. Por enquanto as marcas aparecem como texto.

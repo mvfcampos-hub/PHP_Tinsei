@@ -67,6 +67,10 @@ return [
 
     'timezone' => env('APP_TIMEZONE', 'UTC'),
 
+    // Homologação: SITE_NOINDEX=true bloqueia a indexação por buscadores
+    // (robots.txt e meta robots), até o site ir para o domínio definitivo.
+    'noindex' => (bool) env('SITE_NOINDEX', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

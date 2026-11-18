@@ -1,0 +1,68 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\BrandResource\Pages;
+use App\Models\Brand;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+
+class BrandResource extends Resource
+{
+    protected static ?string $model = Brand::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+
+    protected static ?string $navigationGroup = 'Comercial';
+
+    protected static ?string $navigationLabel = 'Marcas atendidas';
+
+    protected static ?string $modelLabel = 'marca';
+
+    protected static ?string $pluralModelLabel = 'marcas';
+
+    protected static ?int $navigationSort = 2;
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\TextInput::make('name')->label('Nome')->required(),
+                Forms\Components\TextInput::make('note')->label('Observação')->placeholder('Recondicionamento autorizado'),
+                Forms\Components\FileUpload::make('logo')->label('Logotipo (opcional)')->image()->directory('brands')
+                    ->helperText('Use apenas logotipos com autorização de uso. Sem logo, o nome é exibido em texto.'),
+                Forms\Components\TextInput::make('url')->label('Link (ex.: filtro da marca na loja)')->url(),
+                Forms\Components\TextInput::make('sort_order')->label('Ordem')->numeric()->default(0),
+                Forms\Components\Toggle::make('is_active')->label('Exibir')->default(true),
+            ])->columns(2);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\ImageColumn::make('logo')->label(''),
+                Tables\Columns\TextColumn::make('name')->label('Marca')->searchable(),
+                Tables\Columns\TextColumn::make('note')->label('Observação'),
+                Tables\Columns\ToggleColumn::make('is_active')->label('Exibir'),
+            ])
+            ->defaultSort('sort_order')
+            ->reorderable('sort_order')
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ]);
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListBrands::route('/'),
+            'create' => Pages\CreateBrand::route('/create'),
+            'edit' => Pages\EditBrand::route('/{record}/edit'),
+        ];
+    }
+}

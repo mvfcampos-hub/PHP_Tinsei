@@ -1,3 +1,102 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+@layer base {
+    h1, h2, h3, h4 {
+        @apply font-display tracking-tight;
+    }
+}
+
+@layer components {
+    .container-site {
+        @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600;
+    }
+
+    .eyebrow::before {
+        content: '';
+        @apply h-px w-6 bg-current;
+    }
+
+    .eyebrow-light {
+        @apply text-gold-300;
+    }
+
+    .section-title {
+        @apply mt-3 text-3xl font-bold text-brand-900 sm:text-4xl;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    }
+
+    .btn-gold {
+        @apply btn bg-gold-400 text-brand-950 shadow-lg shadow-gold-500/20 hover:bg-gold-300 focus-visible:ring-gold-400;
+    }
+
+    .btn-primary {
+        @apply btn bg-brand-800 text-white hover:bg-brand-700 focus-visible:ring-brand-600;
+    }
+
+    .btn-outline {
+        @apply btn border border-brand-200 bg-white text-brand-800 hover:border-brand-400 hover:bg-brand-50;
+    }
+
+    .btn-ghost-light {
+        @apply btn border border-white/20 bg-white/5 text-white hover:bg-white/10;
+    }
+
+    .card {
+        @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm;
+    }
+
+    .form-input {
+        @apply block w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20;
+    }
+
+    .form-label {
+        @apply mb-1.5 block text-sm font-medium text-slate-700;
+    }
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee 40s linear infinite;
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+.js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee, .animate-float { animation: none; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+}

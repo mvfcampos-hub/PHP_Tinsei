@@ -1,13 +1,20 @@
-<div class="hidden md:block bg-brand-900 text-brand-50 text-sm">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
-        <p>Conselho Regional de Nutrição da 9ª Região</p>
+<div class="hidden md:block bg-brand-950 text-brand-200 text-xs">
+    <div class="container-site flex h-9 items-center justify-between gap-6">
+        <div class="flex items-center gap-5">
+            <a href="tel:{{ preg_replace('/\D/', '', setting('phone')) }}" class="inline-flex items-center gap-1.5 hover:text-white transition">
+                <x-ico name="phone" class="h-3.5 w-3.5 text-gold-400" /> {{ setting('phone') }}
+            </a>
+            <a href="mailto:{{ setting('email') }}" class="inline-flex items-center gap-1.5 hover:text-white transition">
+                <x-ico name="mail" class="h-3.5 w-3.5 text-gold-400" /> {{ setting('email') }}
+            </a>
+            <span class="hidden lg:inline-flex items-center gap-1.5">
+                <x-ico name="pin" class="h-3.5 w-3.5 text-gold-400" /> Belo Horizonte · MG — atendemos todo o Brasil
+            </span>
+        </div>
         <div class="flex items-center gap-4">
-            <a href="{{ route('pages.show', 'fale-conosco') }}" class="hover:text-white transition">Fale Conosco</a>
-            <span class="text-brand-700">|</span>
-            {{-- TODO: substituir pelos links reais das redes sociais do CRN-9 assim que recebidos --}}
-            <a href="#" class="hover:text-white transition" aria-label="Facebook">Facebook</a>
-            <a href="#" class="hover:text-white transition" aria-label="Instagram">Instagram</a>
-            <a href="#" class="hover:text-white transition" aria-label="LinkedIn">LinkedIn</a>
+            <a href="{{ setting('store_reseller_url') }}" target="_blank" rel="noopener" class="font-semibold text-gold-300 hover:text-gold-200 transition">Seja uma revenda</a>
+            <span class="h-3 w-px bg-white/15"></span>
+            <x-social-links class="gap-3" icon-class="h-3.5 w-3.5" />
         </div>
     </div>
 </div>

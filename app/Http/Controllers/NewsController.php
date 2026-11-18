@@ -3,14 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::published()->latest('published_at')->paginate(9);
+        $category = $request->query('categoria');
 
-        return view('news.index', compact('news'));
+        $news = News::published()
+            ->when($category, fn ($q) => $q->where('category', $category))
+            ->latest('published_at')
+            ->paginate(9)
+            ->withQueryString();
+
+        $categories = News::published()->whereNotNull('category')->distinct()->orderBy('category')->pluck('category');
+
+        return view('news.index', compact('news', 'categories', 'category'));
     }
 
     public function show(News $news)
@@ -19,7 +28,6 @@ class NewsController extends Controller
 
         $related = News::published()
             ->where('id', '!=', $news->id)
-            ->when($news->category, fn ($query) => $query->where('category', $news->category))
             ->latest('published_at')
             ->take(3)
             ->get();

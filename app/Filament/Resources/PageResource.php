@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class PageResource extends Resource
@@ -46,6 +43,11 @@ class PageResource extends Resource
                     ->label('Publicada')
                     ->default(true)
                     ->required(),
+                Forms\Components\Textarea::make('excerpt')
+                    ->label('Resumo (subtítulo e SEO)')
+                    ->rows(2)
+                    ->maxLength(255)
+                    ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content')
                     ->label('Conteúdo')
                     ->columnSpanFull(),
