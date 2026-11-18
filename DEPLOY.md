@@ -2,7 +2,7 @@
 
 Roteiro para publicar o site em **homologação** (`novo.tinsei.com.br`) e, depois, no domínio definitivo.
 
-**Requisitos da hospedagem:** PHP 8.2 ou superior, com as extensões `pdo_mysql`, `mbstring`, `intl`, `fileinfo`, `gd`, `zip` e `openssl`, e MySQL ou MariaDB.
+**Requisitos da hospedagem:** PHP 8.2 ou superior, com as extensões `pdo_mysql`, `mbstring`, `intl`, `fileinfo`, `gd`, `zip` e `openssl`, e MySQL 5.6 ou superior (ou MariaDB).
 
 ## 1. Banco de dados
 

@@ -125,7 +125,7 @@ return new class extends Migration
             $table->text('summary')->nullable();
             $table->longText('bio')->nullable();
             $table->string('quote', 500)->nullable();
-            $table->json('highlights')->nullable();
+            $table->text('highlights')->nullable();
             $table->string('linkedin_url')->nullable();
             $table->string('instagram_url')->nullable();
             $table->boolean('is_active')->default(true);
@@ -141,7 +141,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('icon')->nullable();
             $table->string('image')->nullable();
-            $table->json('highlights')->nullable();
+            $table->text('highlights')->nullable();
             $table->string('item_count_label')->nullable();
             $table->string('store_url')->nullable();
             $table->boolean('is_active')->default(true);
@@ -191,7 +191,7 @@ return new class extends Migration
 
         Schema::create('site_settings', function (Blueprint $table) {
             $table->id();
-            $table->json('data')->nullable();
+            $table->text('data')->nullable();
             $table->timestamps();
         });
     }
